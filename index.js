@@ -7,7 +7,7 @@ class Computer {
     console.log("running...")
 
   }
-}
+
 
 class Laptop extends Computer {
     constructor(name, company) {
@@ -18,3 +18,4 @@ class Laptop extends Computer {
     logInfo() {
         console.log(`This is a ${this.name} laptop from ${this.company}.`)
     }
+}
