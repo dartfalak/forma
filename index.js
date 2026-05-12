@@ -8,3 +8,9 @@ class Computer {
 
   }
 }
+
+class Laptop extends Computer {
+    constructor(name, company) {
+        super(name)
+        this.company = company
+    }
