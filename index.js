@@ -1,3 +1,7 @@
+
+import { Computer } from './comp.js'
+
+
 class Computer {
     constructor() {
         this.name = name
