@@ -14,3 +14,7 @@ class Laptop extends Computer {
         super(name)
         this.company = company
     }
+
+    logInfo() {
+        console.log(`This is a ${this.name} laptop from ${this.company}.`)
+    }
