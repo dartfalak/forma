@@ -1,10 +1,11 @@
 function App() {
   return (
     <div>
-      <h1>Hello React 🚀</h1>
-      <p>I made my first React app!</p>
+      <h1>hello react </h1>
     </div>
   )
 }
 
 export default App
+
+const element = <h1>hello react </h1>
