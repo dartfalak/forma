@@ -12,7 +12,7 @@ const element = <h1>hello react </h1>
 
 function ButtonExample() {
   function showMessage() {
-    alert("Button clicked!");
+    alert("button clicked!");
   }
 
   return (
