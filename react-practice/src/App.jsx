@@ -10,4 +10,14 @@ export default App
 
 const element = <h1>hello react </h1>
 
- const element = React.createElement('h1', null, 'hello react')
+function ButtonExample() {
+  function showMessage() {
+    alert("Button clicked!");
+  }
+
+  return (
+    <button onClick={showMessage}>
+      Click Me
+    </button>
+  );
+
