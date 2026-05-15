@@ -22,4 +22,4 @@ function ButtonExample() {
   );
 }
 
-export default ButtonExample
+export default ButtonExample;
