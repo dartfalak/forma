@@ -21,3 +21,5 @@ function ButtonExample() {
     </button>
   );
 }
+
+export default ButtonExample
