@@ -17,9 +17,15 @@ function ButtonExample() {
 
   return (
     <button onClick={showMessage}>
-      Click Me
+      click Me
     </button>
   );
 }
 
 export default ButtonExample;
+
+
+import React, { useState } from 'react';
+
+function App() {
+  const[count,setCount] = useState(0)
