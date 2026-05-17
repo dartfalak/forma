@@ -70,3 +70,15 @@ increaseCount = () => {
     count: this.state.count + 1
   });
 };
+
+render() {
+  return (
+    <div>
+      <h2>Count: {this.state.count}</h2>
+      <button onClick={this.IncreaseCount}>
+        increase
+      </button>
+    </div>
+    
+  )
+}
