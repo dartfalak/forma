@@ -50,5 +50,6 @@ function Hello() {
     <p>stateless functional comp</p>
   </div>
 
-  )
+  );
 }
+
