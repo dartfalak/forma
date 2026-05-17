@@ -79,6 +79,6 @@ render() {
         increase
       </button>
     </div>
-    
-  )
+  );
+ }
 }
