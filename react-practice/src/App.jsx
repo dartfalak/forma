@@ -79,6 +79,8 @@ render() {
         increase
       </button>
     </div>
-  );
- }
+    );
+  }
 }
+
+export default Counter;
