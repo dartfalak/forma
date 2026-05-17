@@ -40,3 +40,15 @@ function App() {
     </div>
   );
 }
+
+import React from "react";
+
+function Hello() {
+  return (
+  <div>
+    <h2>hello</h2>
+    <p>stateless functional comp</p>
+  </div>
+
+  )
+}
