@@ -54,3 +54,12 @@ function Hello() {
 }
 
 export default Hello;
+
+import React, {Component} from "react";
+
+class Counter extends Component {
+  super();
+  this.state = {
+    count:0
+  }
+}
