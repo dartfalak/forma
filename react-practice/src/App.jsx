@@ -88,8 +88,12 @@ export default Counter;
 import React from "react"
 
 function Greet() {
-  return <h1>hello world!</h1>
-
-}
+  return (
+    <div style{{
+      textAlign:"center",
+      marginTop:"20px",
+      fontFamily:"Arial"
+      </div>
+  )
 
 export default Greet;
