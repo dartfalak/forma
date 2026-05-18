@@ -93,7 +93,12 @@ function Greet() {
       textAlign:"center",
       marginTop:"20px",
       fontFamily:"Arial"
-      </div>
-  )
+    }}>
+    <h1 style={{color:azure}}>
+    </h1>
+  
+    </div>
+  );
+}
 
 export default Greet;
