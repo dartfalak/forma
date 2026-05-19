@@ -26,11 +26,4 @@ function App() {
       <br />
       <br />
 
-      <button onClick={showMessage}>
-        Click Me
-      </button>
-    </div>
-  );
-}
-
-export default App;
+      
