@@ -53,7 +53,8 @@ function App() {
 
   const hasItems = true;
 
-return {
+return (
   <div>
   {hasItems && <p>items in cart</p>}
-}
+  </div>
+);
