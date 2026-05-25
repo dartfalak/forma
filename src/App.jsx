@@ -71,4 +71,5 @@ function App() {
   {isAdmin && <button>del user</button>}
 
     </div>
-  )
+  );
+}
