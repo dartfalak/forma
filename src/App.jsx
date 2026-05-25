@@ -57,4 +57,6 @@ return (
   <div>
   {hasItems && <p>items in cart</p>}
   </div>
-);
+  );
+
+}
