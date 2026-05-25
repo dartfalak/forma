@@ -43,8 +43,8 @@ return (
   <div>
     {isLoggedin && <h1>hello</h1>}
   </div>
-)
 
+);
 
 
 
