@@ -60,3 +60,13 @@ return (
   );
 
 }
+
+function App() {
+  const isAdmin = true;
+
+  return (
+    <div>
+
+      
+    </div>
+  )
