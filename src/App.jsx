@@ -47,8 +47,13 @@ return (
 );
 
 
+}
 
+function App() {
 
+  const hasItems = true;
 
-
+return {
+  <div>
+  {hasItems && <p>items in cart</p>}
 }
