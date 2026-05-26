@@ -73,3 +73,9 @@ function App() {
     </div>
   );
 }
+
+let result;
+
+if(age >= 18) {
+  result = "adult"
+}
