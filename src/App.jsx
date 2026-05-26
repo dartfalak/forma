@@ -81,3 +81,8 @@ if (age >= 18) {
 } else {
   result = "minor";
 }
+
+
+const schoolClosed = true;
+
+const message = schoolClosed ? "stay home & relax" : "go to school";
