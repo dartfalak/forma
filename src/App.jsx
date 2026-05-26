@@ -81,3 +81,5 @@ if(age >= 18) {
 } else {
   result = "minor";
 }
+
+age >= 18 ? "Adult" : "Minor"
