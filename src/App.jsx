@@ -77,5 +77,7 @@ function App() {
 let result;
 
 if(age >= 18) {
-  result = "adult"
+  result = "adult";
+} else {
+  result = "minor";
 }
