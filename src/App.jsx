@@ -87,4 +87,4 @@ const schoolClosed = true;
 
 const message = schoolClosed ? "stay home & relax" : "go to school";
 
-console.log (message);s
+console.log (message);
