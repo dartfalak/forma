@@ -91,4 +91,4 @@ console.log(message);
 
 let isAdmin = true;
 
-isAdmin && console.log("admin pane;")
+isAdmin && console.log("admin panel")
