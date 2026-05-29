@@ -95,3 +95,5 @@ isAdmin && console.log("admin panel");
 
 let isLoggedIn = true;
 let isAdmin = true;
+
+console.log (isLoggedIn && isAdmin)
