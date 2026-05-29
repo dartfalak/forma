@@ -85,7 +85,7 @@ if (age >= 18) {
 
 const schoolClosed = true;
 
-const message = schoolClosed ? "stay home & relax" : "go to school";
+const message = schoolClosed ? "stay home" : "go to school";
 
 console.log(message);
 
