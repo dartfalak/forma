@@ -88,3 +88,7 @@ const schoolClosed = true;
 const message = schoolClosed ? "stay home & relax" : "go to school";
 
 console.log(message);
+
+let isAdmin = true;
+
+isAdmin && console.log("admin pane;")
