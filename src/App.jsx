@@ -92,3 +92,5 @@ console.log(message);
 let isAdmin = true;
 
 isAdmin && console.log("admin panel");
+
+let isLoggedIn = true;
