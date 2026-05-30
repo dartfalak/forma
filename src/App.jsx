@@ -100,3 +100,6 @@ const userRole = "admin";
 const isAdmin = userRole === "admin";
 
 console.log(isAdmin);
+
+
+const people = ["Alice", "Bob", "Charlie"];
