@@ -124,4 +124,6 @@ const people = [
 function isPersonInList(name) {
   return (
     <ul>
-      {people.map((person)
+      {people.map((person) => (
+        <li key={person.id}>{person.name}</li>
+        
