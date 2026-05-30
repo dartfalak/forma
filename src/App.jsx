@@ -94,3 +94,9 @@ let isLoggedIn = true;
 let isAdmin = true;
 
 console.log (isLoggedIn && isAdmin);
+
+const userRole = "admin";
+
+const isAdmin = userRole === "admin";
+
+console.log(isAdmin);
