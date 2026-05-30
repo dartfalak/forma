@@ -117,4 +117,6 @@ function isPersonInList(name) {
 
 const people = ["Alice", "Bob", "Charlie"];
 
-{id: 1, name: "Alice"}
+{id: 1, name: "Alice"},
+{id: 2, name: "Bob"},
+{id: 3, name: "Charlie"},
