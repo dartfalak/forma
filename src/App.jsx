@@ -105,7 +105,11 @@ console.log(isAdmin);
 const people = ["Alice", "Bob", "Charlie"];
 
 function isPersonInList(name) {
-  return (z
+  return (
     <ul>
       {people.map((person) => (
-  
+        <li>{person}</li>
+      ))}
+    </ul>
+  );
+}
