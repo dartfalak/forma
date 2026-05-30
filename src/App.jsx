@@ -102,7 +102,7 @@ const isAdmin = userRole === "admin";
 console.log(isAdmin);
 
 
-const people = ["Alice", "Bob", "Charlie"];
+const people = ["alice", "bob", "charlie"];
 
 function isPersonInList(name) {
   return (
@@ -116,9 +116,9 @@ function isPersonInList(name) {
 
 
 const people = [
-{id: 1, name: "Alice"},
-{id: 2, name: "Bob"},
-{id: 3, name: "Charlie"},
+{id: 1, name: "alice"},
+{id: 2, name: "bob"},
+{id: 3, name: "charlie"},
 ];
 
 function isPersonInList(name) {
