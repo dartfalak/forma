@@ -115,8 +115,13 @@ function isPersonInList(name) {
 }
 
 
-const people = ["Alice", "Bob", "Charlie"];
-
+const people = [
 {id: 1, name: "Alice"},
 {id: 2, name: "Bob"},
 {id: 3, name: "Charlie"},
+];
+
+function isPersonInList(name) {
+  return (
+    <ul>
+      {people.map((person)
