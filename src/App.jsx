@@ -126,4 +126,6 @@ function isPersonInList(name) {
     <ul>
       {people.map((person) => (
         <li key={person.id}>{person.name}</li>
+      ))}
+    </ul>
         
