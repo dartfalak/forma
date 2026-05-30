@@ -113,3 +113,8 @@ function isPersonInList(name) {
     </ul>
   );
 }
+
+
+const people = ["Alice", "Bob", "Charlie"];
+
+{id: 1, name: "Alice"}
