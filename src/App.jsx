@@ -128,4 +128,6 @@ function isPersonInList(name) {
         <li key={person.id}>{person.name}</li>
       ))}
     </ul>
+  );
+}
         
