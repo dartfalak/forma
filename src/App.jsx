@@ -146,7 +146,6 @@ import { useState } from "react";
 function Post() {
   const[likes,setLikes] = useState(12);
 
-
   return (
     <>
     <p>{likes} likes</p>
