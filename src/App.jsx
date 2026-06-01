@@ -134,3 +134,7 @@ function isPersonInList(name) {
 function App() {
   return <Profile username="falak"/>;
 }
+
+function Profile(props) {
+  return <p>@{props.username}</p>
+}
