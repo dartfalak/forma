@@ -130,11 +130,13 @@ function isPersonInList(name) {
     </ul>
   );
 }
-        
+  
+//parent component
 function App() {
   return <Profile username="falak"/>;
 }
 
+//child comp
 function Profile(props) {
   return <p>@{props.username}</p>
 }
