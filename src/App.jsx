@@ -140,3 +140,9 @@ function App() {
 function Profile(props) {
   return <p>@{props.username}</p>
 }
+
+import { useState } from "react";
+
+function Post() {
+  const[likes,setLikes] = useState(12);
+}
