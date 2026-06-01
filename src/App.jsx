@@ -131,3 +131,6 @@ function isPersonInList(name) {
   );
 }
         
+function App() {
+  return <Profile username="falak"/>;
+}
