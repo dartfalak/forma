@@ -150,7 +150,10 @@ function Post() {
   return (
     <>
     <p>{likes} likes</p>
-    <button onClick={() => setLikes(likes + 1)}
+    <button onClick={() => setLikes(likes + 1)}>
+      Like 
+    </button>
+  </>
 
 }
 
