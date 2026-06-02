@@ -157,5 +157,15 @@ function Post() {
 }
 
 function Student({name}) {
-  const[marks,setMarks] = useState(70)
+  const[marks,setMarks] = useState(70);
+
+  return (
+    <>
+    <h2>{name}</h2>
+    </>
+  )
+
+
+
+
 }
