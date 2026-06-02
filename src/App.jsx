@@ -167,7 +167,8 @@ function Student({name}) {
       extra marks
     </button>
     </>
-  )
+  );
+}
 
 
 
