@@ -156,3 +156,6 @@ function Post() {
   );
 }
 
+function Student({name}) {
+  const[marks,setMarks] = useState(70)
+}
