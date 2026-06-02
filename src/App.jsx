@@ -163,7 +163,9 @@ function Student({name}) {
     <>
     <h2>{name}</h2>
     <p>Marks: {marks}</p>
-    <button onClick = {() => setMarks(marks + 5)
+    <button onClick = {() => setMarks(marks + 5)}>
+      
+    </button>
     </>
   )
 
