@@ -159,7 +159,7 @@ function Profile(props) {
     <p>@{props.username}</p>
   );
 }
-*/
+
 
 function Profile(props) {
   return (
