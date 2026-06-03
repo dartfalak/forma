@@ -1,6 +1,37 @@
 
  import React, { useState } from "react";
 
+function Profile(props) {
+  return <p>@{props.username}</p>;
+}
+
+function Post() {
+  const [likes, setLikes] = useState(12);
+
+  return (
+    <>
+      <p>{likes} Likes</p>
+      <button onClick={() => setLikes(likes + 1)}>
+        Like
+      </button>
+    </>
+  );
+}
+
+function Student({ name }) {
+  const [marks, setMarks] = useState(70);
+
+  return (
+    <>
+      <h2>{name}</h2>
+      <p>Marks: {marks}</p>
+      <button onClick={() => setMarks(marks + 5)}>
+        Extra Marks
+      </button>
+    </>
+  );
+}
+
 
 // function App() {
 //   const [count, setCount] = useState(0);
