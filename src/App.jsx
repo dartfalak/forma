@@ -90,12 +90,8 @@ const message =
     : "go to school";
 
 console.log(message);
-*/
 
-/*
-========================================
-EXAMPLE 7 - Logical AND
-========================================
+
 
 let isLoggedIn = true;
 let isAdmin = true;
