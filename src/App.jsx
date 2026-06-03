@@ -238,74 +238,74 @@ function Student({ name }) {
 //   );
 // }
 
-function App() {
-  const [count, setCount] =
-    useState(0);
+// function App() {
+//   const [count, setCount] =
+//     useState(0);
 
-  const isLoggedin = true;
-  const hasItems = true;
-  const isAdmin = true;
+//   const isLoggedin = true;
+//   const hasItems = true;
+//   const isAdmin = true;
 
-  function showMessage() {
-    alert("Button Clicked!");
-  }
+//   function showMessage() {
+//     alert("Button Clicked!");
+//   }
 
-  return (
-    <div
-      style={{
-        textAlign: "center",
-        marginTop: "40px",
-        fontFamily: "Arial",
-      }}
-    >
-      <h1 style={{ color: "blue" }}>
-        Hello React
-      </h1>
+//   return (
+//     <div
+//       style={{
+//         textAlign: "center",
+//         marginTop: "40px",
+//         fontFamily: "Arial",
+//       }}
+//     >
+//       <h1 style={{ color: "blue" }}>
+//         Hello React
+//       </h1>
 
-      <h2>Count: {count}</h2>
+//       <h2>Count: {count}</h2>
 
-      <button
-        onClick={() =>
-          setCount(count + 1)
-        }
-      >
-        Increment
-      </button>
+//       <button
+//         onClick={() =>
+//           setCount(count + 1)
+//         }
+//       >
+//         Increment
+//       </button>
 
-      <br />
-      <br />
+//       <br />
+//       <br />
 
-      <button onClick={showMessage}>
-        Click Me
-      </button>
+//       <button onClick={showMessage}>
+//         Click Me
+//       </button>
 
-      <hr />
+//       <hr />
 
-      {isLoggedin && <h2>Hello</h2>}
+//       {isLoggedin && <h2>Hello</h2>}
 
-      {hasItems && (
-        <p>Items in Cart</p>
-      )}
+//       {hasItems && (
+//         <p>Items in Cart</p>
+//       )}
 
-      {isAdmin && (
-        <button>
-          Delete User
-        </button>
-      )}
+//       {isAdmin && (
+//         <button>
+//           Delete User
+//         </button>
+//       )}
 
-      <hr />
+//       <hr />
 
-      <Profile username="falak" />
+//       <Profile username="falak" />
 
-      <hr />
+//       <hr />
 
-      <Post />
+//       <Post />
 
-      <hr />
+//       <hr />
 
-      <Student name="Falak" />
-    </div>
-  );
-}
+//       <Student name="Falak" />
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
