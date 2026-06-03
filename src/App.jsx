@@ -78,12 +78,9 @@ if (age >= 18) {
 }
 
 console.log(result);
-*/
 
-/*
-========================================
-EXAMPLE 6 - Ternary Operator
-========================================
+
+
 
 const schoolClosed = true;
 
