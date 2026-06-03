@@ -38,12 +38,7 @@ function App() {
     </div>
   );
 }
-*/
 
-/*
-========================================
-EXAMPLE 3 - Cart Example
-========================================
 
 function App() {
   const hasItems = true;
