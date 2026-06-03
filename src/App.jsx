@@ -146,12 +146,7 @@ function PersonList() {
     </ul>
   );
 }
-*/
 
-/*
-========================================
-EXAMPLE 11 - Props Example
-========================================
 
 function App() {
   return (
