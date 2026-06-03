@@ -6,7 +6,6 @@ function App() {
 
 export default App;
 
-
 // function Profile(props) {
 //   return <p>@{props.username}</p>;
 // }
