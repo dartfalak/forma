@@ -97,12 +97,7 @@ let isLoggedIn = true;
 let isAdmin = true;
 
 console.log(isLoggedIn && isAdmin);
-*/
 
-/*
-========================================
-EXAMPLE 8 - Role Check
-========================================
 
 const userRole = "admin";
 
@@ -110,12 +105,9 @@ const isAdmin =
   userRole === "admin";
 
 console.log(isAdmin);
-*/
 
-/*
-========================================
-EXAMPLE 9 - Array Mapping
-========================================
+
+
 
 const people = [
   "alice",
