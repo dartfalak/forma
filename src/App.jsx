@@ -27,10 +27,7 @@ function App() {
 }
 
 
-/*
-========================================
-EXAMPLE 2 - Conditional Rendering
-========================================
+
 
 function App() {
   const isLoggedin = true;
