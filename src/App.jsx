@@ -1,211 +1,211 @@
 
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
 
-function App() {
-  const [count, setCount] = useState(0);
+// function App() {
+//   const [count, setCount] = useState(0);
 
-  function showMessage() {
-    alert("Button Clicked!");
-  }
+//   function showMessage() {
+//     alert("Button Clicked!");
+//   }
 
-  return (
-    <div>
-      <h1>Hello React</h1>
+//   return (
+//     <div>
+//       <h1>Hello React</h1>
 
-      <h2>Count: {count}</h2>
+//       <h2>Count: {count}</h2>
 
-      <button onClick={() => setCount(count + 1)}>
-        Increment
-      </button>
+//       <button onClick={() => setCount(count + 1)}>
+//         Increment
+//       </button>
 
-      <button onClick={showMessage}>
-        Click Me
-      </button>
-    </div>
-  );
-}
-
-
-
-
-function App() {
-  const isLoggedin = true;
-
-  return (
-    <div>
-      {isLoggedin && <h1>Hello</h1>}
-    </div>
-  );
-}
-
-
-function App() {
-  const hasItems = true;
-
-  return (
-    <div>
-      {hasItems && <p>Items in Cart</p>}
-    </div>
-  );
-}
-
-
-function App() {
-  const isAdmin = true;
-
-  return (
-    <div>
-      <h1>Dashboard</h1>
-
-      {isAdmin && (
-        <button>Delete User</button>
-      )}
-    </div>
-  );
-}
-
-
-
-const age = 20;
-
-let result;
-
-if (age >= 18) {
-  result = "adult";
-} else {
-  result = "minor";
-}
-
-console.log(result);
+//       <button onClick={showMessage}>
+//         Click Me
+//       </button>
+//     </div>
+//   );
+// }
 
 
 
 
-const schoolClosed = true;
+// function App() {
+//   const isLoggedin = true;
 
-const message =
-  schoolClosed
-    ? "stay home"
-    : "go to school";
-
-console.log(message);
-
-
-
-let isLoggedIn = true;
-let isAdmin = true;
-
-console.log(isLoggedIn && isAdmin);
+//   return (
+//     <div>
+//       {isLoggedin && <h1>Hello</h1>}
+//     </div>
+//   );
+// }
 
 
-const userRole = "admin";
+// function App() {
+//   const hasItems = true;
 
-const isAdmin =
-  userRole === "admin";
+//   return (
+//     <div>
+//       {hasItems && <p>Items in Cart</p>}
+//     </div>
+//   );
+// }
 
-console.log(isAdmin);
 
+// function App() {
+//   const isAdmin = true;
 
+//   return (
+//     <div>
+//       <h1>Dashboard</h1>
 
-
-const people = [
-  "alice",
-  "bob",
-  "charlie"
-];
-
-function PersonList() {
-  return (
-    <ul>
-      {people.map((person) => (
-        <li key={person}>
-          {person}
-        </li>
-      ))}
-    </ul>
-  );
-}
+//       {isAdmin && (
+//         <button>Delete User</button>
+//       )}
+//     </div>
+//   );
+// }
 
 
 
-const people = [
-  { id: 1, name: "alice" },
-  { id: 2, name: "bob" },
-  { id: 3, name: "charlie" }
-];
+// const age = 20;
 
-function PersonList() {
-  return (
-    <ul>
-      {people.map((person) => (
-        <li key={person.id}>
-          {person.name}
-        </li>
-      ))}
-    </ul>
-  );
-}
+// let result;
+
+// if (age >= 18) {
+//   result = "adult";
+// } else {
+//   result = "minor";
+// }
+
+// console.log(result);
 
 
-function App() {
-  return (
-    <Profile username="falak" />
-  );
-}
-
-function Profile(props) {
-  return (
-    <p>@{props.username}</p>
-  );
-}
 
 
-function Profile(props) {
-  return (
-    <p>@{props.username}</p>
-  );
-}
+// const schoolClosed = true;
 
-function Post() {
-  const [likes, setLikes] =
-    useState(12);
+// const message =
+//   schoolClosed
+//     ? "stay home"
+//     : "go to school";
 
-  return (
-    <>
-      <p>{likes} Likes</p>
+// console.log(message);
 
-      <button
-        onClick={() =>
-          setLikes(likes + 1)
-        }
-      >
-        Like
-      </button>
-    </>
-  );
-}
 
-function Student({ name }) {
-  const [marks, setMarks] =
-    useState(70);
 
-  return (
-    <>
-      <h2>{name}</h2>
+// let isLoggedIn = true;
+// let isAdmin = true;
 
-      <p>Marks: {marks}</p>
+// console.log(isLoggedIn && isAdmin);
 
-      <button
-        onClick={() =>
-          setMarks(marks + 5)
-        }
-      >
-        Extra Marks
-      </button>
-    </>
-  );
-}
+
+// const userRole = "admin";
+
+// const isAdmin =
+//   userRole === "admin";
+
+// console.log(isAdmin);
+
+
+
+
+// const people = [
+//   "alice",
+//   "bob",
+//   "charlie"
+// ];
+
+// function PersonList() {
+//   return (
+//     <ul>
+//       {people.map((person) => (
+//         <li key={person}>
+//           {person}
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// }
+
+
+
+// const people = [
+//   { id: 1, name: "alice" },
+//   { id: 2, name: "bob" },
+//   { id: 3, name: "charlie" }
+// ];
+
+// function PersonList() {
+//   return (
+//     <ul>
+//       {people.map((person) => (
+//         <li key={person.id}>
+//           {person.name}
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// }
+
+
+// function App() {
+//   return (
+//     <Profile username="falak" />
+//   );
+// }
+
+// function Profile(props) {
+//   return (
+//     <p>@{props.username}</p>
+//   );
+// }
+
+
+// function Profile(props) {
+//   return (
+//     <p>@{props.username}</p>
+//   );
+// }
+
+// function Post() {
+//   const [likes, setLikes] =
+//     useState(12);
+
+//   return (
+//     <>
+//       <p>{likes} Likes</p>
+
+//       <button
+//         onClick={() =>
+//           setLikes(likes + 1)
+//         }
+//       >
+//         Like
+//       </button>
+//     </>
+//   );
+// }
+
+// function Student({ name }) {
+//   const [marks, setMarks] =
+//     useState(70);
+
+//   return (
+//     <>
+//       <h2>{name}</h2>
+
+//       <p>Marks: {marks}</p>
+
+//       <button
+//         onClick={() =>
+//           setMarks(marks + 5)
+//         }
+//       >
+//         Extra Marks
+//       </button>
+//     </>
+//   );
+// }
 
 function App() {
   const [count, setCount] =
