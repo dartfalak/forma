@@ -1,6 +1,12 @@
 
  import React, { useState } from "react";
 
+ 
+function App() {
+  return <h1>Hello React</h1>;
+}
+
+
 // function Profile(props) {
 //   return <p>@{props.username}</p>;
 // }
