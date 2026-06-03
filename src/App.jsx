@@ -126,12 +126,8 @@ function PersonList() {
     </ul>
   );
 }
-*/
 
-/*
-========================================
-EXAMPLE 10 - Objects Array
-========================================
+
 
 const people = [
   { id: 1, name: "alice" },
