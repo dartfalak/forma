@@ -49,12 +49,7 @@ function App() {
     </div>
   );
 }
-*/
 
-/*
-========================================
-EXAMPLE 4 - Admin Example
-========================================
 
 function App() {
   const isAdmin = true;
