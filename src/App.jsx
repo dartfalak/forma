@@ -331,5 +331,7 @@ function App() {
     <>
     <input ref={inputRef} type="text"/>
     <button onClick={showValue}>show value</button>
- )
+    </>
+
+  );
 }
