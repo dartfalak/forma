@@ -315,3 +315,9 @@ import React from "react";
 
 // export default App;
 
+
+import {useRef} from "react";
+
+function App() {
+    const inputRef = useRef(null);
+}
