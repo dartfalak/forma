@@ -320,4 +320,11 @@ import {useRef} from "react";
 
 function App() {
     const inputRef = useRef(null);
+
+
+    const showValue = () => {
+        alert(inputRef.current.value);
+
+        )
+    }
 }
