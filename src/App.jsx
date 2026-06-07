@@ -325,6 +325,10 @@ function App() {
     const showValue = () => {
         alert(inputRef.current.value);
 
-        )
-    }
+
+      };
+ return (
+    <>
+    <input ref={inputRef} type="text"</>
+ )
 }
