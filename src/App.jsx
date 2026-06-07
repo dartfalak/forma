@@ -1,10 +1,10 @@
 import React from "react";
 
- function App() {
-   return <h1>Hello React</h1>;
- }
+//  function App() {
+//    return <h1>hello react</h1>;
+//  }
 
- export default App;
+//  export default App;
 
 // function Profile(props) {
 //   return <p>@{props.username}</p>;
