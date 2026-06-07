@@ -330,7 +330,7 @@ function App() {
  return (
     <>
     <input ref={inputRef} type="text"/>
-    <button onClick={showValue}>show value</button>
+    <button onClick={showValue}>show content</button>
     </>
 
   );
