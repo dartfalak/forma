@@ -344,6 +344,6 @@ function ClickCounter() {
   const countRef = useRef(0);
 
   const handleClick = () => {
-    countRef.current = countRef.current
+    countRef.current = countRef.current + 1
   }
 }
