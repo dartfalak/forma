@@ -338,12 +338,13 @@ function App() {
 
 export default App;
 
-import React, {useRef} from "react";
+// import React, {useRef} from "react";
 
-function ClickCounter() {
-  const countRef = useRef(0);
+// function ClickCounter() {
+//   const countRef = useRef(0);
 
-  const handleClick = () => {
-    countRef.current = countRef.current + 1
-  }
-}
+//   const handleClick = () => {
+//     countRef.current = countRef.current + 1;
+//     alert ()
+//   }
+// }
