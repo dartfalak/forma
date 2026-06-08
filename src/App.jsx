@@ -337,3 +337,9 @@ function App() {
 }
 
 export default App;
+
+import React, {useRef} from "react";
+
+function ClickCounter() {
+  const countRef = useRef(0);
+}
