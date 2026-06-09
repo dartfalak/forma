@@ -353,3 +353,10 @@ export default App;
 function App() {
   return <Student name="adam" age={16}/>;
 }
+
+function Student(props) {
+  return {
+    <h2>
+    </h2>
+  }
+}
