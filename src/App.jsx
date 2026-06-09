@@ -348,3 +348,8 @@ export default App;
 //     alert ()
 //   }
 // }
+
+
+function App() {
+  return <Student name="adam" age={16}/>;
+}
