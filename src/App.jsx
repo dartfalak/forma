@@ -355,9 +355,9 @@ function App() {
 }
 
 function Student(props) {
-  return {
+  return (
     <h2>
     {props.name} is {props.age} years old
     </h2>
-  }
+  );
 }
