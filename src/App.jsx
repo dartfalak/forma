@@ -316,27 +316,27 @@ import React from "react";
 // export default App;
 
 
-import {useRef} from "react";
+// import {useRef} from "react";
 
-function App() {
-    const inputRef = useRef(null);
-
-
-    const showValue = () => {
-        alert(inputRef.current.value);
+// function App() {
+//     const inputRef = useRef(null);
 
 
-      };
- return (
-    <>
-    <input ref={inputRef} type="text"/>
-    <button onClick={showValue}>show content</button>
-    </>
+//     const showValue = () => {
+//         alert(inputRef.current.value);
 
-  );
-}
 
-export default App;
+//       };
+//  return (
+//     <>
+//     <input ref={inputRef} type="text"/>
+//     <button onClick={showValue}>show content</button>
+//     </>
+
+//   );
+// }
+
+// export default App;
 
 // import React, {useRef} from "react";
 
@@ -360,4 +360,12 @@ function Student(props) {
     {props.name} is {props.age} years old
     </h2>
   );
+}
+
+export default App;
+
+import { useState } from "react";
+
+function App() {
+  const [isOn , setIsOn] = useState(false);
 }
