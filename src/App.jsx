@@ -377,5 +377,5 @@ function App() {
       toggle
     </button>
     </>
-  )
+  );
 }
