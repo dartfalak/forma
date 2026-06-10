@@ -371,7 +371,7 @@ function App() {
 
   return (
     <>
-    <h1>{isON ? "ON" : "OFF"}</h1>
+    <h1>{isOn ? "ON" : "OFF"}</h1>
 
     <button onClick={() => setIsOn(!isOn)}>
       toggle
