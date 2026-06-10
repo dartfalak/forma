@@ -350,19 +350,19 @@ import React from "react";
 // }
 
 
-function App() {
-  return <Student name="adam" age={16}/>;
-}
+// function App() {
+//   return <Student name="adam" age={16}/>;
+// }
 
-function Student(props) {
-  return (
-    <h2>
-    {props.name} is {props.age} years old
-    </h2>
-  );
-}
+// function Student(props) {
+//   return (
+//     <h2>
+//     {props.name} is {props.age} years old
+//     </h2>
+//   );
+// }
 
-export default App;
+// export default App;
 
 import { useState } from "react";
 
