@@ -394,6 +394,10 @@ function App() {
     <button onClick={() => setName("noah")}>
       change name
     </button>
+
+  <button onClick={() => setName("adam")}>
+    reset 
+  </button>
     </>
   );
 }
