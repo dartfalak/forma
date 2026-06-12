@@ -381,3 +381,21 @@ function App() {
 }
 
 export default App;
+
+import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("adam");
+
+  return (
+    <>
+    <h1>{isOn ? "ON" : "OFF"}</h1>
+
+    <button onClick={() => setIsOn(!isOn)}>
+      toggle
+    </button>
+    </>
+  );
+}
+
+export default App;
