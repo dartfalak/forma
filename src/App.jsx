@@ -391,9 +391,9 @@ function App() {
     <>
     <h1>hi {name}!</h1>
 
-    <button onClick={() => setName("noah")}>
+    {/* <button onClick={() => setName("noah")}>
       change name
-    </button>
+    </button> */}
 
   <button onClick={() => setName("adam")}>
     reset 
