@@ -389,7 +389,7 @@ function App() {
 
   return (
     <>
-    <h1>hi {name}</h1>
+    <h1>hi {name}!</h1>
 
     <button onClick={() => setName("noah")}>
       change name
