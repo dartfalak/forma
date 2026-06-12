@@ -392,7 +392,7 @@ function App() {
     <h1>hi {name}</h1>
 
     <button onClick={() => setName("noah")}>
-      toggle
+      change name
     </button>
     </>
   );
