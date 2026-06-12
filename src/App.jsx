@@ -391,7 +391,7 @@ function App() {
     <>
     <h1>hi {name}</h1>
 
-    <button onClick={() => setIsOn(!isOn)}>
+    <button onClick={() => setName("noah")}>
       toggle
     </button>
     </>
