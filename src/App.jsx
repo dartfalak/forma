@@ -364,23 +364,23 @@ import React from "react";
 
 // export default App;
 
-import { useState } from "react";
+// import { useState } from "react";
 
-function App() {
-  const [isOn , setIsOn] = useState(false);
+// function App() {
+//   const [isOn , setIsOn] = useState(false);
 
-  return (
-    <>
-    <h1>{isOn ? "ON" : "OFF"}</h1>
+//   return (
+//     <>
+//     <h1>{isOn ? "ON" : "OFF"}</h1>
 
-    <button onClick={() => setIsOn(!isOn)}>
-      toggle
-    </button>
-    </>
-  );
-}
+//     <button onClick={() => setIsOn(!isOn)}>
+//       toggle
+//     </button>
+//     </>
+//   );
+// }
 
-export default App;
+// export default App;
 
 import { useState } from "react";
 
