@@ -382,27 +382,27 @@ import React from "react";
 
 // export default App;
 
-import { useState } from "react";
+// import { useState } from "react";
 
-function App() {
-  const [name, setName] = useState("adam");
+// function App() {
+//   const [name, setName] = useState("adam");
 
-  return (
-    <>
-    <h1>hi {name}!</h1>
+//   return (
+//     <>
+//     <h1>hi {name}!</h1>
 
-    { <button onClick={() => setName("noah")}>
-      change name
-    </button> }
+//     { <button onClick={() => setName("noah")}>
+//       change name
+//     </button> }
 
-  <button onClick={() => setName("adam")}>
-    reset 
-  </button>
-    </>
-  );
-}
+//   <button onClick={() => setName("adam")}>
+//     reset 
+//   </button>
+//     </>
+//   );
+// }
 
-export default App;
+// export default App;
 
 function App() {
   const isLoggedIn = true;
