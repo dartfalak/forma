@@ -413,5 +413,5 @@ return (
     {isLoggedIn ? "welcome back!" : "please log in"}
     </h1>
     </>
-)
+  );
 }
