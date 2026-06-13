@@ -410,7 +410,7 @@ function App() {
 return (
   <>
   <h1>
-    {isLoggedIn ? "welcome back!"}
+    {isLoggedIn ? "welcome back!" : "please log in"}
     </h1>
     </>
 )
