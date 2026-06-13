@@ -406,4 +406,12 @@ export default App;
 
 function App() {
   const isLoggedIn = true;
+
+return (
+  <>
+  <h1>
+    {isLoggedIn ? "welcome back!"}
+    </h1>
+    </>
+)
 }
