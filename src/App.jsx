@@ -403,3 +403,7 @@ function App() {
 }
 
 export default App;
+
+function App() {
+  const isLoggedIn = true;
+}
