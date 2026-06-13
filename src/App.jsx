@@ -415,3 +415,5 @@ return (
     </>
   );
 }
+
+export default App();
