@@ -419,4 +419,3 @@ return (
   );
 }
 
-export default App;
