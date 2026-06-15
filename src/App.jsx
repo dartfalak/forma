@@ -410,12 +410,4 @@ import { useState } from "react";
 function App() {
   const isLoggedIn = true;
 
-return (
-  <>
-  <h1>
-    {isLoggedIn ? "welcome back!" : "please log in"}
-    </h1>
-    </>
-  );
-}
 
