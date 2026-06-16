@@ -436,3 +436,11 @@ function App() {
 }
 
 export default App;
+
+import { createContext , useContext } from "react";
+
+const ColorContext = createContext("blue");
+
+function Box() {
+  const color = useContext(ColorContext);
+}
