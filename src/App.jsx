@@ -428,3 +428,7 @@ function App() {
   useEffect(() =>
     alert("hello!");
   , []);
+
+  return (
+    <h1>hello react</h1>
+  );
