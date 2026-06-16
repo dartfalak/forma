@@ -422,7 +422,7 @@ import React from "react";
 // export default App;
 
 
-import { useEffect } from "react"
+import { useEffect } from "react";
 
 function App() {
 
