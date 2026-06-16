@@ -427,8 +427,8 @@ import { useEffect } from "react";
 function App() {
 
   useEffect(() =>
-    alert("hello!");
-  , []);
+    alert("hello!"), []
+  );
 
   return (
     <h1>hello react</h1>
