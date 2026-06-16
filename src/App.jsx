@@ -422,20 +422,20 @@ import React from "react";
 // export default App;
 
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
-function App() {
+// function App() {
 
-  useEffect(() =>
-    alert("hello!"), []
-  );
+//   useEffect(() =>
+//     alert("hello!"), []
+//   );
 
-  return (
-    <h1>hello react</h1>
-  );
-}
+//   return (
+//     <h1>hello react</h1>
+//   );
+// }
 
-export default App;
+// export default App;
 
 import { createContext , useContext } from "react";
 
