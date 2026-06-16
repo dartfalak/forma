@@ -429,5 +429,6 @@ function App() {
     alert("hello!");
 } ,[]);
 
-return <h1>my website</h1>
+return <h1>my website</h1>;
+}
 
