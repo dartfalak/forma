@@ -443,4 +443,12 @@ const ColorContext = createContext("blue");
 
 function Box() {
   const color = useContext(ColorContext);
+
+  return <h1>
+    {color}
+  </h1>
+}
+
+function App() {
+  return <Box/>;
 }
