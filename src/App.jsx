@@ -420,3 +420,11 @@ return (
 }
 
 export default App;
+
+
+import { useEffect } from "react";
+
+function App() {
+  useEffect(() =>
+    alert("hello!")
+}
