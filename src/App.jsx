@@ -426,5 +426,5 @@ import { useEffect } from "react";
 
 function App() {
   useEffect(() =>
-    alert("hello!")
-}
+    alert("hello!");
+} , []);
