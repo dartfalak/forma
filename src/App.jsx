@@ -446,11 +446,11 @@ function Box() {
  
   return <h1>
     {color} 
-  </h1> //sow the color
+  </h1> //show the color
 }
 
 function App() {
-  return <Box/>;
-}
+  return <Box/>; 
+} //show the box com
 
 export default App;
