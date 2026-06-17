@@ -442,8 +442,8 @@ import { createContext , useContext } from "react";
 const ColorContext = createContext("blue"); //shared val
 
 function Box() {
-  const color = useContext(ColorContext);
-
+  const color = useContext(ColorContext); //get the shared val
+ 
   return <h1>
     {color}
   </h1>
