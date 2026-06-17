@@ -439,18 +439,18 @@ import React from "react";
 
 import { createContext , useContext } from "react";
 
-const ColorContext = createContext("blue"); //shared val
+const ColorContext = createContext("blue"); 
 
 function Box() {
-  const color = useContext(ColorContext); //get the shared val
+  const color = useContext(ColorContext); 
  
   return <h1>
     {color} 
-  </h1> //show the color
+  </h1>
 }
 
 function App() {
   return <Box/>; 
-} //show the box com
+} 
 
 export default App;
