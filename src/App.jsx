@@ -439,7 +439,7 @@ import React from "react";
 
 import { createContext , useContext } from "react";
 
-const ColorContext = createContext("blue");
+const ColorContext = createContext("blue"); //shared val
 
 function Box() {
   const color = useContext(ColorContext);
