@@ -445,8 +445,8 @@ function Box() {
   const color = useContext(ColorContext); //get the shared val
  
   return <h1>
-    {color}
-  </h1>
+    {color} 
+  </h1> //sow the color
 }
 
 function App() {
