@@ -456,7 +456,7 @@ import React from "react";
 // export default App;
 
     
-import { NameContext } fro  "./NameContext";
+import { NameContext } from  "./NameContext";
 
 import Child from "./Child";
 
