@@ -459,3 +459,7 @@ import React from "react";
 import { useContext} from "react";
 
 import { NameContext} from "./NameContext";
+
+function Child() {
+  const name = useContext(NameContext);
+}
