@@ -437,20 +437,22 @@ import React from "react";
 
 // export default App;
 
-import { createContext , useContext } from "react";
+// import { createContext , useContext } from "react";
 
-const ColorContext = createContext("blue"); 
+// const ColorContext = createContext("blue"); 
 
-function Box() {
-  const color = useContext(ColorContext); 
+// function Box() {
+//   const color = useContext(ColorContext); 
  
-  return <h1>
-    {color} 
-  </h1>
-}
+//   return <h1>
+//     {color} 
+//   </h1>
+// }
 
-function App() {
-  return <Box/>; 
-} 
+// function App() {
+//   return <Box/>; 
+// } 
 
-export default App;
+// export default App;
+
+    
