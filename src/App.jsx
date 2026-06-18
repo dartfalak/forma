@@ -466,5 +466,7 @@ function App() {
     <NameContext.Provider value= "sam">
       <Child />
     </NameContext.Provider>
-  )
+  );
 }
+
+export default App;
