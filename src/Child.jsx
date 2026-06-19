@@ -8,3 +8,4 @@ function Child() {
   return <h1>hi {name}</h1>
 }
 
+export default Child;
