@@ -457,7 +457,14 @@ import React from "react";
 
     
 import { NameContext } from  "./NameContext";
-
 import Child from "./Child";
 
+function App() {
+  return (
+    <NameContext.Provider value= "sam">
+      <Child />
+    </NameContext.Provider>
+  );
+}
 
+export default App;
