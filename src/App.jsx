@@ -461,7 +461,7 @@ import Child from "./Child";
 
 function App() {
   return (
-    <NameContext.Provider value= "sam">
+    <NameContext.Provider value= "Dark">
       <Child />
     </NameContext.Provider>
   );
