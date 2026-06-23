@@ -460,6 +460,9 @@ import { NameContext } from  "./NameContext";
 import Child from "./Child";
 
 function App() {
+  const user = {
+    name: "adam"
+  };
   return (
     <NameContext.Provider value= "Dark">
       <Child />
