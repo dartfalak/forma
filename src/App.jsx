@@ -464,7 +464,7 @@ function App() {
     name: "adam"
   };
   return (
-    <NameContext.Provider value= "{user}">
+    <NameContext.Provider value= {user}>
       <Child />
     </NameContext.Provider>
   );
