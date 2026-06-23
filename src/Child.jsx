@@ -5,7 +5,7 @@ import { NameContext} from "./NameContext";
 function Child() {
   const theme = useContext(NameContext);
 
-  return <h1>Current Theme: {theme}</h1>
+  return <h1>hello, {user.name}</h1>
 }
 
 export default Child;
