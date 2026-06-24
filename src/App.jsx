@@ -492,7 +492,6 @@ export default function App() {
  <button onClick={() => dispatch("plus")}>
   Add
  </button>
-
   </div>
- )
+ );
 }
