@@ -481,3 +481,7 @@ function reducer(count, action) {
   }
   return count;
 }
+
+export default function App() {
+  const[count, dispatch] = useReducer(reducer, 0)
+}
