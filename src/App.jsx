@@ -456,18 +456,25 @@ import React from "react";
 // export default App;
 
     
-import { NameContext } from  "./NameContext";
-import Child from "./Child";
+// import { NameContext } from  "./NameContext";
+// import Child from "./Child";
 
-function App() {
-  const user = {
-    name: "adam"
-  };
-  return (
-    <NameContext.Provider value= {user}>
-      <Child />
-    </NameContext.Provider>
-  );
+// function App() {
+//   const user = {
+//     name: "adam"
+//   };
+//   return (
+//     <NameContext.Provider value= {user}>
+//       <Child />
+//     </NameContext.Provider>
+//   );
+// }
+
+// export default App;
+
+ 
+import { useReducer } from "react";
+
+function reducer(count, action) {
+  if(action == "plus")
 }
-
-export default App;
