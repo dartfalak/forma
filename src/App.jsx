@@ -483,5 +483,12 @@ function reducer(count, action) {
 }
 
 export default function App() {
-  const[count, dispatch] = useReducer(reducer, 0)
+  const[count, dispatch] = useReducer(reducer, 0);
+
+ return (
+  <div>
+ <h1>{count}</h1>
+
+  </div>
+ )
 }
