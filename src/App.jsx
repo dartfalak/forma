@@ -489,6 +489,8 @@ export default function App() {
   <div>
  <h1>{count}</h1>
 
+ <button onClick={() => dispatch("plus")}></button>
+
   </div>
  )
 }
