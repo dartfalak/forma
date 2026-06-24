@@ -479,4 +479,5 @@ function reducer(count, action) {
   if(action == "plus") {
     return count + 1;
   }
+  return count;
 }
