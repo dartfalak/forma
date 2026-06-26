@@ -479,11 +479,11 @@ function reducer(score, action) {
   if(action == "add") {
     return score + 1;
   }
-  return count;
+  return score;
 }
 
 export default function App() {
-  const[count, dispatch] = useReducer(reducer, 0);
+  const[score, dispatch] = useReducer(reducer, 0);
 
  return (
   <div>
