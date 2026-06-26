@@ -475,7 +475,7 @@ import React from "react";
  
 import { useReducer } from "react";
 
-function reducer(count, action) {
+function reducer(score, action) {
   if(action == "plus") {
     return count + 1;
   }
@@ -493,5 +493,5 @@ export default function App() {
   Add
  </button>
   </div>
- );
+ );                   
 }
