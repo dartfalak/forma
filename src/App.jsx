@@ -476,8 +476,8 @@ import React from "react";
 import { useReducer } from "react";
 
 function reducer(score, action) {
-  if(action == "plus") {
-    return count + 1;
+  if(action == "add") {
+    return score + 1;
   }
   return count;
 }
