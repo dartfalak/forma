@@ -492,4 +492,7 @@ export default function App() {
  <button onClick={() => dispatch("add")}>
   Add point
  </button>
+ </div>
+ );
+}
   
