@@ -481,7 +481,12 @@ function reducer(score, action) {
   }
   return score;
 }
+export default function App() {
+  const[score, dispatch] = useReducer(reducer, 0);
 
+ return (
+  <div>
+ <h1>{score}</h1>
 
  <button onClick={() => dispatch("add")}>
   Add point
