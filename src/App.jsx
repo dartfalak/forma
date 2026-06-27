@@ -489,10 +489,4 @@ export default function App() {
   <div>
  <h1>{score}</h1>
 
- <button onClick={() => dispatch("add")}>
-  Add point
- </button>
- </div>
- );
-}
-  
+ 
