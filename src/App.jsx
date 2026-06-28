@@ -508,5 +508,12 @@ function  reducer(likes, action ) {
 }
 
 export default function App() {
-  const [likes,dispatch] = useReducer(reducer,0);
+  const [likes,dispatch] = useReducer(reducer, 0);
+
+return (
+  <div>
+   <h1>Likes : {likes}</h1>
+
+  </div>
+)
 }
