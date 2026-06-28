@@ -506,3 +506,7 @@ function  reducer(likes, action ) {
  }
  return likes;
 }
+
+export default function App() {
+  const [likes,dispatch] = useReducer(reducer,0);
+}
