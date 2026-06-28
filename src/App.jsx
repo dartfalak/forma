@@ -494,4 +494,11 @@ export default function App() {
  </div>
  );
 }
-  
+
+import { useReducer } from "react";
+
+function  reducer(likes, action ) {
+ if(action === "like") {
+  return likes + 1;
+ }
+}
