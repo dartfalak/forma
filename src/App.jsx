@@ -514,7 +514,14 @@ return (
   <div>
    <h1>Likes : {likes}</h1>
 
-<button onClick={() => dispatch("like")
+<button onClick={() => dispatch("like")}>
+  like
+</button>
+
+<button onClick={() => dispatch("unlike")}>
+  unlike
+</button>
+
   </div>
 )
 }
