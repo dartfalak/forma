@@ -514,6 +514,7 @@ return (
   <div>
    <h1>Likes : {likes}</h1>
 
+<button onClick={() => dispatch("like")
   </div>
 )
 }
