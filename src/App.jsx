@@ -520,8 +520,7 @@ return (
 
 <button onClick={() => dispatch("unlike")}>
   unlike
-</button>
-
-  </div>
-)
+  </button>
+</div>
+ );
 }
