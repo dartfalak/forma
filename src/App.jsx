@@ -504,4 +504,5 @@ function  reducer(likes, action ) {
  if( action === "unlike") {
   return likes - 1;
  }
+ return likes;
 }
