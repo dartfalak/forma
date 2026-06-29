@@ -497,35 +497,35 @@ import React from "react";
 
  
 
-import { useReducer } from "react";
+// import { useReducer } from "react";
 
-function  reducer(likes, action ) {
- if(action === "like") {
-  return likes + 1;
- }
- if( action === "unlike") {
-  return likes - 1;
- }
- return likes;
-}
+// function  reducer(likes, action ) {
+//  if(action === "like") {
+//   return likes + 1;
+//  }
+//  if( action === "unlike") {
+//   return likes - 1;
+//  }
+//  return likes;
+// }
 
-export default function App() {
-  const [likes,dispatch] = useReducer(reducer, 0);
+// export default function App() {
+//   const [likes,dispatch] = useReducer(reducer, 0);
 
-return (
-  <div>
-   <h1>Likes : {likes}</h1>
+// return (
+//   <div>
+//    <h1>Likes : {likes}</h1>
 
-<button onClick={() => dispatch("like")}>
-  like
-</button>
+// <button onClick={() => dispatch("like")}>
+//   like
+// </button>
 
-<button onClick={() => dispatch("unlike")}>
-  unlike
-  </button>
-</div>
-  );
-}
+// <button onClick={() => dispatch("unlike")}>
+//   unlike
+//   </button>
+// </div>
+//   );
+// }
 
 
 import { useMemo , useState} from "react";
