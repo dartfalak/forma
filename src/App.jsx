@@ -472,28 +472,30 @@ import React from "react";
 
 // export default App;
 
+
+// import { useReducer } from "react";
+
+// function reducer(score, action) {
+//   if(action == "add") {
+//     return score + 1;
+//   }
+//   return score;
+// }
+// export default function App() {
+//   const[score, dispatch] = useReducer(reducer, 0);
+
+//  return (
+//   <div>
+//  <h1>{score}</h1>
+
+//  <button onClick={() => dispatch("add")}>
+//   Add point
+//  </button>
+//  </div>
+//  );
+// }
+
  
-import { useReducer } from "react";
-
-function reducer(score, action) {
-  if(action == "add") {
-    return score + 1;
-  }
-  return score;
-}
-export default function App() {
-  const[score, dispatch] = useReducer(reducer, 0);
-
- return (
-  <div>
- <h1>{score}</h1>
-
- <button onClick={() => dispatch("add")}>
-  Add point
- </button>
- </div>
- );
-}
 
 import { useReducer } from "react";
 
@@ -522,5 +524,22 @@ return (
   unlike
   </button>
 </div>
- );
+  );
+}
+
+
+import { useMemo , useState} from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  const square = useMemo(() => {
+    return count * count;
+  }, [count]);
+
+  return (
+    <>
+    <h2>{square}</h2>
+    </>
+  ) 
 }
