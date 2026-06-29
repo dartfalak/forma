@@ -540,6 +540,8 @@ function App() {
   return (
     <>
     <h2>{square}</h2>
+
+    <button onClick={() => setCount(count + 1)
     </>
   ) 
 }
