@@ -545,5 +545,5 @@ function App() {
       increase
     </button>
     </>
-  ) 
+  ); 
 }
