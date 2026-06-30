@@ -559,4 +559,6 @@ function App() {
     for(let i=0; i<=1000000; i++) {}
     return num*2;
    }
+
+   let doubleValue = useMemo9(() => expensiveTask(input),[input]);
 }
