@@ -575,7 +575,7 @@ function App() {
       type='number'
       placeholder='enter number'
       value={input}
-      onChange={(e) => setInput(e.target.value)}
+      onChange={(e) => setInput(e.target.value)}/>
     </div>
-  )
+  );
 }
