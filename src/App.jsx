@@ -560,7 +560,7 @@ function App() {
     return num*2;
    }
 
-   let doubleValue = useMemo9(() => expensiveTask(input),[input]);
+   let doubleValue = useMemo(() => expensiveTask(input),[input]);
 
   return (
     <div>
