@@ -567,9 +567,14 @@ function App() {
       <button onClick={() => setCount(count + 1)}>
         increase
       </button>
+
       <div>
         Count:{count}
       </div>
+      <input 
+      type='number'
+      placeholder='enter number'
+      value={input}
     </div>
   )
 }
