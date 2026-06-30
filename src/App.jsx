@@ -530,20 +530,33 @@ import React from "react";
 
 import { useMemo , useState} from "react";
 
+// function App() {
+//   const [count, setCount] = useState(0);
+
+//   const square = useMemo(() => {
+//     return count * count;
+//   }, [count]);
+
+//   return (
+//     <>
+//     <h2>{square}</h2>
+
+//     <button onClick={() => setCount(count + 1)}>
+//       increase
+//     </button>
+//     </>
+//   ); 
+// }
+
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [count,setCount] = useState(0);
+   const [input,setInput] = useState(0);
 
-  const square = useMemo(() => {
-    return count * count;
-  }, [count]);
 
-  return (
-    <>
-    <h2>{square}</h2>
-
-    <button onClick={() => setCount(count + 1)}>
-      increase
-    </button>
-    </>
-  ); 
+   function expensiveTask(num) {
+    console.log("inside expensive task");
+    for(let i=0; i<=1000000; i++) {}
+    return num*2;
+   }
 }
