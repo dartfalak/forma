@@ -561,4 +561,10 @@ function App() {
    }
 
    let doubleValue = useMemo9(() => expensiveTask(input),[input]);
+
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}</button>
+    </div>
+  )
 }
