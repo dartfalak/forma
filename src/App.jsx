@@ -589,4 +589,3 @@ function App() {
     console.log("fetching users...")
   }, []);
   return <h1>Users</h1>
-}
