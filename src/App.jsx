@@ -581,3 +581,11 @@ function App() {
 }
 
 export default App;
+
+import { useEffect } from "react";
+
+function App() {
+  useEffect(() => {
+    console.log("fetching users...")
+  }
+}
