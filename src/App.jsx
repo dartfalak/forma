@@ -596,7 +596,11 @@ function App() {
   const [count, setCounts] = useState(0);
   useEffect(() => {
     alert("executes on every render cycle")
+  })
 
+  function handleClick() {
+    setCounts(count + 1);
+  }
 
     return() => {
 
