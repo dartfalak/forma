@@ -611,6 +611,9 @@ function App() {
         add point
       </button>
 
+<p>Score : {score}</p>
+
+
     </div>
   )
 
