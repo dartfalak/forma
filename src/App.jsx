@@ -582,7 +582,7 @@ import React from "react";
 
 // export default App;
 
-import { useEffect } from "react";
+import { useEffect , useState} from "react";
 
 // function App() {
 //   useEffect(() => {
@@ -603,8 +603,7 @@ function App() {
     setScore(score + 1);
   }
 
-    
-
+  
   return (
     <div>
       <button onClick={increaseScore}>
