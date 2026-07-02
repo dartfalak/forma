@@ -593,7 +593,7 @@ import { useEffect , useState} from "react";
 
 function App() {
  
-  const [count, setCounts] = useState(0);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     alert("executes on every render cycle")
