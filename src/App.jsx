@@ -612,13 +612,8 @@ function App() {
       </button>
 
 <p>Score : {score}</p>
-
-
     </div>
-  )
-
-
-
+  );
 }
 
 
