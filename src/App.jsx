@@ -594,22 +594,22 @@ import { useEffect } from "react";
 function App() {
  
   const [count, setCounts] = useState(0);
+
   useEffect(() => {
     alert("executes on every render cycle")
-  })
+  });
 
-  function handleClick() {
-    setCounts(count + 1);
+  function increaseScore() {
+    setScore(score + 1);
   }
 
-    return() => {
-
-    }
-
-  }, [])
+    
 
   return (
     <div>
+      <button onClick={increaseScore}>
+        add point
+      </button>
 
     </div>
   )
