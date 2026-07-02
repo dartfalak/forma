@@ -528,65 +528,91 @@ import React from "react";
 // }
 
 
-import { useMemo , useState} from "react";
+// import { useMemo , useState} from "react";
+
+// // function App() {
+// //   const [count, setCount] = useState(0);
+
+// //   const square = useMemo(() => {
+// //     return count * count;
+// //   }, [count]);
+
+// //   return (
+// //     <>
+// //     <h2>{square}</h2>
+
+// //     <button onClick={() => setCount(count + 1)}>
+// //       increase
+// //     </button>
+// //     </>
+// //   ); 
+// // }
+
 
 // function App() {
-//   const [count, setCount] = useState(0);
+//   const [count,setCount] = useState(0);
+//    const [input,setInput] = useState(0);
 
-//   const square = useMemo(() => {
-//     return count * count;
-//   }, [count]);
+
+//    function expensiveTask(num) {
+//     console.log("inside expensive task");
+//     for(let i=0; i<=1000000; i++) {}
+//     return num*2;
+//    }
+
+//    let doubleValue = useMemo(() => expensiveTask(input),[input]);
 
 //   return (
-//     <>
-//     <h2>{square}</h2>
+//     <div>
+//       <button onClick={() => setCount(count + 1)}>
+//         increase
+//       </button>
 
-//     <button onClick={() => setCount(count + 1)}>
-//       increase
-//     </button>
-//     </>
-//   ); 
+//       <div>
+//         Count:{count}
+//       </div>
+//       <input 
+//       type='number'
+//       placeholder='enter number'
+//       value={input}
+//       onChange={(e) => setInput(e.target.value)}/>
+//     </div>
+//   );
 // }
 
-
-function App() {
-  const [count,setCount] = useState(0);
-   const [input,setInput] = useState(0);
-
-
-   function expensiveTask(num) {
-    console.log("inside expensive task");
-    for(let i=0; i<=1000000; i++) {}
-    return num*2;
-   }
-
-   let doubleValue = useMemo(() => expensiveTask(input),[input]);
-
-  return (
-    <div>
-      <button onClick={() => setCount(count + 1)}>
-        increase
-      </button>
-
-      <div>
-        Count:{count}
-      </div>
-      <input 
-      type='number'
-      placeholder='enter number'
-      value={input}
-      onChange={(e) => setInput(e.target.value)}/>
-    </div>
-  );
-}
-
-export default App;
+// export default App;
 
 import { useEffect } from "react";
 
+// function App() {
+//   useEffect(() => {
+//     console.log("fetching users...")
+//   }, []);
+//   return <h1>Users</h1>
+// }
+
 function App() {
+ 
+  const [count, setCounts] = useState(0);
   useEffect(() => {
-    console.log("fetching users...")
-  }, []);
-  return <h1>Users</h1>
+    alert("executes on every render cycle")
+
+
+    return() => {
+
+    }
+
+  }, [])
+
+  return (
+    <div>
+
+    </div>
+  )
+
+
+
 }
+
+
+export default App;
