@@ -569,54 +569,54 @@ import React from "react";
 //       </button>
 
 //       <div>
-//         Count:{count}
-//       </div>
-//       <input 
-//       type='number'
-//       placeholder='enter number'
-//       value={input}
-//       onChange={(e) => setInput(e.target.value)}/>
+// //         Count:{count}
+// //       </div>
+// //       <input 
+// //       type='number'
+// //       placeholder='enter number'
+// //       value={input}
+// //       onChange={(e) => setInput(e.target.value)}/>
+// //     </div>
+// //   );
+// // }
+
+// // export default App;
+
+ import { useEffect , useState} from "react";
+
+// // function App() {
+// //   useEffect(() => {
+// //     console.log("fetching users...")
+// //   }, []);
+// //   return <h1>Users</h1>
+// // }
+
+// function App() {
+ 
+//   const [score, setScore] = useState(0);
+
+//   useEffect(() => {
+//     alert("executes on every render cycle")
+//   });
+
+//   function increaseScore() {
+//     setScore(score + 1);
+//   }
+
+  
+//   return (
+//     <div>
+//       <button onClick={increaseScore}>
+//         add point
+//       </button>
+
+// <p>Score : {score}</p>
 //     </div>
 //   );
 // }
 
+
 // export default App;
-
-import { useEffect , useState} from "react";
-
-// function App() {
-//   useEffect(() => {
-//     console.log("fetching users...")
-//   }, []);
-//   return <h1>Users</h1>
-// }
-
-function App() {
- 
-  const [score, setScore] = useState(0);
-
-  useEffect(() => {
-    alert("executes on every render cycle")
-  });
-
-  function increaseScore() {
-    setScore(score + 1);
-  }
-
-  
-  return (
-    <div>
-      <button onClick={increaseScore}>
-        add point
-      </button>
-
-<p>Score : {score}</p>
-    </div>
-  );
-}
-
-
-export default App;
 
 function App() {
   const [count, setCount] = useState(0);
@@ -633,5 +633,5 @@ function App() {
       add
     </button>
     </>
-  )
+  );
 }
