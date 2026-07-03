@@ -604,6 +604,17 @@ function App() {
   }
 
   
+  return (
+    <div>
+      <button onClick={increaseScore}>
+        add point
+      </button>
+
+<p>Score : {score}</p>
+    </div>
+  );
+}
+
 
 
 export default App;
