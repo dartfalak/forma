@@ -623,5 +623,15 @@ function App() {
 
   useEffect(() => {
     console.log("page loaded")
-  }
+  },[]);
+
+  return (
+    <>
+    <h1>{count}</h1>
+
+    <button onClick={() => setCount(count + 1)}>
+      add
+    </button>
+    </>
+  )
 }
