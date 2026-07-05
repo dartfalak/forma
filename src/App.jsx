@@ -655,5 +655,13 @@ function handleClick() {
 }
 
 function handleClickTotal() {
-  setTotal(total + 1)
+  setTotal(total + 1);
 }
+
+return (
+  <div>
+    <button onClick ={handleClick}>
+      update count
+    </button>
+  </div>
+)
