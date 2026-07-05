@@ -618,27 +618,27 @@ import React from "react";
 
 // export default App;
 
-function App() {
-  const [count, setCount] = useState(0);
+    // function App() {
+    //   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    console.log("page loaded")
-  },[]);
+    //   useEffect(() => {
+    //     console.log("page loaded")
+    //   },[]);
 
-  return (
-    <>
-    <h1>{count}</h1>
+    //   return (
+    //     <>
+    //     <h1>{count}</h1>
 
-    <button onClick={() => setCount(count + 1)}>
-      add
-    </button>
-    </>
-  );
+    //     <button onClick={() => setCount(count + 1)}>
+    //       add
+    //     </button>
+    //     </>
+    //   );
 
-}
+    // }
 
 
-export default App;
+    // export default App;
 
 
 
