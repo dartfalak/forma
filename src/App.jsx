@@ -653,3 +653,7 @@ useEffect(() => {
 function handleClick() {
   setCount(count + 1);
 }
+
+function handleClickTotal() {
+  setTotal(total + 1)
+}
