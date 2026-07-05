@@ -634,7 +634,18 @@ function App() {
     </button>
     </>
   );
+
 }
 
 
 export default App;
+
+
+
+function App() {
+  const [count, setCount] = useState(0);
+  const [total, setTotal] = useState(1);
+
+useEffect(() => {
+  alert("runs whenever count or total changes")
+}
