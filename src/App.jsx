@@ -648,4 +648,8 @@ function App() {
 
 useEffect(() => {
   alert("runs whenever count or total changes")
+}, [count, total])
+
+function handleClick() {
+  setCount(count + 1);
 }
