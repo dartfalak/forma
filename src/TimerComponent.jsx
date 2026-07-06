@@ -20,5 +20,7 @@ function TimerComponent() {
     <div>
         <h1>Seconds : {seconds}</h1>
     </div>
-  )
+  );
 }
+
+export default TimerComponent;
