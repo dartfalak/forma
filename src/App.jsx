@@ -663,6 +663,11 @@ return (
     <button onClick ={handleClick}>
       update count
     </button>
+
+
+        <button onClick ={handleClickTotal}>
+      update total
+    </button>
   </div>
  );
 }
