@@ -642,34 +642,39 @@ import React from "react";
 
 
 
-function App() {
-  const [count, setCount] = useState(0);
-  const [total, setTotal] = useState(1);
+// function App() {
+//   const [count, setCount] = useState(0);
+//   const [total, setTotal] = useState(1);
 
-useEffect(() => {
-  alert("runs whenever count or total changes")
-}, [count, total])
+// useEffect(() => {
+//   alert("runs whenever count or total changes")
+// }, [count, total])
 
-function handleClick() {
-  setCount(count + 1);
-}
+// function handleClick() {
+//   setCount(count + 1);
+// }
 
-function handleClickTotal() {
-  setTotal(total + 1);
-}
+// function handleClickTotal() {
+//   setTotal(total + 1);
+// }
 
-return (
-  <div>
-    <button onClick ={handleClick}>
-      update count
-    </button>
+// return (
+<div>
+  {<LoggerComponent/>}
+  <TimerComponent/> 
 
 
-        <button onClick ={handleClickTotal}>
-      update total
-    </button>
-  </div>
- );
-}
 
-export default App;
+{/* //     <button onClick ={handleClick}>
+//       update count
+//     </button>
+
+
+//         <button onClick ={handleClickTotal}>
+//       update total
+//     </button> */}
+//   </div>
+//  );
+// }
+
+// export default App;
