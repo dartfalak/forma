@@ -15,4 +15,10 @@ function TimerComponent() {
         clearInterval(intervalId);
     };
   },[]);
+
+  return (
+    <div>
+        <h1>Seconds : {seconds}</h1>
+    </div>
+  )
 }
