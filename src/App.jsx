@@ -640,6 +640,7 @@ import React from "react";
 
     // export default App;
 
+import TimerComponent from "./TimerComponent";
 
 
  function App() {
@@ -658,10 +659,11 @@ import React from "react";
 //   setTotal(total + 1);
 // }
 
+
 return (
 <div>
   {/* {<LoggerComponent/>} */}
-  <TimerComponent/> 
+  { <TimerComponent/>  }
 
 
 
@@ -673,7 +675,7 @@ return (
 //         <button onClick ={handleClickTotal}>
 //       update total
 //     </button> */}
-//   </div>
+   </div>
  );
  }
 
