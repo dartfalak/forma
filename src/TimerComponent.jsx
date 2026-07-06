@@ -9,5 +9,10 @@ function TimerComponent() {
         console.log("setInterval executed");
         setSeconds(prevSeconds => prevSeconds + 1);
     },1000);
-  }
+
+    return() => {
+        console.log("stop");
+        clearInterval(intervalId);
+    };
+  },[]);
 }
