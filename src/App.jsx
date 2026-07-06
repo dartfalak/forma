@@ -582,7 +582,7 @@ import React from "react";
 
 // // export default App;
 
- import { useEffect , useState} from "react";
+//  import { useEffect , useState} from "react";
 
 // // function App() {
 // //   useEffect(() => {
@@ -642,7 +642,7 @@ import React from "react";
 
 
 
-// function App() {
+ function App() {
 //   const [count, setCount] = useState(0);
 //   const [total, setTotal] = useState(1);
 
@@ -658,9 +658,9 @@ import React from "react";
 //   setTotal(total + 1);
 // }
 
-// return (
+return (
 <div>
-  {<LoggerComponent/>}
+  {/* {<LoggerComponent/>} */}
   <TimerComponent/> 
 
 
@@ -674,7 +674,7 @@ import React from "react";
 //       update total
 //     </button> */}
 //   </div>
-//  );
-// }
+ );
+ }
 
-// export default App;
+ export default App;
