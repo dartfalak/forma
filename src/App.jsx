@@ -663,7 +663,7 @@ import TimerComponent from "./TimerComponent";
 return (
 <div>
   {/* {<LoggerComponent/>} */}
-  { <TimerComponent/>  } 
+  {/* { <TimerComponent/>  }  */}
 
 
 {/* //     <button onClick ={handleClick}>
