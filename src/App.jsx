@@ -683,10 +683,15 @@ import React from "react";
 import './App.css'
 
 function App() {
+
+
+  function handleClick() {
+
+  }
   return (
     <div>
-      <button>
-      hello
+      <button onClick={handleClick}>
+      click me
       </button>
     </div>
     
