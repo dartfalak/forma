@@ -686,6 +686,7 @@ function App() {
 
 
   function handleClick() {
+    alert("clicked")
 
   }
   return (
