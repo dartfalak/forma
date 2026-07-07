@@ -638,44 +638,56 @@ import React from "react";
     // }
 
 
-    // export default App;
+//     // export default App;
 
-import TimerComponent from "./TimerComponent";
-
-
- function App() {
-//   const [count, setCount] = useState(0);
-//   const [total, setTotal] = useState(1);
-
-// useEffect(() => {
-//   alert("runs whenever count or total changes")
-// }, [count, total])
-
-// function handleClick() {
-//   setCount(count + 1);
-// }
-
-// function handleClickTotal() {
-//   setTotal(total + 1);
-// }
+// import TimerComponent from "./TimerComponent";
 
 
-return (
-<div>
-  {/* {<LoggerComponent/>} */}
-  {/* { <TimerComponent/>  }  */}
+//  function App() {
+// //   const [count, setCount] = useState(0);
+// //   const [total, setTotal] = useState(1);
+
+// // useEffect(() => {
+// //   alert("runs whenever count or total changes")
+// // }, [count, total])
+
+// // function handleClick() {
+// //   setCount(count + 1);
+// // }
+
+// // function handleClickTotal() {
+// //   setTotal(total + 1);
+// // }
 
 
-{/* //     <button onClick ={handleClick}>
-//       update count
-//     </button>
+// return (
+// <div>
+//   {/* {<LoggerComponent/>} */}
+//   {/* { <TimerComponent/>  }  */}
 
 
-//         <button onClick ={handleClickTotal}>
-//       update total
-//     </button> */}
-   </div>
- );
- }
+// {/* //     <button onClick ={handleClick}>
+// //       update count
+// //     </button>
 
- export default App;
+
+// //         <button onClick ={handleClickTotal}>
+// //       update total
+// //     </button> */}
+//    </div>
+//  );
+//  }
+
+//  export default App;
+
+import './App.css'
+
+function App() {
+  return (
+    <div>
+      hello
+    </div>
+  )
+}
+
+export default App;
