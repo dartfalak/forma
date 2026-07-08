@@ -685,28 +685,32 @@ import './App.css'
 function App() {
 
 
-  function handleMouseOver  () {
+  function handleMouseOver (e) {
     alert("hovered")
     console.log("valid till now:", e.target.value);
 
   }
 
 
-  function handleInputChange() {
+  function handleInputChange(e) {
     console.log("value changed");
+    console.log(e.target.value);
 
   }
   return (
     <div>
       <form>
-        <input type="text" onChange={handleInputChange} />
+        <input type="text"
+         onChange={handleInputChange(e)}
+         onMouseOver={handleMouseOver} 
+         />
         </form>
       {/* <button onClick={handleClick}>
       click me
       </button> */}
     </div>
     
-  )
+  );
 }
 
 export default App;
