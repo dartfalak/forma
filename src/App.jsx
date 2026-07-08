@@ -686,13 +686,14 @@ function App() {
 
 
   function handleMouseOver  () {
-    alert("clicked")
+    alert("hovered")
 
   }
 
 
   function handleInputChange() {
     console.log("value changed");
+
   }
   return (
     <div>
