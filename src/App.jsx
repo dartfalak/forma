@@ -687,6 +687,7 @@ function App() {
 
   function handleMouseOver  () {
     alert("hovered")
+    console.log("valid till now:", e.target.value);
 
   }
 
