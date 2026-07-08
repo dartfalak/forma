@@ -685,7 +685,7 @@ import './App.css'
 function App() {
 
 
-  function handleClick() {
+  function handleMouseOver  () {
     alert("clicked")
 
   }
@@ -699,9 +699,9 @@ function App() {
       <form>
         <input type="text" onChange={handleInputChange} />
         </form>
-      <button onClick={handleClick}>
+      {/* <button onClick={handleClick}>
       click me
-      </button>
+      </button> */}
     </div>
     
   )
