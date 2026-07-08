@@ -691,13 +691,14 @@ function App() {
   }
 
 
-  function handleInputChnage() {
+  function handleInputChange() {
     console.log("value changed");
   }
   return (
     <div>
       <form>
-        <input type="text" onChange={} />
+        <input type="text" onChange={handleInputChange} />
+        </form>
       <button onClick={handleClick}>
       click me
       </button>
