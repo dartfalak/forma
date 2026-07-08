@@ -689,8 +689,15 @@ function App() {
     alert("clicked")
 
   }
+
+
+  function handleInputChnage() {
+    console.log("value changed");
+  }
   return (
     <div>
+      <form>
+        <input type="text" onChange={} />
       <button onClick={handleClick}>
       click me
       </button>
