@@ -693,7 +693,7 @@ function App() {
 
 
   function handleInputChange(e) {
-    // console.log("value changed");
+    console.log("value changed");
     console.log(e.target.value);
 
   }
