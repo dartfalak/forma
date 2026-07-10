@@ -686,7 +686,7 @@ function App() {
 
 
   function handleMouseOver (e) {
-    alert("hovered")
+    // alert("hovered")
     console.log("valid till now:", e.target.value);
 
   }
