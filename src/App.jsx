@@ -701,7 +701,7 @@ function App() {
     <div>
       <form>
         <input type="text"
-         onChange={handleInputChange}
+         onChange={(e)} => {handleInputChange}
          onMouseOver={handleMouseOver} 
          />
         </form>
