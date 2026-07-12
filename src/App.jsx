@@ -697,6 +697,14 @@ function App() {
     console.log(e.target.value);
 
   }
+
+
+function handleSubmit(e) {
+  e.preventDefault();
+}
+
+
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
