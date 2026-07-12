@@ -699,7 +699,7 @@ function App() {
   }
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text"
          onChange={(e) => handleInputChange(e)}/>
         <button type='submit'>submit</button>
