@@ -701,9 +701,10 @@ function App() {
     <div>
       <form>
         <input type="text"
-         onChange={(e) => handleInputChange(e)}
-         onMouseOver={handleMouseOver} 
-         />
+         onChange={(e) => handleInputChange(e)}/>
+        <button type='submit'>submit</button>
+        {/* //  onMouseOver={handleMouseOver}  */}
+         
         </form>
       {/* <button onClick={handleClick}>
       click me
