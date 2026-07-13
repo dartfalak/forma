@@ -699,9 +699,8 @@ function App() {
   // }
 
 
-function handleSubmit(e) {
-  e.preventDefault();
-  alert("submit form")
+function handleClick() {
+  alert("i'm clicked")
 }
 
 
