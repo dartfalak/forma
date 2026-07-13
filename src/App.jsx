@@ -680,28 +680,17 @@ import React from "react";
 
 //  export default App;
 
-import './App.css'
+// import './App.css'
+
+import { useState } from "react";
 
 function App() {
 
+ const [ text, setText] = useState("click me");
 
-  // function handleMouseOver (e) {
-  //   // alert("hovered")
-  //   console.log("valid till now:", e.target.value);
-
-  // }
-
-
-  // function handleInputChange(e) {
-  //   console.log("value changed");
-  //   console.log(e.target.value);
-
-  // }
-
-
-function handleClick() {
-  alert("i'm clicked")
-}
+ function handleClick() {
+  setText("clicked");
+ }
 
 
 
