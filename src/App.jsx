@@ -694,7 +694,7 @@ function App() {
    
  return (
   <button onClick={handleClick}>
-    
+    {text}
   </button>
  )
 
