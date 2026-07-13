@@ -708,7 +708,7 @@ function handleSubmit(e) {
 
   return (
     <div>
-        <button onClick={alert("button clicked")}>
+        <button onClick={() => alert("button clicked")}>
           Click me
         </button>
        
