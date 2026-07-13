@@ -685,18 +685,18 @@ import './App.css'
 function App() {
 
 
-  function handleMouseOver (e) {
-    // alert("hovered")
-    console.log("valid till now:", e.target.value);
+  // function handleMouseOver (e) {
+  //   // alert("hovered")
+  //   console.log("valid till now:", e.target.value);
 
-  }
+  // }
 
 
-  function handleInputChange(e) {
-    console.log("value changed");
-    console.log(e.target.value);
+  // function handleInputChange(e) {
+  //   console.log("value changed");
+  //   console.log(e.target.value);
 
-  }
+  // }
 
 
 function handleSubmit(e) {
