@@ -691,7 +691,12 @@ function App() {
  function handleClick() {
   setText("clicked");
  }
-
+   
+ return (
+  <button onClick={handleClick}>
+    
+  </button>
+ )
 
 
   return (
