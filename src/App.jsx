@@ -708,18 +708,20 @@ function handleSubmit(e) {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+        <button onClick={alert("button clicked")}>
+          Click me
+        </button>
+       
+       {/* <form onSubmit={handleSubmit}>
         <input type="text"
          onChange={(e) => handleInputChange(e)}/>
         <button type='submit'>submit</button>
-        {/* //  onMouseOver={handleMouseOver}  */}
-         
-        </form>
-      {/* <button onClick={handleClick}>
-      click me
-      </button> */}
-    </div>
     
+        
+         </form>  */}
+
+    </div>
+  
   );
 }
 
