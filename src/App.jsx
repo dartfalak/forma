@@ -696,24 +696,24 @@ function App() {
   <button onClick={handleClick}>
     {text}
   </button>
- )
+//  )
 
 
-  return (
-    <div>
-        <button onClick={() => alert("button clicked")}>
-          Click me
-        </button>
+//   return (
+//     <div>
+//         <button onClick={() => alert("button clicked")}>
+//           Click me
+//         </button>
        
-       {/* <form onSubmit={handleSubmit}>
-        <input type="text"
-         onChange={(e) => handleInputChange(e)}/>
-        <button type='submit'>submit</button>
+//        {/* <form onSubmit={handleSubmit}>
+//         <input type="text"
+//          onChange={(e) => handleInputChange(e)}/>
+//         <button type='submit'>submit</button>
     
         
-         </form>  */}
+//          </form>  */}
 
-    </div>
+//     </div>
   
   );
 }
