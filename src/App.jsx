@@ -732,6 +732,7 @@ function App() {
       <input 
       value={name}
       onChange={(e) => setName(e.target.value)}
+      placeholder="enter your name"
     </div>
   )
 }
