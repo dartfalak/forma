@@ -721,26 +721,26 @@ import React from "react";
 // export default App;
 
 
-import { useState } from "react";
+// import { useState } from "react";
 
-function App() {
-  const [name, setName] = useState("");
+// function App() {
+//   const [name, setName] = useState("");
 
 
-  return (
-    <div>
-      <input 
-      value={name}
-      onChange={(e) => setName(e.target.value)}
-      placeholder="enter your name"
-      />
+//   return (
+//     <div>
+//       <input 
+//       value={name}
+//       onChange={(e) => setName(e.target.value)}
+//       placeholder="enter your name"
+//       />
 
-      <h2>hello, {name}</h2>
-    </div>
-  );
-}
+//       <h2>hello, {name}</h2>
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
 
 
 import { useRef } from "react";
