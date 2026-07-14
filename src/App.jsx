@@ -759,7 +759,8 @@ function App() {
     placeholder="enter your name"
       />
 
-    <button onClick={handleClick}
+    <button onClick={handleClick}>
+      submit
     </button>
     </>
   )
