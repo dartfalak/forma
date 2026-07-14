@@ -763,5 +763,7 @@ function App() {
       submit
     </button>
     </>
-  )
+  );
 }
+
+export default App;
