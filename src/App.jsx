@@ -682,43 +682,43 @@ import React from "react";
 
 // import './App.css'
 
-import { useState } from "react";
+// import { useState } from "react";
 
-function App() {
+// function App() {
 
- const [ text, setText] = useState("click me");
+//  const [ text, setText] = useState("click me");
 
- function handleClick() {
-  setText("clicked");
- }
+//  function handleClick() {
+//   setText("clicked");
+//  }
    
- return (
-  <button onClick={handleClick}>
-    {text}
-  </button>
-//  )
+//  return (
+//   <button onClick={handleClick}>
+//     {text}
+//   </button>
+// //  )
 
 
-//   return (
-//     <div>
-//         <button onClick={() => alert("button clicked")}>
-//           Click me
-//         </button>
+// //   return (
+// //     <div>
+// //         <button onClick={() => alert("button clicked")}>
+// //           Click me
+// //         </button>
        
-//        {/* <form onSubmit={handleSubmit}>
-//         <input type="text"
-//          onChange={(e) => handleInputChange(e)}/>
-//         <button type='submit'>submit</button>
+// //        {/* <form onSubmit={handleSubmit}>
+// //         <input type="text"
+// //          onChange={(e) => handleInputChange(e)}/>
+// //         <button type='submit'>submit</button>
     
         
-//          </form>  */}
+// //          </form>  */}
 
-//     </div>
+// //     </div>
   
-  );
-}
+//   );
+// }
 
-export default App;
+// export default App;
 
 
 import { useState } from "react";
