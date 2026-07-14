@@ -741,3 +741,14 @@ function App() {
 }
 
 export default App;
+
+
+import { useRef } from "react";
+
+function App() {
+  const inputRef = useRef();
+
+  function handleClick() {
+    alert(inputRef.current.value)
+  }
+}
