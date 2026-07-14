@@ -749,6 +749,18 @@ function App() {
   const inputRef = useRef();
 
   function handleClick() {
-    alert(inputRef.current.value)
+    alert(inputRef.current.value);
   }
+
+  return (
+    <>
+    <input
+    ref={inputRef}
+    placeholder="enter your name"
+      />
+
+    <button onClick={handleClick}
+    </button>
+    </>
+  )
 }
