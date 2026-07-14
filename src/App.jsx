@@ -733,6 +733,9 @@ function App() {
       value={name}
       onChange={(e) => setName(e.target.value)}
       placeholder="enter your name"
+      />
+
+      <h2>hello, {name}</h2>
     </div>
   )
 }
