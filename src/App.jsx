@@ -754,6 +754,7 @@ function App() {
 
   return (
     <>
+    <h2>uncontrolled component</h2>
     <input
     ref={inputRef}
     placeholder="enter your name"
