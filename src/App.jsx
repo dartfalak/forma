@@ -749,7 +749,7 @@ function App() {
   const inputRef = useRef();
 
   function handleClick() {
-    alert("you name is:" + inputRef.current.value);
+    alert("your name is:" + inputRef.current.value);
   }
 
   return (
