@@ -770,8 +770,9 @@ function App() {
 export default App;
 
 function Greeting(props) {
-  return {
+  return (
     <div>
     {props.render("falak")}
     </div>
+  );
 }
