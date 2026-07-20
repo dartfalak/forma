@@ -743,31 +743,31 @@ import React from "react";
 // export default App;
 
 
-import { useRef } from "react";
+// import { useRef } from "react";
 
-function App() {
-  const inputRef = useRef();
+// function App() {
+//   const inputRef = useRef();
 
-  function handleClick() {
-    alert("your name is:" + inputRef.current.value);
-  }
+//   function handleClick() {
+//     alert("your name is:" + inputRef.current.value);
+//   }
 
-  return (
-    <>
-    <h2>uncontrolled component</h2>
-    <input
-    ref={inputRef}
-    placeholder="enter your name"
-      />
+//   return (
+//     <>
+//     <h2>uncontrolled component</h2>
+//     <input
+//     ref={inputRef}
+//     placeholder="enter your name"
+//       />
 
-    <button onClick={handleClick}>
-      submit
-    </button>
-    </>
-  );
-}
+//     <button onClick={handleClick}>
+//       submit
+//     </button>
+//     </>
+//   );
+// }
 
-export default App;
+// export default App;
 
 function Greeting(props) {
   return (
