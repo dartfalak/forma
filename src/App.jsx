@@ -769,3 +769,9 @@ function App() {
 
 export default App;
 
+function Greeting(props) {
+  return {
+    <div>
+    {props.render("falak")}
+    </div>
+}
