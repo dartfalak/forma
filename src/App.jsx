@@ -780,7 +780,8 @@ function Greeting(props) {
 function App() {
   return (
     <Greeting
-    render={(name) => <h1>hello,{name}!</h1>
+    render={(name) => <h1>hello,{name}!</h1>}
+    />
 
   )
 }
