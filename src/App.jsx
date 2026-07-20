@@ -783,5 +783,5 @@ function App() {
     render={(name) => <h1>hello,{name}!</h1>}
     />
 
-  )
+  );
 }
