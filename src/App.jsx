@@ -776,3 +776,10 @@ function Greeting(props) {
     </div>
   );
 }
+
+function App() {
+  return (
+    <Greeting
+    render={(name)}
+  )
+}
