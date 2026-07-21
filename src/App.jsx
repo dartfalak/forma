@@ -787,3 +787,17 @@ function App() {
 }
 
 export default App;
+
+
+import './App.css'
+import Card from './Card'
+
+function App() {
+  return (
+    <div>
+      <Card name="jack">
+        <h1>im learning react</h1>
+      </Card>
+    </div>
+  )
+}
