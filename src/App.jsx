@@ -660,133 +660,133 @@ import React from "react";
 // // }
 
 
-// return (
-// <div>
-//   {/* {<LoggerComponent/>} */}
-//   {/* { <TimerComponent/>  }  */}
+// // return (
+// // <div>
+// //   {/* {<LoggerComponent/>} */}
+// //   {/* { <TimerComponent/>  }  */}
 
 
-// {/* //     <button onClick ={handleClick}>
-// //       update count
-// //     </button>
+// // {/* //     <button onClick ={handleClick}>
+// // //       update count
+// // //     </button>
 
 
-// //         <button onClick ={handleClickTotal}>
-// //       update total
-// //     </button> */}
-//    </div>
-//  );
-//  }
+// // //         <button onClick ={handleClickTotal}>
+// // //       update total
+// // //     </button> */}
+// //    </div>
+// //  );
+// //  }
 
-//  export default App;
+// //  export default App;
 
-// import './App.css'
+// // import './App.css'
 
-// import { useState } from "react";
+// // import { useState } from "react";
 
-// function App() {
+// // function App() {
 
-//  const [ text, setText] = useState("click me");
+// //  const [ text, setText] = useState("click me");
 
-//  function handleClick() {
-//   setText("clicked");
-//  }
+// //  function handleClick() {
+// //   setText("clicked");
+// //  }
    
-//  return (
-//   <button onClick={handleClick}>
-//     {text}
-//   </button>
-// //  )
+// //  return (
+// //   <button onClick={handleClick}>
+// //     {text}
+// //   </button>
+// // //  )
+
+
+// // //   return (
+// // //     <div>
+// // //         <button onClick={() => alert("button clicked")}>
+// // //           Click me
+// // //         </button>
+       
+// // //        {/* <form onSubmit={handleSubmit}>
+// // //         <input type="text"
+// // //          onChange={(e) => handleInputChange(e)}/>
+// // //         <button type='submit'>submit</button>
+    
+        
+// // //          </form>  */}
+
+// // //     </div>
+  
+// //   );
+// // }
+
+// // export default App;
+
+
+// // import { useState } from "react";
+
+// // function App() {
+// //   const [name, setName] = useState("");
 
 
 // //   return (
 // //     <div>
-// //         <button onClick={() => alert("button clicked")}>
-// //           Click me
-// //         </button>
-       
-// //        {/* <form onSubmit={handleSubmit}>
-// //         <input type="text"
-// //          onChange={(e) => handleInputChange(e)}/>
-// //         <button type='submit'>submit</button>
-    
-        
-// //          </form>  */}
+// //       <input 
+// //       value={name}
+// //       onChange={(e) => setName(e.target.value)}
+// //       placeholder="enter your name"
+// //       />
 
+// //       <h2>hello, {name}</h2>
 // //     </div>
-  
-//   );
-// }
+// //   );
+// // }
 
-// export default App;
-
-
-// import { useState } from "react";
-
-// function App() {
-//   const [name, setName] = useState("");
+// // export default App;
 
 
+// // import { useRef } from "react";
+
+// // function App() {
+// //   const inputRef = useRef();
+
+// //   function handleClick() {
+// //     alert("your name is:" + inputRef.current.value);
+// //   }
+
+// //   return (
+// //     <>
+// //     <h2>uncontrolled component</h2>
+// //     <input
+// //     ref={inputRef}
+// //     placeholder="enter your name"
+// //       />
+
+// //     <button onClick={handleClick}>
+// //       submit
+// //     </button>
+// //     </>
+// //   );
+// // }
+
+// // export default App;
+
+// function Greeting(props) {
 //   return (
 //     <div>
-//       <input 
-//       value={name}
-//       onChange={(e) => setName(e.target.value)}
-//       placeholder="enter your name"
-//       />
-
-//       <h2>hello, {name}</h2>
+//     {props.render("falak")}
 //     </div>
 //   );
 // }
 
-// export default App;
-
-
-// import { useRef } from "react";
-
 // function App() {
-//   const inputRef = useRef();
-
-//   function handleClick() {
-//     alert("your name is:" + inputRef.current.value);
-//   }
-
 //   return (
-//     <>
-//     <h2>uncontrolled component</h2>
-//     <input
-//     ref={inputRef}
-//     placeholder="enter your name"
-//       />
+//     <Greeting
+//     render={(name) => <h1>hello,{name}!</h1>}
+//     />
 
-//     <button onClick={handleClick}>
-//       submit
-//     </button>
-//     </>
 //   );
 // }
 
 // export default App;
-
-function Greeting(props) {
-  return (
-    <div>
-    {props.render("falak")}
-    </div>
-  );
-}
-
-function App() {
-  return (
-    <Greeting
-    render={(name) => <h1>hello,{name}!</h1>}
-    />
-
-  );
-}
-
-export default App;
 
 
 import './App.css'
