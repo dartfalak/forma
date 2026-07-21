@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card= (props) => {
+const Card = (props) => {
     return (
         <div>
             {props.children}
@@ -8,4 +8,4 @@ const Card= (props) => {
     );
 }
 
-export default App;
+export default Card;
