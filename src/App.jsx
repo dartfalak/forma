@@ -795,10 +795,11 @@ import Card from './Card'
 function App() {
   return (
     <div>
-      <Card name="jack">
+      <Button/>
+      {/* <Card name="jack">
         <h1>im learning react</h1>
         <p>this is my first card component</p>
-      </Card>
+      </Card> */}
     </div>
   );
 }
