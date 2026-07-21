@@ -797,6 +797,7 @@ function App() {
     <div>
       <Card name="jack">
         <h1>im learning react</h1>
+        <p>this is my first card component</p>
       </Card>
     </div>
   )
