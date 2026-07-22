@@ -789,6 +789,8 @@ import React from "react";
 // export default App;
 
 
+import './App.css'
+import Card from './Card'
 
 function App() {
   return (
