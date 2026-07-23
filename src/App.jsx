@@ -797,9 +797,12 @@ import Card from './Card'
 function App() {
 
   const [name, setName] = useState('');
+
   return (
     <div>
-    <Card name={name} setName={setName}/>
+    <Card title="Card1" name={name} setName={setName}/>
+      <p>current user:{name}</p>
+    <Card title="Card2" name={name} setName={setName}/>
     <p>current user:{name}</p>
     </div>
   );
