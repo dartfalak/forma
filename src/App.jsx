@@ -798,6 +798,7 @@ function App() {
   return (
     <div>
     <Card name={name} setName={setName}/>
+    <p>current user:{name}</p>
     </div>
   );
 }
