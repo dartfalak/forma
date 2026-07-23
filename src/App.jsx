@@ -789,29 +789,15 @@ import React from "react";
 // export default App;
 
 
-// import './App.css'
-// import Card from './Card'
-
-// function App() {
-//   return (
-//     <div>
-//       <Button/>
-//       {/* <Card name="jack">
-//         <h1>im learning react</h1>
-//         <p>this is my first card component</p>
-//       </Card> */}
-//     </div>
-//   );
-// }
-
-// export default App;
-
+//  
 import './App.css'
 
 function App() {
+
+  const [name, setName] = useState('');
   return (
     <div>
-    hello
+    <Card name={name} setName={setName}/>
     </div>
   );
 }

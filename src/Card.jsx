@@ -3,7 +3,7 @@ import React from 'react';
 const Card = (props) => {
     return (
         <div>
-            {props.children}
+            <input type='text'/>
         </div>
     );
 }
