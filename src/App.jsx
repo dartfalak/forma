@@ -801,7 +801,6 @@ function App() {
   return (
     <div>
     <Card title="Card1" />
-      <p>current user:{name}</p>
     <Card title="Card2" />
     
     </div>
