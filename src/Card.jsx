@@ -14,5 +14,12 @@
 import { useState } from 'react';
 
 function Card({ title }) {
-    const [name, setName] = useState()
+    const [name, setName] = useState("");
+
+    return (
+        <>
+        <input value={name}
+        onChange={() => setName(e.target.value)
+        </>
+    )
 }
