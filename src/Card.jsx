@@ -18,8 +18,11 @@ function Card({ title }) {
 
     return (
         <>
-        <input value={name}
-        onChange={() => setName(e.target.value)
+        <input 
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+            />
+            <p>current user:{name}</p>
         </>
     )
 }
