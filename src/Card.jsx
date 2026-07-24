@@ -24,5 +24,7 @@ function Card({ title }) {
             />
             <p>current user:{name}</p>
         </>
-    )
+    );
 }
+
+export default Card;
