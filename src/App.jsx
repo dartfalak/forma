@@ -803,7 +803,7 @@ function App() {
     <Card title="Card1" />
       <p>current user:{name}</p>
     <Card title="Card2" />
-    <p>current user:{name}</p>
+    
     </div>
   );
 }
