@@ -14,15 +14,17 @@
 import { useState } from 'react';
 
 function Card({ title }) {
-    const [name, setName] = useState("");
+    const [likes, setLikes] = useState(0);
 
     return (
         <>
-        <input 
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-            />
-            <p>current user:{name}</p>
+        <h2>{title}</h2>
+
+        <button onClick={() => setLikes(likes + 1)}>
+            Like
+        </button>
+
+        <p>Likes: {likes}</p>
         </>
     );
 }
