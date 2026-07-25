@@ -796,7 +796,6 @@ import Card from './Card'
 
 function App() {
 
-  const [name, setName] = useState('');
 
   return (
     <div>
