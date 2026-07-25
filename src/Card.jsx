@@ -20,7 +20,6 @@ function Card({ title }) {
         <>
         <h2>{title}</h2>
 
-        <button onClick={() => setLikes(likes + 1)}>
             Like
         </button>
 
