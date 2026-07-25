@@ -24,7 +24,7 @@ function Card({ title }) {
             Like
         </button>
 
-        <p>Likes: {likes}</p>
+       
         </>
     );
 }
