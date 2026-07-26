@@ -31,7 +31,7 @@ import React from 'react';
 
 // export default Card;
 
-const Buttom = () => {
+const Button = () => {
     return ( 
         <button onClick={}>
             click here
