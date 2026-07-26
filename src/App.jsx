@@ -806,6 +806,7 @@ function App() {
 
   return (
     <div>
+      <Button incrementCount={handleClick}/>
      {/* <Card title="Card1" />
     <Card title="Card2" />
      */}
