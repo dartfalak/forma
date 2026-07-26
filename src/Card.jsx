@@ -36,5 +36,7 @@ const Buttom = () => {
         <button onClick={}>
             click here
         </button>
-    )
+    );
 }
+
+export default Button;
