@@ -31,9 +31,9 @@ import React from 'react';
 
 // export default Card;
 
-const Button = () => {
+const Button = (props) => {
     return ( 
-        <button onClick={}>
+        <button onClick={props.handleClick}>
             click here
         </button>
     );
