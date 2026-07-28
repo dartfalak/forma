@@ -31,13 +31,13 @@ import React from 'react';
 
 // export default Card;
 
-const Button = (props) => {
-    return ( 
-        <button onClick={props.incrementCount}>
+// const Button = (props) => {
+//     return ( 
+//         <button onClick={props.incrementCount}>
     
-            {props.text}
-        </button>
-    );
-}
+//             {props.text}
+//         </button>
+//     );
+// }
 
-export default Button;
+// export default Button;

@@ -791,18 +791,15 @@ import React from "react";
 
  
 import { useState } from 'react';
-import './App.css'
-// import Card from './Button'
-import Button from './Button'
+// import './App.css'
+ import TemperatureInput from './TemperatureInput'
+import TemperatureDisplay from './TemperatureDisplay'
 
 function App() {
 
-  const [ count, setCount] = useState(0);
+  const [ temp, setTemp] = useState("");
 
-  function handleCLick() {
-    setCount(count + 1);
-  }
-        
+ 
 
   return (
     <div>
