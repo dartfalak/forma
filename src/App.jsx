@@ -792,7 +792,7 @@ import React from "react";
  
 import { useState } from 'react';
 import './App.css'
-import Card from './Card'
+// import Card from './Button'
 import Button from './Button'
 
 function App() {
@@ -806,7 +806,7 @@ function App() {
 
   return (
     <div>
-      <Button incrementCount={handleClick}/>
+      <Button incrementCount={handleClick} text="click me"/>
      {/* <Card title="Card1" />
     <Card title="Card2" />
      */}
