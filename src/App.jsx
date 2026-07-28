@@ -799,15 +799,14 @@ function App() {
 
   const [ temp, setTemp] = useState("");
 
- 
 
   return (
-    <div>
-      <Button incrementCount={handleClick} text="click me"/>
-     {/* <Card title="Card1" />
-    <Card title="Card2" />
-     */}
-    </div>
+    <>
+      <TemperatureInput temp={temp} setTemp={setTemp}/>
+       <TemperatureDisplay temp={temp} />
+
+  
+    </>
   );
 }
 
