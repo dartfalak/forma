@@ -801,8 +801,9 @@ function App() {
 
 
   return (
-    <>      <TemperatureInput temp={temp} setTemp={setTemp}/>
-       <TemperatureDisplay temp={temp} />
+    <>   
+     <TemperatureInput temp={temp} setTemp={setTemp}/>
+     <TemperatureDisplay temp={temp} />
 
   
     </>
