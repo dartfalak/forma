@@ -818,4 +818,9 @@ function App() {
   function sayHello() {
     alert('hi  ${name}');
   }
+  return (
+    <button onClick={sayHello}>
+      
+    </button>
+  )
 }
