@@ -822,3 +822,7 @@ function counter() {
 }
 
 const increment = counter();
+
+increment();
+increment();
+increment();
