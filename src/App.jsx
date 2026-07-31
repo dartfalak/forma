@@ -812,20 +812,10 @@ import React from "react";
 // export default App;
 
 
-function counter() {
-  let count=0;
+function App() {
+  const [name] = useState("falak")
 
-  return function () {
-    count++;
-    console.log(count);
-  };
+  function sayHello() {
+    alert('hi  ${name}');
+  }
 }
-
-const increment = counter();
-
-increment();
-increment();
-increment();
-
-
-export default App;
