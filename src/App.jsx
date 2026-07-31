@@ -820,3 +820,5 @@ function counter() {
     console.log(count);
   };
 }
+
+const increment = counter();
