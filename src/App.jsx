@@ -826,3 +826,6 @@ const increment = counter();
 increment();
 increment();
 increment();
+
+
+export default App;
