@@ -817,5 +817,6 @@ function counter() {
 
   return function () {
     count++;
-  }
+    console.log(count);
+  };
 }
