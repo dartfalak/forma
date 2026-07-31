@@ -805,9 +805,17 @@ function App() {
      <TemperatureInput temp={temp} setTemp={setTemp}/>
      <TemperatureDisplay temp={temp} />
 
-  
     </>
   );
 }
 
 export default App;
+
+
+function counter() {
+  let count=0;
+
+  return function () {
+    count++;
+  }
+}
