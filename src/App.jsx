@@ -812,11 +812,13 @@ import React from "react";
 // export default App;
 
 
+import { useState } from "react";
+
 function App() {
-  const [name] = useState("falak")
+  const [name] = useState("falak");
 
   function sayHello() {
-    alert('hi  ${name}');
+    alert('hi ${name}');
   }
   return (
     <button onClick={sayHello}>
