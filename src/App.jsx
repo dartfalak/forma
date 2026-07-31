@@ -756,60 +756,60 @@ import React from "react";
 // //     <>
 // //     <h2>uncontrolled component</h2>
 // //     <input
-// //     ref={inputRef}
-// //     placeholder="enter your name"
-// //       />
+// // //     ref={inputRef}
+// // //     placeholder="enter your name"
+// // //       />
 
-// //     <button onClick={handleClick}>
-// //       submit
-// //     </button>
-// //     </>
+// // //     <button onClick={handleClick}>
+// // //       submit
+// // //     </button>
+// // //     </>
+// // //   );
+// // // }
+
+// // // export default App;
+
+// // function Greeting(props) {
+// //   return (
+// //     <div>
+// //     {props.render("falak")}
+// //     </div>
+// //   );
+// // }
+
+// // function App() {
+// //   return (
+// //     <Greeting
+// //     render={(name) => <h1>hello,{name}!</h1>}
+// //     />
+
 // //   );
 // // }
 
 // // export default App;
 
-// function Greeting(props) {
-//   return (
-//     <div>
-//     {props.render("falak")}
-//     </div>
-//   );
-// }
+
+ 
+// import { useState } from 'react';
+// // import './App.css'
+//  import TemperatureInput from './TemperatureInput'
+// import TemperatureDisplay from './TemperatureDisplay'
 
 // function App() {
-//   return (
-//     <Greeting
-//     render={(name) => <h1>hello,{name}!</h1>}
-//     />
 
+//   const [ temp, setTemp] = useState("");
+
+
+//   return (
+//     <>   
+//      <TemperatureInput temp={temp} setTemp={setTemp}/>
+//      <TemperatureDisplay temp={temp} />
+
+//     </>
 //   );
 // }
 
 // export default App;
-
-
- 
-import { useState } from 'react';
-// import './App.css'
- import TemperatureInput from './TemperatureInput'
-import TemperatureDisplay from './TemperatureDisplay'
-
-function App() {
-
-  const [ temp, setTemp] = useState("");
-
-
-  return (
-    <>   
-     <TemperatureInput temp={temp} setTemp={setTemp}/>
-     <TemperatureDisplay temp={temp} />
-
-    </>
-  );
-}
-
-export default App;
 
 
 function counter() {
