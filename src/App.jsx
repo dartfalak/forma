@@ -834,5 +834,11 @@ import [ useState, useMemo ] from "react";
 
 function App() {
   
-  const [number,setNumber] = useState(5)
-}
+  const [number,setNumber] = useState(5);
+
+   const [count,setCount] = useState(0);
+
+   const square = useMemo(() =>
+   console.log("calculating value");
+  return number * number;
+},[number])
