@@ -848,5 +848,11 @@ return (
     <h1>count: {count}</h1>
     <h1>number:{number}</h1>
     <h1>square:{square}</h1>
+
+
+    <button onClick={(() => setNumber(number + 1)}>
+    
+
+    </button>
   </div>
 )
