@@ -841,4 +841,12 @@ function App() {
    const square = useMemo(() =>
    console.log("calculating value");
   return number * number;
-},[number])
+},[number]);
+
+return (
+  <div>
+    <h1>count: {count}</h1>
+    <h1>number:{number}</h1>
+    <h1>square:{square}</h1>
+  </div>
+)
