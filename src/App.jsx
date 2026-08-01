@@ -830,29 +830,29 @@ function App() {
 
 export default App;
 
-import [ useState, useMemo ] from "react";
+// import [ useState, useMemo ] from "react";
 
-function App() {
+// function App() {
   
-  const [number,setNumber] = useState(5);
+//   const [number,setNumber] = useState(5);
 
-   const [count,setCount] = useState(0);
+//    const [count,setCount] = useState(0);
 
-   const square = useMemo(() =>
-   console.log("calculating value");
-  return number * number;
-},[number]);
+//    const square = useMemo(() =>
+//    console.log("calculating value");
+//   return number * number;
+// },[number]);
 
-return (
-  <div>
-    <h1>count: {count}</h1>
-    <h1>number:{number}</h1>
-    <h1>square:{square}</h1>
+// return (
+//   <div>
+//     <h1>count: {count}</h1>
+//     <h1>number:{number}</h1>
+//     <h1>square:{square}</h1>
 
 
-    <button onClick={(() => setNumber(number + 1)}>
-    
+//     <button onClick={(() => setNumber(number + 1)}>
 
-    </button>
-  </div>
+
+//     </button>
+//   </div>
 )
