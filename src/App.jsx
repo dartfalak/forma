@@ -829,3 +829,10 @@ function App() {
 }
 
 export default App;
+
+import [ useState, useMemo ] from "react";
+
+function App() {
+  
+  const [number,setNumber] = useState(5)
+}
