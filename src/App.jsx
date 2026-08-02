@@ -864,3 +864,10 @@ return (
 
 export default App;
 
+import { useReducer } from "react";
+
+function bankReducer(state,action) {
+
+  switch(action.type)
+
+}
