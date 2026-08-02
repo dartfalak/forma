@@ -885,5 +885,3 @@ function bankReducer(state,action) {
    }
 
 }
-
-export default bankReducer;
