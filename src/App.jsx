@@ -781,54 +781,54 @@ import React from "react";
 // //   return (
 // //     <Greeting
 // //     render={(name) => <h1>hello,{name}!</h1>}
-// //     />
+// // //     />
 
+// // //   );
+// // // }
+
+// // // export default App;
+
+
+ 
+// // import { useState } from 'react';
+// // // import './App.css'
+// //  import TemperatureInput from './TemperatureInput'
+// // import TemperatureDisplay from './TemperatureDisplay'
+
+// // function App() {
+
+// //   const [ temp, setTemp] = useState("");
+
+
+// //   return (
+// //     <>   
+// //      <TemperatureInput temp={temp} setTemp={setTemp}/>
+// //      <TemperatureDisplay temp={temp} />
+
+// //     </>
 // //   );
 // // }
 
 // // export default App;
 
 
- 
-// import { useState } from 'react';
-// // import './App.css'
-//  import TemperatureInput from './TemperatureInput'
-// import TemperatureDisplay from './TemperatureDisplay'
+// import { useState } from "react";
 
 // function App() {
+//   const [name] = useState("falak");
 
-//   const [ temp, setTemp] = useState("");
-
-
+//   function sayHello() {
+//     alert(`hi ${name}`);
+  
+//   }
 //   return (
-//     <>   
-//      <TemperatureInput temp={temp} setTemp={setTemp}/>
-//      <TemperatureDisplay temp={temp} />
-
-//     </>
+//     <button onClick={sayHello}>
+//       say hello
+//     </button>
 //   );
 // }
 
 // export default App;
-
-
-import { useState } from "react";
-
-function App() {
-  const [name] = useState("falak");
-
-  function sayHello() {
-    alert(`hi ${name}`);
-  
-  }
-  return (
-    <button onClick={sayHello}>
-      say hello
-    </button>
-  );
-}
-
-export default App;
 
 import [ useMemo, useState] from "react";
 
