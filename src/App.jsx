@@ -830,7 +830,7 @@ import React from "react";
 
 // export default App;
 
-import [ useMemo, useState] from "react";
+import { useMemo, useState } from "react";
 
 function App() {
   
