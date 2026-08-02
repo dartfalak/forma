@@ -868,6 +868,11 @@ import { useReducer } from "react";
 
 function bankReducer(state,action) {
 
-  switch(action.type)
+  switch(action.type) {
+
+    case "deposit";
+    return {
+      balance: state.balance + action.amount
+    };  }
 
 }
