@@ -879,6 +879,9 @@ function bankReducer(state,action) {
     return {
       balance: state.balance - action.amount
     };
+
+    default:
+      return state
    }
 
 }
