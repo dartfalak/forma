@@ -862,3 +862,4 @@ return (
   );
 }
 
+export default App;
