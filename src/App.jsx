@@ -738,131 +738,131 @@ import React from "react";
 // //       <h2>hello, {name}</h2>
 // //     </div>
 // //   );
-// // }
+// // // }
 
-// // export default App;
+// // // export default App;
 
 
-// // import { useRef } from "react";
+// // // import { useRef } from "react";
 
-// // function App() {
-// //   const inputRef = useRef();
+// // // function App() {
+// // //   const inputRef = useRef();
 
-// //   function handleClick() {
-// //     alert("your name is:" + inputRef.current.value);
-// //   }
+// // //   function handleClick() {
+// // //     alert("your name is:" + inputRef.current.value);
+// // //   }
 
-// //   return (
-// //     <>
-// //     <h2>uncontrolled component</h2>
-// //     <input
-// // //     ref={inputRef}
-// // //     placeholder="enter your name"
-// // //       />
+// // //   return (
+// // //     <>
+// // //     <h2>uncontrolled component</h2>
+// // //     <input
+// // // //     ref={inputRef}
+// // // //     placeholder="enter your name"
+// // // //       />
 
-// // //     <button onClick={handleClick}>
-// // //       submit
-// // //     </button>
+// // // //     <button onClick={handleClick}>
+// // // //       submit
+// // // //     </button>
+// // // //     </>
+// // // //   );
+// // // // }
+
+// // // // export default App;
+
+// // // function Greeting(props) {
+// // //   return (
+// // //     <div>
+// // //     {props.render("falak")}
+// // //     </div>
+// // //   );
+// // // }
+
+// // // function App() {
+// // //   return (
+// // //     <Greeting
+// // //     render={(name) => <h1>hello,{name}!</h1>}
+// // // //     />
+
+// // // //   );
+// // // // }
+
+// // // // export default App;
+
+
+ 
+// // // import { useState } from 'react';
+// // // // import './App.css'
+// // //  import TemperatureInput from './TemperatureInput'
+// // // import TemperatureDisplay from './TemperatureDisplay'
+
+// // // function App() {
+
+// // //   const [ temp, setTemp] = useState("");
+
+
+// // //   return (
+// // //     <>   
+// // //      <TemperatureInput temp={temp} setTemp={setTemp}/>
+// // //      <TemperatureDisplay temp={temp} />
+
 // // //     </>
 // // //   );
 // // // }
 
 // // // export default App;
 
-// // function Greeting(props) {
-// //   return (
-// //     <div>
-// //     {props.render("falak")}
-// //     </div>
-// //   );
-// // }
+
+// // import { useState } from "react";
 
 // // function App() {
+// //   const [name] = useState("falak");
+
+// //   function sayHello() {
+// //     alert(`hi ${name}`);
+  
+// //   }
 // //   return (
-// //     <Greeting
-// //     render={(name) => <h1>hello,{name}!</h1>}
-// // //     />
-
-// // //   );
-// // // }
-
-// // // export default App;
-
-
- 
-// // import { useState } from 'react';
-// // // import './App.css'
-// //  import TemperatureInput from './TemperatureInput'
-// // import TemperatureDisplay from './TemperatureDisplay'
-
-// // function App() {
-
-// //   const [ temp, setTemp] = useState("");
-
-
-// //   return (
-// //     <>   
-// //      <TemperatureInput temp={temp} setTemp={setTemp}/>
-// //      <TemperatureDisplay temp={temp} />
-
-// //     </>
+// //     <button onClick={sayHello}>
+// //       say hello
+// //     </button>
 // //   );
 // // }
 
 // // export default App;
 
-
-// import { useState } from "react";
+// import { useMemo, useState } from "react";
 
 // function App() {
-//   const [name] = useState("falak");
-
-//   function sayHello() {
-//     alert(`hi ${name}`);
   
-//   }
-//   return (
-//     <button onClick={sayHello}>
-//       say hello
+//   const [number,setNumber] = useState(5);
+
+//    const [count,setCount] = useState(0);
+
+//    const square = useMemo(() => {
+//    console.log("calculating value");
+//   return number * number;
+// },[number]);
+
+// return (
+//   <div>
+//     <h1>count: {count}</h1>
+//     <h1>number:{number}</h1>
+//     <h1>square:{square}</h1>
+
+
+//     <button onClick={() => setNumber(number + 1)}>
+//       increase number
 //     </button>
+
+    
+//     <button onClick={() => setCount(count + 1)}>
+//       increase count
+//     </button>
+//   </div>
 //   );
 // }
 
 // export default App;
-
-import { useMemo, useState } from "react";
-
-function App() {
-  
-  const [number,setNumber] = useState(5);
-
-   const [count,setCount] = useState(0);
-
-   const square = useMemo(() => {
-   console.log("calculating value");
-  return number * number;
-},[number]);
-
-return (
-  <div>
-    <h1>count: {count}</h1>
-    <h1>number:{number}</h1>
-    <h1>square:{square}</h1>
-
-
-    <button onClick={() => setNumber(number + 1)}>
-      increase number
-    </button>
-
-    
-    <button onClick={() => setCount(count + 1)}>
-      increase count
-    </button>
-  </div>
-  );
-}
-
-export default App;
 
 import { useReducer } from "react";
 
@@ -881,7 +881,7 @@ function bankReducer(state,action) {
     };
 
     default:
-      return state
+      return state;
    }
 
 }
