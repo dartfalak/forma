@@ -873,6 +873,12 @@ function bankReducer(state,action) {
     case "deposit";
     return {
       balance: state.balance + action.amount
-    };  }
+    };
+
+    case "withdraw";
+    return {
+      balance: state.balance - action.amount
+    };
+   }
 
 }
