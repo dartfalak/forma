@@ -851,7 +851,7 @@ return (
 
 
     <button onClick={() => setNumber(number + 1)}>
-      increase 
+      increase number
     </button>
 
     
