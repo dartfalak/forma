@@ -912,6 +912,10 @@ function App() {
       <h1>
         {isOn ? "Light is ON:" : "Light is OFF"}
       </h1>
+
+
+      <button onClick={() => dispatch({type:
+      "turnOn"})}></button>
     </div>
   )
 }
