@@ -905,4 +905,13 @@ function lightReducer(state, action) {
     
 function App() {
   const [isOn, dispatch] = useReducer(lightReducer, false);
+
+
+  return (
+    <div>
+      <h1>
+        {isOn ? "Light is ON:" : "Light is OFF"}
+      </h1>
+    </div>
+  )
 }
