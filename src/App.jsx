@@ -864,43 +864,43 @@ import React from "react";
 
 // export default App;
 
-import { useReducer } from "react";
+// import { useReducer } from "react";
 
-function bankReducer(state,action) {
+// function bankReducer(state,action) {
 
-  switch(action.type) {
+//   switch(action.type) {
 
-    case "deposit":
-    return {
-      balance: state.balance + action.amount
-    };
+//     case "deposit":
+//     return {
+//       balance: state.balance + action.amount
+//     };
 
-    case "withdraw":
-    return {
-      balance: state.balance - action.amount
-    };
+//     case "withdraw":
+//     return {
+//       balance: state.balance - action.amount
+//     };
 
-    default:
-      return state;
-   }
+//     default:
+//       return state;
+//    }
 
-}
+// }
 
-import { useReducer } from 'react';
+// import { useReducer } from 'react';
 
-function lightReducer(state, action) {
+// function lightReducer(state, action) {
 
-  switch (action.type) {
-    case "turnOn":
-      return true;
+//   switch (action.type) {
+//     case "turnOn":
+//       return true;
 
-      case "turnOff":
-        return false;
+//       case "turnOff":
+//         return false;
 
-      default:
-        return state;
-  }
-}
+//       default:
+//         return state;
+//   }
+// }
 
     
 function App() {
@@ -925,5 +925,7 @@ function App() {
         Turn Off
       </button>
     </div>
-  )
+  );
 }
+
+export default App;
