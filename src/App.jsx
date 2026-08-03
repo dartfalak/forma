@@ -893,6 +893,9 @@ function lightReducer(state, action) {
   switch (action.type) {
     case "turnOn":
       return true;
+
+      case "turnOff":
+        return false;s
   }
 }
 
