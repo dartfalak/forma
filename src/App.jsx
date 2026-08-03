@@ -915,7 +915,9 @@ function App() {
 
 
       <button onClick={() => dispatch({type:
-      "turnOn"})}></button>
+      "turnOn"})}>
+        Turn On
+      </button>
     </div>
   )
 }
