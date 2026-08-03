@@ -903,3 +903,6 @@ function lightReducer(state, action) {
 }
 
     
+function App() {
+  const [isOn, dispatch] = useReducer(lightReducer, false);
+}
