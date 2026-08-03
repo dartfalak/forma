@@ -895,7 +895,10 @@ function lightReducer(state, action) {
       return true;
 
       case "turnOff":
-        return false;s
+        return false;
+
+      default:
+        return state;
   }
 }
 
