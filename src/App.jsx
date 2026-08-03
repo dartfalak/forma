@@ -888,6 +888,12 @@ function bankReducer(state,action) {
 
 import { useReducer } from 'react';
 
-function lightReducer(state, action) 
+function lightReducer(state, action) {
+
+  switch (action.type) {
+    case "turnOn":
+      return true;
+  }
+}
 
     
