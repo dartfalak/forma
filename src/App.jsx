@@ -945,8 +945,7 @@ function App() {
       <ul>
         {names.map((name) => (
           <li>{name}</li>
-
-        )
+        ))}
       </ul>
     </div>
   )
