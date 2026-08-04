@@ -938,5 +938,13 @@ export default App;
 
 function App() {
 
-  const names = ["Sam" , "Anna" , "Alex"]
+  const names = ["Sam" , "Anna" , "Alex"];
+
+  return (
+    <div>
+      <ul>
+        {names.map((name) =>
+      </ul>
+    </div>
+  )
 }
