@@ -934,3 +934,9 @@ function App() {
 }
 
 export default App;
+
+
+function App() {
+
+  const names = ["Sam" , "Anna" , "Alex"]
+}
