@@ -897,44 +897,44 @@ import React from "react";
 //       case "turnOff":
 //         return false;
 
-//       default:
-//         return state;
-//   }
+// //       default:
+// //         return state;
+// //   }
 
-// }
+// // }
 
 
-
- import { useReducer } from 'react';
+// import { useReducer } from 'react';
 
     
-function App() {
-  const [isOn, dispatch] = useReducer(lightReducer, false);
+// function App() {
+//   const [isOn, dispatch] = useReducer(lightReducer, false);
 
 
-  return (
-    <div>
-      <h1>
-        {isOn ? "Light is ON:" : "Light is OFF"}
-      </h1>
+//   return (
+//     <div>
+//       <h1>
+//         {isOn ? "Light is ON:" : "Light is OFF"}
+//       </h1>
 
 
-      <button onClick={() => dispatch({type:
-      "turnOn"})}>
-        Turn On
-      </button>
+//       <button onClick={() => dispatch({type:
+//       "turnOn"})}>
+//         Turn On
+//       </button>
 
       
-      <button onClick={() => dispatch({type:
-      "turnOff"})}>
-        Turn Off
-      </button>
-    </div>
-  );
-}
+//       <button onClick={() => dispatch({type:
+//       "turnOff"})}>
+//         Turn Off
+//       </button>
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
 
+ 
 
 function App() {
 
@@ -948,5 +948,5 @@ function App() {
         ))}
       </ul>
     </div>
-  )
+  );
 }
