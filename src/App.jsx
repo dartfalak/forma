@@ -943,7 +943,10 @@ function App() {
   return (
     <div>
       <ul>
-        {names.map((name) =>
+        {names.map((name) => (
+          <li>{name}</li>
+
+        )
       </ul>
     </div>
   )
