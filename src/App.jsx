@@ -971,6 +971,8 @@ function App() {
 
      <h2>searching for: {search}</h2>
     </>
-  )''
+  );
 }
 
+
+export default App;
