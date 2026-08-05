@@ -936,23 +936,23 @@ import React from "react";
 
  
 
-function App() {
+// function App() {
 
-  const names = ["Sam" , "Anna" , "Alex"];
+//   const names = ["Sam" , "Anna" , "Alex"];
 
-  return (
-    <div>
-      <ul>
-        {names.map((name) => (
-          <li>{name}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <ul>
+//         {names.map((name) => (
+//           <li>{name}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
 
 
-export default App;
+// export default App;
 
 
 import { useState } from "react";
@@ -971,6 +971,6 @@ function App() {
 
      <h2>searching for: {search}</h2>
     </>
-  )
+  )''
 }
 
