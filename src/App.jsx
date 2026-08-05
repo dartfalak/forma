@@ -953,3 +953,11 @@ function App() {
 
 
 export default App;
+
+
+import { useState } from "react";
+
+function App() {
+  const [search, setSearch] = useState("");
+}
+
