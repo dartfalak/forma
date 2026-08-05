@@ -968,6 +968,8 @@ function App() {
      value={search} 
      onChange={(e) => setSearch(e.target.value)}
      />
+
+     <h2>searching for: {search}</h2>
     </>
   )
 }
