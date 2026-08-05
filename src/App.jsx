@@ -963,7 +963,11 @@ function App() {
 
   return (
     <>
-    <input type="text" placeholder="search...."
+    <input type="text"
+     placeholder="search...."
+     value={search} 
+     onChange={(e) => setSearch(e.target.value)}
+     />
     </>
   )
 }
