@@ -959,5 +959,12 @@ import { useState } from "react";
 
 function App() {
   const [search, setSearch] = useState("");
+
+
+  return (
+    <>
+    <input type="text" placeholder="search...."
+    </>
+  )
 }
 
