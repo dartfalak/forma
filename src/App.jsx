@@ -984,14 +984,9 @@ function App() {
 
 
   return (
-    <>
-    <input type="text"
-     placeholder="search...."
-     value={search} 
-     onChange={(e) => setSearch(e.target.value)}
-     />
-
+    <div>
+   <p>{allNames}</p>
      <h2>searching for: {search}</h2>
-    </>
+    </div>
   );
 }
