@@ -980,7 +980,7 @@ export default App;
 function App() {
   const names = ["emma" , "anna" , "sophia"];
 
-  const allNames = [...]
+  const allNames = [...names, "john"];
 
 
   return (
