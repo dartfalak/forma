@@ -986,7 +986,7 @@ function App() {
   return (
     <div>
    <p>{allNames}</p>
-     <h2>searching for: {search}</h2>
+     
     </div>
   );
 }
