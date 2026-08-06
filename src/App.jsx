@@ -976,3 +976,20 @@ function App() {
 
 
 export default App;
+
+function App() {
+  const [names, setNames] = ["emma" , "anna" , "sophia"]
+
+
+  return (
+    <>
+    <input type="text"
+     placeholder="search...."
+     value={search} 
+     onChange={(e) => setSearch(e.target.value)}
+     />
+
+     <h2>searching for: {search}</h2>
+    </>
+  );
+}
