@@ -955,27 +955,27 @@ import React from "react";
 // export default App;
 
 
-import { useState } from "react";
+// import { useState } from "react";
 
-function App() {
-  const [search, setSearch] = useState("");
-
-
-  return (
-    <>
-    <input type="text"
-     placeholder="search...."
-     value={search} 
-     onChange={(e) => setSearch(e.target.value)}
-     />
-
-     <h2>searching for: {search}</h2>
-    </>
-  );
-}
+// function App() {
+//   const [search, setSearch] = useState("");
 
 
-export default App;
+//   return (
+//     <>
+//     <input type="text"
+//      placeholder="search...."
+//      value={search} 
+//      onChange={(e) => setSearch(e.target.value)}
+//      />
+
+//      <h2>searching for: {search}</h2>
+//     </>
+//   );
+// }
+
+
+// export default App;
 
 function App() {
   const names = ["emma" , "anna" , "sophia"];
