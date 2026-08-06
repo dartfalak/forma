@@ -978,7 +978,9 @@ function App() {
 export default App;
 
 function App() {
-  const [names, setNames] = ["emma" , "anna" , "sophia"]
+  const names = ["emma" , "anna" , "sophia"];
+
+  const allNames = [...]
 
 
   return (
