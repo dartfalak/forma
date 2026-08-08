@@ -977,21 +977,21 @@ import React from "react";
 
 // export default App;
 
-function App() {
-  const names = ["emma" , "anna" , "sophia"];
+// function App() {
+//   const names = ["emma" , "anna" , "sophia"];
 
-  const allNames = [...names, "john"];
+//   const allNames = [...names, "john"];
 
 
-  return (
-    <div>
-   <p>{allNames}</p>
+//   return (
+//     <div>
+//    <p>{allNames}</p>
      
-    </div>
-  );
-}
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
 
 
 function Student({name, ...details}) {
@@ -1014,5 +1014,6 @@ function App() {
       subject="computer science"
       />
     </div>
-  )
+  );
 }
+
