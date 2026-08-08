@@ -1010,6 +1010,8 @@ function App() {
       <Student
       name="liyanna"
       age={16}
+      className="10th"
+      subject="computer science"
     </div>
   )
 }
