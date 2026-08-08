@@ -998,6 +998,8 @@ function Student({name, ...details}) {
   return (
     <div>
       <h2>{name}</h2>
+      <p>age: {details.age}</p>
+      <p>class: {details.className}</p>
     </div>
   )
 }
