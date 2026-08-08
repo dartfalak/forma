@@ -1012,6 +1012,7 @@ function App() {
       age={16}
       className="10th"
       subject="computer science"
+      />
     </div>
   )
 }
