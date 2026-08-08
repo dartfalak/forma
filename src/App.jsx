@@ -992,3 +992,12 @@ function App() {
 }
 
 export default App;
+
+
+function Student({name, ...details}) {
+  return (
+    <div>
+      <h2>{name}</h2>
+    </div>
+  )
+}
