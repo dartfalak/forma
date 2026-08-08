@@ -1001,5 +1001,15 @@ function Student({name, ...details}) {
       <p>age: {details.age}</p>
       <p>class: {details.className}</p>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <Student
+      name="liyanna"
+      age={16}
+    </div>
   )
 }
