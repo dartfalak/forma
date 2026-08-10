@@ -1018,4 +1018,4 @@ function App() {
   );
 }
 
-export default Student;
+export default App;
