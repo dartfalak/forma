@@ -1003,18 +1003,3 @@ function Student({name, ...details}) {
     </div>
   );
 }
-
-function App() {
-  return (
-    <div>
-      <Student
-      name="liyanna"
-      age={16}
-      className="10th"
-      subject="computer science"
-      />
-    </div>
-  );
-}
-
-export default Student;
