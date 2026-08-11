@@ -1031,6 +1031,7 @@ function LoginForm() {
     <div>
       <div>
         <label htmlFor="{emailId}">email</label>
+        <input id={emailId} type="email" />
       </div>
     </div>
   )
