@@ -1038,6 +1038,8 @@ function LoginForm() {
         <label htmlFor="{passwordId}">password</label>
         <input id={passwordId} type="password" />
       </div>
+
+      <button>login</button>
     </div>
   )
 }
