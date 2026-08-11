@@ -994,31 +994,31 @@ import React, { use } from "react";
 // export default App;
 
 
-function Student({name, ...details}) {
-  return (
-    <div>
-      <h2>{name}</h2>
-      <p>age: {details.age}</p>
-      <p>class: {details.className}</p>
-    </div>
-  );
-}
+// function Student({name, ...details}) {
+//   return (
+//     <div>
+//       <h2>{name}</h2>
+//       <p>age: {details.age}</p>
+//       <p>class: {details.className}</p>
+//     </div>
+//   );
+// }
 
 
-function App() {
-  return (
-    <div>
-      <Student
-      name="liyanna"
-      age={16}
-      className="10th"
-      subject="computer science"
-      />
-    </div>
-  );
-}
+// function App() {
+//   return (
+//     <div>
+//       <Student
+//       name="liyanna"
+//       age={16}
+//       className="10th"
+//       subject="computer science"
+//       />
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
 
 
 import { useId } from "react";
@@ -1041,5 +1041,5 @@ function LoginForm() {
 
       <button>login</button>
     </div>
-  )
+  );
 }
