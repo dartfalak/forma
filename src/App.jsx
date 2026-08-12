@@ -1032,7 +1032,7 @@ function SignUpForm() {
     <div>
       <div>
         <label htmlFor="{nameId}">name</label>
-        <input id={emailId} type="email" />
+        <input id={nameId} type="text" />
       </div>
 
          <div>
