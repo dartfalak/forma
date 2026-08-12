@@ -1023,7 +1023,8 @@ import React, { use } from "react";
 
 import { useId } from "react";
 
-function LoginForm() {
+function SignUpForm() {
+  const nameId = useId();
   const emailId = useId();
   const passwordId = useId();
 
