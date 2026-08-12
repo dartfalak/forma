@@ -1051,4 +1051,4 @@ function SignUpForm() {
 }
 
 
-export default LoginForm;
+export default SignUpForm;
