@@ -1036,6 +1036,11 @@ function SignUpForm() {
       </div>
 
          <div>
+        <label htmlFor="{emailId}">email</label>
+        <input id={emailId} type="email" />
+      </div>
+
+         <div>
         <label htmlFor="{passwordId}">password</label>
         <input id={passwordId} type="password" />
       </div>
