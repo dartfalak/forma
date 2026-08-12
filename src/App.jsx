@@ -1031,7 +1031,7 @@ function SignUpForm() {
   return (
     <div>
       <div>
-        <label htmlFor="{emailId}">email</label>
+        <label htmlFor="{nameId}">name</label>
         <input id={emailId} type="email" />
       </div>
 
