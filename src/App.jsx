@@ -1045,7 +1045,7 @@ function SignUpForm() {
         <input id={passwordId} type="password" />
       </div>
 
-      <button>login</button>
+      <button>Sign Up</button>
     </div>
   );
 }
