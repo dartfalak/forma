@@ -1083,11 +1083,4 @@ function Greeting({name}) {
 }
 
 
-
-
-
-
-
-
-
-}
+export default App;
