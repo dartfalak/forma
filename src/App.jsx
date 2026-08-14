@@ -1021,37 +1021,37 @@ import React, { use } from "react";
 // export default App;
 
 
-import { useId } from "react";
+// import { useId } from "react";
 
-function SignUpForm() {
-  const nameId = useId();
-  const emailId = useId();
-  const passwordId = useId();
+// function SignUpForm() {
+//   const nameId = useId();
+//   const emailId = useId();
+//   const passwordId = useId();
 
-  return (
-    <div>
-      <div>
-        <label htmlFor="{nameId}">name</label>
-        <input id={nameId} type="text" />
-      </div>
+//   return (
+//     <div>
+//       <div>
+//         <label htmlFor="{nameId}">name</label>
+//         <input id={nameId} type="text" />
+//       </div>
 
-         <div>
-        <label htmlFor="{emailId}">email</label>
-        <input id={emailId} type="email" />
-      </div>
+//          <div>
+//         <label htmlFor="{emailId}">email</label>
+//         <input id={emailId} type="email" />
+//       </div>
 
-         <div>
-        <label htmlFor="{passwordId}">password</label>
-        <input id={passwordId} type="password" />
-      </div>
+//          <div>
+//         <label htmlFor="{passwordId}">password</label>
+//         <input id={passwordId} type="password" />
+//       </div>
 
-      <button>Sign Up</button>
-    </div>
-  );
-}
+//       <button>Sign Up</button>
+//     </div>
+//   );
+// }
 
 
-export default SignUpForm;
+// export default SignUpForm;
 
 import { useState } from "react";
 
