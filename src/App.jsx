@@ -1062,7 +1062,7 @@ function App() {
     <div>
       <Input name={name}
       setName={setName}/>
-
+      <Greeting name={name}/>
     </div>
   )
 
