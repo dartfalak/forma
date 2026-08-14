@@ -1074,11 +1074,13 @@ function Input({ name, setName}) {
     onChange={(e) =>
       setName(e.target.value)}
       placeholder="enter your name"
-  )
-
-
+      />
+  );
 }
 
+function Greeting({name}) {
+  return <h2>hi {name}</h2>
+}
 
 
 
