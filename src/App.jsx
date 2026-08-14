@@ -1052,3 +1052,27 @@ function SignUpForm() {
 
 
 export default SignUpForm;
+
+import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+
+  return (
+    <div>
+      <Input name={name}
+      setName={setName}/>
+
+    </div>
+  )
+
+
+
+
+
+
+
+
+
+
+}
