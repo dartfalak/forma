@@ -1091,10 +1091,11 @@ import { useEffect, useState } from "react";
 function App() {
 
   const [posts, setPosts] = useState([]);
+
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
     .then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => setPosts(data));
   },[]);
 
   return <h1>latest posts</h1>;
