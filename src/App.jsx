@@ -1095,4 +1095,5 @@ function App() {
     .then((data) => console.log(data));
   },[]);
 
-  return <h1>latest posts</h1>
+  return <h1>latest posts</h1>;
+}
