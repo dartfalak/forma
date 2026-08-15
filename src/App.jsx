@@ -1098,7 +1098,14 @@ function App() {
     .then((data) => setPosts(data));
   },[]);
 
-  return <h1>latest posts</h1>;
+  return (
+  <div>
+    <h1>post feed</h1>
+
+    {posts.map((post) => (
+      <div key={post.id}>
+    )
+  </div>
 }
 
 export default App;
