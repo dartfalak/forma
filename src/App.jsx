@@ -1094,3 +1094,5 @@ function App() {
     .then((response) => response.json())
     .then((data) => console.log(data));
   },[]);
+
+  return <h1>latest posts</h1>
