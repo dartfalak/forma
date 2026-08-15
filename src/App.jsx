@@ -1097,3 +1097,5 @@ function App() {
 
   return <h1>latest posts</h1>;
 }
+
+export default App;
