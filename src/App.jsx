@@ -1142,5 +1142,19 @@ function App() {
       } catch (error) {
         console.error(error.message);
       }
-      
     }
+
+    getUsers();
+  },[]);
+
+  return (
+    <div>
+      <h2>Users</h2>
+
+      {users.map((user) => (
+        <p key={user.id}</p>
+
+      )
+      }
+    </div>
+  )
