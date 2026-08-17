@@ -1152,7 +1152,7 @@ function App() {
       <h2>Users</h2>
 
       {users.map((user) => (
-        <p key={user.id}</p>
+        <p key={user.id}>{user.name}</p>
 
       )
       }
