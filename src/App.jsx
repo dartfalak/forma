@@ -1135,6 +1135,8 @@ function App() {
         if (!response.ok) {
           throw new Error ( 'HTTP error: ${response.status}')
         }
+
+        const data = await response.json();
       }
       
     }
