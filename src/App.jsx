@@ -1116,3 +1116,20 @@ function App() {
 }
 
 export default App;
+
+
+
+import { useEffect, useState } from "react";
+
+function App() {
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function getUsers() {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/posts"
+      }
+      
+    }
