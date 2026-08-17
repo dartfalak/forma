@@ -1139,6 +1139,8 @@ function App() {
         const data = await response.json();
 
         setUsers(data);
-      } catch (error)
+      } catch (error) {
+        console.error(error.message);
+      }
       
     }
