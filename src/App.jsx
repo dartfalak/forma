@@ -1119,47 +1119,47 @@ import React, { use } from "react";
 
 
 
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-function App() {
+// function App() {
 
-  const [users, setUsers] = useState([]);
+//   const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    async function getUsers() {
-      try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/users"
-        );
+//   useEffect(() => {
+//     async function getUsers() {
+//       try {
+//         const response = await fetch(
+//           "https://jsonplaceholder.typicode.com/users"
+//         );
          
-        if (!response.ok) {
-          throw new Error ( 'HTTP error: ${response.status}')
-        }
+//         if (!response.ok) {
+//           throw new Error ( 'HTTP error: ${response.status}')
+//         }
 
-        const data = await response.json();
-        console.log(data);
+//         const data = await response.json();
+//         console.log(data);
 
-        setUsers(data);
-      } catch (error) {
-        console.error(error.message);
-      }
-    }
+//         setUsers(data);
+//       } catch (error) {
+//         console.error(error.message);
+//       }
+//     }
 
-    getUsers();
-  },[]);
+//     getUsers();
+//   },[]);
 
-  return (
-    <div>
-      <h2>Users</h2>
+//   return (
+//     <div>
+//       <h2>Users</h2>
 
-      {users.map((user) => (
-        <p key={user.id}>{user.name}
-        </p>
+//       {users.map((user) => (
+//         <p key={user.id}>{user.name}
+//         </p>
 
-      ))}
+//       ))}
       
-    </div>
-  );
-}
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
