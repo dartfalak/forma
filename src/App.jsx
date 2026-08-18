@@ -1163,3 +1163,13 @@ import React, { use } from "react";
 // }
 
 // export default App;
+
+import { supabase } from "./supabaseClient";
+
+function App() {
+  console.log(supabase);
+
+  return (
+    <h1>hi</h1>
+  )
+}
