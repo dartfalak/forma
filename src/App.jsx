@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="app">
 
-      {/* Navbar */}
+      
       <nav className="navbar">
 
         <div className="logo">
