@@ -199,7 +199,7 @@ body {
   font-family: "Manrope", sans-serif;
   background-color: #0b0f14;
   color: #f5f7fa;
-  font-weight: 400;
+  
 }
 
 .app {
@@ -213,9 +213,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 20px 60px;
-
   border-bottom: 1px solid #1c2229;
 }
 
@@ -227,9 +225,7 @@ body {
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 4px;
-
   color: #f5f7fa;
-
   line-height: 1;
 }
 
@@ -243,29 +239,22 @@ body {
 
 .nav-links a {
   position: relative;
-
   color: #8e98a4;
-
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-
   transition:
     color 0.25s ease;
 }
 
 .nav-links a::after {
   content: "";
-
   position: absolute;
   left: 0;
   bottom: -6px;
-
   width: 0;
   height: 1px;
-
-  background-color: #426b91;
-
+  background-color: navy;
   transition: width 0.25s ease;
 }
 
