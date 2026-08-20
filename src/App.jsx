@@ -1,16 +1,14 @@
 import React from "react";
 import { supabase } from "./supabaseClient";
 import "./App.css";
-
 function App() {
   return (
     <div className="app">
 
-      
       <nav className="navbar">
 
         <div className="logo">
-          BEAST<span>MODE</span>
+          FORMA
         </div>
 
         <div className="nav-links">
@@ -24,11 +22,10 @@ function App() {
 
       </nav>
 
-    
       <main className="hero">
 
         <div className="badge">
-           Built for Stronger You
+          Built for a Stronger You
         </div>
 
         <h1>
