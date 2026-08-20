@@ -183,14 +183,14 @@
   }
 } */
 
-/* Reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Main page */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #0f0f0f;
@@ -201,7 +201,7 @@ body {
   min-height: 100vh;
 }
 
-/* Navbar */
+
 .navbar {
   display: flex;
   align-items: center;
@@ -212,7 +212,7 @@ body {
   border-bottom: 1px solid #222;
 }
 
-/* Logo */
+
 .logo {
   font-size: 22px;
   font-weight: bold;
@@ -222,7 +222,7 @@ body {
   color: #ff4d00;
 }
 
-/* Navigation links */
+
 .nav-links {
   display: flex;
   gap: 30px;
@@ -238,7 +238,7 @@ body {
   color: white;
 }
 
-/* Navbar button */
+
 .nav-button {
   background-color: #ff4d00;
   color: white;
@@ -255,7 +255,7 @@ body {
   background-color: #e64400;
 }
 
-/* Hero */
+
 .hero {
   min-height: calc(100vh - 80px);
 
