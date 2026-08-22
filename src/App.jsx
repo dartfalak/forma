@@ -1,8 +1,9 @@
 import React from "react";
 import { supabase } from "./supabaseClient";
 import "./App.css";
-
 import Features from "./Features";
+import About from "./About";
+
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
 
       </main>
 <Features />
+
     </div>
   );
 }
