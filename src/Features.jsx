@@ -4,9 +4,7 @@ import "./Features.css";
 function Features() {
   return (
     <>
-      {/* =========================
-          SECTION 1
-      ========================== */}
+  
 
       <section className="features-section">
 
