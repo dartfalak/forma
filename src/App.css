@@ -393,9 +393,7 @@ body {
 
 .secondary-button:hover {
   background-color: #121920;
-
   border-color: #465463;
-
   transform: translateY(-2px);
 }
 
