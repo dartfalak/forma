@@ -63,14 +63,3 @@ function App() {
 }
 
 export default App;
-
-// function App() {
-//   console.log(supabase);
-
-//   return (
-//     <h1>hi</h1>
-//   );
-
-// }
-
-// export default App;
