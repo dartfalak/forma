@@ -57,7 +57,7 @@ function App() {
 
       </main>
 <Features />
-
+<About />
     </div>
   );
 }
