@@ -42,9 +42,6 @@ function Features() {
       </section>
 
 
-      {/* =========================
-          SECTION 2
-      ========================== */}
 
       <section className="features-grid-section">
 
@@ -123,9 +120,7 @@ function Features() {
       </section>
 
 
-      {/* =========================
-          SECTION 3
-      ========================== */}
+      
 
       <section className="features-final">
 
