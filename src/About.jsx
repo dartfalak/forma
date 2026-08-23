@@ -39,10 +39,9 @@ function About() {
       <div className="about-image">
 
         <img
-          src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&q=85"
-          alt="Person training in a gym"
-        />
-
+  src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=75"
+  alt="Man performing a deadlift"
+/>
       </div>
 
     </section>
