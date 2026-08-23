@@ -239,7 +239,6 @@
 
   overflow: hidden;
 
-  border-left: 1px solid #1c2229;
 }
 
 
@@ -278,7 +277,7 @@
 
     border-left: none;
 
-    border-top: 1px solid #1c2229;
+   
 
     order: -1;
   }

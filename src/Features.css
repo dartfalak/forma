@@ -348,8 +348,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  border-top: 1px solid #1c2229;
-  border-bottom: 1px solid #1c2229;
 }
 
 
@@ -364,7 +362,6 @@
 
   overflow: hidden;
 
-  border-right: 1px solid #1c2229;
 }
 
 .features-image img {
