@@ -175,10 +175,10 @@ function Features() {
       <section className="features-section">
 
         <div className="features-image">
-      <img
-  src="https://images.pexels.com/videos/4921641/pictures/preview-0.jpg?auto=compress&cs=tinysrgb&w=800"
-  alt="Man performing a barbell squat"
-/>
+          <img
+            src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=70"
+            alt="Person working out"
+          />
         </div>
 
         <div className="features-content">
