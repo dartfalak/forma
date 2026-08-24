@@ -338,22 +338,6 @@
   color: #68727d;
 }
 
-/* =========================================
-   FIX ABOUT HEADING IN DARK MODE
-========================================= */
-
-/* .about-content h2 {
-  color: #f5f7fa !important;
-}*/
-
-.app.light .about-content h2 {
-  color: #17202a !important;
-}
-
-
-.app.dark .about-content h2 {
-  color: #f5f7fa !important;
-} 
 
 .app.light .about-content h2 {
   color: #17202a !important;
