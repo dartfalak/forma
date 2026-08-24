@@ -260,3 +260,152 @@ body {
     width: 100%;
   }
 }
+
+/* =========================================
+   LIGHT / DARK MODE TOGGLE
+========================================= */
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #111820;
+  color: #dce6ef;
+
+  border: 1px solid #263746;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.25s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  background: #172331;
+  border-color: #3b536b;
+}
+
+.theme-icon {
+  font-size: 17px;
+  line-height: 1;
+}
+
+
+/* =========================================
+   LIGHT MODE
+========================================= */
+
+.light-theme {
+  background-color: #f5f6f7;
+  color: #171b20;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.light-theme .navbar {
+  background-color: #f5f6f7;
+  border-color: #dfe3e7;
+}
+
+.light-theme .logo {
+  color: #171b20;
+}
+
+.light-theme .nav-links a {
+  color: #68727d;
+}
+
+.light-theme .nav-links a:hover {
+  color: #171b20;
+}
+
+.light-theme .theme-toggle {
+  background: #ffffff;
+  color: #263746;
+  border-color: #d5dbe0;
+}
+
+.light-theme .theme-toggle:hover {
+  background: #eef1f4;
+  border-color: #b9c2ca;
+}
+
+
+/* HERO */
+
+.light-theme .hero {
+  background-color: #f5f6f7;
+}
+
+.light-theme .hero h1 {
+  color: #171b20;
+}
+
+.light-theme .hero p {
+  color: #68727d;
+}
+
+.light-theme .badge {
+  background-color: #ffffff;
+  color: #58799b;
+  border-color: #d5dbe0;
+}
+
+
+/* BUTTONS */
+
+.light-theme .secondary-button {
+  color: #303942;
+  border-color: #cbd2d8;
+}
+
+.light-theme .secondary-button:hover {
+  background-color: #e9edf0;
+  border-color: #aeb8c1;
+}
+
+
+/* =========================================
+   SMOOTH THEME TRANSITION
+========================================= */
+
+.app,
+.navbar,
+.hero,
+.badge,
+.theme-toggle,
+.secondary-button {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .theme-toggle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .theme-icon {
+    font-size: 15px;
+  }
+
+}
