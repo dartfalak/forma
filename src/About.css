@@ -337,3 +337,21 @@
 .light-theme .about-content p {
   color: #68727d;
 }
+
+/* =========================================
+   FIX ABOUT HEADING IN DARK MODE
+========================================= */
+
+.about-content h2 {
+  color: #f5f7fa !important;
+}
+
+/* Light mode */
+.app.light .about-content h2 {
+  color: #17202a !important;
+}
+
+/* Dark mode */
+.app.dark .about-content h2 {
+  color: #f5f7fa !important;
+}
