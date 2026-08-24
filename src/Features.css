@@ -792,3 +792,36 @@
     font-size: 48px;
   }
 }
+
+/* =========================================
+   LIGHT MODE - FEATURES
+========================================= */
+
+.light-theme .features-content h2,
+.light-theme .features-heading h2,
+.light-theme .feature-card h3,
+.light-theme .features-final-content h2 {
+  color: #171b20;
+}
+
+.light-theme .features-content p,
+.light-theme .feature-card p,
+.light-theme .features-final-content p {
+  color: #68727d;
+}
+
+.light-theme .features-section,
+.light-theme .features-grid-section,
+.light-theme .features-final {
+  border-color: #dfe3e7;
+}
+
+.light-theme .feature-card {
+  background-color: #ffffff;
+  border-color: #dfe3e7;
+}
+
+.light-theme .feature-card:hover {
+  background-color: #f8f9fa;
+  border-color: #cbd3da;
+}
