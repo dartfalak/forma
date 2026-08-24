@@ -172,8 +172,7 @@ function Features() {
   return (
     <>
       {/* TRAIN WITH PURPOSE */}
-      <section className="features-section">
-
+<section className="features-section" id="features">
         <div className="features-image">
       <img
   src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=75"
