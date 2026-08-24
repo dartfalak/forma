@@ -325,9 +325,9 @@
   }
 }
 
-/* LIGHT MODE */
+/* LIGHT MODE
 .light-theme .about-content h2 {
-  color:white;
+  color:#171b20;
 }
 
 .light-theme .about-label {
@@ -345,4 +345,35 @@
 
 .app.light .about-content p {
   color: #66717d !important;
+} */
+
+/* =========================================
+   ABOUT SECTION - LIGHT / DARK MODE
+========================================= */
+
+/* LIGHT MODE */
+.app.light .about-content h2 {
+  color: #17202a !important;
+}
+
+.app.light .about-content p {
+  color: #66717d !important;
+}
+
+.app.light .about-label {
+  color: #52779d !important;
+}
+
+
+/* DARK MODE */
+.app.dark .about-content h2 {
+  color: #f5f7fa !important;
+}
+
+.app.dark .about-content p {
+  color: #8e98a4 !important;
+}
+
+.app.dark .about-label {
+  color: #7095b8 !important;
 }
