@@ -342,7 +342,7 @@
    FIX ABOUT HEADING IN DARK MODE
 ========================================= */
 
-.about-content h2 {
+/* .about-content h2 {
   color: #f5f7fa !important;
 }
 
@@ -354,4 +354,12 @@
 /* Dark mode */
 .app.dark .about-content h2 {
   color: #f5f7fa !important;
+} */
+
+.app.light .about-content h2 {
+  color: #17202a !important;
+}
+
+.app.light .about-content p {
+  color: #66717d !important;
 }
