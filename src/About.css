@@ -163,12 +163,10 @@
   padding: 80px 70px;
 }
 
-
 .about-label {
-  color: #7095b8;
+  color: #52779d;
 
   font-size: 10px;
-
   font-weight: 700;
 
   letter-spacing: 2px;
@@ -176,13 +174,12 @@
   margin-bottom: 16px;
 }
 
-
 /* ABOUT HEADING */
-
+/* ABOUT HEADING */
 .about-content h2 {
   font-family: "Cormorant Garamond", serif;
 
-  color: #f5f7fa;
+  color: #171b20;
 
   font-size: clamp(45px, 4.5vw, 60px);
 
@@ -194,7 +191,6 @@
 
   margin-bottom: 24px;
 }
-
 
 /* PARAGRAPHS */
 
@@ -327,4 +323,17 @@
   .about-content p {
     font-size: 14px;
   }
+}
+
+/* LIGHT MODE */
+.light-theme .about-content h2 {
+  color: #171b20;
+}
+
+.light-theme .about-label {
+  color: #52779d;
+}
+
+.light-theme .about-content p {
+  color: #68727d;
 }
