@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { supabase } from "./supabaseClient";
 import "./App.css";
 import Features from "./Features";
 import About from "./About";
+import AuthModal from "./AuthModal";
 
 
 function App() {
