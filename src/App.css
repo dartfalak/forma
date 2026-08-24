@@ -26,22 +26,39 @@ body {
 
 
 .navbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
+
   padding: 20px 60px;
   border-bottom: 1px solid #1c2229;
 }
 
-
-
+/* LOGO stays on the LEFT */
 .logo {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 30px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  color: #f5f7fa;
-  line-height: 1;
+  justify-self: start;
+}
+
+/* FEATURES + ABOUT exactly in the CENTER */
+.nav-links {
+  justify-self: center;
+
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* TOGGLE + GET STARTED on the RIGHT */
+.theme-toggle {
+  grid-column: 3;
+  justify-self: end;
+  margin-right: 125px;
+}
+
+/* Get Started button stays on the RIGHT */
+.nav-button {
+  grid-column: 3;
+  justify-self: end;
 }
 
 
