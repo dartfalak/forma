@@ -179,7 +179,8 @@
 .about-content h2 {
   font-family: "Cormorant Garamond", serif;
 
-  color: #171b20;
+  /* DEFAULT = DARK MODE */
+  color: #f5f7fa;
 
   font-size: clamp(45px, 4.5vw, 60px);
 
@@ -348,32 +349,28 @@
 } */
 
 /* =========================================
-   ABOUT SECTION - LIGHT / DARK MODE
+   ABOUT SECTION THEME FIX
 ========================================= */
 
-/* LIGHT MODE */
-.app.light .about-content h2 {
-  color: #17202a !important;
-}
-
-.app.light .about-content p {
-  color: #66717d !important;
-}
-
-.app.light .about-label {
-  color: #52779d !important;
-}
-
-
 /* DARK MODE */
-.app.dark .about-content h2 {
+.about-content h2 {
   color: #f5f7fa !important;
 }
 
-.app.dark .about-content p {
-  color: #8e98a4 !important;
+
+/* LIGHT MODE */
+/* Supports both possible theme class names */
+.light-theme .about-content h2,
+.app.light .about-content h2 {
+  color: #171b20 !important;
 }
 
-.app.dark .about-label {
-  color: #7095b8 !important;
+.light-theme .about-content p,
+.app.light .about-content p {
+  color: #68727d !important;
+}
+
+.light-theme .about-label,
+.app.light .about-label {
+  color: #52779d !important;
 }
