@@ -58,6 +58,9 @@ function App() {
     setShowAuth(false);
   };
 
+  if (session) {
+  return <Dashboard />;
+}
 
   return (
     <div className={`app ${theme}-theme`}>
