@@ -1210,3 +1210,139 @@
 .auth-overlay.light-theme .auth-switch button:hover {
   color: #171b20;
 }
+
+/* =========================================
+   PASSWORD SHOW / HIDE
+========================================= */
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  padding-right: 48px;
+}
+
+.password-toggle {
+  position: absolute;
+
+  top: 50%;
+  right: 12px;
+
+  transform: translateY(-50%);
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #78838e;
+
+  font-size: 17px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.password-toggle:hover {
+  color: #a9bfd3;
+}
+
+.password-toggle:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+
+/* =========================================
+   LIGHT MODE
+========================================= */
+
+.light-theme .password-toggle {
+  color: #68727d;
+}
+
+.light-theme .password-toggle:hover {
+  color: #416b91;
+}
+
+/* =========================================
+   PASSWORD SHOW / HIDE
+========================================= */
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  padding-right: 48px;
+}
+
+.password-toggle {
+  position: absolute;
+
+  top: 50%;
+  right: 12px;
+
+  transform: translateY(-50%);
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #78838e;
+
+  font-size: 17px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.password-toggle:hover {
+  color: #a9bfd3;
+}
+
+.password-toggle:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+
+/* =========================================
+   LIGHT MODE
+========================================= */
+
+.light-theme .password-toggle {
+  color: #68727d;
+}
+
+.light-theme .password-toggle:hover {
+  color: #416b91;
+}
