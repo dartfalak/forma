@@ -18,7 +18,7 @@ function AuthModal({ onClose, theme }) {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
-const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);

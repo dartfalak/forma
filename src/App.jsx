@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
- import { supabase } from "./supabaseClient";
+import { supabase } from "./supabaseClient";
 import "./App.css";
+
 import Features from "./Features";
 import About from "./About";
 import Connect from "./Connect";
 import AuthModal from "./AuthModal";
-
-
+import Dashboard from "./Dashboard";
 function App() {
 
   // Controls whether the Sign In / Sign Up modal is visible
+
   const [showAuth, setShowAuth] = useState(false);
+
+  const [session, setSession] = useState(null);
 
   // Controls Light / Dark mode
   const [theme, setTheme] = useState(() => {
