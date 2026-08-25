@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { supabase } from "./supabaseClient";
 import "./AuthModal.css";
 
-function AuthModal({ onClose }) {
+function AuthModal({ onClose, theme }) {
 
   const [isSignUp, setIsSignUp] = useState(true);
 
