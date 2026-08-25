@@ -61,9 +61,7 @@ body {
   transform: translateX(170px);
 }
 
-.theme-toggle {
-  transform: translateX(20px);
-}
+
 
 .nav-links a {
   position: relative;
