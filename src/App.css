@@ -21,8 +21,9 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  caret-color: transparent;
+  user-select: none;
 }
-
 body {
   font-family: "Manrope", sans-serif;
   background-color: #0b0f14;
@@ -73,7 +74,7 @@ body {
 .nav-links {
   display: flex;
   gap: 30px;
-  margin-right: 80px;
+  margin-right: 390px;
 }
 
 .nav-links a {
