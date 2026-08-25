@@ -164,25 +164,7 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
           </div>
 
 
-          <div className="auth-field">
-
-            <label>
-              Password
-            </label>
-
-            <input
-              type="password"
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-
-          </div>
-
-
-          {isSignUp && (
-   <div className="auth-field">
+       <div className="auth-field">
 
   <label>
     Password
@@ -205,6 +187,45 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
       aria-label={showPassword ? "Hide password" : "Show password"}
     >
       {showPassword ? "◉" : "◌"}
+    </button>
+
+  </div>
+
+</div>
+
+
+          {isSignUp && (
+<div className="auth-field">
+
+  <label>
+    Confirm Password
+  </label>
+
+  <div className="password-wrapper">
+
+    <input
+      type={showConfirmPassword ? "text" : "password"}
+      placeholder="••••••••"
+      value={confirmPassword}
+      onChange={(e) =>
+        setConfirmPassword(e.target.value)
+      }
+      required
+    />
+
+    <button
+      type="button"
+      className="password-toggle"
+      onClick={() =>
+        setShowConfirmPassword(!showConfirmPassword)
+      }
+      aria-label={
+        showConfirmPassword
+          ? "Hide confirm password"
+          : "Show confirm password"
+      }
+    >
+      {showConfirmPassword ? "◉" : "◌"}
     </button>
 
   </div>
