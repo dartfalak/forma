@@ -1,7 +1,6 @@
 /* =========================================
    AUTH OVERLAY
 ========================================= */
-
 .auth-overlay {
   position: fixed;
   inset: 0;
@@ -12,16 +11,16 @@
   align-items: center;
   justify-content: center;
 
-  padding: 20px;
+  padding: 16px;
+
+  overflow: hidden;
 
   background: rgba(0, 0, 0, 0.72);
 
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 
   animation: authFade 0.25s ease;
 }
-
-
 /* =========================================
    AUTH MODAL
 ========================================= */
