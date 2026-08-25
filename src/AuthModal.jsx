@@ -90,9 +90,9 @@ function AuthModal({ onClose, theme }) {
 
 
   return (
-    <div className="auth-overlay">
+    <div className={`auth-overlay ${theme}-theme`}>
 
-      <div className="auth-modal">
+  <div className="auth-modal">
 
         <button
           className="auth-close"
