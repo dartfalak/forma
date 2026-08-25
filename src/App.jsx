@@ -26,6 +26,26 @@ function App() {
     localStorage.setItem("forma-theme", theme);
   }, [theme]);
 
+  useEffect(() => {
+
+  // Check if someone is already logged in
+  supabase.auth.getSession().then(({ data }) => {
+    setSession(data.session);
+  });
+
+  // Listen for login and logout
+  const { data: listener } = supabase.auth.onAuthStateChange(
+    (_event, session) => {
+      setSession(session);
+    }
+  );
+
+  return () => {
+    listener.subscription.unsubscribe();
+  };
+
+}, []);
+
 
   // Open authentication modal
   const openAuth = () => {
