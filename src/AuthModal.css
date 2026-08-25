@@ -616,9 +616,7 @@
 }
 
 
-/* =========================================
-   MESSAGE
-========================================= */
+
 
 .auth-message {
   margin-bottom: 12px;
@@ -631,9 +629,7 @@
 }
 
 
-/* =========================================
-   SUBMIT
-========================================= */
+
 
 .eye-icon {
   width: 21px;
@@ -687,9 +683,7 @@
 }
 
 
-/* =========================================
-   DIVIDER
-========================================= */
+
 
 .auth-divider {
   display: flex;
@@ -717,9 +711,7 @@
 }
 
 
-/* =========================================
-   GOOGLE
-========================================= */
+
 
 .google-button {
   width: 100%;
@@ -784,9 +776,6 @@
 }
 
 
-/* =========================================
-   SWITCH
-========================================= */
 
 .auth-switch {
   margin-top: 14px;
@@ -825,9 +814,6 @@
 }
 
 
-/* =========================================
-   ANIMATIONS
-========================================= */
 
 @keyframes authFade {
   from {
@@ -852,9 +838,7 @@
 }
 
 
-/* =========================================
-   TABLET
-========================================= */
+
 
 @media (max-width: 700px) {
 
@@ -903,9 +887,7 @@
 }
 
 
-/* =========================================
-   VERY SMALL MOBILE
-========================================= */
+
 
 @media (max-width: 450px) {
 
@@ -957,9 +939,6 @@
   }
 }
 
-/* =========================================
-   LIGHT MODE AUTH MODAL
-========================================= */
 
 .light-auth {
   background: rgba(20, 25, 30, 0.35);
@@ -974,7 +953,7 @@
 }
 
 
-/* CLOSE BUTTON */
+
 
 .light-auth .auth-close {
   color: #68727d;
@@ -985,7 +964,6 @@
 }
 
 
-/* HEADER */
 
 .light-auth .auth-label {
   color: #52779d;
@@ -1000,14 +978,13 @@
 }
 
 
-/* FORM LABELS */
+
 
 .light-auth .auth-field label {
   color: #303942;
 }
 
 
-/* INPUTS */
 
 .light-auth .auth-field input {
   background: #f5f6f7;
@@ -1027,14 +1004,13 @@
 }
 
 
-/* MESSAGE */
 
 .light-auth .auth-message {
   color: #52779d;
 }
 
 
-/* SUBMIT BUTTON */
+
 
 .light-auth .auth-submit {
   background: #173b5f;
@@ -1047,7 +1023,6 @@
 }
 
 
-/* DIVIDER */
 
 .light-auth .auth-divider {
   color: #8a949e;
@@ -1059,7 +1034,7 @@
 }
 
 
-/* GOOGLE BUTTON */
+
 
 .light-auth .google-button {
   background: #ffffff;
@@ -1073,7 +1048,7 @@
 }
 
 
-/* SIGN IN / SIGN UP TEXT */
+
 
 .light-auth .auth-switch {
   color: #68727d;
@@ -1087,16 +1062,12 @@
   color: #171b20;
 }
 
-/* =========================================
-   LIGHT MODE AUTH MODAL
-========================================= */
+
 
 .auth-overlay.light-theme {
   background: rgba(20, 25, 30, 0.35);
 }
 
-
-/* MODAL */
 
 .auth-overlay.light-theme .auth-modal {
   background: #ffffff;
@@ -1107,7 +1078,6 @@
 }
 
 
-/* CLOSE BUTTON */
 
 .auth-overlay.light-theme .auth-close {
   color: #68727d;
@@ -1118,7 +1088,7 @@
 }
 
 
-/* HEADER */
+
 
 .auth-overlay.light-theme .auth-label {
   color: #52779d;
@@ -1133,14 +1103,13 @@
 }
 
 
-/* FORM LABELS */
 
 .auth-overlay.light-theme .auth-field label {
   color: #303942;
 }
 
 
-/* INPUTS */
+
 
 .auth-overlay.light-theme .auth-field input {
   background: #f5f6f7;
@@ -1160,14 +1129,13 @@
 }
 
 
-/* MESSAGE */
+
 
 .auth-overlay.light-theme .auth-message {
   color: #52779d;
 }
 
 
-/* SUBMIT BUTTON */
 
 .auth-overlay.light-theme .auth-submit {
   background: #173b5f;
@@ -1180,7 +1148,7 @@
 }
 
 
-/* DIVIDER */
+
 
 .auth-overlay.light-theme .auth-divider {
   color: #8a949e;
@@ -1192,7 +1160,6 @@
 }
 
 
-/* GOOGLE BUTTON */
 
 .auth-overlay.light-theme .google-button {
   background: #ffffff;
@@ -1206,7 +1173,6 @@
 }
 
 
-/* SIGN UP / SIGN IN SWITCH */
 
 .auth-overlay.light-theme .auth-switch {
   color: #68727d;
@@ -1220,9 +1186,7 @@
   color: #171b20;
 }
 
-/* =========================================
-   PASSWORD SHOW / HIDE
-========================================= */
+
 
 .password-wrapper {
   position: relative;
@@ -1275,10 +1239,6 @@
   transform: translateY(-50%) scale(0.92);
 }
 
-
-/* =========================================
-   LIGHT MODE
-========================================= */
 
 .light-theme .password-toggle {
   color: #68727d;
@@ -1288,9 +1248,6 @@
   color: #416b91;
 }
 
-/* =========================================
-   PASSWORD SHOW / HIDE
-========================================= */
 
 .password-wrapper {
   position: relative;
@@ -1344,9 +1301,6 @@
 }
 
 
-/* =========================================
-   LIGHT MODE
-========================================= */
 
 .light-theme .password-toggle {
   color: #68727d;
