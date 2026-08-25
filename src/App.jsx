@@ -44,19 +44,21 @@ function App() {
           FORMA
         </div>
 
+<div className="nav-links">
 
-        <div className="nav-links">
+  <a href="#features">
+    Features
+  </a>
 
-          <a href="#features">
-            Features
-          </a>
+  <a href="#about">
+    About
+  </a>
 
-          <a href="#about">
-            About
-          </a>
+  <a href="#connect">
+    Connect
+  </a>
 
-        </div>
-
+</div>
 
         {/* THEME TOGGLE */}
     <button
