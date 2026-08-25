@@ -143,9 +143,10 @@ function App() {
 {/* AUTHENTICATION MODAL */}
 
 {showAuth && (
-  <AuthModal
-    onClose={closeAuth}
-  />
+<AuthModal
+  onClose={closeAuth}
+  theme={theme}
+/>
 )}
     </div>
   );
