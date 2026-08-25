@@ -29,12 +29,11 @@
   position: relative;
 
   width: 100%;
-  max-width: 460px;
+  max-width: 440px;
 
-  max-height: 90vh;
-  overflow-y: auto;
+  max-height: calc(100vh - 32px);
 
-  padding: 42px;
+  padding: 32px;
 
   background: #0f141a;
 
