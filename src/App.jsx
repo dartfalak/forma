@@ -3,8 +3,8 @@ import { supabase } from "./supabaseClient";
 import "./App.css";
 import Features from "./Features";
 import About from "./About";
+import Connect from "./Connect";
 import AuthModal from "./AuthModal";
-
 
 function App() {
 
@@ -128,19 +128,23 @@ function App() {
       </div>
 
 
-      {/* ABOUT */}
+    {/* ABOUT */}
 
-      <About />
+<About />
 
 
-      {/* AUTHENTICATION MODAL */}
+{/* LET'S CONNECT */}
 
-      {showAuth && (
-        <AuthModal
-          onClose={closeAuth}
-        />
-      )}
+<Connect onGetStarted={openAuth} />
 
+
+{/* AUTHENTICATION MODAL */}
+
+{showAuth && (
+  <AuthModal
+    onClose={closeAuth}
+  />
+)}
     </div>
   );
 }

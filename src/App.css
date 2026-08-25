@@ -2,6 +2,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
 
+/* =========================================
+   SECTION SCROLL POSITION
+========================================= */
+
+#features,
+#about,
+#connect {
+  scroll-margin-top: 20px;
+}
+
 
 html {
   scroll-behavior: smooth;
@@ -48,6 +58,11 @@ body {
 .nav-links {
   display: flex;
   gap: 30px;
+  transform: translateX(170px);
+}
+
+.theme-toggle {
+  transform: translateX(20px);
 }
 
 .nav-links a {
