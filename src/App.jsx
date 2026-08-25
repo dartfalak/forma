@@ -9,31 +9,31 @@ import AuthModal from "./AuthModal";
 import Dashboard from "./Dashboard";
 function App() {
 
-  // Controls whether the Sign In / Sign Up modal is visible
+
 
   const [showAuth, setShowAuth] = useState(false);
 
   const [session, setSession] = useState(null);
 
-  // Controls Light / Dark mode
+  
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("forma-theme") || "dark";
   });
 
 
-  // Save the selected theme
+  
   useEffect(() => {
     localStorage.setItem("forma-theme", theme);
   }, [theme]);
 
   useEffect(() => {
 
-  // Check if someone is already logged in
+  
   supabase.auth.getSession().then(({ data }) => {
     setSession(data.session);
   });
 
-  // Listen for login and logout
+
   const { data: listener } = supabase.auth.onAuthStateChange(
     (_event, session) => {
       setSession(session);
@@ -47,13 +47,13 @@ function App() {
 }, []);
 
 
-  // Open authentication modal
+  
   const openAuth = () => {
     setShowAuth(true);
   };
 
 
-  // Close authentication modal
+  
   const closeAuth = () => {
     setShowAuth(false);
   };
@@ -87,7 +87,7 @@ function App() {
 
 </div>
 
-        {/* THEME TOGGLE */}
+    
     <button
   className="theme-toggle"
   onClick={() =>
@@ -100,7 +100,7 @@ function App() {
   </span>
 </button>
 
-        {/* GET STARTED */}
+        
         <button
           className="nav-button"
           onClick={openAuth}
@@ -150,24 +150,22 @@ function App() {
       </main>
 
 
-      {/* FEATURES */}
+    
 
       <div id="features">
         <Features />
       </div>
 
 
-    {/* ABOUT */}
 
 <About />
 
 
-{/* LET'S CONNECT */}
+
 
 <Connect onGetStarted={openAuth} />
 
 
-{/* AUTHENTICATION MODAL */}
 
 {showAuth && (
 <AuthModal
