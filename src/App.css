@@ -55,12 +55,17 @@ body {
 }
 
 
-.nav-links {
+/* .nav-links {
   display: flex;
   gap: 30px;
   transform: translateX(170px);
-}
+} */
 
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
 
 
 .nav-links a {
