@@ -402,23 +402,43 @@
   }
 }
 
-
-/* =========================================
-   MOBILE
-========================================= */
-
 @media (max-width: 500px) {
 
+  .auth-overlay {
+    padding: 12px;
+  }
+
   .auth-modal {
-    padding: 30px 22px;
+    padding: 26px 20px;
 
     border-radius: 14px;
+
+    max-height: calc(100vh - 24px);
+  }
+
+  .auth-header {
+    margin-bottom: 18px;
   }
 
   .auth-header h2 {
-    font-size: 38px;
+    font-size: 36px;
   }
 
+  .auth-field {
+    margin-bottom: 11px;
+  }
+
+  .auth-field input {
+    padding: 10px 13px;
+  }
+
+  .auth-divider {
+    margin: 14px 0;
+  }
+
+  .auth-switch {
+    margin-top: 16px;
+  }
 }
 
 .auth-modal {
