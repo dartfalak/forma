@@ -456,3 +456,33 @@ body {
   }
 
 }
+
+/* =========================================
+   TABLET + MOBILE NAVBAR
+========================================= */
+
+@media (max-width: 900px) {
+
+  .navbar {
+    padding: 18px 30px;
+    gap: 15px;
+  }
+
+  /* Hide navigation links so they don't overlap */
+  .nav-links {
+    display: none;
+  }
+
+  /* Keep toggle in its normal position */
+  .theme-toggle {
+    transform: translateX(0);
+    flex-shrink: 0;
+  }
+
+  /* Keep Get Started properly sized */
+  .nav-button {
+    flex-shrink: 0;
+    padding: 10px 18px;
+  }
+
+}
