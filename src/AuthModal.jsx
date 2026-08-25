@@ -2,6 +2,11 @@
 import React, { useState } from "react";
 import { supabase } from "./supabaseClient";
 import "./AuthModal.css";
+import {
+  Eye,
+  EyeOff,
+
+} from "lucide-react";
 
 function AuthModal({ onClose, theme }) {
 
@@ -186,7 +191,7 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
       onClick={() => setShowPassword(!showPassword)}
       aria-label={showPassword ? "Hide password" : "Show password"}
     >
-      {showPassword ? "◉" : "◌"}
+      {showPassword ? <Eye className="eye-icon" />: <EyeOff className="eye-icon"/>}
     </button>
 
   </div>
@@ -225,7 +230,7 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
           : "Show confirm password"
       }
     >
-      {showConfirmPassword ? "◉" : "◌"}
+      {showConfirmPassword ?  <Eye className="eye-icon"/>: <EyeOff className="eye-icon"/>}
     </button>
 
   </div>
