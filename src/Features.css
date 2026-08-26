@@ -563,9 +563,7 @@
 }
 
 
-/* =========================================
-   MAKE EVERY WORKOUT COUNT
-========================================= */
+
 
 .features-final {
   width: 100%;
@@ -580,7 +578,7 @@
 }
 
 
-/* IMAGE */
+
 
 .features-final-image {
   display: flex;
@@ -607,7 +605,6 @@
 }
 
 
-/* CONTENT */
 
 .features-final-content {
   display: flex;
@@ -655,9 +652,7 @@
 }
 
 
-/* =========================================
-   TABLET
-========================================= */
+
 
 @media (max-width: 1000px) {
 
