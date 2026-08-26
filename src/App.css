@@ -2,9 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
 
-/* =========================================
-   SECTION SCROLL POSITION
-========================================= */
 
 #features,
 #about,
@@ -58,18 +55,7 @@ body {
 }
 
 
-/* .nav-links {
-  display: flex;
-  gap: 30px;
-  transform: translateX(170px);
-} */
 
-
-/* .nav-links {
-  display: flex;
-  gap: 30px;
-  transform: translateX(180px);
-} */
 
 .nav-links {
   display: flex;
@@ -289,32 +275,6 @@ body {
   }
 }
 
-/* =========================================
-   LIGHT / DARK MODE TOGGLE
-========================================= */
-/* 
-.theme-toggle {
-  width: 42px;
-  height: 42px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: #111820;
-  color: #dce6ef;
-
-  border: 1px solid #263746;
-  border-radius: 50%;
-
-  cursor: pointer;
-
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.25s ease;
-} */
 
 .theme-toggle {
   width: 42px;
@@ -357,9 +317,6 @@ body {
 }
 
 
-/* =========================================
-   LIGHT MODE
-========================================= */
 
 .light-theme {
   background-color: #f5f6f7;
@@ -399,7 +356,6 @@ body {
 }
 
 
-/* HERO */
 
 .light-theme .hero {
   background-color: #f5f6f7;
@@ -420,7 +376,7 @@ body {
 }
 
 
-/* BUTTONS */
+
 
 .light-theme .secondary-button {
   color: #303942;
