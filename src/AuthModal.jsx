@@ -317,3 +317,4 @@ function AuthModal({ onClose, theme }) {
 }
 
 export default AuthModal;
+
