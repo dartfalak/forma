@@ -6,7 +6,7 @@ import Features from "./Features";
 import About from "./About";
 import Connect from "./Connect";
 import AuthModal from "./AuthModal";
-import Dashboard from "./Dashboard";
+
 function App() {
 
 
