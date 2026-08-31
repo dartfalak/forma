@@ -6,6 +6,7 @@ import Features from "./Features";
 import About from "./About";
 import Connect from "./Connect";
 import AuthModal from "./AuthModal";
+import SignUp from "./SignUp";
 
 function App() {
 
@@ -59,7 +60,7 @@ function App() {
   };
 
   if (session) {
-  return <Dashboard />;
+  return <SignUp.jsx />;
 }
 
   return (

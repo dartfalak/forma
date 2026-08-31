@@ -1,75 +1,69 @@
 
-import React, { useState } from "react";
-import { supabase } from "./supabaseClient";
+import React from "react";
 
 function Dashboard() {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handleSendConfirmation = async (e) => {
-    e.preventDefault();
-
-    setMessage("");
-
-    if (!email) {
-      setMessage("Please enter an email address.");
-      return;
-    }
-
-    setLoading(true);
-
-    const { data, error } = await supabase.functions.invoke(
-      "send-confirmation-email",
-      {
-        body: {
-          email: email,
-        },
-      }
-    );
-
-    setLoading(false);
-
-    if (error) {
-      console.error(error);
-      setMessage("Failed to send confirmation email.");
-      return;
-    }
-
-    setMessage("Confirmation email sent successfully!");
-    setEmail("");
-  };
-
   return (
     <div className="dashboard">
 
-      <h1>Welcome to FORMA</h1>
+      <nav className="dashboard-navbar">
+        <div className="dashboard-logo">
+          FORMA
+        </div>
 
-      <p>
-        Enter your email address to receive a confirmation email.
-      </p>
-
-      <form onSubmit={handleSendConfirmation}>
-
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-
-        <button type="submit" disabled={loading}>
-          {loading ? "Sending..." : "Send Confirmation"}
+        <button className="logout-button">
+          Sign Out
         </button>
+      </nav>
 
-      </form>
+      <main className="dashboard-content">
 
-      {message && (
+        <span className="dashboard-label">
+          YOUR JOURNEY
+        </span>
+
+        <h1>
+          Welcome to <span>FORMA.</span>
+        </h1>
+
         <p>
-          {message}
+          Train with purpose. Build consistency. Become stronger.
         </p>
-      )}
+
+        <div className="dashboard-cards">
+
+          <div className="dashboard-card">
+            <h3>Workout</h3>
+            <p>
+              Start your training and stay consistent.
+            </p>
+            <button>
+              Start Workout
+            </button>
+          </div>
+
+          <div className="dashboard-card">
+            <h3>Progress</h3>
+            <p>
+              Track your progress and see how far you've come.
+            </p>
+            <button>
+              View Progress
+            </button>
+          </div>
+
+          <div className="dashboard-card">
+            <h3>Profile</h3>
+            <p>
+              Manage your personal information and goals.
+            </p>
+            <button>
+              View Profile
+            </button>
+          </div>
+
+        </div>
+
+      </main>
 
     </div>
   );

@@ -50,7 +50,8 @@ body {
   letter-spacing: 4px;
   color: #f5f7fa;
   line-height: 1;
-    margin-right: auto;
+  margin-right: auto;
+  cursor: pointer;
 
 }
 
