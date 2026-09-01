@@ -5,9 +5,7 @@ function Dashboard() {
   return (
     <div className="dashboard">
 
-      {/* =========================
-          NAVBAR
-      ========================= */}
+      
 
       <nav className="dashboard-navbar">
 
@@ -36,9 +34,7 @@ function Dashboard() {
       </nav>
 
 
-      {/* =========================
-          MAIN CONTENT
-      ========================= */}
+    
 
       <main className="dashboard-content">
 
