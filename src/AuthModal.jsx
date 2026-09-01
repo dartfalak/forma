@@ -63,11 +63,13 @@ function AuthModal({ onClose, theme }) {
     } else {
 
       setLoading(true);
+const { data, error } = await supabase.auth.signInWithPassword({
+  email,
+  password,
+});
 
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+console.log("SIGN IN DATA:", data);
+console.log("SIGN IN ERROR:", error);
 
       setLoading(false);
 

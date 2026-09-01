@@ -198,6 +198,7 @@ function App() {
   const [showAuth, setShowAuth] = useState(false);
 
   const [session, setSession] = useState(null);
+  console.log("SESSION:", session);
 
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("forma-theme") || "dark";
@@ -213,12 +214,14 @@ function App() {
       setSession(data.session);
     });
 
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        setSession(session);
-      }
-    );
+const { data: listener } = supabase.auth.onAuthStateChange(
+  (event, session) => {
+    console.log("AUTH EVENT:", event);
+    console.log("AUTH SESSION:", session);
 
+    setSession(session);
+  }
+);
     return () => {
       listener.subscription.unsubscribe();
     };
