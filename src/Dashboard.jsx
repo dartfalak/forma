@@ -43,9 +43,7 @@ function Dashboard() {
       <main className="dashboard-content">
 
 
-        {/* =========================
-            WELCOME SECTION
-        ========================= */}
+    
 
         <section className="dashboard-hero">
 
@@ -94,9 +92,7 @@ function Dashboard() {
         </section>
 
 
-        {/* =========================
-            STATS
-        ========================= */}
+  
 
         <section className="stats-grid">
 
