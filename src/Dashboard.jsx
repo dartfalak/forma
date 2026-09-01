@@ -160,15 +160,12 @@ function Dashboard() {
         </section>
 
 
-        {/* =========================
-            MAIN DASHBOARD GRID
-        ========================= */}
+        
 
         <section className="dashboard-main-grid">
 
 
-          {/* TODAY'S WORKOUT */}
-
+          
           <div className="featured-workout">
 
             <div className="featured-overlay"></div>
@@ -209,7 +206,7 @@ function Dashboard() {
           </div>
 
 
-          {/* QUICK ACTIONS */}
+          
 
           <div className="quick-actions">
 
@@ -302,14 +299,12 @@ function Dashboard() {
         </section>
 
 
-        {/* =========================
-            LOWER SECTION
-        ========================= */}
+  
 
         <section className="dashboard-bottom">
 
 
-          {/* WEEKLY ACTIVITY */}
+          
 
           <div className="activity-panel">
 
@@ -374,7 +369,7 @@ function Dashboard() {
           </div>
 
 
-          {/* RECENT ACTIVITY */}
+        
 
           <div className="activity-panel">
 
