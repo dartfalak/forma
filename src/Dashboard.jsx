@@ -9,7 +9,7 @@ function Dashboard({ user }) {
 
 // sessionStorage.setItem("forma-dashboard-visited", "true");
 
-  const fullName = user?.user?.user_metadata?.full_name || "User";
+const fullName = user?.user_metadata?.full_name || "User";
 const firstName = fullName.split(" ")[0];
 
   return (
