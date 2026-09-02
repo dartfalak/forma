@@ -318,15 +318,28 @@
   letter-spacing: 2px;
 }
 
-
 .date-number {
   margin-top: 2px;
 
   font-family: "Cormorant Garamond", serif;
 
   font-size: 48px;
+  font-weight: 500;
 
   line-height: 0.9;
+}
+
+
+.date-one {
+  font-family: "Manrope", sans-serif;
+
+  font-size: 0.82em;
+  font-weight: 400;
+
+  letter-spacing: -2px;
+
+  position: relative;
+  top: -1px;
 }
 
 
