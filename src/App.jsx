@@ -364,11 +364,6 @@ function App() {
     return localStorage.getItem("forma-theme") || "dark";
   });
 
-
-  /* =========================
-     THEME
-  ========================= */
-
   useEffect(() => {
 
     localStorage.setItem("forma-theme", theme);
@@ -376,10 +371,7 @@ function App() {
   }, [theme]);
 
 
-  /* =========================
-     AUTHENTICATION
-  ========================= */
-
+  
   useEffect(() => {
 supabase.auth.getSession().then(({ data }) => {
 
@@ -431,9 +423,7 @@ supabase.auth.getSession().then(({ data }) => {
       );
 
 
-    /* =========================
-       BROWSER BACK / FORWARD
-    ========================= */
+
 
     const handlePopState = () => {
 
@@ -470,9 +460,6 @@ supabase.auth.getSession().then(({ data }) => {
   }, []);
 
 
-  /* =========================
-     AUTH MODAL
-  ========================= */
 
   const openAuth = () => {
     setShowAuth(true);
@@ -484,9 +471,10 @@ supabase.auth.getSession().then(({ data }) => {
   };
 
 
-  /* =========================
-     SHOW DASHBOARD
-  ========================= */
+
+  if (authLoading) {
+  return null;
+}
 
   if (session && showDashboard) {
 
@@ -499,9 +487,6 @@ supabase.auth.getSession().then(({ data }) => {
   }
 
 
-  /* =========================
-     HOMEPAGE
-  ========================= */
 
   return (
 
@@ -516,7 +501,7 @@ supabase.auth.getSession().then(({ data }) => {
 
         <div className="nav-links">
 
-          {/* HOME */}
+          
           <a href="#home">
             Home
           </a>
@@ -568,8 +553,6 @@ supabase.auth.getSession().then(({ data }) => {
 
       </nav>
 
-
-      {/* HOME / HERO SECTION */}
 
       <main className="hero" id="home">
 
