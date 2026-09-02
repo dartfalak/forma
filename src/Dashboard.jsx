@@ -71,11 +71,10 @@ const firstName = fullName.split(" ")[0];
               YOUR FITNESS JOURNEY
             </div>
 <h1>
-  Welcome back,
+  {isFirstVisit ? "Welcome," : "Welcome back,"}
   <br />
   <span>{firstName}.</span>
 </h1>
-
             <p>
               Train with purpose. Stay consistent.
               <br />
