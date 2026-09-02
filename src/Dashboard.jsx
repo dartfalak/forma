@@ -82,9 +82,9 @@ const firstName = fullName.split(" ")[0];
               MON
             </strong>
 
-            <span className="date-number">
-              01
-            </span>
+        <span className="date-number">
+  0<span className="date-one">1</span>
+</span>
 
             <span className="date-month">
               SEP 2026
