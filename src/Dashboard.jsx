@@ -25,11 +25,10 @@ const firstName = fullName.split(" ")[0];
         </div>
 
         <div className="dashboard-nav-right">
-
-          <div className="profile-circle">
-            S
-          </div>
-
+          
+<div className="profile-circle">
+  {firstName.charAt(0).toUpperCase()}
+</div>
           <button className="logout-button">
             Sign Out
           </button>
