@@ -58,7 +58,7 @@ const firstName = fullName.split(" ")[0];
             <h1>
               Welcome back,
               <br />
-              <span>Shayan.</span>
+              <span>{firstName}.</span>
             </h1>
 
             <p>
