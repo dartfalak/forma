@@ -188,16 +188,15 @@
 .dashboard-status {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
 
-  margin-bottom: 20px;
-
+margin-bottom: 18px;
   color: #7095b8;
 
   font-size: 9px;
   font-weight: 700;
 
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
 }
 
 
