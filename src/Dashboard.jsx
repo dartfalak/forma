@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 
+function Dashboard({ user }) {
+
+  const [isFirstVisit, setIsFirstVisit] = useState(() => {
+    return !sessionStorage.getItem("forma-dashboard-visited");
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem("forma-dashboard-visited", "true");
+  }, []);
+
+  const fullName = user?.user_metadata?.full_name || "User";
+  const firstName = fullName.split(" ")[0];
 
 function Dashboard({ user }) {
 
