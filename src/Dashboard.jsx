@@ -2,14 +2,14 @@ import React from "react";
 import "./Dashboard.css";
 
 
-function Dashboard({ session }) {
+function Dashboard({ user }) {
 
 
   const isFirstVisit = !sessionStorage.getItem("forma-dashboard-visited");
 
 sessionStorage.setItem("forma-dashboard-visited", "true");
 
-  const fullName = session?.user?.user_metadata?.full_name || "User";
+  const fullName = user?.user?.user_metadata?.full_name || "User";
 const firstName = fullName.split(" ")[0];
 
   return (

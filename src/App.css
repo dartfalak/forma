@@ -58,7 +58,7 @@ body {
 .nav-links {
   display: flex;
   gap: 30px;
-  margin-right: 390px;
+  margin-right: 350px;
 }
 
 .nav-links a {
