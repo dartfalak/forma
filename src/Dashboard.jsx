@@ -4,6 +4,11 @@ import "./Dashboard.css";
 
 function Dashboard({ session }) {
 
+
+  const isFirstVisit = !sessionStorage.getItem("forma-dashboard-visited");
+
+sessionStorage.setItem("forma-dashboard-visited", "true");
+
   const fullName = session?.user?.user_metadata?.full_name || "User";
 const firstName = fullName.split(" ")[0];
 
