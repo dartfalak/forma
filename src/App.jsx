@@ -358,6 +358,8 @@ function App() {
 
   const [showDashboard, setShowDashboard] = useState(false);
 
+  const [authLoading, setAuthLoading] = useState(true);
+
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("forma-theme") || "dark";
   });
