@@ -60,8 +60,8 @@ const firstName = fullName.split(" ")[0];
             </div>
 
         <h1>
-  {isFirstVisit ? "Welcome," : "Welcome back,"}
-  <br />
+  {/* {isFirstVisit ? "Welcome," : "Welcome back,"}
+  <br /> */}
   <span>{firstName}.</span>
 </h1>
 
