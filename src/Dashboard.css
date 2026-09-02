@@ -325,16 +325,28 @@ margin-bottom: 18px;
 }
 
 
-.date-month {
-  margin-top: 8px;
+.digit-zero,
+.digit-one {
+  font-family: "Manrope", sans-serif;
 
-  color: #59646f;
+  font-size: 0.82em;
+  font-weight: 400;
 
-  font-size: 8px;
+  letter-spacing: -1.5px;
 
-  letter-spacing: 1.5px;
+  display: inline-block;
+
+  position: relative;
+  top: -1px;
 }
 
+.digit-zero {
+  margin-right: 1px;
+}
+
+.digit-one {
+  margin-left: 1px;
+}
 
 
 
