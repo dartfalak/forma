@@ -236,12 +236,9 @@ const { data: listener } = supabase.auth.onAuthStateChange(
     setShowAuth(false);
   };
 
-  // 👇 PUT IT HERE
-  // If the user is logged in, show Dashboard
-  if (session) {
-    return <Dashboard />;
-  }
-
+if (session) {
+  return <Dashboard session={session} />;
+}
   return (
     <div className={`app ${theme}-theme`}>
 
