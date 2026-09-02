@@ -371,13 +371,14 @@
 }
 
 
-.stat-card {
-  min-height: 175px;
 
-  padding: 25px;
+.stat-card {
+  min-height: 170px;
+
+  padding: 24px;
 
   border: 1px solid #202a33;
-  border-radius: 16px;
+  border-radius: 12px;
 
   background:
     linear-gradient(
@@ -665,10 +666,10 @@
 ========================================= */
 
 .quick-actions {
-  padding: 28px;
+  padding: 27px;
 
   border: 1px solid #202a33;
-  border-radius: 18px;
+  border-radius: 12px;
 
   background: #0e141a;
 }
@@ -805,7 +806,7 @@
   padding: 27px;
 
   border: 1px solid #202a33;
-  border-radius: 18px;
+  border-radius: 12px;
 
   background: #0e141a;
 }
