@@ -58,10 +58,9 @@ const firstName = fullName.split(" ")[0];
               <span className="status-dot"></span>
               YOUR FITNESS JOURNEY
             </div>
-
-        <h1>
-  {/* {isFirstVisit ? "Welcome," : "Welcome back,"}
-  <br /> */}
+<h1>
+  Welcome back,
+  <br />
   <span>{firstName}.</span>
 </h1>
 
