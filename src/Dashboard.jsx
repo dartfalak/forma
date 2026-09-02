@@ -25,7 +25,7 @@ const firstName = fullName.split(" ")[0];
         </div>
 
         <div className="dashboard-nav-right">
-          
+
 <div className="profile-circle">
   {firstName.charAt(0).toUpperCase()}
 </div>
@@ -54,11 +54,11 @@ const firstName = fullName.split(" ")[0];
               YOUR FITNESS JOURNEY
             </div>
 
-            <h1>
-              Welcome back,
-              <br />
-              <span>{firstName}.</span>
-            </h1>
+        <h1>
+  {isFirstVisit ? "Welcome," : "Welcome back,"}
+  <br />
+  <span>{firstName}.</span>
+</h1>
 
             <p>
               Train with purpose. Stay consistent.
