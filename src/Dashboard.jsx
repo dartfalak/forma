@@ -14,7 +14,6 @@ const firstName = fullName.split(" ")[0];
   return (
     <div className="dashboard">
 
-      
 
       <nav className="dashboard-navbar">
 
@@ -30,9 +29,10 @@ const firstName = fullName.split(" ")[0];
 
         <div className="dashboard-nav-right">
 
-<div className="profile-circle">
-  {firstName.charAt(0).toUpperCase()}
-</div>
+          <div className="profile-circle">
+            {firstName.charAt(0).toUpperCase()}
+          </div>
+
           <button className="logout-button">
             Sign Out
           </button>
@@ -42,12 +42,8 @@ const firstName = fullName.split(" ")[0];
       </nav>
 
 
-    
-
       <main className="dashboard-content">
 
-
-    
 
         <section className="dashboard-hero">
 
@@ -55,18 +51,19 @@ const firstName = fullName.split(" ")[0];
 
             <div className="dashboard-status">
               <span className="status-dot"></span>
-              YOUR FITNESS JOURNEY
+              TODAY
             </div>
-<h1>
-  {isFirstVisit ? "Welcome," : "Welcome back,"}
-  <br />
-  <span>{firstName}.</span>
-</h1>
+
+            <h1>
+              {isFirstVisit ? "Welcome," : "Welcome back,"}
+              <br />
+              <span>{firstName}.</span>
+            </h1>
 
             <p>
-              Train with purpose. Stay consistent.
+              Here's what you're working on today.
               <br />
-              Keep becoming stronger.
+              Keep going and stay consistent.
             </p>
 
           </div>
@@ -82,12 +79,13 @@ const firstName = fullName.split(" ")[0];
               MON
             </strong>
 
-        <span className="date-number">
-  0<span className="date-one">1</span>
-</span>
+            <span className="date-number">
+              <span className="digit-zero">0</span>
+              <span className="digit-one">1</span>
+            </span>
 
             <span className="date-month">
-              SEP 2026
+              SEP 2<span className="digit-zero">0</span>2<span className="digit-six">6</span>
             </span>
 
           </div>
@@ -95,7 +93,6 @@ const firstName = fullName.split(" ")[0];
         </section>
 
 
-  
 
         <section className="stats-grid">
 
@@ -129,11 +126,11 @@ const firstName = fullName.split(" ")[0];
             </div>
 
             <div className="stat-value">
-              12 <small>days</small>
+              <span className="digit-one">1</span>2 <small>days</small>
             </div>
 
             <p>
-              Personal best this month
+              Best streak this month
             </p>
 
           </div>
@@ -147,7 +144,7 @@ const firstName = fullName.split(" ")[0];
             </div>
 
             <div className="stat-value">
-              16
+              <span className="digit-one">1</span>6
             </div>
 
             <p>
@@ -159,12 +156,10 @@ const firstName = fullName.split(" ")[0];
         </section>
 
 
-        
 
         <section className="dashboard-main-grid">
 
 
-          
           <div className="featured-workout">
 
             <div className="featured-overlay"></div>
@@ -205,7 +200,6 @@ const firstName = fullName.split(" ")[0];
           </div>
 
 
-          
 
           <div className="quick-actions">
 
@@ -213,8 +207,9 @@ const firstName = fullName.split(" ")[0];
 
               <div>
                 <span>QUICK ACCESS</span>
+
                 <h3>
-                  Keep moving.
+                  Quick actions.
                 </h3>
               </div>
 
@@ -230,6 +225,7 @@ const firstName = fullName.split(" ")[0];
                 </div>
 
                 <div className="action-text">
+
                   <strong>
                     Workout
                   </strong>
@@ -237,6 +233,7 @@ const firstName = fullName.split(" ")[0];
                   <span>
                     Start your next session
                   </span>
+
                 </div>
 
                 <span className="action-arrow">
@@ -253,13 +250,15 @@ const firstName = fullName.split(" ")[0];
                 </div>
 
                 <div className="action-text">
+
                   <strong>
                     Progress
                   </strong>
 
                   <span>
-                    See your performance
+                    Check your progress
                   </span>
+
                 </div>
 
                 <span className="action-arrow">
@@ -276,13 +275,15 @@ const firstName = fullName.split(" ")[0];
                 </div>
 
                 <div className="action-text">
+
                   <strong>
                     Profile
                   </strong>
 
                   <span>
-                    Manage your goals
+                    Update your details
                   </span>
+
                 </div>
 
                 <span className="action-arrow">
@@ -298,18 +299,16 @@ const firstName = fullName.split(" ")[0];
         </section>
 
 
-  
 
         <section className="dashboard-bottom">
 
-
-          
 
           <div className="activity-panel">
 
             <div className="panel-heading">
 
               <div>
+
                 <span>
                   CONSISTENCY
                 </span>
@@ -317,6 +316,7 @@ const firstName = fullName.split(" ")[0];
                 <h3>
                   This week
                 </h3>
+
               </div>
 
               <span className="panel-value">
@@ -368,20 +368,21 @@ const firstName = fullName.split(" ")[0];
           </div>
 
 
-        
 
           <div className="activity-panel">
 
             <div className="panel-heading">
 
               <div>
+
                 <span>
                   RECENT ACTIVITY
                 </span>
 
                 <h3>
-                  Your latest sessions
+                  Latest sessions
                 </h3>
+
               </div>
 
               <button className="view-all">
