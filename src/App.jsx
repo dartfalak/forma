@@ -391,6 +391,8 @@ supabase.auth.getSession().then(({ data }) => {
 
   }
 
+  setAuthLoading(false);
+
 });
 
     const { data: listener } =
