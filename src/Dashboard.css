@@ -287,16 +287,12 @@ margin-bottom: 18px;
 
 .date-number {
   margin-top: 3px;
-
   display: flex;
   justify-content: flex-end;
   align-items: baseline;
-
   font-family: "Manrope", serif;
-
   font-size: 48px;
   font-weight: 500;
-
   line-height: 0.9;
 }
 
