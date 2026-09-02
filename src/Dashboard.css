@@ -301,16 +301,27 @@ margin-bottom: 18px;
 }
 
 
-.date-one {
+.digit-zero,
+.digit-one {
   font-family: "Manrope", sans-serif;
 
   font-size: 0.82em;
   font-weight: 400;
 
-  letter-spacing: -2px;
+  letter-spacing: -1.5px;
+
+  display: inline-block;
 
   position: relative;
   top: -1px;
+}
+
+.digit-zero {
+  margin-right: 1px;
+}
+
+.digit-one {
+  margin-left: 1px;
 }
 
 
