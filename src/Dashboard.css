@@ -21,19 +21,21 @@
    NAVBAR
 ========================================= */
 
+/* =========================================
+   NAVBAR
+========================================= */
+
 .dashboard-navbar {
-  height: 76px;
-  padding: 0 50px;
+  height: 80px;
+  padding: 20px 60px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid #1c2229;
 
-  background: rgba(9, 13, 18, 0.82);
-
-  backdrop-filter: blur(18px);
+  background: rgba(9, 13, 18, 0.94);
 
   position: sticky;
   top: 0;
@@ -41,35 +43,80 @@
 }
 
 
+/* =========================================
+   LOGO
+   MATCHES HOMEPAGE
+========================================= */
+
 .dashboard-logo {
-  font-size: 18px;
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 30px;
   font-weight: 700;
-  letter-spacing: 3px;
-    font-family: "Manrope", sans-serif;
+
+  letter-spacing: 4px;
+  line-height: 1;
+
+  color: #f5f7fa;
+
+  margin-right: auto;
 }
 
 
+/* =========================================
+   NAVIGATION
+   MATCHES HOMEPAGE
+========================================= */
+
 .dashboard-nav-center {
   display: flex;
-  gap: 34px;
+  align-items: center;
 
-  color: #68727d;
+  gap: 30px;
 
-  font-size: 11px;
-  font-weight: 600;
+  margin-right: 70px;
+
+  color: #8e98a4;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 
 .dashboard-nav-center span {
+  position: relative;
+
   cursor: pointer;
 
-  transition:
-    color 0.2s ease;
+  transition: color 0.25s ease;
+}
+
+
+.dashboard-nav-center span::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -7px;
+
+  width: 0;
+  height: 1px;
+
+  background-color: #7095b8;
+
+  transition: width 0.25s ease;
 }
 
 
 .dashboard-nav-center span:hover {
-  color: #dce2e7;
+  color: #f5f7fa;
+}
+
+
+.dashboard-nav-center span:hover::after {
+  width: 100%;
 }
 
 
@@ -78,9 +125,14 @@
 }
 
 
+/* =========================================
+   RIGHT SIDE
+========================================= */
+
 .dashboard-nav-right {
   display: flex;
   align-items: center;
+
   gap: 14px;
 }
 
@@ -100,13 +152,14 @@
 
   color: #8daac4;
 
+  font-family: "Manrope", sans-serif;
   font-size: 11px;
   font-weight: 700;
 }
 
 
 .logout-button {
-  padding: 9px 19px;
+  padding: 10px 20px;
 
   border: 1px solid #303a44;
   border-radius: 999px;
@@ -117,22 +170,24 @@
 
   font-family: "Manrope", sans-serif;
 
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
 
   cursor: pointer;
 
   transition:
-    background 0.25s ease,
+    background-color 0.25s ease,
     border-color 0.25s ease,
     color 0.25s ease;
 }
 
 
 .logout-button:hover {
-  background: #141b22;
+  background-color: #141b22;
+
   border-color: #455464;
-  color: white;
+
+  color: #ffffff;
 }
 
 
