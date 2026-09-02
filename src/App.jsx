@@ -379,25 +379,17 @@ function App() {
   ========================= */
 
   useEffect(() => {
+supabase.auth.getSession().then(({ data }) => {
 
-    supabase.auth.getSession().then(({ data }) => {
+  setSession(data.session);
 
-      setSession(data.session);
+  if (window.location.hash === "#dashboard" && data.session) {
 
-      if (data.session) {
+    setShowDashboard(true);
 
-        setShowDashboard(true);
+  }
 
-        window.history.replaceState(
-          { page: "dashboard" },
-          "",
-          "#dashboard"
-        );
-
-      }
-
-    });
-
+});
 
     const { data: listener } =
       supabase.auth.onAuthStateChange(
