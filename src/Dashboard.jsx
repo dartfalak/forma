@@ -5,9 +5,9 @@ import "./Dashboard.css";
 function Dashboard({ user }) {
 
 
-  const isFirstVisit = !sessionStorage.getItem("forma-dashboard-visited");
+//   const isFirstVisit = !sessionStorage.getItem("forma-dashboard-visited");
 
-sessionStorage.setItem("forma-dashboard-visited", "true");
+// sessionStorage.setItem("forma-dashboard-visited", "true");
 
   const fullName = user?.user?.user_metadata?.full_name || "User";
 const firstName = fullName.split(" ")[0];
