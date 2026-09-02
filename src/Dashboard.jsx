@@ -1,7 +1,8 @@
 import React from "react";
 import "./Dashboard.css";
 
-function Dashboard() {
+
+function Dashboard({ session }) {
   return (
     <div className="dashboard">
 
