@@ -520,6 +520,11 @@ function App() {
 
         <div className="nav-links">
 
+          {/* HOME */}
+          <a href="#home">
+            Home
+          </a>
+
           <a href="#features">
             Features
           </a>
@@ -568,7 +573,9 @@ function App() {
       </nav>
 
 
-      <main className="hero">
+      {/* HOME / HERO SECTION */}
+
+      <main className="hero" id="home">
 
         <div className="badge">
           Built for a Stronger You
