@@ -3,6 +3,10 @@ import "./Dashboard.css";
 
 
 function Dashboard({ session }) {
+
+  const fullName = session?.user?.user_metadata?.full_name || "User";
+const firstName = fullName.split(" ")[0];
+
   return (
     <div className="dashboard">
 
