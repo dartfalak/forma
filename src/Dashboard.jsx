@@ -1,19 +1,183 @@
 import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
-
+import { supabase } from "./supabaseClient";
 
 function Dashboard({ user }) {
 
+  // -----------------------------
+  // FIRST VISIT
+  // -----------------------------
 
-const isFirstVisit = !sessionStorage.getItem("forma-dashboard-visited");
-sessionStorage.setItem("forma-dashboard-visited", "true");
+  const [isFirstVisit, setIsFirstVisit] = useState(() => {
+    return !sessionStorage.getItem("forma-dashboard-visited");
+  });
 
-const fullName = user?.user_metadata?.full_name || "User";
-const firstName = fullName.split(" ")[0];
+  useEffect(() => {
+    sessionStorage.setItem("forma-dashboard-visited", "true");
+  }, []);
+
+
+  // -----------------------------
+  // USER NAME
+  // -----------------------------
+
+  const fullName = user?.user_metadata?.full_name || "User";
+  const firstName = fullName.split(" ")[0];
+
+
+  // -----------------------------
+  // TODO LIST
+  // -----------------------------
+
+  const defaultTasks = [
+    {
+      id: 1,
+      text: "Complete today's workout",
+      completed: false
+    },
+    {
+      id: 2,
+      text: "Drink enough water",
+      completed: false
+    },
+    {
+      id: 3,
+      text: "Stretch for 10 minutes",
+      completed: false
+    },
+    {
+      id: 4,
+      text: "Get enough sleep",
+      completed: false
+    }
+  ];
+
+
+  const [tasks, setTasks] = useState(() => {
+
+    const savedTasks = localStorage.getItem("forma-tasks");
+
+    if (savedTasks) {
+      return JSON.parse(savedTasks);
+    }
+
+    return defaultTasks;
+  });
+
+
+  const [newTask, setNewTask] = useState("");
+
+
+  // Save tasks whenever they change
+  useEffect(() => {
+    localStorage.setItem("forma-tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+
+  // -----------------------------
+  // TASK FUNCTIONS
+  // -----------------------------
+
+  const addTask = () => {
+
+    if (newTask.trim() === "") {
+      return;
+    }
+
+    const task = {
+      id: Date.now(),
+      text: newTask.trim(),
+      completed: false
+    };
+
+    setTasks([...tasks, task]);
+
+    setNewTask("");
+  };
+
+
+  const toggleTask = (id) => {
+
+    setTasks(
+      tasks.map((task) =>
+        task.id === id
+          ? { ...task, completed: !task.completed }
+          : task
+      )
+    );
+  };
+
+
+  const deleteTask = (id) => {
+
+    setTasks(
+      tasks.filter((task) => task.id !== id)
+    );
+  };
+
+
+  const clearAllTasks = () => {
+    setTasks([]);
+  };
+
+
+  // Allow Enter key to add a task
+  const handleTaskKeyDown = (e) => {
+
+    if (e.key === "Enter") {
+      addTask();
+    }
+  };
+
+
+  // -----------------------------
+  // DAILY PROGRESS
+  // -----------------------------
+
+  const completedTasks = tasks.filter(
+    (task) => task.completed
+  ).length;
+
+  const totalTasks = tasks.length;
+
+  const dailyProgress =
+    totalTasks === 0
+      ? 0
+      : Math.round((completedTasks / totalTasks) * 100);
+
+
+  // -----------------------------
+  // SIGN OUT
+  // -----------------------------
+
+  const [signOutError, setSignOutError] = useState("");
+
+
+  const handleSignOut = async () => {
+
+    setSignOutError("");
+
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+      console.error("Sign out error:", error);
+      setSignOutError("Unable to sign out. Please try again.");
+      return;
+    }
+
+    // Return to the main page where the login/signup modal is available
+    window.location.href = "/";
+  };
+
+
+  // -----------------------------
+  // DASHBOARD
+  // -----------------------------
 
   return (
     <div className="dashboard">
 
+      {/* NAVBAR */}
 
       <nav className="dashboard-navbar">
 
@@ -21,11 +185,23 @@ const firstName = fullName.split(" ")[0];
           FORMA
         </div>
 
+
         <div className="dashboard-nav-center">
-          <span className="nav-active">Dashboard</span>
-          <span>Workout</span>
-          <span>Progress</span>
+
+          <span className="nav-active">
+            Dashboard
+          </span>
+
+          <span>
+            Workout
+          </span>
+
+          <span>
+            Progress
+          </span>
+
         </div>
+
 
         <div className="dashboard-nav-right">
 
@@ -33,7 +209,11 @@ const firstName = fullName.split(" ")[0];
             {firstName.charAt(0).toUpperCase()}
           </div>
 
-          <button className="logout-button">
+
+          <button
+            className="logout-button"
+            onClick={handleSignOut}
+          >
             Sign Out
           </button>
 
@@ -42,8 +222,19 @@ const firstName = fullName.split(" ")[0];
       </nav>
 
 
+      {/* SIGN OUT ERROR */}
+
+      {signOutError && (
+        <div className="signout-error">
+          {signOutError}
+        </div>
+      )}
+
+
       <main className="dashboard-content">
 
+
+        {/* HERO */}
 
         <section className="dashboard-hero">
 
@@ -54,11 +245,13 @@ const firstName = fullName.split(" ")[0];
               TODAY
             </div>
 
+
             <h1>
               {isFirstVisit ? "Welcome," : "Welcome back,"}
               <br />
               <span>{firstName}.</span>
             </h1>
+
 
             <p>
               Here's what you're working on today.
@@ -93,6 +286,8 @@ const firstName = fullName.split(" ")[0];
         </section>
 
 
+
+        {/* STATS */}
 
         <section className="stats-grid">
 
@@ -157,6 +352,8 @@ const firstName = fullName.split(" ")[0];
 
 
 
+        {/* FEATURED WORKOUT + CONSISTENCY */}
+
         <section className="dashboard-main-grid">
 
 
@@ -177,6 +374,7 @@ const firstName = fullName.split(" ")[0];
                 </span>
 
               </div>
+
 
               <div>
 
@@ -201,109 +399,9 @@ const firstName = fullName.split(" ")[0];
 
 
 
-          <div className="quick-actions">
+          {/* CONSISTENCY */}
 
-            <div className="section-heading">
-
-              <div>
-                <span>QUICK ACCESS</span>
-
-                <h3>
-                  Quick actions.
-                </h3>
-              </div>
-
-            </div>
-
-
-            <div className="action-list">
-
-              <button className="action-card">
-
-                <div className="action-icon">
-                  ↗
-                </div>
-
-                <div className="action-text">
-
-                  <strong>
-                    Workout
-                  </strong>
-
-                  <span>
-                    Start your next session
-                  </span>
-
-                </div>
-
-                <span className="action-arrow">
-                  →
-                </span>
-
-              </button>
-
-
-              <button className="action-card">
-
-                <div className="action-icon">
-                  ◒
-                </div>
-
-                <div className="action-text">
-
-                  <strong>
-                    Progress
-                  </strong>
-
-                  <span>
-                    Check your progress
-                  </span>
-
-                </div>
-
-                <span className="action-arrow">
-                  →
-                </span>
-
-              </button>
-
-
-              <button className="action-card">
-
-                <div className="action-icon">
-                  ◇
-                </div>
-
-                <div className="action-text">
-
-                  <strong>
-                    Profile
-                  </strong>
-
-                  <span>
-                    Update your details
-                  </span>
-
-                </div>
-
-                <span className="action-arrow">
-                  →
-                </span>
-
-              </button>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-
-        <section className="dashboard-bottom">
-
-
-          <div className="activity-panel">
+          <div className="activity-panel consistency-panel">
 
             <div className="panel-heading">
 
@@ -367,79 +465,171 @@ const firstName = fullName.split(" ")[0];
 
           </div>
 
+        </section>
 
 
-          <div className="activity-panel">
 
-            <div className="panel-heading">
+        {/* TODO + DAILY PROGRESS */}
+
+        <section className="dashboard-bottom">
+
+
+          {/* TODO LIST */}
+
+          <div className="todo-panel">
+
+            <div className="todo-heading">
 
               <div>
 
                 <span>
-                  RECENT ACTIVITY
+                  TODAY
                 </span>
 
                 <h3>
-                  Latest sessions
+                  To-Do List
                 </h3>
 
               </div>
 
-              <button className="view-all">
-                View all →
+
+              <button
+                className="clear-icon-button"
+                onClick={clearAllTasks}
+                title="Clear all tasks"
+              >
+                🗑
               </button>
 
             </div>
 
 
-            <div className="recent-item">
+            <div className="todo-list">
 
-              <div className="recent-icon">
-                ✓
-              </div>
+              {tasks.length === 0 ? (
 
-              <div className="recent-info">
+                <div className="empty-tasks">
+                  No tasks for today.
+                </div>
 
-                <strong>
-                  Upper Body
-                </strong>
+              ) : (
 
-                <span>
-                  Yesterday · 48 min
-                </span>
+                tasks.map((task) => (
 
-              </div>
+                  <div
+                    className={`todo-item ${
+                      task.completed ? "task-completed" : ""
+                    }`}
+                    key={task.id}
+                  >
 
-              <span className="recent-status">
-                Completed
-              </span>
+                    <button
+                      className="task-check"
+                      onClick={() => toggleTask(task.id)}
+                      aria-label="Complete task"
+                    >
+                      {task.completed ? "✓" : ""}
+                    </button>
+
+
+                    <span className="task-text">
+                      {task.text}
+                    </span>
+
+
+                    <button
+                      className="delete-task"
+                      onClick={() => deleteTask(task.id)}
+                      title="Delete task"
+                    >
+                      ×
+                    </button>
+
+                  </div>
+
+                ))
+
+              )}
 
             </div>
 
 
-            <div className="recent-item">
+            <div className="add-task">
 
-              <div className="recent-icon">
-                ✓
-              </div>
+              <input
+                type="text"
+                placeholder="Add a new task..."
+                value={newTask}
+                onChange={(e) => setNewTask(e.target.value)}
+                onKeyDown={handleTaskKeyDown}
+              />
 
-              <div className="recent-info">
+
+              <button
+                onClick={addTask}
+                className="add-task-button"
+              >
+                Add New Task
+              </button>
+
+            </div>
+
+
+            {tasks.length > 0 && (
+              <button
+                className="clear-all-button"
+                onClick={clearAllTasks}
+              >
+                Clear All Tasks
+              </button>
+            )}
+
+          </div>
+
+
+
+          {/* DAILY PROGRESS */}
+
+          <div className="daily-progress-panel">
+
+            <div className="daily-progress-heading">
+
+              <span>
+                TODAY'S PROGRESS
+              </span>
+
+              <h3>
+                Daily Progress
+              </h3>
+
+            </div>
+
+
+            <div
+              className="progress-circle"
+              style={{
+                "--progress": `${dailyProgress * 3.6}deg`
+              }}
+            >
+
+              <div className="progress-circle-inner">
 
                 <strong>
-                  Lower Body
+                  {dailyProgress}%
                 </strong>
 
                 <span>
-                  Aug 30 · 52 min
+                  complete
                 </span>
 
               </div>
 
-              <span className="recent-status">
-                Completed
-              </span>
-
             </div>
+
+
+            <p className="progress-summary">
+              {completedTasks} of {totalTasks} tasks completed
+            </p>
 
           </div>
 

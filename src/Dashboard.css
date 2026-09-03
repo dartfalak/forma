@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
 
 .dashboard {
   min-height: 100vh;
+
   background:
     radial-gradient(
       circle at 80% 10%,
@@ -10,12 +17,18 @@
     #090d12;
 
   color: #f5f7fa;
+
   font-family: "Manrope", sans-serif;
 }
 
 
+/* =========================================
+   NAVBAR
+========================================= */
+
 .dashboard-navbar {
   height: 80px;
+
   padding: 20px 60px;
 
   display: flex;
@@ -28,6 +41,7 @@
 
   position: sticky;
   top: 0;
+
   z-index: 20;
 }
 
@@ -43,9 +57,11 @@
 
   color: #f5f7fa;
 
-  cursor:pointer;
+  cursor: pointer;
+
   margin-right: auto;
 }
+
 
 .dashboard-nav-center {
   display: flex;
@@ -57,7 +73,8 @@
 
   color: #8e98a4;
 
-  font-family: "Manrope", sans-serif;
+  font-family: "DM Sans", sans-serif;
+
   font-size: 14px;
   font-weight: 500;
 }
@@ -104,7 +121,6 @@
 }
 
 
-
 .dashboard-nav-right {
   display: flex;
   align-items: center;
@@ -122,6 +138,7 @@
   justify-content: center;
 
   border: 1px solid #334250;
+
   border-radius: 50%;
 
   background: #121a22;
@@ -129,6 +146,7 @@
   color: #8daac4;
 
   font-family: "Manrope", sans-serif;
+
   font-size: 11px;
   font-weight: 700;
 }
@@ -138,6 +156,7 @@
   padding: 10px 20px;
 
   border: 1px solid #303a44;
+
   border-radius: 999px;
 
   background: transparent;
@@ -167,6 +186,31 @@
 }
 
 
+/* =========================================
+   SIGN OUT ERROR
+========================================= */
+
+.signout-error {
+  width: min(1180px, calc(100% - 60px));
+
+  margin: 15px auto 0;
+
+  padding: 10px 14px;
+
+  border: 1px solid #49343a;
+  border-radius: 8px;
+
+  background: #191216;
+
+  color: #c48e9a;
+
+  font-size: 11px;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
 
 .dashboard-content {
   width: min(1180px, calc(100% - 60px));
@@ -177,20 +221,28 @@
 }
 
 
+/* =========================================
+   HERO
+========================================= */
+
 .dashboard-hero {
   display: flex;
+
   justify-content: space-between;
   align-items: flex-end;
 
   margin-bottom: 48px;
 }
 
+
 .dashboard-status {
   display: flex;
   align-items: center;
+
   gap: 8px;
 
-margin-bottom: 18px;
+  margin-bottom: 18px;
+
   color: #7095b8;
 
   font-size: 9px;
@@ -243,12 +295,17 @@ margin-bottom: 18px;
 }
 
 
+/* =========================================
+   DATE
+========================================= */
+
 .hero-date {
   min-width: 130px;
 
   padding: 22px;
 
   border: 1px solid #202a33;
+
   border-radius: 16px;
 
   background:
@@ -285,14 +342,20 @@ margin-bottom: 18px;
   letter-spacing: 2px;
 }
 
+
 .date-number {
   margin-top: 3px;
+
   display: flex;
+
   justify-content: flex-end;
   align-items: baseline;
-  font-family: "Manrope", serif;
+
+  font-family: "Manrope", sans-serif;
+
   font-size: 48px;
   font-weight: 500;
+
   line-height: 0.9;
 }
 
@@ -309,42 +372,24 @@ margin-bottom: 18px;
   display: inline-block;
 
   position: relative;
+
   top: -1px;
 }
+
 
 .digit-zero {
   margin-right: 1px;
 }
+
 
 .digit-one {
   margin-left: 1px;
 }
 
 
-.digit-zero,
-.digit-one {
-  font-family: "Manrope", sans-serif;
-
-  font-size: 0.82em;
-  font-weight: 400;
-
-  letter-spacing: -1.5px;
-
-  display: inline-block;
-
-  position: relative;
-  top: -1px;
-}
-
-.digit-zero {
-  margin-right: 1px;
-}
-
-.digit-one {
-  margin-left: 1px;
-}
-
-
+/* =========================================
+   STATS
+========================================= */
 
 .stats-grid {
   display: grid;
@@ -360,13 +405,13 @@ margin-bottom: 18px;
 }
 
 
-
 .stat-card {
   min-height: 170px;
 
   padding: 24px;
 
   border: 1px solid #202a33;
+
   border-radius: 12px;
 
   background:
@@ -391,6 +436,7 @@ margin-bottom: 18px;
 
 .stat-top {
   display: flex;
+
   justify-content: space-between;
 
   color: #63717d;
@@ -465,6 +511,9 @@ margin-bottom: 18px;
 }
 
 
+/* =========================================
+   MAIN GRID
+========================================= */
 
 .dashboard-main-grid {
   display: grid;
@@ -477,6 +526,10 @@ margin-bottom: 18px;
 }
 
 
+/* =========================================
+   FEATURED WORKOUT
+========================================= */
+
 .featured-workout {
   min-height: 390px;
 
@@ -485,6 +538,7 @@ margin-bottom: 18px;
   overflow: hidden;
 
   border: 1px solid #27323c;
+
   border-radius: 14px;
 
   background:
@@ -554,6 +608,7 @@ margin-bottom: 18px;
 
 .featured-top {
   display: flex;
+
   justify-content: space-between;
 }
 
@@ -602,12 +657,15 @@ margin-bottom: 18px;
 
 .start-workout-button {
   display: flex;
+
   align-items: center;
+
   gap: 18px;
 
   padding: 12px 18px;
 
   border: 1px solid #315574;
+
   border-radius: 999px;
 
   background: #173653;
@@ -639,155 +697,36 @@ margin-bottom: 18px;
 }
 
 
-
-.quick-actions {
-  padding: 27px;
-
-  border: 1px solid #202a33;
-  border-radius: 12px;
-
-  background: #0e141a;
-}
-
-
-.section-heading span {
-  color: #62717d;
-
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: 2px;
-}
-
-
-.section-heading h3 {
-  margin: 6px 0 25px;
-
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: 32px;
-
-  font-weight: 500;
-}
-
-
-.action-list {
-  display: flex;
-  flex-direction: column;
-
-  gap: 10px;
-}
-
-
-.action-card {
-  width: 100%;
-
-  padding: 15px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 14px;
-
-  border: 1px solid #202b35;
-  border-radius: 12px;
-
-  background: #111820;
-
-  color: white;
-
-  text-align: left;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    background 0.25s ease;
-}
-
-
-.action-card:hover {
-  transform: translateX(4px);
-
-  border-color: #3b5267;
-
-  background: #151e27;
-}
-
-
-.action-icon {
-  width: 35px;
-  height: 35px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid #2d3b47;
-  border-radius: 10px;
-
-  background: #17212a;
-
-  color: #7898b4;
-
-  font-size: 14px;
-}
-
-
-.action-text {
-  display: flex;
-  flex-direction: column;
-
-  gap: 4px;
-
-  flex: 1;
-}
-
-
-.action-text strong {
-  font-size: 11px;
-}
-
-
-.action-text span {
-  color: #687580;
-
-  font-size: 9px;
-}
-
-
-.action-arrow {
-  color: #5c7184;
-
-  font-size: 14px;
-}
-
-
-
-
-.dashboard-bottom {
-  display: grid;
-
-  grid-template-columns: 1fr 1.3fr;
-
-  gap: 20px;
-}
-
+/* =========================================
+   CONSISTENCY
+========================================= */
 
 .activity-panel {
   padding: 27px;
 
   border: 1px solid #202a33;
+
   border-radius: 12px;
 
   background: #0e141a;
 }
 
 
+.consistency-panel {
+  min-height: 390px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
 .panel-heading {
   display: flex;
+
   align-items: flex-start;
+
   justify-content: space-between;
 
   margin-bottom: 28px;
@@ -809,7 +748,7 @@ margin-bottom: 18px;
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 27px;
+  font-size: 32px;
 
   font-weight: 500;
 }
@@ -823,22 +762,6 @@ margin-bottom: 18px;
 }
 
 
-.view-all {
-  border: none;
-
-  background: none;
-
-  color: #71889c;
-
-  font-family: "Manrope", sans-serif;
-
-  font-size: 9px;
-
-  cursor: pointer;
-}
-
-
-
 .week-days {
   display: flex;
 
@@ -850,6 +773,7 @@ margin-bottom: 18px;
 
 .day {
   display: flex;
+
   flex-direction: column;
 
   align-items: center;
@@ -867,10 +791,12 @@ margin-bottom: 18px;
   height: 32px;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   border: 1px solid #252f38;
+
   border-radius: 50%;
 
   background: #121921;
@@ -910,67 +836,426 @@ margin-bottom: 18px;
 
 
 /* =========================================
-   RECENT ACTIVITY
+   TODO + DAILY PROGRESS
 ========================================= */
 
-.recent-item {
+.dashboard-bottom {
+  display: grid;
+
+  grid-template-columns: 1.3fr 1fr;
+
+  gap: 20px;
+}
+
+
+/* =========================================
+   TODO LIST
+========================================= */
+
+.todo-panel {
+  padding: 27px;
+
+  border: 1px solid #202a33;
+
+  border-radius: 12px;
+
+  background: #0e141a;
+}
+
+
+.todo-heading {
   display: flex;
-  align-items: center;
 
-  padding: 13px 0;
+  align-items: flex-start;
 
-  border-top: 1px solid #1d262f;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
 }
 
 
-.recent-icon {
-  width: 30px;
-  height: 30px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-right: 12px;
-
-  border-radius: 50%;
-
-  background: #18252f;
-
-  color: #7397b5;
-
-  font-size: 10px;
-}
-
-
-.recent-info {
-  display: flex;
-  flex-direction: column;
-
-  gap: 4px;
-
-  flex: 1;
-}
-
-
-.recent-info strong {
-  font-size: 10px;
-  font-weight: 600;
-}
-
-
-.recent-info span {
-  color: #65717c;
-
-  font-size: 8px;
-}
-
-
-.recent-status {
-  color: #607f99;
+.todo-heading > div span,
+.daily-progress-heading > span {
+  color: #62717d;
 
   font-size: 8px;
   font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+
+.todo-heading h3,
+.daily-progress-heading h3 {
+  margin: 6px 0 0;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 32px;
+
+  font-weight: 500;
+}
+
+
+.clear-icon-button {
+  width: 34px;
+  height: 34px;
+
+  border: 1px solid #28333d;
+
+  border-radius: 8px;
+
+  background: #111820;
+
+  color: #71879a;
+
+  cursor: pointer;
+
+  font-size: 13px;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.clear-icon-button:hover {
+  background: #172029;
+
+  border-color: #405365;
+}
+
+
+/* =========================================
+   TASK ITEMS
+========================================= */
+
+.todo-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  min-height: 80px;
+}
+
+
+.todo-item {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 11px 12px;
+
+  border: 1px solid #202b35;
+
+  border-radius: 9px;
+
+  background: #111820;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.todo-item:hover {
+  border-color: #354858;
+
+  background: #141d25;
+}
+
+
+.task-check {
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #394955;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: #91b0c8;
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+
+.task-completed .task-check {
+  border-color: #587995;
+
+  background: #20394c;
+}
+
+
+.task-text {
+  flex: 1;
+
+  color: #b7c1c9;
+
+  font-size: 11px;
+}
+
+
+.task-completed .task-text {
+  color: #596670;
+
+  text-decoration: line-through;
+}
+
+
+.delete-task {
+  border: none;
+
+  background: transparent;
+
+  color: #596772;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  line-height: 1;
+
+  padding: 2px 4px;
+}
+
+
+.delete-task:hover {
+  color: #a5b0b8;
+}
+
+
+.empty-tasks {
+  padding: 18px 0;
+
+  color: #5f6b75;
+
+  font-size: 10px;
+}
+
+
+/* =========================================
+   ADD TASK
+========================================= */
+
+.add-task {
+  display: flex;
+
+  gap: 8px;
+
+  margin-top: 17px;
+}
+
+
+.add-task input {
+  min-width: 0;
+
+  flex: 1;
+
+  padding: 11px 12px;
+
+  border: 1px solid #27333d;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  background: #10171e;
+
+  color: #dce2e6;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 10px;
+}
+
+
+.add-task input::placeholder {
+  color: #56636e;
+}
+
+
+.add-task input:focus {
+  border-color: #40586d;
+}
+
+
+.add-task-button {
+  padding: 10px 14px;
+
+  border: 1px solid #315574;
+
+  border-radius: 8px;
+
+  background: #173653;
+
+  color: #dce8f0;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition: background 0.2s ease;
+}
+
+
+.add-task-button:hover {
+  background: #214a70;
+}
+
+
+.clear-all-button {
+  margin-top: 15px;
+
+  border: none;
+
+  background: none;
+
+  color: #687883;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 9px;
+
+  cursor: pointer;
+}
+
+
+.clear-all-button:hover {
+  color: #9aa8b2;
+}
+
+
+/* =========================================
+   DAILY PROGRESS
+========================================= */
+
+.daily-progress-panel {
+  padding: 27px;
+
+  border: 1px solid #202a33;
+
+  border-radius: 12px;
+
+  background: #0e141a;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+
+.daily-progress-heading {
+  width: 100%;
+
+  margin-bottom: 18px;
+}
+
+
+.progress-circle {
+  width: 175px;
+  height: 175px;
+
+  margin: 8px auto 20px;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      #7095b8 var(--progress),
+      #202a33 var(--progress)
+    );
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+
+.progress-circle::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 9px;
+
+  border-radius: 50%;
+
+  background: #0e141a;
+}
+
+
+.progress-circle-inner {
+  position: relative;
+
+  z-index: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+
+.progress-circle-inner strong {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 45px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  color: #f5f7fa;
+}
+
+
+.progress-circle-inner span {
+  margin-top: 5px;
+
+  color: #65727d;
+
+  font-size: 8px;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+}
+
+
+.progress-summary {
+  margin: 0;
+
+  color: #697681;
+
+  font-size: 10px;
+
+  text-align: center;
 }
 
 
@@ -984,17 +1269,26 @@ margin-bottom: 18px;
     display: none;
   }
 
+
   .stats-grid {
     grid-template-columns: 1fr 1fr;
   }
+
 
   .stats-grid .stat-card:first-child {
     grid-column: span 2;
   }
 
+
   .dashboard-main-grid {
     grid-template-columns: 1fr;
   }
+
+
+  .consistency-panel {
+    min-height: auto;
+  }
+
 
   .dashboard-bottom {
     grid-template-columns: 1fr;
@@ -1009,15 +1303,18 @@ margin-bottom: 18px;
     padding: 0 22px;
   }
 
+
   .dashboard-content {
     width: calc(100% - 36px);
 
     padding-top: 50px;
   }
 
+
   .logout-button {
     display: none;
   }
+
 
   .dashboard-hero {
     align-items: flex-start;
@@ -1025,34 +1322,51 @@ margin-bottom: 18px;
     gap: 30px;
   }
 
+
   .hero-date {
     min-width: 95px;
 
     padding: 16px;
   }
 
+
   .hero-text h1 {
     font-size: 50px;
   }
+
 
   .hero-text p {
     font-size: 11px;
   }
 
+
   .stats-grid {
     grid-template-columns: 1fr;
   }
+
 
   .stats-grid .stat-card:first-child {
     grid-column: auto;
   }
 
+
   .featured-workout {
     min-height: 340px;
   }
 
+
   .featured-content h2 {
     font-size: 48px;
+  }
+
+
+  .add-task {
+    flex-direction: column;
+  }
+
+
+  .add-task-button {
+    width: 100%;
   }
 
 }
@@ -1064,16 +1378,32 @@ margin-bottom: 18px;
     font-size: 16px;
   }
 
+
   .dashboard-hero {
     flex-direction: column;
   }
+
 
   .hero-date {
     align-self: flex-start;
   }
 
+
   .dashboard-content {
     padding-bottom: 60px;
+  }
+
+
+  .todo-panel,
+  .daily-progress-panel,
+  .activity-panel {
+    padding: 21px;
+  }
+
+
+  .progress-circle {
+    width: 150px;
+    height: 150px;
   }
 
 }
