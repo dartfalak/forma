@@ -149,19 +149,15 @@ function Dashboard({ user }) {
       return;
     }
 
-    // Return to the main page where the login/signup modal is available
+    
     window.location.href = "/";
   };
 
 
-  // -----------------------------
-  // DASHBOARD
-  // -----------------------------
-
   return (
     <div className="dashboard">
 
-      {/* NAVBAR */}
+
 
       <nav className="dashboard-navbar">
 
@@ -206,7 +202,7 @@ function Dashboard({ user }) {
       </nav>
 
 
-      {/* SIGN OUT ERROR */}
+      
 
       {signOutError && (
         <div className="signout-error">
@@ -218,7 +214,7 @@ function Dashboard({ user }) {
       <main className="dashboard-content">
 
 
-        {/* HERO */}
+        
 
         <section className="dashboard-hero">
 
