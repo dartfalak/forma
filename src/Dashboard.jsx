@@ -4,9 +4,6 @@ import { supabase } from "./supabaseClient";
 
 function Dashboard({ user }) {
 
-  // -----------------------------
-  // FIRST VISIT
-  // -----------------------------
 
   const [isFirstVisit, setIsFirstVisit] = useState(() => {
     return !sessionStorage.getItem("forma-dashboard-visited");
@@ -17,17 +14,11 @@ function Dashboard({ user }) {
   }, []);
 
 
-  // -----------------------------
-  // USER NAME
-  // -----------------------------
+
 
   const fullName = user?.user_metadata?.full_name || "User";
   const firstName = fullName.split(" ")[0];
 
-
-  // -----------------------------
-  // TODO LIST
-  // -----------------------------
 
   const defaultTasks = [
     {
@@ -68,15 +59,12 @@ function Dashboard({ user }) {
   const [newTask, setNewTask] = useState("");
 
 
-  // Save tasks whenever they change
+  
   useEffect(() => {
     localStorage.setItem("forma-tasks", JSON.stringify(tasks));
   }, [tasks]);
 
 
-  // -----------------------------
-  // TASK FUNCTIONS
-  // -----------------------------
 
   const addTask = () => {
 
@@ -145,10 +133,6 @@ function Dashboard({ user }) {
       ? 0
       : Math.round((completedTasks / totalTasks) * 100);
 
-
-  // -----------------------------
-  // SIGN OUT
-  // -----------------------------
 
   const [signOutError, setSignOutError] = useState("");
 
