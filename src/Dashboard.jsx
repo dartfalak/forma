@@ -568,7 +568,7 @@ function Dashboard({ user }) {
 
 
 
-          {/* DAILY PROGRESS */}
+      
 
           <div className="daily-progress-panel">
 
