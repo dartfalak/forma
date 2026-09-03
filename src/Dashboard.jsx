@@ -267,7 +267,7 @@ function Dashboard({ user }) {
 
 
 
-        {/* STATS */}
+  
 
         <section className="stats-grid">
 
@@ -332,7 +332,7 @@ function Dashboard({ user }) {
 
 
 
-        {/* FEATURED WORKOUT + CONSISTENCY */}
+        
 
         <section className="dashboard-main-grid">
 
@@ -379,7 +379,7 @@ function Dashboard({ user }) {
 
 
 
-          {/* CONSISTENCY */}
+          
 
           <div className="activity-panel consistency-panel">
 
@@ -449,12 +449,12 @@ function Dashboard({ user }) {
 
 
 
-        {/* TODO + DAILY PROGRESS */}
+        
 
         <section className="dashboard-bottom">
 
 
-          {/* TODO LIST */}
+          
 
           <div className="todo-panel">
 
