@@ -164,7 +164,17 @@ function Dashboard({ user,theme,setTheme}) {
         <div className="dashboard-logo">
           FORMA
         </div>
-
+<button
+  className="theme-toggle"
+  onClick={() =>
+    setTheme(theme === "dark" ? "light" : "dark")
+  }
+  aria-label="Toggle light and dark mode"
+>
+  <span className="theme-icon">
+    {theme === "dark" ? "☀" : "☾"}
+  </span>
+</button>
 
         <div className="dashboard-nav-center">
 
