@@ -155,7 +155,7 @@ function Dashboard({ user,theme,setTheme}) {
 
 
   return (
-    <div className="dashboard">
+  <div className={`dashboard ${theme}-theme`}>
 
 
 
