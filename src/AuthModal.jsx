@@ -12,7 +12,7 @@ function AuthModal({ onClose, theme }) {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  
+
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -41,7 +41,7 @@ function AuthModal({ onClose, theme }) {
     if (isSignUp) {
 
       const cleanName = name.trim();
-      const cleanEmail = email.trim();
+      const cleanEmail = email.trim().toLowerCase();
 
 
       if (!cleanName) {
@@ -77,36 +77,61 @@ function AuthModal({ onClose, theme }) {
       setLoading(true);
 
 
-      const { error } = await supabase.auth.signUp({
-        email: cleanEmail,
-        password: password,
+      try {
 
-        options: {
-          data: {
-            full_name: cleanName,
-          },
-        },
-      });
+        const { data, error } =
+          await supabase.auth.signUp({
+            email: cleanEmail,
+            password: password,
+
+            options: {
+              data: {
+                full_name: cleanName,
+              },
+            },
+          });
 
 
-      setLoading(false);
+        if (error) {
+          setMessage(error.message);
+          return;
+        }
 
 
-      if (error) {
-        setMessage(error.message);
-        return;
+        /*
+          With email confirmation disabled in Supabase,
+          a successful signup should create a session.
+        */
+
+        if (!data.session) {
+          setMessage(
+            "Account was created, but you are not signed in. Please check your Supabase email settings."
+          );
+          return;
+        }
+
+
+        /*
+          App.jsx is already listening for SIGNED_IN.
+          That listener will take the user to the Dashboard.
+        */
+
+        onClose();
+
+      } catch (error) {
+
+        console.error("Sign up error:", error);
+
+        setMessage(
+          error.message ||
+          "Unable to create your account. Please try again."
+        );
+
+      } finally {
+
+        setLoading(false);
+
       }
-
-
-      setMessage(
-        "Account created. Check your email to confirm your account."
-      );
-
-
-      setName("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
 
     }
 
@@ -117,7 +142,7 @@ function AuthModal({ onClose, theme }) {
 
     else {
 
-      const cleanEmail = email.trim();
+      const cleanEmail = email.trim().toLowerCase();
 
 
       if (!cleanEmail) {
@@ -135,32 +160,48 @@ function AuthModal({ onClose, theme }) {
       setLoading(true);
 
 
-      const { data, error } =
-        await supabase.auth.signInWithPassword({
-          email: cleanEmail,
-          password,
-        });
+      try {
+
+        const { data, error } =
+          await supabase.auth.signInWithPassword({
+            email: cleanEmail,
+            password,
+          });
 
 
-      console.log("SIGN IN DATA:", data);
-      console.log("SIGN IN ERROR:", error);
+        console.log("SIGN IN DATA:", data);
+        console.log("SIGN IN ERROR:", error);
 
 
-      setLoading(false);
+        if (error) {
+          setMessage(error.message);
+          return;
+        }
 
 
-      if (error) {
-        setMessage(error.message);
-        return;
+        setMessage("Signed in successfully!");
+
+
+        setTimeout(() => {
+          onClose();
+        }, 500);
+
+
+      } catch (error) {
+
+        console.error("Sign in error:", error);
+
+        setMessage(
+          error.message ||
+          "Unable to sign in. Please try again."
+        );
+
+      } finally {
+
+        setLoading(false);
+
       }
 
-
-      setMessage("Signed in successfully!");
-
-
-      setTimeout(() => {
-        onClose();
-      }, 1000);
     }
   };
 
@@ -179,15 +220,29 @@ function AuthModal({ onClose, theme }) {
     setMessage("");
 
 
-    const { error } =
-      await supabase.auth.signInWithOAuth({
-        provider: "google",
-      });
+    try {
+
+      const { error } =
+        await supabase.auth.signInWithOAuth({
+          provider: "google",
+        });
 
 
-    if (error) {
+      if (error) {
+        setMessage(error.message);
+        setLoading(false);
+      }
+
+    } catch (error) {
+
+      console.error("Google login error:", error);
+
+      setMessage(
+        error.message ||
+        "Unable to continue with Google."
+      );
+
       setLoading(false);
-      setMessage(error.message);
     }
   };
 
@@ -203,6 +258,7 @@ function AuthModal({ onClose, theme }) {
         <button
           className="auth-close"
           onClick={onClose}
+          type="button"
         >
           ×
         </button>
