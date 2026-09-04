@@ -109,7 +109,7 @@ function Dashboard({ user,theme,setTheme}) {
   };
 
 
-  // Allow Enter key to add a task
+
   const handleTaskKeyDown = (e) => {
 
     if (e.key === "Enter") {
@@ -118,9 +118,6 @@ function Dashboard({ user,theme,setTheme}) {
   };
 
 
-  // -----------------------------
-  // DAILY PROGRESS
-  // -----------------------------
 
   const completedTasks = tasks.filter(
     (task) => task.completed
