@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import { supabase } from "./supabaseClient";
 
-function Dashboard({ user }) {
+function Dashboard({ user,theme,setTheme}) {
 
 
   const [isFirstVisit, setIsFirstVisit] = useState(() => {
