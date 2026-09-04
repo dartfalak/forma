@@ -479,9 +479,11 @@ supabase.auth.getSession().then(({ data }) => {
   if (session && showDashboard) {
 
     return (
-      <Dashboard
-        user={session.user}
-      />
+    <Dashboard
+  user={session.user}
+  theme={theme}
+  setTheme={setTheme}
+/>
     );
 
   }
