@@ -98,11 +98,6 @@ function AuthModal({ onClose, theme }) {
         }
 
 
-        /*
-          With email confirmation disabled in Supabase,
-          a successful signup should create a session.
-        */
-
         if (!data.session) {
           setMessage(
             "Account was created, but you are not signed in. Please check your Supabase email settings."
@@ -111,10 +106,7 @@ function AuthModal({ onClose, theme }) {
         }
 
 
-        /*
-          App.jsx is already listening for SIGNED_IN.
-          That listener will take the user to the Dashboard.
-        */
+      
 
         onClose();
 
@@ -136,9 +128,6 @@ function AuthModal({ onClose, theme }) {
     }
 
 
-    /* =========================
-       SIGN IN
-    ========================= */
 
     else {
 
@@ -156,51 +145,36 @@ function AuthModal({ onClose, theme }) {
         return;
       }
 
+setLoading(true);
 
-      setLoading(true);
+try {
+  const { data, error } = await supabase.auth.signUp({
+    email: cleanEmail,
+    password: password,
+    options: {
+      data: {
+        full_name: cleanName,
+      },
+    },
+  });
 
+  if (error) {
+    setMessage(error.message);
+    return;
+  }
 
-      try {
+  if (!data.session) {
+    setMessage("Unable to sign you in automatically. Please try again.");
+    return;
+  }
 
-        const { data, error } =
-          await supabase.auth.signInWithPassword({
-            email: cleanEmail,
-            password,
-          });
-
-
-        console.log("SIGN IN DATA:", data);
-        console.log("SIGN IN ERROR:", error);
-
-
-        if (error) {
-          setMessage(error.message);
-          return;
-        }
-
-
-        setMessage("Signed in successfully!");
-
-
-        setTimeout(() => {
-          onClose();
-        }, 500);
-
-
-      } catch (error) {
-
-        console.error("Sign in error:", error);
-
-        setMessage(
-          error.message ||
-          "Unable to sign in. Please try again."
-        );
-
-      } finally {
-
-        setLoading(false);
-
-      }
+  onClose();
+} catch (error) {
+  console.error("Sign up error:", error);
+  setMessage("Unable to create your account. Please try again.");
+} finally {
+  setLoading(false);
+}
 
     }
   };
