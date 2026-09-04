@@ -106,8 +106,6 @@ function AuthModal({ onClose, theme }) {
         }
 
 
-      
-
         onClose();
 
       } catch (error) {
@@ -144,7 +142,6 @@ function AuthModal({ onClose, theme }) {
         setMessage("Please enter your password.");
         return;
       }
-
 setLoading(true);
 
 try {
