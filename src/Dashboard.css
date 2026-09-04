@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
 
 
-/* =========================================
-   DASHBOARD
-========================================= */
 
 .dashboard {
   min-height: 100vh;
@@ -18,13 +15,8 @@
 
   color: #f5f7fa;
 
-  font-family: "Manrope", sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
-
-
-/* =========================================
-   NAVBAR
-========================================= */
 
 .dashboard-navbar {
   height: 80px;
@@ -185,11 +177,6 @@
   color: #ffffff;
 }
 
-
-/* =========================================
-   SIGN OUT ERROR
-========================================= */
-
 .signout-error {
   width: min(1180px, calc(100% - 60px));
 
@@ -208,10 +195,6 @@
 }
 
 
-/* =========================================
-   MAIN CONTENT
-========================================= */
-
 .dashboard-content {
   width: min(1180px, calc(100% - 60px));
 
@@ -221,9 +204,7 @@
 }
 
 
-/* =========================================
-   HERO
-========================================= */
+
 
 .dashboard-hero {
   display: flex;
@@ -294,10 +275,6 @@
   line-height: 1.8;
 }
 
-
-/* =========================================
-   DATE
-========================================= */
 
 .hero-date {
   min-width: 130px;
@@ -387,10 +364,6 @@
 }
 
 
-/* =========================================
-   STATS
-========================================= */
-
 .stats-grid {
   display: grid;
 
@@ -436,63 +409,47 @@
 
 .stat-top {
   display: flex;
-
   justify-content: space-between;
-
   color: #63717d;
-
   font-size: 8px;
   font-weight: 700;
-
   letter-spacing: 2px;
 }
 
 
 .stat-icon {
   color: #6e91af;
-
   font-size: 14px;
 }
 
 
 .stat-value {
   margin-top: 27px;
-
   font-family: "Cormorant Garamond", serif;
-
   font-size: 54px;
-
   line-height: 0.9;
 }
 
 
 .stat-value small {
   color: #788590;
-
   font-family: "Manrope", sans-serif;
-
   font-size: 10px;
 }
 
 
 .stat-card p {
   margin-top: 15px;
-
   color: #68737e;
-
   font-size: 10px;
 }
 
 
 .progress-bar {
   height: 4px;
-
   margin-top: 17px;
-
   overflow: hidden;
-
   border-radius: 999px;
-
   background: #1b242d;
 }
 
@@ -500,20 +457,13 @@
 .progress-fill {
   width: 78%;
   height: 100%;
-
   border-radius: inherit;
-
   background: linear-gradient(
     90deg,
     #355b7d,
     #7198b9
   );
 }
-
-
-/* =========================================
-   MAIN GRID
-========================================= */
 
 .dashboard-main-grid {
   display: grid;
@@ -526,9 +476,6 @@
 }
 
 
-/* =========================================
-   FEATURED WORKOUT
-========================================= */
 
 .featured-workout {
   min-height: 390px;
@@ -592,56 +539,42 @@
 
 .featured-content {
   position: relative;
-
   z-index: 2;
-
   height: 100%;
-
   padding: 32px;
-
   display: flex;
   flex-direction: column;
-
   justify-content: space-between;
 }
 
 
 .featured-top {
   display: flex;
-
   justify-content: space-between;
 }
 
 
 .featured-label {
   color: #7197b7;
-
   font-size: 8px;
   font-weight: 700;
-
   letter-spacing: 2.5px;
 }
 
 
 .featured-time {
   color: #596774;
-
   font-size: 8px;
   font-weight: 700;
-
   letter-spacing: 1.5px;
 }
 
 
 .featured-content h2 {
   margin: 0 0 7px;
-
   font-family: "Cormorant Garamond", serif;
-
   font-size: 58px;
-
   font-weight: 500;
-
   line-height: 0.95;
 }
 
@@ -696,10 +629,6 @@
   transform: translateX(3px);
 }
 
-
-/* =========================================
-   CONSISTENCY
-========================================= */
 
 .activity-panel {
   padding: 27px;
@@ -835,9 +764,6 @@
 }
 
 
-/* =========================================
-   TODO + DAILY PROGRESS
-========================================= */
 
 .dashboard-bottom {
   display: grid;
@@ -848,9 +774,6 @@
 }
 
 
-/* =========================================
-   TODO LIST
-========================================= */
 
 .todo-panel {
   padding: 27px;
@@ -925,10 +848,6 @@
   border-color: #405365;
 }
 
-
-/* =========================================
-   TASK ITEMS
-========================================= */
 
 .todo-list {
   display: flex;
@@ -1047,11 +966,6 @@
   font-size: 10px;
 }
 
-
-/* =========================================
-   ADD TASK
-========================================= */
-
 .add-task {
   display: flex;
 
@@ -1144,10 +1058,6 @@
   color: #9aa8b2;
 }
 
-
-/* =========================================
-   DAILY PROGRESS
-========================================= */
 
 .daily-progress-panel {
   padding: 27px;
@@ -1258,10 +1168,6 @@
   text-align: center;
 }
 
-
-/* =========================================
-   RESPONSIVE
-========================================= */
 
 @media (max-width: 950px) {
 
