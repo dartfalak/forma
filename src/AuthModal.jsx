@@ -23,107 +23,145 @@ function AuthModal({ onClose, theme }) {
   const [loading, setLoading] = useState(false);
 
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    e.preventDefault();
+  setMessage("");
 
-    setMessage("");
+  if (loading) {
+    return;
+  }
 
-    if (loading) {
+  /* =========================
+     SIGN UP
+  ========================= */
+
+  if (isSignUp) {
+    const cleanName = name.trim();
+    const cleanEmail = email.trim().toLowerCase();
+
+    if (!cleanName) {
+      setMessage("Please enter your name.");
       return;
     }
 
-
-    /* =========================
-       SIGN UP
-    ========================= */
-
-    if (isSignUp) {
-
-      const cleanName = name.trim();
-      const cleanEmail = email.trim().toLowerCase();
-
-
-      if (!cleanName) {
-        setMessage("Please enter your name.");
-        return;
-      }
-
-
-      if (!cleanEmail) {
-        setMessage("Please enter your email.");
-        return;
-      }
-
-
-      if (password.length < 6) {
-        setMessage("Password must be at least 6 characters.");
-        return;
-      }
-
-
-      if (!confirmPassword) {
-        setMessage("Please confirm your password.");
-        return;
-      }
-
-
-      if (password !== confirmPassword) {
-        setMessage("Passwords do not match.");
-        return;
-      }
-
-
-      setLoading(true);
-
-
-      try {
-
-        const { data, error } =
-          await supabase.auth.signUp({
-            email: cleanEmail,
-            password: password,
-
-            options: {
-              data: {
-                full_name: cleanName,
-              },
-            },
-          });
-
-
-        if (error) {
-          setMessage(error.message);
-          return;
-        }
-
-
-        if (!data.session) {
-          setMessage(
-            "Account was created, but you are not signed in. Please check your Supabase email settings."
-          );
-          return;
-        }
-
-
-        onClose();
-
-      } catch (error) {
-
-        console.error("Sign up error:", error);
-
-        setMessage(
-          error.message ||
-          "Unable to create your account. Please try again."
-        );
-
-      } finally {
-
-        setLoading(false);
-
-      }
-
+    if (!cleanEmail) {
+      setMessage("Please enter your email.");
+      return;
     }
+
+    if (password.length < 6) {
+      setMessage("Password must be at least 6 characters.");
+      return;
+    }
+
+    if (!confirmPassword) {
+      setMessage("Please confirm your password.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setMessage("Passwords do not match.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: cleanEmail,
+        password: password,
+
+        options: {
+          data: {
+            full_name: cleanName,
+          },
+        },
+      });
+
+      if (error) {
+        setMessage(error.message);
+        return;
+      }
+
+      /*
+        With email confirmation OFF,
+        Supabase should give us a session here.
+      */
+
+      if (!data.session) {
+        setMessage("Account could not be signed in automatically. Please try again.");
+        return;
+      }
+
+      // Account created + user signed in
+      onClose();
+
+    } catch (error) {
+      console.error("Sign up error:", error);
+
+      setMessage(
+        error.message ||
+        "Unable to create your account. Please try again."
+      );
+
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  /* =========================
+     SIGN IN
+  ========================= */
+
+  else {
+    const cleanEmail = email.trim().toLowerCase();
+
+    if (!cleanEmail) {
+      setMessage("Please enter your email.");
+      return;
+    }
+
+    if (!password) {
+      setMessage("Please enter your password.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const { data, error } =
+        await supabase.auth.signInWithPassword({
+          email: cleanEmail,
+          password: password,
+        });
+
+      if (error) {
+        setMessage(error.message);
+        return;
+      }
+
+      if (!data.session) {
+        setMessage("Unable to sign you in. Please try again.");
+        return;
+      }
+
+      // User successfully signed in
+      onClose();
+
+    } catch (error) {
+      console.error("Sign in error:", error);
+
+      setMessage(
+        error.message ||
+        "Unable to sign you in. Please try again."
+      );
+
+    } finally {
+      setLoading(false);
+    }
+  }
+};
 
 
 
