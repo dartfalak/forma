@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import { supabase } from "./supabaseClient";
 import "./AuthModal.css";
-import {
-  Eye,
-  EyeOff,
-} from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 
 function AuthModal({ onClose, theme }) {
-
   const [isSignUp, setIsSignUp] = useState(true);
 
   const [name, setName] = useState("");
@@ -22,99 +18,103 @@ function AuthModal({ onClose, theme }) {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
+    setMessage("");
 
-  setMessage("");
-
-  if (loading) {
-    return;
-  }
-
-  /* =========================
-     SIGN UP
-  ========================= */
-
-  if (isSignUp) {
-    const cleanName = name.trim();
-    const cleanEmail = email.trim().toLowerCase();
-
-    if (!cleanName) {
-      setMessage("Please enter your name.");
+    if (loading) {
       return;
     }
 
-    if (!cleanEmail) {
-      setMessage("Please enter your email.");
-      return;
-    }
+    /* =========================
+       SIGN UP
+    ========================= */
 
-    if (password.length < 6) {
-      setMessage("Password must be at least 6 characters.");
-      return;
-    }
+    if (isSignUp) {
+      const cleanName = name.trim();
+      const cleanEmail = email.trim().toLowerCase();
 
-    if (!confirmPassword) {
-      setMessage("Please confirm your password.");
-      return;
-    }
+      if (!cleanName) {
+        setMessage("Please enter your name.");
+        return;
+      }
 
-    if (password !== confirmPassword) {
-      setMessage("Passwords do not match.");
-      return;
-    }
+      if (!cleanEmail) {
+        setMessage("Please enter your email.");
+        return;
+      }
 
-    setLoading(true);
+      if (password.length < 6) {
+        setMessage("Password must be at least 6 characters.");
+        return;
+      }
 
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email: cleanEmail,
-        password: password,
+      if (!confirmPassword) {
+        setMessage("Please confirm your password.");
+        return;
+      }
 
-        options: {
-          data: {
-            full_name: cleanName,
+      if (password !== confirmPassword) {
+        setMessage("Passwords do not match.");
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        const { data, error } = await supabase.auth.signUp({
+          email: cleanEmail,
+          password: password,
+
+          options: {
+            data: {
+              full_name: cleanName,
+            },
           },
-        },
-      });
+        });
 
-      if (error) {
-        setMessage(error.message);
-        return;
+        if (error) {
+          console.error("Sign up error:", error);
+          setMessage(error.message);
+          return;
+        }
+
+        /*
+          If email confirmation is disabled in Supabase,
+          data.session should exist here.
+
+          That means the user is automatically signed in.
+        */
+
+        if (!data.session) {
+          setMessage(
+            "Account could not be signed in automatically. Please check your Supabase email confirmation setting."
+          );
+          return;
+        }
+
+        // Account created + user signed in
+        onClose();
+
+      } catch (error) {
+        console.error("Sign up error:", error);
+
+        setMessage(
+          error.message ||
+            "Unable to create your account. Please try again."
+        );
+      } finally {
+        setLoading(false);
       }
 
-      /*
-        With email confirmation OFF,
-        Supabase should give us a session here.
-      */
-
-      if (!data.session) {
-        setMessage("Account could not be signed in automatically. Please try again.");
-        return;
-      }
-
-      // Account created + user signed in
-      onClose();
-
-    } catch (error) {
-      console.error("Sign up error:", error);
-
-      setMessage(
-        error.message ||
-        "Unable to create your account. Please try again."
-      );
-
-    } finally {
-      setLoading(false);
+      return;
     }
-  }
 
-  /* =========================
-     SIGN IN
-  ========================= */
+    /* =========================
+       SIGN IN
+    ========================= */
 
-  else {
     const cleanEmail = email.trim().toLowerCase();
 
     if (!cleanEmail) {
@@ -137,6 +137,7 @@ function AuthModal({ onClose, theme }) {
         });
 
       if (error) {
+        console.error("Sign in error:", error);
         setMessage(error.message);
         return;
       }
@@ -146,7 +147,7 @@ function AuthModal({ onClose, theme }) {
         return;
       }
 
-      // User successfully signed in
+      // User is successfully signed in
       onClose();
 
     } catch (error) {
@@ -154,73 +155,18 @@ function AuthModal({ onClose, theme }) {
 
       setMessage(
         error.message ||
-        "Unable to sign you in. Please try again."
+          "Unable to sign you in. Please try again."
       );
-
     } finally {
       setLoading(false);
     }
-  }
-};
-
-
-
-    else {
-
-      const cleanEmail = email.trim().toLowerCase();
-
-
-      if (!cleanEmail) {
-        setMessage("Please enter your email.");
-        return;
-      }
-
-
-      if (!password) {
-        setMessage("Please enter your password.");
-        return;
-      }
-setLoading(true);
-
-try {
-  const { data, error } = await supabase.auth.signUp({
-    email: cleanEmail,
-    password: password,
-    options: {
-      data: {
-        full_name: cleanName,
-      },
-    },
-  });
-
-  if (error) {
-    setMessage(error.message);
-    return;
-  }
-
-  if (!data.session) {
-    setMessage("Unable to sign you in automatically. Please try again.");
-    return;
-  }
-
-  onClose();
-} catch (error) {
-  console.error("Sign up error:", error);
-  setMessage("Unable to create your account. Please try again.");
-} finally {
-  setLoading(false);
-}
-
-    }
   };
-
 
   /* =========================
      GOOGLE LOGIN
   ========================= */
 
   const handleGoogleLogin = async () => {
-
     if (loading) {
       return;
     }
@@ -228,39 +174,32 @@ try {
     setLoading(true);
     setMessage("");
 
-
     try {
-
       const { error } =
         await supabase.auth.signInWithOAuth({
           provider: "google",
         });
 
-
       if (error) {
         setMessage(error.message);
         setLoading(false);
       }
-
     } catch (error) {
-
       console.error("Google login error:", error);
 
       setMessage(
         error.message ||
-        "Unable to continue with Google."
+          "Unable to continue with Google."
       );
 
       setLoading(false);
     }
   };
 
-
   return (
     <div className={`auth-overlay ${theme}-theme`}>
 
       <div className="auth-modal">
-
 
         {/* CLOSE BUTTON */}
 
@@ -300,11 +239,9 @@ try {
 
         <form onSubmit={handleSubmit}>
 
-
           {/* NAME */}
 
           {isSignUp && (
-
             <div className="auth-field">
 
               <label>
@@ -322,7 +259,6 @@ try {
               />
 
             </div>
-
           )}
 
 
@@ -383,12 +319,11 @@ try {
                     : "Show password"
                 }
               >
-
-                {showPassword
-                  ? <Eye className="eye-icon" />
-                  : <EyeOff className="eye-icon" />
-                }
-
+                {showPassword ? (
+                  <Eye className="eye-icon" />
+                ) : (
+                  <EyeOff className="eye-icon" />
+                )}
               </button>
 
             </div>
@@ -399,7 +334,6 @@ try {
           {/* CONFIRM PASSWORD */}
 
           {isSignUp && (
-
             <div className="auth-field">
 
               <label>
@@ -438,29 +372,25 @@ try {
                       : "Show confirm password"
                   }
                 >
-
-                  {showConfirmPassword
-                    ? <Eye className="eye-icon" />
-                    : <EyeOff className="eye-icon" />
-                  }
-
+                  {showConfirmPassword ? (
+                    <Eye className="eye-icon" />
+                  ) : (
+                    <EyeOff className="eye-icon" />
+                  )}
                 </button>
 
               </div>
 
             </div>
-
           )}
 
 
           {/* MESSAGE */}
 
           {message && (
-
             <div className="auth-message">
               {message}
             </div>
-
           )}
 
 
@@ -471,13 +401,11 @@ try {
             className="auth-submit"
             disabled={loading}
           >
-
             {loading
               ? "Please wait..."
               : isSignUp
               ? "Create Account"
               : "Sign In"}
-
           </button>
 
         </form>
@@ -513,9 +441,7 @@ try {
         <div className="auth-switch">
 
           {isSignUp ? (
-
             <>
-
               Already have an account?
 
               <button
@@ -523,17 +449,15 @@ try {
                 onClick={() => {
                   setIsSignUp(false);
                   setMessage("");
+                  setPassword("");
+                  setConfirmPassword("");
                 }}
               >
                 Sign in
               </button>
-
             </>
-
           ) : (
-
             <>
-
               Don't have an account?
 
               <button
@@ -541,17 +465,15 @@ try {
                 onClick={() => {
                   setIsSignUp(true);
                   setMessage("");
+                  setPassword("");
                 }}
               >
                 Sign up
               </button>
-
             </>
-
           )}
 
         </div>
-
 
       </div>
 
