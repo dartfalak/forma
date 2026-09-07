@@ -1,0 +1,234 @@
+/* =========================================
+   WORKOUT PAGE
+========================================= */
+
+.workout-page {
+  padding-top: 70px;
+}
+
+.workout-page-header {
+  max-width: 650px;
+  margin-bottom: 42px;
+}
+
+.workout-page-header h1 {
+  margin: 0;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(52px, 7vw, 78px);
+  font-weight: 500;
+
+  line-height: 0.95;
+  letter-spacing: -1px;
+}
+
+.workout-page-header p {
+  margin-top: 20px;
+
+  color: #7f8a95;
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.workout-card {
+  max-width: 760px;
+
+  padding: 30px;
+
+  border: 1px solid #202a33;
+  border-radius: 14px;
+
+  background: #0e141a;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.workout-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid #202a33;
+}
+
+.workout-card-top > div > span {
+  color: #62717d;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.workout-card-top h2 {
+  margin-top: 5px;
+
+  color: #f5f7fa;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+
+  font-variant-numeric: tabular-nums;
+}
+
+.workout-count {
+  color: #7899b5;
+
+  font-size: 10px;
+}
+
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+
+  margin: 8px 0 28px;
+}
+
+.exercise-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 17px 0;
+
+  border-bottom: 1px solid #1d252d;
+}
+
+.exercise-number {
+  width: 28px;
+
+  color: #52616d;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  font-variant-numeric: tabular-nums;
+}
+
+.exercise-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.exercise-info strong {
+  color: #dce2e6;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.exercise-info span {
+  color: #68737e;
+
+  font-size: 10px;
+}
+
+.workout-start-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  padding: 13px 20px;
+
+  border: 1px solid #315574;
+  border-radius: 999px;
+
+  background: #173653;
+  color: #e8f0f6;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.workout-start-button:hover {
+  background: #214a70;
+  transform: translateX(3px);
+}
+
+.workout-start-button span {
+  font-size: 14px;
+}
+
+
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+.dashboard.light-theme .workout-page-header h1 {
+  color: #171b20;
+}
+
+.dashboard.light-theme .workout-page-header p {
+  color: #68727d;
+}
+
+.dashboard.light-theme .workout-card {
+  background: #ffffff;
+  border-color: #dfe3e7;
+}
+
+.dashboard.light-theme .workout-card-top {
+  border-color: #dfe3e7;
+}
+
+.dashboard.light-theme .workout-card-top > div > span {
+  color: #7b858e;
+}
+
+.dashboard.light-theme .workout-card-top h2 {
+  color: #171b20;
+}
+
+.dashboard.light-theme .workout-count {
+  color: #58799b;
+}
+
+.dashboard.light-theme .exercise-row {
+  border-color: #e5e8eb;
+}
+
+.dashboard.light-theme .exercise-number {
+  color: #87919a;
+}
+
+.dashboard.light-theme .exercise-info strong {
+  color: #303942;
+}
+
+.dashboard.light-theme .exercise-info span {
+  color: #75808a;
+}
+
+
+@media (max-width: 650px) {
+
+  .workout-page {
+    padding-top: 50px;
+  }
+
+  .workout-card {
+    padding: 22px;
+  }
+
+  .workout-card-top h2 {
+    font-size: 32px;
+  }
+
+  .workout-page-header h1 {
+    font-size: 52px;
+  }
+}
