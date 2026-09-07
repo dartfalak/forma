@@ -157,18 +157,10 @@ function Dashboard({ user, theme, onNavigate }) {
       return;
     }
 
-    /*
-      Do NOT use window.location.href here.
 
-      Supabase's SIGNED_OUT event in App.jsx
-      will automatically take the user back
-      to the Home screen without reloading.
-    */
   };
 
-  /*
-    Current date
-  */
+
   const today = new Date();
 
   const dayName =
@@ -191,9 +183,7 @@ function Dashboard({ user, theme, onNavigate }) {
   const year =
     today.getFullYear();
 
-  /*
-    SVG progress circle
-  */
+
   const progressRadius = 70;
 
   const circumference =
