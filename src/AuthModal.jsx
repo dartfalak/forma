@@ -81,20 +81,22 @@ function AuthModal({ onClose, theme }) {
         }
 
         /*
-          If email confirmation is disabled in Supabase,
-          data.session should exist here.
-
-          That means the user is automatically signed in.
+          Email confirmation must be disabled
+          in Supabase for this session to exist.
         */
 
         if (!data.session) {
           setMessage(
-            "Account could not be signed in automatically. Please check your Supabase email confirmation setting."
+            "Account could not be created. Please try again."
           );
           return;
         }
 
-        // Account created + user signed in
+        /*
+          Account created successfully
+          AND user is automatically signed in.
+        */
+
         onClose();
 
       } catch (error) {
@@ -147,7 +149,7 @@ function AuthModal({ onClose, theme }) {
         return;
       }
 
-      // User is successfully signed in
+      // User successfully signed in
       onClose();
 
     } catch (error) {
@@ -184,6 +186,7 @@ function AuthModal({ onClose, theme }) {
         setMessage(error.message);
         setLoading(false);
       }
+
     } catch (error) {
       console.error("Google login error:", error);
 
@@ -211,7 +214,6 @@ function AuthModal({ onClose, theme }) {
           ×
         </button>
 
-
         {/* HEADER */}
 
         <div className="auth-header">
@@ -233,7 +235,6 @@ function AuthModal({ onClose, theme }) {
           </p>
 
         </div>
-
 
         {/* FORM */}
 
@@ -261,7 +262,6 @@ function AuthModal({ onClose, theme }) {
             </div>
           )}
 
-
           {/* EMAIL */}
 
           <div className="auth-field">
@@ -281,7 +281,6 @@ function AuthModal({ onClose, theme }) {
             />
 
           </div>
-
 
           {/* PASSWORD */}
 
@@ -329,7 +328,6 @@ function AuthModal({ onClose, theme }) {
             </div>
 
           </div>
-
 
           {/* CONFIRM PASSWORD */}
 
@@ -384,7 +382,6 @@ function AuthModal({ onClose, theme }) {
             </div>
           )}
 
-
           {/* MESSAGE */}
 
           {message && (
@@ -392,7 +389,6 @@ function AuthModal({ onClose, theme }) {
               {message}
             </div>
           )}
-
 
           {/* SUBMIT */}
 
@@ -410,13 +406,11 @@ function AuthModal({ onClose, theme }) {
 
         </form>
 
-
         {/* DIVIDER */}
 
         <div className="auth-divider">
           <span>or</span>
         </div>
-
 
         {/* GOOGLE */}
 
@@ -426,15 +420,12 @@ function AuthModal({ onClose, theme }) {
           onClick={handleGoogleLogin}
           disabled={loading}
         >
-
           <span className="google-icon">
             G
           </span>
 
           Continue with Google
-
         </button>
-
 
         {/* SWITCH SIGN UP / SIGN IN */}
 
