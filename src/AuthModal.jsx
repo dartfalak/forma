@@ -27,9 +27,7 @@ function AuthModal({ onClose, theme }) {
       return;
     }
 
-    /* =========================
-       SIGN UP
-    ========================= */
+   
 
     if (isSignUp) {
       const cleanName = name.trim();
@@ -80,10 +78,7 @@ function AuthModal({ onClose, theme }) {
           return;
         }
 
-        /*
-          Email confirmation must be disabled
-          in Supabase for this session to exist.
-        */
+    
 
         if (!data.session) {
           setMessage(
@@ -92,11 +87,7 @@ function AuthModal({ onClose, theme }) {
           return;
         }
 
-        /*
-          Account created successfully
-          AND user is automatically signed in.
-        */
-
+     
         onClose();
 
       } catch (error) {
@@ -113,9 +104,7 @@ function AuthModal({ onClose, theme }) {
       return;
     }
 
-    /* =========================
-       SIGN IN
-    ========================= */
+
 
     const cleanEmail = email.trim().toLowerCase();
 
@@ -149,7 +138,6 @@ function AuthModal({ onClose, theme }) {
         return;
       }
 
-      // User successfully signed in
       onClose();
 
     } catch (error) {
@@ -164,9 +152,7 @@ function AuthModal({ onClose, theme }) {
     }
   };
 
-  /* =========================
-     GOOGLE LOGIN
-  ========================= */
+
 
   const handleGoogleLogin = async () => {
     if (loading) {
@@ -204,7 +190,7 @@ function AuthModal({ onClose, theme }) {
 
       <div className="auth-modal">
 
-        {/* CLOSE BUTTON */}
+      
 
         <button
           className="auth-close"
@@ -214,7 +200,7 @@ function AuthModal({ onClose, theme }) {
           ×
         </button>
 
-        {/* HEADER */}
+      
 
         <div className="auth-header">
 
@@ -236,11 +222,11 @@ function AuthModal({ onClose, theme }) {
 
         </div>
 
-        {/* FORM */}
+        
 
         <form onSubmit={handleSubmit}>
 
-          {/* NAME */}
+        
 
           {isSignUp && (
             <div className="auth-field">
@@ -262,7 +248,7 @@ function AuthModal({ onClose, theme }) {
             </div>
           )}
 
-          {/* EMAIL */}
+          
 
           <div className="auth-field">
 
@@ -282,7 +268,7 @@ function AuthModal({ onClose, theme }) {
 
           </div>
 
-          {/* PASSWORD */}
+          
 
           <div className="auth-field">
 
@@ -329,7 +315,7 @@ function AuthModal({ onClose, theme }) {
 
           </div>
 
-          {/* CONFIRM PASSWORD */}
+          
 
           {isSignUp && (
             <div className="auth-field">
@@ -382,15 +368,14 @@ function AuthModal({ onClose, theme }) {
             </div>
           )}
 
-          {/* MESSAGE */}
-
+          
           {message && (
             <div className="auth-message">
               {message}
             </div>
           )}
 
-          {/* SUBMIT */}
+          
 
           <button
             type="submit"
@@ -406,13 +391,13 @@ function AuthModal({ onClose, theme }) {
 
         </form>
 
-        {/* DIVIDER */}
+        
 
         <div className="auth-divider">
           <span>or</span>
         </div>
 
-        {/* GOOGLE */}
+        
 
         <button
           type="button"
@@ -427,7 +412,7 @@ function AuthModal({ onClose, theme }) {
           Continue with Google
         </button>
 
-        {/* SWITCH SIGN UP / SIGN IN */}
+        
 
         <div className="auth-switch">
 
