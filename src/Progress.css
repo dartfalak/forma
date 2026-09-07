@@ -1,0 +1,329 @@
+/* =========================================
+   PROGRESS PAGE
+========================================= */
+
+.progress-page {
+  padding-top: 70px;
+}
+
+.progress-page-header {
+  max-width: 650px;
+  margin-bottom: 42px;
+}
+
+.progress-page-header h1 {
+  margin: 0;
+
+  color: #f5f7fa;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(52px, 7vw, 78px);
+  font-weight: 500;
+
+  line-height: 0.95;
+  letter-spacing: -1px;
+}
+
+.progress-page-header p {
+  margin-top: 20px;
+
+  color: #7f8a95;
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   OVERVIEW
+========================================= */
+
+.progress-overview {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+.progress-overview-card {
+  min-height: 170px;
+
+  padding: 25px;
+
+  border: 1px solid #202a33;
+  border-radius: 12px;
+
+  background: #0e141a;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.progress-overview-card > span {
+  color: #63717d;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.progress-overview-card strong {
+  display: block;
+
+  margin-top: 28px;
+
+  color: #f5f7fa;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-overview-card p {
+  margin-top: 14px;
+
+  color: #68737e;
+
+  font-size: 10px;
+}
+
+
+/* =========================================
+   WEEK
+========================================= */
+
+.progress-week-card {
+  max-width: 760px;
+
+  padding: 28px;
+
+  border: 1px solid #202a33;
+  border-radius: 12px;
+
+  background: #0e141a;
+
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.progress-week-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.progress-week-heading span {
+  color: #62717d;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.progress-week-heading h2 {
+  margin-top: 6px;
+
+  color: #f5f7fa;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.progress-week-heading strong {
+  color: #7899b5;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 12px;
+
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-week-bar {
+  height: 5px;
+
+  margin-top: 28px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #1b242d;
+}
+
+.progress-week-fill {
+  width: 78%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #355b7d,
+      #7198b9
+    );
+}
+
+.progress-week-days {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 18px;
+
+  color: #56616b;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.progress-week-days .completed {
+  color: #7f96aa;
+}
+
+.progress-week-days .current {
+  color: #7095b8;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.progress-back-button {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-top: 22px;
+
+  padding: 12px 18px;
+
+  border: 1px solid #303a44;
+  border-radius: 999px;
+
+  background: transparent;
+  color: #b7c0c8;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.progress-back-button:hover {
+  background: #141b22;
+  border-color: #455464;
+  color: #ffffff;
+}
+
+.progress-back-button span {
+  font-size: 14px;
+}
+
+
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+.dashboard.light-theme .progress-page-header h1 {
+  color: #171b20;
+}
+
+.dashboard.light-theme .progress-page-header p {
+  color: #68727d;
+}
+
+.dashboard.light-theme .progress-overview-card,
+.dashboard.light-theme .progress-week-card {
+  background: #ffffff;
+  border-color: #dfe3e7;
+}
+
+.dashboard.light-theme .progress-overview-card > span,
+.dashboard.light-theme .progress-week-heading span {
+  color: #7b858e;
+}
+
+.dashboard.light-theme .progress-overview-card strong {
+  color: #171b20;
+}
+
+.dashboard.light-theme .progress-overview-card p {
+  color: #75808a;
+}
+
+.dashboard.light-theme .progress-week-heading h2 {
+  color: #171b20;
+}
+
+.dashboard.light-theme .progress-week-heading strong {
+  color: #58799b;
+}
+
+.dashboard.light-theme .progress-week-bar {
+  background: #e1e6ea;
+}
+
+.dashboard.light-theme .progress-week-days {
+  color: #84909a;
+}
+
+.dashboard.light-theme .progress-week-days .completed {
+  color: #58799b;
+}
+
+.dashboard.light-theme .progress-week-days .current {
+  color: #58799b;
+}
+
+.dashboard.light-theme .progress-back-button {
+  border-color: #cbd2d8;
+  color: #4f5962;
+}
+
+.dashboard.light-theme .progress-back-button:hover {
+  background: #e9edf0;
+  border-color: #aeb8c1;
+  color: #171b20;
+}
+
+
+@media (max-width: 800px) {
+
+  .progress-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  .progress-page {
+    padding-top: 50px;
+  }
+
+  .progress-page-header h1 {
+    font-size: 52px;
+  }
+
+  .progress-week-card {
+    padding: 22px;
+  }
+}
