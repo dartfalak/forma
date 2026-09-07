@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import { supabase } from "./supabaseClient";
 
-function Dashboard({ user,theme,setTheme}) {
-
+function Dashboard({ user, theme, onNavigate }) {
 
   const [isFirstVisit, setIsFirstVisit] = useState(() => {
     return !sessionStorage.getItem("forma-dashboard-visited");
@@ -13,12 +12,11 @@ function Dashboard({ user,theme,setTheme}) {
     sessionStorage.setItem("forma-dashboard-visited", "true");
   }, []);
 
+  const fullName =
+    user?.user_metadata?.full_name || "User";
 
-
-
-  const fullName = user?.user_metadata?.full_name || "User";
-  const firstName = fullName.split(" ")[0];
-
+  const firstName =
+    fullName.split(" ")[0];
 
   const defaultTasks = [
     {
@@ -43,28 +41,30 @@ function Dashboard({ user,theme,setTheme}) {
     }
   ];
 
-
   const [tasks, setTasks] = useState(() => {
 
-    const savedTasks = localStorage.getItem("forma-tasks");
+    const savedTasks =
+      localStorage.getItem("forma-tasks");
 
     if (savedTasks) {
-      return JSON.parse(savedTasks);
+      try {
+        return JSON.parse(savedTasks);
+      } catch {
+        return defaultTasks;
+      }
     }
 
     return defaultTasks;
   });
 
-
   const [newTask, setNewTask] = useState("");
 
-
-  
   useEffect(() => {
-    localStorage.setItem("forma-tasks", JSON.stringify(tasks));
+    localStorage.setItem(
+      "forma-tasks",
+      JSON.stringify(tasks)
+    );
   }, [tasks]);
-
-
 
   const addTask = () => {
 
@@ -78,37 +78,40 @@ function Dashboard({ user,theme,setTheme}) {
       completed: false
     };
 
-    setTasks([...tasks, task]);
+    setTasks((currentTasks) => [
+      ...currentTasks,
+      task
+    ]);
 
     setNewTask("");
   };
 
-
   const toggleTask = (id) => {
 
-    setTasks(
-      tasks.map((task) =>
+    setTasks((currentTasks) =>
+      currentTasks.map((task) =>
         task.id === id
-          ? { ...task, completed: !task.completed }
+          ? {
+              ...task,
+              completed: !task.completed
+            }
           : task
       )
     );
   };
 
-
   const deleteTask = (id) => {
 
-    setTasks(
-      tasks.filter((task) => task.id !== id)
+    setTasks((currentTasks) =>
+      currentTasks.filter(
+        (task) => task.id !== id
+      )
     );
   };
-
 
   const clearAllTasks = () => {
     setTasks([]);
   };
-
-
 
   const handleTaskKeyDown = (e) => {
 
@@ -117,85 +120,142 @@ function Dashboard({ user,theme,setTheme}) {
     }
   };
 
-
-
-  const completedTasks = tasks.filter(
-    (task) => task.completed
-  ).length;
+  const completedTasks =
+    tasks.filter(
+      (task) => task.completed
+    ).length;
 
   const totalTasks = tasks.length;
 
   const dailyProgress =
     totalTasks === 0
       ? 0
-      : Math.round((completedTasks / totalTasks) * 100);
+      : Math.round(
+          (completedTasks / totalTasks) * 100
+        );
 
-
-  const [signOutError, setSignOutError] = useState("");
-
+  const [signOutError, setSignOutError] =
+    useState("");
 
   const handleSignOut = async () => {
 
     setSignOutError("");
 
-    const { error } = await supabase.auth.signOut();
+    const { error } =
+      await supabase.auth.signOut();
 
     if (error) {
-      console.error("Sign out error:", error);
-      setSignOutError("Unable to sign out. Please try again.");
+      console.error(
+        "Sign out error:",
+        error
+      );
+
+      setSignOutError(
+        "Unable to sign out. Please try again."
+      );
+
       return;
     }
 
-    
-    window.location.href = "/";
+    /*
+      Do NOT use window.location.href here.
+
+      Supabase's SIGNED_OUT event in App.jsx
+      will automatically take the user back
+      to the Home screen without reloading.
+    */
   };
 
+  /*
+    Current date
+  */
+  const today = new Date();
+
+  const dayName =
+    today
+      .toLocaleDateString("en-US", {
+        weekday: "short"
+      })
+      .toUpperCase();
+
+  const dayNumber =
+    today.getDate();
+
+  const monthName =
+    today
+      .toLocaleDateString("en-US", {
+        month: "short"
+      })
+      .toUpperCase();
+
+  const year =
+    today.getFullYear();
+
+  /*
+    SVG progress circle
+  */
+  const progressRadius = 70;
+
+  const circumference =
+    2 * Math.PI * progressRadius;
+
+  const progressOffset =
+    circumference -
+    (dailyProgress / 100) *
+      circumference;
 
   return (
-  <div className={`dashboard ${theme}-theme`}>
-
-
+    <div
+      className={`dashboard ${theme}-theme`}
+    >
 
       <nav className="dashboard-navbar">
 
         <div className="dashboard-logo">
           FORMA
         </div>
-<button
-  className="theme-toggle"
-  onClick={() =>
-    setTheme(theme === "dark" ? "light" : "dark")
-  }
-  aria-label="Toggle light and dark mode"
->
-  <span className="theme-icon">
-    {theme === "dark" ? "☀" : "☾"}
-  </span>
-</button>
 
         <div className="dashboard-nav-center">
 
-          <span className="nav-active">
+          <button
+            type="button"
+            className="dashboard-nav-button nav-active"
+            onClick={() =>
+              onNavigate("dashboard")
+            }
+          >
             Dashboard
-          </span>
+          </button>
 
-          <span>
+          <button
+            type="button"
+            className="dashboard-nav-button"
+            onClick={() =>
+              onNavigate("workout")
+            }
+          >
             Workout
-          </span>
+          </button>
 
-          <span>
+          <button
+            type="button"
+            className="dashboard-nav-button"
+            onClick={() =>
+              onNavigate("progress")
+            }
+          >
             Progress
-          </span>
+          </button>
 
         </div>
-
 
         <div className="dashboard-nav-right">
 
           <div className="profile-circle">
-            {firstName.charAt(0).toUpperCase()}
+            {firstName
+              .charAt(0)
+              .toUpperCase()}
           </div>
-
 
           <button
             className="logout-button"
@@ -208,20 +268,13 @@ function Dashboard({ user,theme,setTheme}) {
 
       </nav>
 
-
-      
-
       {signOutError && (
         <div className="signout-error">
           {signOutError}
         </div>
       )}
 
-
       <main className="dashboard-content">
-
-
-        
 
         <section className="dashboard-hero">
 
@@ -232,13 +285,13 @@ function Dashboard({ user,theme,setTheme}) {
               TODAY
             </div>
 
-
             <h1>
-              {isFirstVisit ? "Welcome," : "Welcome back,"}
+              {isFirstVisit
+                ? "Welcome,"
+                : "Welcome back,"}
               <br />
               <span>{firstName}.</span>
             </h1>
-
 
             <p>
               Here's what you're working on today.
@@ -248,7 +301,6 @@ function Dashboard({ user,theme,setTheme}) {
 
           </div>
 
-
           <div className="hero-date">
 
             <span className="date-label">
@@ -256,33 +308,33 @@ function Dashboard({ user,theme,setTheme}) {
             </span>
 
             <strong>
-              MON
+              {dayName}
             </strong>
 
             <span className="date-number">
-              <span className="digit-zero">0</span>
-              <span className="digit-one">1</span>
+              {dayNumber}
             </span>
 
             <span className="date-month">
-              SEP 2<span className="digit-zero">0</span>2<span className="digit-six">6</span>
+              {monthName} {year}
             </span>
 
           </div>
 
         </section>
 
-
-
-  
-
         <section className="stats-grid">
 
           <div className="stat-card">
 
             <div className="stat-top">
-              <span>WEEKLY PROGRESS</span>
-              <span className="stat-icon">↗</span>
+              <span>
+                WEEKLY PROGRESS
+              </span>
+
+              <span className="stat-icon">
+                ↗
+              </span>
             </div>
 
             <div className="stat-value">
@@ -299,16 +351,20 @@ function Dashboard({ user,theme,setTheme}) {
 
           </div>
 
-
           <div className="stat-card">
 
             <div className="stat-top">
-              <span>WORKOUT STREAK</span>
-              <span className="stat-icon">✦</span>
+              <span>
+                WORKOUT STREAK
+              </span>
+
+              <span className="stat-icon">
+                ✦
+              </span>
             </div>
 
             <div className="stat-value">
-              <span className="digit-one">1</span>2 <small>days</small>
+              12 <small>days</small>
             </div>
 
             <p>
@@ -317,16 +373,20 @@ function Dashboard({ user,theme,setTheme}) {
 
           </div>
 
-
           <div className="stat-card">
 
             <div className="stat-top">
-              <span>THIS MONTH</span>
-              <span className="stat-icon">◷</span>
+              <span>
+                THIS MONTH
+              </span>
+
+              <span className="stat-icon">
+                ◷
+              </span>
             </div>
 
             <div className="stat-value">
-              <span className="digit-one">1</span>6
+              16
             </div>
 
             <p>
@@ -337,12 +397,7 @@ function Dashboard({ user,theme,setTheme}) {
 
         </section>
 
-
-
-        
-
         <section className="dashboard-main-grid">
-
 
           <div className="featured-workout">
 
@@ -362,7 +417,6 @@ function Dashboard({ user,theme,setTheme}) {
 
               </div>
 
-
               <div>
 
                 <h2>
@@ -373,7 +427,12 @@ function Dashboard({ user,theme,setTheme}) {
                   Strength · Chest · Shoulders · Arms
                 </p>
 
-                <button className="start-workout-button">
+                <button
+                  className="start-workout-button"
+                  onClick={() =>
+                    onNavigate("workout")
+                  }
+                >
                   Start Workout
                   <span>→</span>
                 </button>
@@ -383,10 +442,6 @@ function Dashboard({ user,theme,setTheme}) {
             </div>
 
           </div>
-
-
-
-          
 
           <div className="activity-panel consistency-panel">
 
@@ -409,7 +464,6 @@ function Dashboard({ user,theme,setTheme}) {
               </span>
 
             </div>
-
 
             <div className="week-days">
 
@@ -454,14 +508,7 @@ function Dashboard({ user,theme,setTheme}) {
 
         </section>
 
-
-
-        
-
         <section className="dashboard-bottom">
-
-
-          
 
           <div className="todo-panel">
 
@@ -479,7 +526,6 @@ function Dashboard({ user,theme,setTheme}) {
 
               </div>
 
-
               <button
                 className="clear-icon-button"
                 onClick={clearAllTasks}
@@ -489,7 +535,6 @@ function Dashboard({ user,theme,setTheme}) {
               </button>
 
             </div>
-
 
             <div className="todo-list">
 
@@ -505,28 +550,34 @@ function Dashboard({ user,theme,setTheme}) {
 
                   <div
                     className={`todo-item ${
-                      task.completed ? "task-completed" : ""
+                      task.completed
+                        ? "task-completed"
+                        : ""
                     }`}
                     key={task.id}
                   >
 
                     <button
                       className="task-check"
-                      onClick={() => toggleTask(task.id)}
+                      onClick={() =>
+                        toggleTask(task.id)
+                      }
                       aria-label="Complete task"
                     >
-                      {task.completed ? "✓" : ""}
+                      {task.completed
+                        ? "✓"
+                        : ""}
                     </button>
-
 
                     <span className="task-text">
                       {task.text}
                     </span>
 
-
                     <button
                       className="delete-task"
-                      onClick={() => deleteTask(task.id)}
+                      onClick={() =>
+                        deleteTask(task.id)
+                      }
                       title="Delete task"
                     >
                       ×
@@ -540,17 +591,17 @@ function Dashboard({ user,theme,setTheme}) {
 
             </div>
 
-
             <div className="add-task">
 
               <input
                 type="text"
                 placeholder="Add a new task..."
                 value={newTask}
-                onChange={(e) => setNewTask(e.target.value)}
+                onChange={(e) =>
+                  setNewTask(e.target.value)
+                }
                 onKeyDown={handleTaskKeyDown}
               />
-
 
               <button
                 onClick={addTask}
@@ -560,7 +611,6 @@ function Dashboard({ user,theme,setTheme}) {
               </button>
 
             </div>
-
 
             {tasks.length > 0 && (
               <button
@@ -572,10 +622,6 @@ function Dashboard({ user,theme,setTheme}) {
             )}
 
           </div>
-
-
-
-      
 
           <div className="daily-progress-panel">
 
@@ -591,13 +637,33 @@ function Dashboard({ user,theme,setTheme}) {
 
             </div>
 
+            <div className="progress-circle">
 
-            <div
-              className="progress-circle"
-              style={{
-                "--progress": `${dailyProgress * 3.6}deg`
-              }}
-            >
+              <svg
+                className="progress-ring"
+                viewBox="0 0 160 160"
+                aria-label={`Daily progress ${dailyProgress}%`}
+              >
+
+                <circle
+                  className="progress-ring-track"
+                  cx="80"
+                  cy="80"
+                  r={progressRadius}
+                />
+
+                <circle
+                  className="progress-ring-value"
+                  cx="80"
+                  cy="80"
+                  r={progressRadius}
+                  style={{
+                    strokeDasharray: circumference,
+                    strokeDashoffset: progressOffset
+                  }}
+                />
+
+              </svg>
 
               <div className="progress-circle-inner">
 
@@ -613,7 +679,6 @@ function Dashboard({ user,theme,setTheme}) {
 
             </div>
 
-
             <p className="progress-summary">
               {completedTasks} of {totalTasks} tasks completed
             </p>
@@ -621,7 +686,6 @@ function Dashboard({ user,theme,setTheme}) {
           </div>
 
         </section>
-
 
       </main>
 

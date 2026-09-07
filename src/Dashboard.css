@@ -411,9 +411,12 @@
 
 .stat-value {
   margin-top: 27px;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 54px;
-  line-height: 0.9;
+  font-family: "Manrope", sans-serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
 }
 
 
