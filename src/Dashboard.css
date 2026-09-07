@@ -58,60 +58,50 @@
 .dashboard-nav-center {
   display: flex;
   align-items: center;
-
   gap: 30px;
-
-  margin-right: 420px;
-
+  margin: 0 auto;
   color: #8e98a4;
-
-  font-family: "DM Sans", sans-serif;
-
+  font-family: "Manrope", sans-serif;
   font-size: 14px;
   font-weight: 500;
 }
 
-
-.dashboard-nav-center span {
+.dashboard-nav-button {
   position: relative;
-
+  border: none;
+  background: none;
+  padding: 0;
+  color: #8e98a4;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
-
   transition: color 0.25s ease;
 }
 
-
-.dashboard-nav-center span::after {
+.dashboard-nav-button::after {
   content: "";
-
   position: absolute;
-
   left: 0;
   bottom: -7px;
-
   width: 0;
   height: 1px;
-
-  background-color: #7095b8;
-
+  background: #7095b8;
   transition: width 0.25s ease;
 }
 
-
-.dashboard-nav-center span:hover {
+.dashboard-nav-button:hover {
   color: #f5f7fa;
 }
 
-
-.dashboard-nav-center span:hover::after {
+.dashboard-nav-button:hover::after,
+.dashboard-nav-button.nav-active::after {
   width: 100%;
 }
 
-
-.dashboard-nav-center .nav-active {
+.dashboard-nav-button.nav-active {
   color: #f5f7fa;
 }
-
 
 .dashboard-nav-right {
   display: flex;
