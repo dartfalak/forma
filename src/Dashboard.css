@@ -385,7 +385,6 @@
 
 .stat-card:hover {
   transform: translateY(-3px);
-
   border-color: #334757;
 }
 
@@ -629,49 +628,38 @@
 
 .consistency-panel {
   min-height: 390px;
-
   display: flex;
   flex-direction: column;
-
   justify-content: center;
 }
 
 
 .panel-heading {
   display: flex;
-
   align-items: flex-start;
-
   justify-content: space-between;
-
   margin-bottom: 28px;
 }
 
 
 .panel-heading span:first-child {
   color: #62717d;
-
   font-size: 8px;
   font-weight: 700;
-
   letter-spacing: 2px;
 }
 
 
 .panel-heading h3 {
   margin: 6px 0 0;
-
   font-family: "Cormorant Garamond", serif;
-
   font-size: 32px;
-
   font-weight: 500;
 }
 
 
 .panel-value {
   color: #7899b5;
-
   font-size: 12px;
   font-weight: 700;
 }
@@ -679,24 +667,17 @@
 
 .week-days {
   display: flex;
-
   justify-content: space-between;
-
   gap: 7px;
 }
 
 
 .day {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   gap: 8px;
-
   color: #56616b;
-
   font-size: 9px;
 }
 
@@ -704,18 +685,12 @@
 .day > div {
   width: 32px;
   height: 32px;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   border: 1px solid #252f38;
-
   border-radius: 50%;
-
   background: #121921;
-
   color: transparent;
 }
 
@@ -727,11 +702,8 @@
 
 .day.completed > div {
   border-color: #3c607c;
-
   background: #1a3042;
-
   color: #7ea3c1;
-
   font-size: 11px;
 }
 
@@ -743,9 +715,7 @@
 
 .day.today > div {
   border-color: #7095b8;
-
   background: #23435d;
-
   color: #b6d0e4;
 }
 
@@ -763,22 +733,16 @@
 
 .todo-panel {
   padding: 27px;
-
   border: 1px solid #202a33;
-
   border-radius: 12px;
-
   background: #0e141a;
 }
 
 
 .todo-heading {
   display: flex;
-
   align-items: flex-start;
-
   justify-content: space-between;
-
   margin-bottom: 22px;
 }
 
@@ -786,10 +750,8 @@
 .todo-heading > div span,
 .daily-progress-heading > span {
   color: #62717d;
-
   font-size: 8px;
   font-weight: 700;
-
   letter-spacing: 2px;
 }
 
@@ -797,11 +759,8 @@
 .todo-heading h3,
 .daily-progress-heading h3 {
   margin: 6px 0 0;
-
   font-family: "Cormorant Garamond", serif;
-
   font-size: 32px;
-
   font-weight: 500;
 }
 
