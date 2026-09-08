@@ -1085,8 +1085,6 @@
     inset 0 0 20px rgba(0, 0, 0, 0.35);
 }
 
-
-/* Small inner accent ring */
 .progress-circle::after {
   content: "";
 
@@ -1102,9 +1100,6 @@
 }
 
 
-/* =========================================
-   CENTER CONTENT
-========================================= */
 
 .progress-circle-inner {
   position: relative;
@@ -1119,7 +1114,7 @@
 }
 
 
-/* Percentage */
+
 .progress-circle-inner strong {
   font-family: "Cormorant Garamond", serif;
 
@@ -1137,7 +1132,7 @@
 }
 
 
-/* COMPLETE text */
+
 .progress-circle-inner span {
   margin-top: 9px;
 
@@ -1153,10 +1148,6 @@
   text-transform: uppercase;
 }
 
-
-/* =========================================
-   SUMMARY TEXT
-========================================= */
 
 .progress-summary {
   margin: 0;
@@ -1174,9 +1165,6 @@
 }
 
 
-/* =========================================
-   HOVER EFFECT
-========================================= */
 
 .daily-progress-panel:hover .progress-circle {
   box-shadow:
