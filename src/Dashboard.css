@@ -22,7 +22,7 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  
 
   border-bottom: 1px solid #1c2229;
 
@@ -55,7 +55,6 @@
 .dashboard-nav-center {
   display: flex;
   align-items: center;
-  gap: 30px;
   margin: 0 auto;
   color: #8e98a4;
   font-family: "Manrope", sans-serif;
@@ -74,6 +73,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: color 0.25s ease;
+  margin-left:150px;
 }
 
 .dashboard-nav-button::after {

@@ -420,13 +420,7 @@ function App() {
           setShowDashboard(false);
           setDashboardPage("dashboard");
 
-          /*
-            Important:
-            We do NOT use window.location.href here.
 
-            That was causing the browser to reload the website
-            and could lead to the 404 error.
-          */
           window.history.replaceState(
             null,
             "",
@@ -494,9 +488,7 @@ function App() {
     return null;
   }
 
-  /*
-    Dashboard area
-  */
+
   if (session && showDashboard) {
     if (dashboardPage === "workout") {
       return (
@@ -527,9 +519,7 @@ function App() {
     );
   }
 
-  /*
-    Home page
-  */
+
   return (
     <div className={`app ${theme}-theme`}>
       <nav className="navbar">
@@ -545,7 +535,7 @@ function App() {
           <a href="#connect">Connect</a>
         </div>
 
-        {/* This is now the ONLY theme toggle */}
+
         <button
           className="theme-toggle"
           onClick={() =>
