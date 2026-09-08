@@ -12,7 +12,7 @@ function Dashboard({ user, theme, onNavigate }) {
     sessionStorage.setItem("forma-dashboard-visited", "true");
   }, []);
 
-  const fullName =
+  const fullName = 
     user?.user_metadata?.full_name || "User";
 
   const firstName =

@@ -828,7 +828,6 @@
 
 .todo-item:hover {
   border-color: #354858;
-
   background: #141d25;
 }
 
@@ -836,24 +835,17 @@
 .task-check {
   width: 20px;
   height: 20px;
-
   flex-shrink: 0;
 
   display: flex;
 
   align-items: center;
   justify-content: center;
-
   border: 1px solid #394955;
-
   border-radius: 50%;
-
   background: transparent;
-
   color: #91b0c8;
-
   font-size: 11px;
-
   cursor: pointer;
 }
 
@@ -1028,14 +1020,14 @@
 }
 
 
+
 .progress-circle {
   width: 175px;
   height: 175px;
-
-  margin: 8px auto 20px;
-
+  margin: 12px auto 22px;
   border-radius: 50%;
 
+  /* Main progress ring */
   background:
     conic-gradient(
       #7095b8 var(--progress),
@@ -1043,64 +1035,109 @@
     );
 
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   position: relative;
+
+  /* Soft premium glow */
+  box-shadow:
+    0 0 0 1px rgba(112, 149, 184, 0.08),
+    0 0 25px rgba(72, 108, 139, 0.08);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Subtle hover effect */
+.progress-circle:hover {
+  transform: scale(1.025);
+
+  box-shadow:
+    0 0 0 1px rgba(112, 149, 184, 0.14),
+    0 0 35px rgba(72, 108, 139, 0.13);
 }
 
 
+/* Inner dark circle */
 .progress-circle::before {
   content: "";
-
   position: absolute;
-
-  inset: 9px;
+  inset: 10px;
 
   border-radius: 50%;
 
-  background: #0e141a;
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      #121b24 0%,
+      #0e141a 65%,
+      #0b1117 100%
+    );
+
+  box-shadow:
+    inset 0 0 20px rgba(0, 0, 0, 0.35);
 }
 
 
+/* Small inner highlight ring */
+.progress-circle::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(112, 149, 184, 0.08);
+
+  pointer-events: none;
+}
+
+
+/* Center content */
 .progress-circle-inner {
   position: relative;
-
-  z-index: 1;
+  z-index: 2;
 
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
+  justify-content: center;
+
+  text-align: center;
 }
 
 
+/* Percentage number */
 .progress-circle-inner strong {
   font-family: "Cormorant Garamond", serif;
-
-  font-size: 45px;
-
+  font-size: 48px;
   font-weight: 500;
+  line-height: 0.95;
 
-  line-height: 1;
+  letter-spacing: -1px;
 
   color: #f5f7fa;
+
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 
+/* "complete" text */
 .progress-circle-inner span {
-  margin-top: 5px;
+  margin-top: 7px;
 
-  color: #65727d;
+  color: #71808d;
 
+  font-family: "Manrope", sans-serif;
   font-size: 8px;
+  font-weight: 600;
 
-  letter-spacing: 1px;
-
+  letter-spacing: 1.8px;
   text-transform: uppercase;
 }
+
 
 
 .progress-summary {
@@ -1108,10 +1145,29 @@
 
   color: #697681;
 
+  font-family: "Manrope", sans-serif;
   font-size: 10px;
+  font-weight: 500;
 
+  letter-spacing: 0.15px;
   text-align: center;
+
+  line-height: 1.6;
 }
+
+
+
+@media (max-width: 450px) {
+  .progress-circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .progress-circle-inner strong {
+    font-size: 42px;
+  }
+}
+
 
 
 @media (max-width: 950px) {
