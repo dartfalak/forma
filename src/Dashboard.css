@@ -760,7 +760,9 @@
 .daily-progress-heading h3 {
   margin: 6px 0 0;
   font-family: "Cormorant Garamond", serif;
+
   font-size: 32px;
+
   font-weight: 500;
 }
 
@@ -828,6 +830,7 @@
 
 .todo-item:hover {
   border-color: #354858;
+
   background: #141d25;
 }
 
@@ -835,17 +838,24 @@
 .task-check {
   width: 20px;
   height: 20px;
+
   flex-shrink: 0;
 
   display: flex;
 
   align-items: center;
   justify-content: center;
+
   border: 1px solid #394955;
+
   border-radius: 50%;
+
   background: transparent;
+
   color: #91b0c8;
+
   font-size: 11px;
+
   cursor: pointer;
 }
 
@@ -1020,69 +1030,69 @@
 }
 
 
+/* =========================================
+   DAILY PROGRESS — PROFESSIONAL CIRCLE
+========================================= */
 
 .progress-circle {
   width: 175px;
   height: 175px;
-  margin: 12px auto 22px;
+  margin: 10px auto 22px;
   border-radius: 50%;
-
-  
-  background:
-    conic-gradient(
-      #7095b8 var(--progress),
-      #202a33 var(--progress)
-    );
+  position: relative;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 
-  
+  /* Main progress ring */
+  background: conic-gradient(
+    #7095b8 0deg,
+    #7095b8 var(--progress),
+    #202a33 var(--progress),
+    #202a33 360deg
+  );
+
+  /* Subtle depth */
   box-shadow:
     0 0 0 1px rgba(112, 149, 184, 0.08),
-    0 0 25px rgba(72, 108, 139, 0.08);
+    0 0 25px rgba(112, 149, 184, 0.05);
 
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
+  transition: background 0.5s ease;
 }
 
 
-.progress-circle:hover {
-  transform: scale(1.025);
-
-  box-shadow:
-    0 0 0 1px rgba(112, 149, 184, 0.14),
-    0 0 35px rgba(72, 108, 139, 0.13);
-}
-
+/* Inner dark circle */
 .progress-circle::before {
   content: "";
   position: absolute;
-  inset: 10px;
+
+  inset: 8px;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle at 50% 40%,
-      #121b24 0%,
+      #141d26 0%,
       #0e141a 65%,
       #0b1117 100%
     );
+
+  border: 1px solid #1d2933;
 
   box-shadow:
     inset 0 0 20px rgba(0, 0, 0, 0.35);
 }
 
 
-
+/* Small inner accent ring */
 .progress-circle::after {
   content: "";
+
   position: absolute;
-  inset: 14px;
+
+  inset: 15px;
 
   border-radius: 50%;
 
@@ -1092,6 +1102,9 @@
 }
 
 
+/* =========================================
+   CENTER CONTENT
+========================================= */
 
 .progress-circle-inner {
   position: relative;
@@ -1106,36 +1119,44 @@
 }
 
 
+/* Percentage */
 .progress-circle-inner strong {
   font-family: "Cormorant Garamond", serif;
+
   font-size: 48px;
   font-weight: 500;
-  line-height: 0.95;
+
+  line-height: 0.9;
 
   letter-spacing: -1px;
 
   color: #f5f7fa;
 
   text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.35);
+    0 0 18px rgba(112, 149, 184, 0.12);
 }
 
 
-
+/* COMPLETE text */
 .progress-circle-inner span {
-  margin-top: 7px;
+  margin-top: 9px;
 
-  color: #71808d;
+  color: #718596;
 
   font-family: "Manrope", sans-serif;
-  font-size: 8px;
-  font-weight: 600;
 
-  letter-spacing: 1.8px;
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
   text-transform: uppercase;
 }
 
 
+/* =========================================
+   SUMMARY TEXT
+========================================= */
 
 .progress-summary {
   margin: 0;
@@ -1143,29 +1164,25 @@
   color: #697681;
 
   font-family: "Manrope", sans-serif;
+
   font-size: 10px;
   font-weight: 500;
 
-  letter-spacing: 0.15px;
+  letter-spacing: 0.2px;
+
   text-align: center;
-
-  line-height: 1.6;
 }
 
 
+/* =========================================
+   HOVER EFFECT
+========================================= */
 
-@media (max-width: 450px) {
-  .progress-circle {
-    width: 150px;
-    height: 150px;
-  }
-
-  .progress-circle-inner strong {
-    font-size: 42px;
-  }
+.daily-progress-panel:hover .progress-circle {
+  box-shadow:
+    0 0 0 1px rgba(112, 149, 184, 0.12),
+    0 0 30px rgba(112, 149, 184, 0.08);
 }
-
-
 
 @media (max-width: 950px) {
 
