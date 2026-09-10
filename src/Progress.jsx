@@ -2,210 +2,278 @@ import React from "react";
 import "./Dashboard.css";
 import "./Progress.css";
 
-function Progress({ theme, onNavigate }) {
+
+function Progress({ user, theme, onNavigate }) {
+  const weeklyData = [
+    { day: "M", workouts: 1 },
+    { day: "T", workouts: 1 },
+    { day: "W", workouts: 0 },
+    { day: "T", workouts: 1 },
+    { day: "F", workouts: 1 },
+    { day: "S", workouts: 0 },
+    { day: "S", workouts: 0 },
+  ];
+
+  const recentWorkouts = [
+    {
+      name: "Upper Body",
+      date: "Yesterday",
+      duration: "48 min",
+      type: "Strength",
+    },
+    {
+      name: "Lower Body",
+      date: "Aug 30",
+      duration: "52 min",
+      type: "Strength",
+    },
+    {
+      name: "Full Body",
+      date: "Aug 28",
+      duration: "44 min",
+      type: "Conditioning",
+    },
+    {
+      name: "Upper Body",
+      date: "Aug 26",
+      duration: "46 min",
+      type: "Strength",
+    },
+  ];
 
   return (
-    <div className={`dashboard ${theme}-theme`}>
-
-      <nav className="dashboard-navbar">
-
-        <div className="dashboard-logo">
+    <div className={`progress-page ${theme}-theme`}>
+      <nav className="progress-navbar">
+        <div
+          className="progress-logo"
+          onClick={() => onNavigate("dashboard")}
+        >
           FORMA
         </div>
 
-        <div className="dashboard-nav-center">
-
+        <div className="progress-nav-center">
           <button
-            type="button"
-            className="dashboard-nav-button"
-            onClick={() =>
-              onNavigate("dashboard")
-            }
+            className="progress-nav-button"
+            onClick={() => onNavigate("dashboard")}
           >
             Dashboard
           </button>
 
           <button
-            type="button"
-            className="dashboard-nav-button"
-            onClick={() =>
-              onNavigate("workout")
-            }
+            className="progress-nav-button"
+            onClick={() => onNavigate("workout")}
           >
             Workout
           </button>
 
-          <button
-            type="button"
-            className="dashboard-nav-button nav-active"
-            onClick={() =>
-              onNavigate("progress")
-            }
-          >
+          <button className="progress-nav-button nav-active">
             Progress
           </button>
-
         </div>
 
-        <div className="dashboard-nav-right">
-
-          <button
-            className="logout-button"
-            onClick={() =>
-              onNavigate("dashboard")
-            }
-          >
-            Back
-          </button>
-
+        <div className="progress-nav-right">
+          <div className="progress-profile-circle">
+            {user?.user_metadata?.full_name
+              ?.charAt(0)
+              .toUpperCase() || "U"}
+          </div>
         </div>
-
       </nav>
 
-      <main className="dashboard-content progress-page">
-
-        <div className="progress-page-header">
-
-          <div className="dashboard-status">
-            <span className="status-dot"></span>
-            YOUR PROGRESS
-          </div>
-
-          <h1>
-            Keep building.
-          </h1>
-
-          <p>
-            A quick look at how consistently
-            you've been training.
-          </p>
-
-        </div>
-
-        <section className="progress-overview">
-
-          <div className="progress-overview-card">
-
-            <span>
-              WEEKLY PROGRESS
-            </span>
-
-            <strong>
-              78%
-            </strong>
-
-            <p>
-              4 of 5 workouts completed
-            </p>
-
-          </div>
-
-          <div className="progress-overview-card">
-
-            <span>
-              WORKOUT STREAK
-            </span>
-
-            <strong>
-              12
-            </strong>
-
-            <p>
-              consecutive days
-            </p>
-
-          </div>
-
-          <div className="progress-overview-card">
-
-            <span>
-              THIS MONTH
-            </span>
-
-            <strong>
-              16
-            </strong>
-
-            <p>
-              workouts completed
-            </p>
-
-          </div>
-
-        </section>
-
-        <section className="progress-week-card">
-
-          <div className="progress-week-heading">
-
-            <div>
-              <span>
-                CONSISTENCY
-              </span>
-
-              <h2>
-                This week
-              </h2>
+      <main className="progress-content">
+        <section className="progress-header">
+          <div>
+            <div className="progress-status">
+              <span></span>
+              PERFORMANCE OVERVIEW
             </div>
 
-            <strong>
-              4 / 5
-            </strong>
+            <h1>
+              Track your <span>progress.</span>
+            </h1>
 
+            <p>
+              See how your consistency is building strength
+              <br />
+              and moving you closer to your goals.
+            </p>
           </div>
 
-          <div className="progress-week-bar">
-
-            <div className="progress-week-fill"></div>
-
+          <div className="progress-period">
+            <span>VIEWING</span>
+            <strong>THIS MONTH</strong>
           </div>
-
-          <div className="progress-week-days">
-
-            <span className="completed">
-              M
-            </span>
-
-            <span className="completed">
-              T
-            </span>
-
-            <span className="completed">
-              W
-            </span>
-
-            <span className="completed">
-              T
-            </span>
-
-            <span className="current">
-              F
-            </span>
-
-            <span>
-              S
-            </span>
-
-            <span>
-              S
-            </span>
-
-          </div>
-
         </section>
 
-        <button
-          className="progress-back-button"
-          onClick={() =>
-            onNavigate("dashboard")
-          }
-        >
-          Back to Dashboard
-          <span>→</span>
-        </button>
+        <section className="progress-stats">
+          <div className="progress-stat-card">
+            <span>TOTAL WORKOUTS</span>
+            <strong>16</strong>
+            <p>+4 from last month</p>
+          </div>
 
+          <div className="progress-stat-card">
+            <span>WORKOUT STREAK</span>
+            <strong>12</strong>
+            <p>Personal best</p>
+          </div>
+
+          <div className="progress-stat-card">
+            <span>TIME TRAINED</span>
+            <strong>13.4h</strong>
+            <p>This month</p>
+          </div>
+
+          <div className="progress-stat-card">
+            <span>CONSISTENCY</span>
+            <strong>82%</strong>
+            <p>Excellent consistency</p>
+          </div>
+        </section>
+
+        <section className="progress-main-grid">
+          <div className="chart-panel">
+            <div className="progress-panel-heading">
+              <div>
+                <span>ACTIVITY</span>
+                <h2>Weekly Training</h2>
+              </div>
+
+              <strong>4 workouts</strong>
+            </div>
+
+            <div className="chart">
+              {weeklyData.map((item, index) => (
+                <div className="chart-column" key={index}>
+                  <div className="chart-value">
+                    {item.workouts > 0 ? item.workouts : ""}
+                  </div>
+
+                  <div className="chart-bar-container">
+                    <div
+                      className={`chart-bar ${
+                        item.workouts === 0
+                          ? "empty-bar"
+                          : ""
+                      }`}
+                      style={{
+                        height:
+                          item.workouts === 0
+                            ? "18%"
+                            : `${35 + item.workouts * 30}%`,
+                      }}
+                    ></div>
+                  </div>
+
+                  <span>{item.day}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="goal-panel">
+            <div className="progress-panel-heading">
+              <div>
+                <span>MONTHLY GOAL</span>
+                <h2>Consistency</h2>
+              </div>
+
+              <strong>80%</strong>
+            </div>
+
+            <div className="goal-circle">
+              <div>
+                <strong>16</strong>
+                <span>of 20</span>
+              </div>
+            </div>
+
+            <p>
+              You're four workouts away from reaching
+              your monthly target.
+            </p>
+
+            <div className="goal-bar">
+              <div></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="progress-bottom-grid">
+          <div className="history-panel">
+            <div className="progress-panel-heading">
+              <div>
+                <span>ACTIVITY LOG</span>
+                <h2>Recent Workouts</h2>
+              </div>
+            </div>
+
+            <div className="history-list">
+              {recentWorkouts.map((workout, index) => (
+                <div className="history-item" key={index}>
+                  <div className="history-icon">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+
+                  <div className="history-info">
+                    <h3>{workout.name}</h3>
+                    <span>
+                      {workout.type} · {workout.date}
+                    </span>
+                  </div>
+
+                  <strong>{workout.duration}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="records-panel">
+            <div className="progress-panel-heading">
+              <div>
+                <span>PERSONAL RECORDS</span>
+                <h2>Best Performance</h2>
+              </div>
+            </div>
+
+            <div className="record-item">
+              <div>
+                <span>BENCH PRESS</span>
+                <strong>80 kg</strong>
+              </div>
+
+              <span className="record-arrow">↗</span>
+            </div>
+
+            <div className="record-item">
+              <div>
+                <span>SQUAT</span>
+                <strong>100 kg</strong>
+              </div>
+
+              <span className="record-arrow">↗</span>
+            </div>
+
+            <div className="record-item">
+              <div>
+                <span>DEADLIFT</span>
+                <strong>120 kg</strong>
+              </div>
+
+              <span className="record-arrow">↗</span>
+            </div>
+
+            <div className="record-item">
+              <div>
+                <span>LONGEST STREAK</span>
+                <strong>12 days</strong>
+              </div>
+
+              <span className="record-arrow">↗</span>
+            </div>
+          </div>
+        </section>
       </main>
-
     </div>
   );
 }
