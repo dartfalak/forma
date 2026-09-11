@@ -1,3 +1,4 @@
+```jsx
 import React, { useState, useEffect } from "react";
 import "./Workout.css";
 
@@ -61,6 +62,7 @@ function Workout({ user, theme, onNavigate }) {
 
   const [seconds, setSeconds] = useState(0);
   const [isWorkoutRunning, setIsWorkoutRunning] = useState(false);
+
   const [restSeconds, setRestSeconds] = useState(60);
   const [isResting, setIsResting] = useState(false);
 
@@ -154,6 +156,7 @@ function Workout({ user, theme, onNavigate }) {
   return (
     <div className={`workout-page ${theme}-theme`}>
       <nav className="workout-navbar">
+
         <div
           className="workout-logo"
           onClick={() => onNavigate("dashboard")}
@@ -162,6 +165,7 @@ function Workout({ user, theme, onNavigate }) {
         </div>
 
         <div className="workout-nav-center">
+
           <button
             className="workout-nav-button"
             onClick={() => onNavigate("dashboard")}
@@ -179,20 +183,27 @@ function Workout({ user, theme, onNavigate }) {
           >
             Progress
           </button>
+
         </div>
 
         <div className="workout-nav-right">
+
           <div className="workout-profile-circle">
             {user?.user_metadata?.full_name
               ?.charAt(0)
               .toUpperCase() || "U"}
           </div>
+
         </div>
+
       </nav>
 
       <main className="workout-content">
+
         <section className="workout-header">
+
           <div>
+
             <div className="workout-status">
               <span className="workout-status-dot"></span>
               TRAINING SESSION
@@ -207,14 +218,19 @@ function Workout({ user, theme, onNavigate }) {
               <br />
               stay consistent with today's session.
             </p>
+
           </div>
 
           <div className="workout-timer-card">
+
             <span>WORKOUT TIME</span>
 
-            <strong>{formatTime(seconds)}</strong>
+            <strong>
+              {formatTime(seconds)}
+            </strong>
 
             <div className="timer-controls">
+
               {!isWorkoutRunning ? (
                 <button onClick={startWorkout}>
                   Start
@@ -231,11 +247,15 @@ function Workout({ user, theme, onNavigate }) {
               >
                 Reset
               </button>
+
             </div>
+
           </div>
+
         </section>
 
         <section className="workout-overview">
+
           <div className="overview-card">
             <span>WORKOUT TYPE</span>
             <strong>Strength</strong>
@@ -259,11 +279,15 @@ function Workout({ user, theme, onNavigate }) {
             <strong>{workoutProgress}%</strong>
             <p>Session completion</p>
           </div>
+
         </section>
 
         <section className="workout-layout">
+
           <div className="exercise-panel">
+
             <div className="section-heading">
+
               <div>
                 <span>TODAY'S PLAN</span>
                 <h2>Exercises</h2>
@@ -272,30 +296,44 @@ function Workout({ user, theme, onNavigate }) {
               <span className="exercise-count">
                 {completedCount}/{exercises.length}
               </span>
+
             </div>
 
             <div className="exercise-list">
+
               {exercises.map((exercise, index) => {
-                const isCompleted = completed.includes(exercise.id);
+
+                const isCompleted =
+                  completed.includes(exercise.id);
 
                 return (
                   <div
                     className={`exercise-card ${
-                      isCompleted ? "exercise-completed" : ""
+                      isCompleted
+                        ? "exercise-completed"
+                        : ""
                     }`}
                     key={exercise.id}
                   >
+
                     <div className="exercise-number">
                       {String(index + 1).padStart(2, "0")}
                     </div>
 
                     <div className="exercise-info">
-                      <h3>{exercise.name}</h3>
 
-                      <span>{exercise.target}</span>
+                      <h3>
+                        {exercise.name}
+                      </h3>
+
+                      <span>
+                        {exercise.target}
+                      </span>
+
                     </div>
 
                     <div className="exercise-details">
+
                       <div>
                         <small>SETS</small>
                         <strong>{exercise.sets}</strong>
@@ -310,6 +348,7 @@ function Workout({ user, theme, onNavigate }) {
                         <small>WEIGHT</small>
                         <strong>{exercise.weight}</strong>
                       </div>
+
                     </div>
 
                     <button
@@ -320,9 +359,11 @@ function Workout({ user, theme, onNavigate }) {
                     >
                       {isCompleted ? "✓" : "○"}
                     </button>
+
                   </div>
                 );
               })}
+
             </div>
 
             <button
@@ -332,21 +373,29 @@ function Workout({ user, theme, onNavigate }) {
               Finish Workout
               <span>→</span>
             </button>
+
           </div>
 
           <aside className="workout-sidebar">
-            <div className="rest-panel">
-              <span className="sidebar-label">RECOVERY</span>
 
-              <h2>Rest Timer</h2>
+            <div className="rest-panel">
+
+              <span className="sidebar-label">
+                RECOVERY
+              </span>
+
+              <h2>
+                Rest Timer
+              </h2>
 
               <div className="rest-timer">
-                {String(Math.floor(restSeconds / 60)).padStart(
-                  2,
-                  "0"
-                )}
+                {String(
+                  Math.floor(restSeconds / 60)
+                ).padStart(2, "0")}
                 :
-                {String(restSeconds % 60).padStart(2, "0")}
+                {String(
+                  restSeconds % 60
+                ).padStart(2, "0")}
               </div>
 
               <p>
@@ -359,48 +408,77 @@ function Workout({ user, theme, onNavigate }) {
                 className="rest-button"
                 onClick={startRest}
               >
-                {isResting ? "Resting..." : "Start 60s Rest"}
+                {isResting
+                  ? "Resting..."
+                  : "Start 60s Rest"}
               </button>
+
             </div>
 
             <div className="tip-panel">
-              <span className="sidebar-label">FORMA TIP</span>
 
-              <h3>Focus on your form.</h3>
+              <span className="sidebar-label">
+                FORMA TIP
+              </span>
+
+              <h3>
+                Focus on your form.
+              </h3>
 
               <p>
-                Controlled movements and proper technique
-                are more important than lifting heavier.
+                Controlled movements and proper
+                technique are more important than
+                lifting heavier.
               </p>
+
             </div>
 
             <div className="workout-summary">
+
               <span className="sidebar-label">
                 SESSION SUMMARY
               </span>
 
               <div className="summary-row">
-                <span>Completed</span>
+
+                <span>
+                  Completed
+                </span>
+
                 <strong>
                   {completedCount}/{exercises.length}
                 </strong>
+
               </div>
 
               <div className="summary-row">
-                <span>Time</span>
-                <strong>{formatTime(seconds)}</strong>
+
+                <span>
+                  Time
+                </span>
+
+                <strong>
+                  {formatTime(seconds)}
+                </strong>
+
               </div>
 
               <div className="summary-progress">
+
                 <div
                   style={{
                     width: `${workoutProgress}%`,
                   }}
                 ></div>
+
               </div>
+
             </div>
+
           </aside>
+
         </section>
+
       </main>
     </div>
   );
