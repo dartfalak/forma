@@ -774,3 +774,9 @@
     max-width: 30px;
   }
 }
+
+.progress-history-full { width: 100%; box-sizing: border-box; } 
+.progress-history-full .history-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 35px; } 
+.progress-history-full .history-item { border-left: none; border-right: none; border-radius: 0; background: transparent; padding: 17px 4px; }
+ .progress-history-full .history-item:hover { background: rgba(255, 255, 255, 0.02); transform: none; }
+  @media (max-width: 650px) { .progress-history-full .history-list { grid-template-columns: 1fr; } }
