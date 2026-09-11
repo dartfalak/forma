@@ -1,7 +1,7 @@
+```jsx
 import React from "react";
 import "./Dashboard.css";
 import "./Progress.css";
-
 
 function Progress({ user, theme, onNavigate }) {
   const weeklyData = [
@@ -81,6 +81,8 @@ function Progress({ user, theme, onNavigate }) {
       </nav>
 
       <main className="progress-content">
+
+        {/* PAGE HEADER */}
         <section className="progress-header">
           <div>
             <div className="progress-status">
@@ -105,7 +107,9 @@ function Progress({ user, theme, onNavigate }) {
           </div>
         </section>
 
+        {/* PROGRESS STATS */}
         <section className="progress-stats">
+
           <div className="progress-stat-card">
             <span>TOTAL WORKOUTS</span>
             <strong>16</strong>
@@ -129,10 +133,14 @@ function Progress({ user, theme, onNavigate }) {
             <strong>82%</strong>
             <p>Excellent consistency</p>
           </div>
+
         </section>
 
+        {/* WEEKLY ACTIVITY + MONTHLY GOAL */}
         <section className="progress-main-grid">
+
           <div className="chart-panel">
+
             <div className="progress-panel-heading">
               <div>
                 <span>ACTIVITY</span>
@@ -143,13 +151,21 @@ function Progress({ user, theme, onNavigate }) {
             </div>
 
             <div className="chart">
+
               {weeklyData.map((item, index) => (
-                <div className="chart-column" key={index}>
+                <div
+                  className="chart-column"
+                  key={index}
+                >
+
                   <div className="chart-value">
-                    {item.workouts > 0 ? item.workouts : ""}
+                    {item.workouts > 0
+                      ? item.workouts
+                      : ""}
                   </div>
 
                   <div className="chart-bar-container">
+
                     <div
                       className={`chart-bar ${
                         item.workouts === 0
@@ -160,119 +176,106 @@ function Progress({ user, theme, onNavigate }) {
                         height:
                           item.workouts === 0
                             ? "18%"
-                            : `${35 + item.workouts * 30}%`,
+                            : `${
+                                35 +
+                                item.workouts * 30
+                              }%`,
                       }}
                     ></div>
+
                   </div>
 
                   <span>{item.day}</span>
+
                 </div>
               ))}
+
             </div>
+
           </div>
 
           <div className="goal-panel">
+
             <div className="progress-panel-heading">
+
               <div>
                 <span>MONTHLY GOAL</span>
                 <h2>Consistency</h2>
               </div>
 
               <strong>80%</strong>
+
             </div>
 
             <div className="goal-circle">
+
               <div>
                 <strong>16</strong>
                 <span>of 20</span>
               </div>
+
             </div>
 
             <p>
-              You're four workouts away from reaching
-              your monthly target.
+              You're four workouts away from
+              reaching your monthly target.
             </p>
 
             <div className="goal-bar">
               <div></div>
             </div>
+
           </div>
+
         </section>
 
-        <section className="progress-bottom-grid">
-          <div className="history-panel">
-            <div className="progress-panel-heading">
-              <div>
-                <span>ACTIVITY LOG</span>
-                <h2>Recent Workouts</h2>
-              </div>
+        {/* RECENT WORKOUTS */}
+        <section className="history-panel progress-history-full">
+
+          <div className="progress-panel-heading">
+
+            <div>
+              <span>ACTIVITY LOG</span>
+              <h2>Recent Workouts</h2>
             </div>
 
-            <div className="history-list">
-              {recentWorkouts.map((workout, index) => (
-                <div className="history-item" key={index}>
-                  <div className="history-icon">
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
+          </div>
 
-                  <div className="history-info">
-                    <h3>{workout.name}</h3>
-                    <span>
-                      {workout.type} · {workout.date}
-                    </span>
-                  </div>
+          <div className="history-list">
 
-                  <strong>{workout.duration}</strong>
+            {recentWorkouts.map((workout, index) => (
+
+              <div
+                className="history-item"
+                key={index}
+              >
+
+                <div className="history-icon">
+                  {String(index + 1).padStart(2, "0")}
                 </div>
-              ))}
-            </div>
+
+                <div className="history-info">
+
+                  <h3>{workout.name}</h3>
+
+                  <span>
+                    {workout.type} · {workout.date}
+                  </span>
+
+                </div>
+
+                <strong>
+                  {workout.duration}
+                </strong>
+
+              </div>
+
+            ))}
+
           </div>
 
-          <div className="records-panel">
-            <div className="progress-panel-heading">
-              <div>
-                <span>PERSONAL RECORDS</span>
-                <h2>Best Performance</h2>
-              </div>
-            </div>
-
-            <div className="record-item">
-              <div>
-                <span>BENCH PRESS</span>
-                <strong>80 kg</strong>
-              </div>
-
-              <span className="record-arrow">↗</span>
-            </div>
-
-            <div className="record-item">
-              <div>
-                <span>SQUAT</span>
-                <strong>100 kg</strong>
-              </div>
-
-              <span className="record-arrow">↗</span>
-            </div>
-
-            <div className="record-item">
-              <div>
-                <span>DEADLIFT</span>
-                <strong>120 kg</strong>
-              </div>
-
-              <span className="record-arrow">↗</span>
-            </div>
-
-            <div className="record-item">
-              <div>
-                <span>LONGEST STREAK</span>
-                <strong>12 days</strong>
-              </div>
-
-              <span className="record-arrow">↗</span>
-            </div>
-          </div>
         </section>
+
       </main>
     </div>
   );
