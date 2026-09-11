@@ -1,4 +1,4 @@
-```jsx
+
 import React, { useState, useEffect } from "react";
 import "./Workout.css";
 
@@ -140,12 +140,7 @@ function Workout({ user, theme, onNavigate }) {
   const formatTime = (totalSeconds) => {
     const minutes = Math.floor(totalSeconds / 60);
     const remainingSeconds = totalSeconds % 60;
-
-    return `${String(minutes).padStart(2, "0")}:${String(
-      remainingSeconds
-    ).padStart(2, "0")}`;
-  };
-
+return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   const completedCount = completed.length;
 
   const workoutProgress =
