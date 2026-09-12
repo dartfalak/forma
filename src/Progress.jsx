@@ -1,19 +1,8 @@
-
 import React from "react";
 import "./Dashboard.css";
 import "./Progress.css";
 
 function Progress({ user, theme, onNavigate }) {
-  const weeklyData = [
-    { day: "M", workouts: 1 },
-    { day: "T", workouts: 1 },
-    { day: "W", workouts: 0 },
-    { day: "T", workouts: 1 },
-    { day: "F", workouts: 1 },
-    { day: "S", workouts: 0 },
-    { day: "S", workouts: 0 },
-  ];
-
   const recentWorkouts = [
     {
       name: "Upper Body",
@@ -44,6 +33,7 @@ function Progress({ user, theme, onNavigate }) {
   return (
     <div className={`progress-page ${theme}-theme`}>
       <nav className="progress-navbar">
+
         <div
           className="progress-logo"
           onClick={() => onNavigate("dashboard")}
@@ -52,6 +42,7 @@ function Progress({ user, theme, onNavigate }) {
         </div>
 
         <div className="progress-nav-center">
+
           <button
             className="progress-nav-button"
             onClick={() => onNavigate("dashboard")}
@@ -69,6 +60,7 @@ function Progress({ user, theme, onNavigate }) {
           <button className="progress-nav-button nav-active">
             Progress
           </button>
+
         </div>
 
         <div className="progress-nav-right">
@@ -78,13 +70,16 @@ function Progress({ user, theme, onNavigate }) {
               .toUpperCase() || "U"}
           </div>
         </div>
+
       </nav>
 
       <main className="progress-content">
 
         {/* PAGE HEADER */}
         <section className="progress-header">
+
           <div>
+
             <div className="progress-status">
               <span></span>
               PERFORMANCE OVERVIEW
@@ -99,13 +94,16 @@ function Progress({ user, theme, onNavigate }) {
               <br />
               and moving you closer to your goals.
             </p>
+
           </div>
 
           <div className="progress-period">
             <span>VIEWING</span>
             <strong>THIS MONTH</strong>
           </div>
+
         </section>
+
 
         {/* PROGRESS STATS */}
         <section className="progress-stats">
@@ -136,63 +134,9 @@ function Progress({ user, theme, onNavigate }) {
 
         </section>
 
-        {/* WEEKLY ACTIVITY + MONTHLY GOAL */}
-        <section className="progress-main-grid">
 
-          <div className="chart-panel">
-
-            <div className="progress-panel-heading">
-              <div>
-                <span>ACTIVITY</span>
-                <h2>Weekly Training</h2>
-              </div>
-
-              <strong>4 workouts</strong>
-            </div>
-
-            <div className="chart">
-
-              {weeklyData.map((item, index) => (
-                <div
-                  className="chart-column"
-                  key={index}
-                >
-
-                  <div className="chart-value">
-                    {item.workouts > 0
-                      ? item.workouts
-                      : ""}
-                  </div>
-
-                  <div className="chart-bar-container">
-
-                    <div
-                      className={`chart-bar ${
-                        item.workouts === 0
-                          ? "empty-bar"
-                          : ""
-                      }`}
-                      style={{
-                        height:
-                          item.workouts === 0
-                            ? "18%"
-                            : `${
-                                35 +
-                                item.workouts * 30
-                              }%`,
-                      }}
-                    ></div>
-
-                  </div>
-
-                  <span>{item.day}</span>
-
-                </div>
-              ))}
-
-            </div>
-
-          </div>
+        {/* MONTHLY GOAL */}
+        <section className="progress-goal-section">
 
           <div className="goal-panel">
 
@@ -228,6 +172,7 @@ function Progress({ user, theme, onNavigate }) {
           </div>
 
         </section>
+
 
         {/* RECENT WORKOUTS */}
         <section className="history-panel progress-history-full">
