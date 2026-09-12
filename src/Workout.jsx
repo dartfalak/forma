@@ -494,7 +494,7 @@ function Workout({ user, theme, onNavigate }) {
             </button>
           </div>
 
-          {/* SIDEBAR */}
+          
 
           <aside className="workout-sidebar">
             <div className="rest-panel">
