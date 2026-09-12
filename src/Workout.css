@@ -305,9 +305,7 @@
 }
 
 
-/* =========================
-   SESSION TRACKER
-========================= */
+
 
 .exercise-panel {
   padding: 28px;
@@ -487,7 +485,7 @@
 }
 
 
-/* PROGRESS */
+
 
 .tracker-progress {
   margin-top: 24px;
@@ -534,7 +532,7 @@
 }
 
 
-/* NAVIGATION */
+
 
 .exercise-navigation {
   display: flex;
@@ -584,7 +582,7 @@
 }
 
 
-/* FINISH */
+
 
 .finish-workout-button {
   display: flex;
@@ -613,11 +611,6 @@
 .finish-workout-button span {
   font-size: 16px;
 }
-
-
-/* =========================
-   SIDEBAR
-========================= */
 
 .workout-sidebar {
   display: flex;
@@ -743,9 +736,6 @@
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media (max-width: 950px) {
   .workout-navbar {
