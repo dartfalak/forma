@@ -1038,11 +1038,6 @@
 }
 
 
-/* =========================================
-   DAILY PROGRESS — SVG RING
-   (matches the <svg className="progress-ring">
-   markup rendered in Dashboard.jsx)
-========================================= */
 
 .progress-circle {
   width: 175px;
