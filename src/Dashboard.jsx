@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import { supabase } from "./supabaseClient";
 
-function Dashboard({ user, theme, onNavigate }) {
+function Dashboard({
+  user,
+  theme,
+  onNavigate,
+  onNavigateHome
+}) {
 
   const [isFirstVisit, setIsFirstVisit] = useState(() => {
     return !sessionStorage.getItem("forma-dashboard-visited");
@@ -12,7 +17,7 @@ function Dashboard({ user, theme, onNavigate }) {
     sessionStorage.setItem("forma-dashboard-visited", "true");
   }, []);
 
-  const fullName = 
+  const fullName =
     user?.user_metadata?.full_name || "User";
 
   const firstName =
@@ -156,10 +161,7 @@ function Dashboard({ user, theme, onNavigate }) {
 
       return;
     }
-
-
   };
-
 
   const today = new Date();
 
@@ -183,7 +185,6 @@ function Dashboard({ user, theme, onNavigate }) {
   const year =
     today.getFullYear();
 
-
   const progressRadius = 70;
 
   const circumference =
@@ -201,7 +202,20 @@ function Dashboard({ user, theme, onNavigate }) {
 
       <nav className="dashboard-navbar">
 
-        <div className="dashboard-logo">
+        <div
+          className="dashboard-logo"
+          onClick={onNavigateHome}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (
+              e.key === "Enter" ||
+              e.key === " "
+            ) {
+              onNavigateHome();
+            }
+          }}
+        >
           FORMA
         </div>
 
@@ -318,9 +332,7 @@ function Dashboard({ user, theme, onNavigate }) {
           <div className="stat-card">
 
             <div className="stat-top">
-              <span>
-                WEEKLY PROGRESS
-              </span>
+              <span>WEEKLY PROGRESS</span>
 
               <span className="stat-icon">
                 ↗
@@ -344,9 +356,7 @@ function Dashboard({ user, theme, onNavigate }) {
           <div className="stat-card">
 
             <div className="stat-top">
-              <span>
-                WORKOUT STREAK
-              </span>
+              <span>WORKOUT STREAK</span>
 
               <span className="stat-icon">
                 ✦
@@ -366,9 +376,7 @@ function Dashboard({ user, theme, onNavigate }) {
           <div className="stat-card">
 
             <div className="stat-top">
-              <span>
-                THIS MONTH
-              </span>
+              <span>THIS MONTH</span>
 
               <span className="stat-icon">
                 ◷
