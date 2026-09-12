@@ -15,11 +15,7 @@
   font-family: "DM Sans", sans-serif;
 }
 
-/* =========================================
-   NAVBAR — grid layout so the center group
-   is truly centered regardless of the width
-   of the logo or the right-side controls
-========================================= */
+
 
 .dashboard-navbar {
   height: 80px;
