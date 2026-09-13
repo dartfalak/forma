@@ -1,4 +1,6 @@
-.progress-page {
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
+
+.workout-page {
   min-height: 100vh;
 
   background:
@@ -10,10 +12,11 @@
     #090d12;
 
   color: #f5f7fa;
+
   font-family: "Manrope", sans-serif;
 }
 
-.progress-navbar {
+.workout-navbar {
   height: 80px;
   padding: 0 60px;
 
@@ -30,24 +33,24 @@
   z-index: 20;
 }
 
-.progress-logo {
+.workout-logo {
   justify-self: start;
 
   font-family: "Cormorant Garamond", serif;
   font-size: 30px;
   font-weight: 700;
-
   letter-spacing: 4px;
+
   cursor: pointer;
 }
 
-.progress-nav-center {
+.workout-nav-center {
   display: flex;
   align-items: center;
   gap: 48px;
 }
 
-.progress-nav-button {
+.workout-nav-button {
   position: relative;
 
   border: none;
@@ -65,16 +68,15 @@
   transition: color 0.25s ease;
 }
 
-.progress-nav-button:hover,
-.progress-nav-button.nav-active {
+.workout-nav-button:hover,
+.workout-nav-button.nav-active {
   color: #f5f7fa;
 }
 
-.progress-nav-button::after {
+.workout-nav-button::after {
   content: "";
 
   position: absolute;
-
   left: 0;
   bottom: -7px;
 
@@ -86,16 +88,16 @@
   transition: width 0.25s ease;
 }
 
-.progress-nav-button:hover::after,
-.progress-nav-button.nav-active::after {
+.workout-nav-button:hover::after,
+.workout-nav-button.nav-active::after {
   width: 100%;
 }
 
-.progress-nav-right {
+.workout-nav-right {
   justify-self: end;
 }
 
-.progress-profile-circle {
+.workout-profile-circle {
   width: 34px;
   height: 34px;
 
@@ -107,14 +109,13 @@
   border-radius: 50%;
 
   background: #121a22;
-
   color: #8daac4;
 
   font-size: 11px;
   font-weight: 700;
 }
 
-.progress-content {
+.workout-content {
   width: min(1180px, calc(100% - 60px));
 
   margin: 0 auto;
@@ -122,19 +123,17 @@
   padding: 70px 0 100px;
 }
 
-.progress-header {
+.workout-header {
   display: flex;
-
   justify-content: space-between;
   align-items: flex-end;
 
   margin-bottom: 45px;
 }
 
-.progress-status {
+.workout-status {
   display: flex;
   align-items: center;
-
   gap: 8px;
 
   margin-bottom: 17px;
@@ -143,11 +142,10 @@
 
   font-size: 9px;
   font-weight: 700;
-
   letter-spacing: 2px;
 }
 
-.progress-status span {
+.workout-status-dot {
   width: 6px;
   height: 6px;
 
@@ -158,7 +156,7 @@
   box-shadow: 0 0 12px rgba(112, 149, 184, 0.7);
 }
 
-.progress-header h1 {
+.workout-header h1 {
   margin: 0;
 
   font-family: "Cormorant Garamond", serif;
@@ -167,14 +165,13 @@
   font-weight: 500;
 
   line-height: 0.9;
-  letter-spacing: -1.5px;
 }
 
-.progress-header h1 span {
+.workout-header h1 span {
   color: #7095b8;
 }
 
-.progress-header p {
+.workout-header p {
   margin-top: 23px;
 
   color: #7f8a95;
@@ -183,10 +180,10 @@
   line-height: 1.8;
 }
 
-.progress-period {
-  min-width: 140px;
+.workout-timer-card {
+  min-width: 220px;
 
-  padding: 21px;
+  padding: 24px;
 
   border: 1px solid #202a33;
   border-radius: 14px;
@@ -194,39 +191,65 @@
   background:
     linear-gradient(
       145deg,
-      rgba(24, 33, 42, 0.8),
-      rgba(11, 16, 22, 0.8)
+      rgba(24, 33, 42, 0.85),
+      rgba(11, 16, 22, 0.9)
     );
 
   text-align: right;
 }
 
-.progress-period span {
-  display: block;
-
+.workout-timer-card > span {
   color: #62707d;
 
   font-size: 8px;
   font-weight: 700;
-
   letter-spacing: 2px;
 }
 
-.progress-period strong {
+.workout-timer-card > strong {
   display: block;
 
   margin-top: 8px;
 
-  color: #829fba;
+  font-size: 36px;
+  font-weight: 500;
 
-  font-size: 10px;
-
-  letter-spacing: 1.5px;
+  font-variant-numeric: tabular-nums;
 }
 
-.progress-stats {
-  display: grid;
+.timer-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
 
+  margin-top: 15px;
+}
+
+.timer-controls button {
+  padding: 8px 14px;
+
+  border: 1px solid #315574;
+  border-radius: 999px;
+
+  background: #173653;
+  color: #dce8f0;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.timer-controls .timer-reset {
+  border-color: #303a44;
+
+  background: transparent;
+
+  color: #82909c;
+}
+
+.workout-overview {
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
 
   gap: 14px;
@@ -234,8 +257,8 @@
   margin-bottom: 20px;
 }
 
-.progress-stat-card {
-  padding: 23px;
+.overview-card {
+  padding: 21px;
 
   border: 1px solid #202a33;
   border-radius: 11px;
@@ -246,51 +269,45 @@
       rgba(18, 25, 32, 0.95),
       rgba(12, 17, 23, 0.95)
     );
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease;
 }
 
-.progress-stat-card:hover {
-  transform: translateY(-3px);
-  border-color: #334757;
-}
-
-.progress-stat-card span {
+.overview-card span {
   color: #62717d;
 
   font-size: 8px;
   font-weight: 700;
-
   letter-spacing: 2px;
 }
 
-.progress-stat-card strong {
+.overview-card strong {
   display: block;
 
-  margin-top: 16px;
+  margin-top: 14px;
 
-  font-size: 34px;
+  font-size: 26px;
   font-weight: 500;
 }
 
-.progress-stat-card p {
-  margin-top: 8px;
+.overview-card p {
+  margin-top: 7px;
 
   color: #68737e;
 
   font-size: 9px;
 }
 
-.progress-goal-section {
-  width: 100%;
+.workout-layout {
+  display: grid;
 
-  margin-bottom: 20px;
+  grid-template-columns: 1.55fr 0.8fr;
+
+  gap: 20px;
 }
 
-.goal-panel,
-.history-panel {
+
+
+
+.exercise-panel {
   padding: 28px;
 
   border: 1px solid #202a33;
@@ -299,24 +316,23 @@
   background: #0e141a;
 }
 
-.goal-panel {
-  min-height: 360px;
-  max-width: 100%;
+.session-tracker {
+  min-height: 420px;
 
   display: flex;
   flex-direction: column;
 }
 
-.progress-panel-heading {
+.section-heading {
   display: flex;
-
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
 
-  margin-bottom: 25px;
+  margin-bottom: 24px;
 }
 
-.progress-panel-heading > div span {
+.section-heading > div > span,
+.sidebar-label {
   color: #62717d;
 
   font-size: 8px;
@@ -325,7 +341,7 @@
   letter-spacing: 2px;
 }
 
-.progress-panel-heading h2 {
+.section-heading h2 {
   margin: 6px 0 0;
 
   font-family: "Cormorant Garamond", serif;
@@ -334,89 +350,368 @@
   font-weight: 500;
 }
 
-.progress-panel-heading > strong {
+.exercise-count {
   color: #7899b5;
 
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
 }
 
-.goal-circle {
-  width: 165px;
-  height: 165px;
+.current-exercise-card {
+  padding: 22px;
 
-  margin: 3px auto 20px;
+  margin-bottom: 20px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
+  border: 1px solid #263541;
+  border-radius: 11px;
 
   background:
-    conic-gradient(
-      #7095b8 0 var(--goal-progress, 0%),
-      #202a33 var(--goal-progress, 0%) 100%
+    linear-gradient(
+      145deg,
+      #121c25,
+      #0f161d
     );
-
-  position: relative;
 }
 
-.goal-circle::before {
-  content: "";
+.current-label {
+  color: #7095b8;
 
-  position: absolute;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
 
-  inset: 9px;
+.current-exercise-card h3 {
+  margin: 12px 0 5px;
 
-  border-radius: 50%;
+  color: #e3e9ed;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.current-exercise-card p {
+  margin: 0;
+
+  color: #6f7d87;
+
+  font-size: 10px;
+}
+
+.tracker-stats {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.tracker-stat > span,
+.tracker-info span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #62717d;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.set-buttons {
+  display: flex;
+
+  gap: 10px;
+}
+
+.set-button {
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid #2d3c48;
+  border-radius: 9px;
+
+  background: #111820;
+  color: #8494a0;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.set-button:hover {
+  border-color: #5d7d96;
+
+  transform: translateY(-2px);
+}
+
+.set-button.set-completed {
+  border-color: #587995;
+
+  background: #20394c;
+  color: #c6dce9;
+}
+
+.tracker-info {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.tracker-info > div {
+  padding: 16px;
+
+  border: 1px solid #202b35;
+  border-radius: 10px;
+
+  background: #111820;
+}
+
+.tracker-info strong {
+  display: block;
+
+  color: #dce5eb;
+
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+
+
+.tracker-progress {
+  margin-top: 24px;
+}
+
+.tracker-progress-top {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 9px;
+
+  color: #6c7983;
+
+  font-size: 9px;
+}
+
+.tracker-progress-top strong {
+  color: #8daac4;
+}
+
+.tracker-progress-bar {
+  height: 5px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #1a242d;
+}
+
+.tracker-progress-bar div {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #355b7d,
+      #7198b9
+    );
+
+  transition: width 0.3s ease;
+}
+
+
+
+
+.exercise-navigation {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: auto;
+
+  padding-top: 28px;
+}
+
+.exercise-navigation button {
+  padding: 11px 18px;
+
+  border-radius: 8px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.previous-exercise {
+  border: 1px solid #2d3943;
+
+  background: transparent;
+  color: #81909b;
+}
+
+.next-exercise {
+  border: 1px solid #315574;
+
+  background: #173653;
+  color: #dce8f0;
+}
+
+.next-exercise:hover:not(:disabled) {
+  background: #214a70;
+
+  transform: translateY(-1px);
+}
+
+.exercise-navigation button:disabled {
+  opacity: 0.35;
+
+  cursor: not-allowed;
+}
+
+
+
+
+.finish-workout-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-top: 18px;
+
+  padding: 14px 18px;
+
+  border: 1px solid #315574;
+  border-radius: 9px;
+
+  background: #173653;
+  color: #e8f0f6;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.finish-workout-button span {
+  font-size: 16px;
+}
+
+.workout-sidebar {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.rest-panel,
+.tip-panel,
+.workout-summary {
+  padding: 25px;
+
+  border: 1px solid #202a33;
+  border-radius: 12px;
 
   background: #0e141a;
 }
 
-.goal-circle div {
-  position: relative;
-  z-index: 2;
+.rest-panel h2 {
+  margin: 7px 0 0;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.goal-circle strong {
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 45px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.rest-timer {
+  margin: 18px 0;
+
+  font-size: 42px;
   font-weight: 500;
 
-  line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
-.goal-circle span {
-  margin-top: 5px;
-
-  color: #697681;
-
-  font-size: 8px;
-
-  letter-spacing: 1px;
-}
-
-.goal-panel > p {
-  margin: 0;
-
+.rest-panel p,
+.tip-panel p {
   color: #697681;
 
   font-size: 9px;
   line-height: 1.7;
-
-  text-align: center;
 }
 
-.goal-bar {
+.rest-button {
+  width: 100%;
+
+  margin-top: 18px;
+
+  padding: 11px;
+
+  border: 1px solid #2c4c65;
+  border-radius: 8px;
+
+  background: #14293a;
+  color: #9db9ce;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.tip-panel h3 {
+  margin: 9px 0 7px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.workout-summary {
+  margin-bottom: 65px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 13px 0;
+
+  border-bottom: 1px solid #1d252d;
+
+  color: #687580;
+
+  font-size: 9px;
+}
+
+.summary-row strong {
+  color: #aebbc4;
+
+  font-weight: 600;
+}
+
+.summary-progress {
   height: 4px;
 
-  margin-top: 15px;
+  margin-top: 18px;
 
   overflow: hidden;
 
@@ -425,7 +720,7 @@
   background: #1b242d;
 }
 
-.goal-bar div {
+.summary-progress div {
   height: 100%;
 
   border-radius: inherit;
@@ -440,187 +735,38 @@
   transition: width 0.4s ease;
 }
 
-.history-list {
-  display: flex;
-  flex-direction: column;
 
-  gap: 8px;
-}
-
-.history-item {
-  display: grid;
-
-  grid-template-columns: 38px 1fr auto;
-
-  align-items: center;
-
-  gap: 12px;
-
-  padding: 13px;
-
-  border: 1px solid #202b35;
-  border-radius: 9px;
-
-  background: #111820;
-
-  transition:
-    border-color 0.2s ease,
-    background 0.2s ease;
-}
-
-.history-item:hover {
-  border-color: #354858;
-  background: #141d25;
-}
-
-.history-icon {
-  color: #566674;
-
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.history-info h3 {
-  margin: 0;
-
-  color: #c2cbd1;
-
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.history-info span {
-  display: block;
-
-  margin-top: 4px;
-
-  color: #5e6c77;
-
-  font-size: 8px;
-}
-
-.history-item > strong {
-  color: #8499aa;
-
-  font-size: 9px;
-  font-weight: 600;
-}
-
-.progress-history-full {
-  width: 100%;
-
-  box-sizing: border-box;
-}
-
-.progress-history-full .history-list {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 0 35px;
-}
-
-.progress-history-full .history-item {
-  border-left: none;
-  border-right: none;
-
-  border-radius: 0;
-
-  background: transparent;
-
-  padding: 17px 4px;
-}
-
-.progress-history-full .history-item:hover {
-  background: rgba(255, 255, 255, 0.02);
-
-  transform: none;
-}
-
-.empty-history {
-  padding: 55px 20px;
-
-  text-align: center;
-
-  border: 1px dashed #27333e;
-  border-radius: 10px;
-}
-
-.empty-history h3 {
-  margin: 0;
-
-  color: #c4ccd3;
-
-  font-family: "Cormorant Garamond", serif;
-
-  font-size: 28px;
-  font-weight: 500;
-}
-
-.empty-history p {
-  max-width: 400px;
-
-  margin: 10px auto 22px;
-
-  color: #68737e;
-
-  font-size: 10px;
-  line-height: 1.7;
-}
-
-.history-workout-button {
-  padding: 11px 20px;
-
-  border: 1px solid #315473;
-  border-radius: 999px;
-
-  background: #173b5f;
-  color: #fff;
-
-  font-family: "Manrope", sans-serif;
-
-  font-size: 11px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease;
-}
-
-.history-workout-button:hover {
-  background: #214d76;
-
-  transform: translateY(-2px);
-}
 
 @media (max-width: 950px) {
-  .progress-navbar {
+  .workout-navbar {
     grid-template-columns: auto 1fr auto;
   }
 
-  .progress-nav-center {
+  .workout-nav-center {
     display: none;
   }
 
-  .progress-stats {
+  .workout-overview {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .workout-layout {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 650px) {
-  .progress-navbar {
+  .workout-navbar {
     padding: 0 22px;
   }
 
-  .progress-content {
+  .workout-content {
     width: calc(100% - 36px);
 
     padding-top: 50px;
   }
 
-  .progress-header {
+  .workout-header {
     flex-direction: column;
 
     align-items: flex-start;
@@ -628,38 +774,50 @@
     gap: 30px;
   }
 
-  .progress-period {
+  .workout-timer-card {
     width: 100%;
 
     box-sizing: border-box;
-
-    text-align: left;
   }
 
-  .progress-stats {
+  .workout-overview {
     grid-template-columns: 1fr;
   }
 
-  .progress-header h1 {
-    font-size: 54px;
+  .exercise-panel {
+    padding: 20px;
   }
 
-  .goal-panel,
-  .history-panel {
-    padding: 21px;
-  }
-
-  .progress-history-full .history-list {
-    grid-template-columns: 1fr;
+  .workout-header h1 {
+    font-size: 55px;
   }
 }
 
 @media (max-width: 450px) {
-  .progress-logo {
+  .workout-logo {
     font-size: 18px;
   }
 
-  .progress-header p {
+  .workout-content {
+    padding-bottom: 60px;
+  }
+
+  .workout-header p {
     font-size: 11px;
+  }
+
+  .set-buttons {
+    gap: 7px;
+  }
+
+  .set-button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .rest-panel,
+  .tip-panel,
+  .workout-summary {
+    padding: 21px;
   }
 }
