@@ -1,57 +1,60 @@
 import React, { useState, useEffect } from "react";
 import "./Workout.css";
 
-function Workout({ user, theme, onNavigate }) {
+function Workout({
+  user,
+  theme,
+  onNavigate,
+  onNavigateHome,
+  onWorkoutSaved
+}) {
   const exercises = [
     {
       id: 1,
       name: "Barbell Bench Press",
-      target: "Chest",
+      muscle: "Chest",
       sets: 4,
       reps: 10,
-      weight: "60 kg",
+      weight: 60
     },
     {
       id: 2,
       name: "Shoulder Press",
-      target: "Shoulders",
+      muscle: "Shoulders",
       sets: 3,
       reps: 12,
-      weight: "35 kg",
+      weight: 35
     },
     {
       id: 3,
       name: "Incline Dumbbell Press",
-      target: "Upper Chest",
+      muscle: "Upper Chest",
       sets: 3,
       reps: 10,
-      weight: "22 kg",
+      weight: 22
     },
     {
       id: 4,
       name: "Bicep Curls",
-      target: "Biceps",
+      muscle: "Biceps",
       sets: 3,
       reps: 12,
-      weight: "14 kg",
+      weight: 14
     },
     {
       id: 5,
       name: "Tricep Pushdown",
-      target: "Triceps",
+      muscle: "Triceps",
       sets: 3,
       reps: 12,
-      weight: "25 kg",
-    },
+      weight: 25
+    }
   ];
 
-  const [currentExerciseIndex, setCurrentExerciseIndex] =
-    useState(0);
+  const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
 
   const [completedSets, setCompletedSets] = useState(() => {
-    const saved = localStorage.getItem(
-      "forma-workout-sets"
-    );
+    const saved = localStorage.getItem("forma-active-workout-sets");
 
     if (saved) {
       try {
@@ -64,122 +67,119 @@ function Workout({ user, theme, onNavigate }) {
     return {};
   });
 
-  const [seconds, setSeconds] = useState(0);
-  const [isWorkoutRunning, setIsWorkoutRunning] =
-    useState(false);
+  const [workoutSeconds, setWorkoutSeconds] = useState(() => {
+    const saved = localStorage.getItem("forma-active-workout-time");
+    return saved ? Number(saved) : 0;
+  });
+
+  const [isWorkoutRunning, setIsWorkoutRunning] = useState(false);
 
   const [restSeconds, setRestSeconds] = useState(60);
   const [isResting, setIsResting] = useState(false);
 
-  const currentExercise =
-    exercises[currentExerciseIndex];
+  const [workoutFinished, setWorkoutFinished] = useState(false);
 
-  const currentCompletedSets =
-    completedSets[currentExercise.id] || [];
+  const [finishMessage, setFinishMessage] = useState("");
 
-  const completedExerciseCount = exercises.filter(
-    (exercise) => {
-      const exerciseSets =
-        completedSets[exercise.id] || [];
+  const currentExercise = exercises[currentExerciseIndex];
 
-      return exerciseSets.length === exercise.sets;
-    }
-  ).length;
+  const completedExerciseCount = exercises.filter((exercise) => {
+    const sets = completedSets[exercise.id] || [];
+    return sets.filter(Boolean).length === exercise.sets;
+  }).length;
+
+  const totalSets = exercises.reduce(
+    (total, exercise) => total + exercise.sets,
+    0
+  );
+
+  const completedSetCount = Object.values(completedSets).reduce(
+    (total, sets) => {
+      return total + sets.filter(Boolean).length;
+    },
+    0
+  );
 
   const workoutProgress =
-    exercises.length === 0
+    totalSets === 0
       ? 0
-      : Math.round(
-          (completedExerciseCount /
-            exercises.length) *
-            100
-        );
+      : Math.round((completedSetCount / totalSets) * 100);
+
+  const currentExerciseSets =
+    completedSets[currentExercise.id] || [];
+
+  const currentExerciseCompleted =
+    currentExerciseSets.filter(Boolean).length;
 
   useEffect(() => {
     localStorage.setItem(
-      "forma-workout-sets",
+      "forma-active-workout-sets",
       JSON.stringify(completedSets)
     );
   }, [completedSets]);
 
   useEffect(() => {
-    let timer;
+    localStorage.setItem(
+      "forma-active-workout-time",
+      workoutSeconds.toString()
+    );
+  }, [workoutSeconds]);
 
-    if (isWorkoutRunning) {
-      timer = setInterval(() => {
-        setSeconds((current) => current + 1);
-      }, 1000);
+  useEffect(() => {
+    if (!isWorkoutRunning) {
+      return;
     }
+
+    const timer = setInterval(() => {
+      setWorkoutSeconds((previous) => previous + 1);
+    }, 1000);
 
     return () => clearInterval(timer);
   }, [isWorkoutRunning]);
 
   useEffect(() => {
-    let timer;
-
-    if (isResting && restSeconds > 0) {
-      timer = setInterval(() => {
-        setRestSeconds((current) => current - 1);
-      }, 1000);
+    if (!isResting) {
+      return;
     }
 
-    if (restSeconds === 0) {
+    if (restSeconds <= 0) {
       setIsResting(false);
       setRestSeconds(60);
+      return;
     }
+
+    const timer = setInterval(() => {
+      setRestSeconds((previous) => previous - 1);
+    }, 1000);
 
     return () => clearInterval(timer);
   }, [isResting, restSeconds]);
 
-  const toggleSet = (setNumber) => {
-    setCompletedSets((current) => {
-      const exerciseSets =
-        current[currentExercise.id] || [];
+  const toggleSet = (setIndex) => {
+    setCompletedSets((previous) => {
+      const existingSets = previous[currentExercise.id] || [];
 
-      const updatedSets = exerciseSets.includes(
-        setNumber
-      )
-        ? exerciseSets.filter(
-            (set) => set !== setNumber
-          )
-        : [...exerciseSets, setNumber];
+      const updatedSets = [...existingSets];
+
+      updatedSets[setIndex] = !updatedSets[setIndex];
 
       return {
-        ...current,
-        [currentExercise.id]: updatedSets,
+        ...previous,
+        [currentExercise.id]: updatedSets
       };
     });
   };
 
   const nextExercise = () => {
-    if (
-      currentExerciseIndex <
-      exercises.length - 1
-    ) {
-      setCurrentExerciseIndex(
-        (current) => current + 1
-      );
+    if (currentExerciseIndex < exercises.length - 1) {
+      setCurrentExerciseIndex((previous) => previous + 1);
     }
   };
 
   const previousExercise = () => {
     if (currentExerciseIndex > 0) {
-      setCurrentExerciseIndex(
-        (current) => current - 1
-      );
+      setCurrentExerciseIndex((previous) => previous - 1);
     }
-  };
-
-  const startWorkout = () => {
-    setIsWorkoutRunning(true);
-  };
-
-  const pauseWorkout = () => {
-    setIsWorkoutRunning(false);
-  };
-
-  const finishWorkout = () => {
-    setIsWorkoutRunning(false);
   };
 
   const startRest = () => {
@@ -187,398 +187,477 @@ function Workout({ user, theme, onNavigate }) {
     setIsResting(true);
   };
 
-  const resetWorkout = () => {
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+
+    return `${String(minutes).padStart(2, "0")}:${String(
+      remainingSeconds
+    ).padStart(2, "0")}`;
+  };
+
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString(
+      "en-US",
+      {
+        month: "short",
+        day: "numeric",
+        year: "numeric"
+      }
+    );
+  };
+
+  const finishWorkout = () => {
+    if (completedSetCount === 0) {
+      setFinishMessage(
+        "Complete at least one set before finishing your workout."
+      );
+      return;
+    }
+
     setIsWorkoutRunning(false);
-    setSeconds(0);
+
+    const userId = user?.id || "guest";
+
+    const historyKey = `forma-workout-history-${userId}`;
+
+    const savedHistory = localStorage.getItem(historyKey);
+
+    let history = [];
+
+    if (savedHistory) {
+      try {
+        history = JSON.parse(savedHistory);
+      } catch {
+        history = [];
+      }
+    }
+
+    const workout = {
+      id: Date.now(),
+      userId,
+      name: "Upper Body",
+      type: "Strength",
+      date: new Date().toISOString(),
+      duration: workoutSeconds,
+      durationMinutes: Math.max(
+        1,
+        Math.round(workoutSeconds / 60)
+      ),
+      exercises: exercises.map((exercise) => ({
+        name: exercise.name,
+        muscle: exercise.muscle,
+        plannedSets: exercise.sets,
+        completedSets: (
+          completedSets[exercise.id] || []
+        ).filter(Boolean).length,
+        reps: exercise.reps,
+        weight: exercise.weight
+      })),
+      totalSets,
+      completedSets: completedSetCount,
+      completionPercentage: workoutProgress
+    };
+
+    history.unshift(workout);
+
+    localStorage.setItem(
+      historyKey,
+      JSON.stringify(history)
+    );
+
+    setWorkoutFinished(true);
+
+    setFinishMessage(
+      `Workout completed — ${completedSetCount} of ${totalSets} sets recorded.`
+    );
+
+    if (onWorkoutSaved) {
+      onWorkoutSaved();
+    }
+  };
+
+  const resetWorkout = () => {
+    const confirmed = window.confirm(
+      "Reset this workout? Your current progress will be lost."
+    );
+
+    if (!confirmed) {
+      return;
+    }
 
     setCompletedSets({});
+    setWorkoutSeconds(0);
     setCurrentExerciseIndex(0);
+    setIsWorkoutRunning(false);
+    setWorkoutFinished(false);
+    setFinishMessage("");
 
-    setRestSeconds(60);
-    setIsResting(false);
-  };
-
-  const formatTime = (totalSeconds) => {
-    const minutes = Math.floor(
-      totalSeconds / 60
+    localStorage.removeItem(
+      "forma-active-workout-sets"
     );
 
-    const remainingSeconds =
-      totalSeconds % 60;
-
-    return `${String(minutes).padStart(
-      2,
-      "0"
-    )}:${String(remainingSeconds).padStart(
-      2,
-      "0"
-    )}`;
-  };
-
-  const currentExerciseProgress =
-    Math.round(
-      (currentCompletedSets.length /
-        currentExercise.sets) *
-        100
+    localStorage.removeItem(
+      "forma-active-workout-time"
     );
+  };
 
   return (
-    <div
-      className={`workout-page ${theme}-theme`}
-    >
+    <div className={`workout-page ${theme}-theme`}>
+
       <nav className="workout-navbar">
+
         <div
           className="workout-logo"
-          onClick={() =>
-            onNavigate("dashboard")
-          }
+          onClick={onNavigateHome}
         >
           FORMA
         </div>
 
         <div className="workout-nav-center">
+
           <button
             className="workout-nav-button"
-            onClick={() =>
-              onNavigate("dashboard")
-            }
+            onClick={() => onNavigate("dashboard")}
           >
             Dashboard
           </button>
 
-          <button className="workout-nav-button nav-active">
+          <button
+            className="workout-nav-button nav-active"
+            onClick={() => onNavigate("workout")}
+          >
             Workout
           </button>
 
           <button
             className="workout-nav-button"
-            onClick={() =>
-              onNavigate("progress")
-            }
+            onClick={() => onNavigate("progress")}
           >
             Progress
           </button>
+
         </div>
 
         <div className="workout-nav-right">
           <div className="workout-profile-circle">
             {user?.user_metadata?.full_name
+              ?.split(" ")[0]
               ?.charAt(0)
               .toUpperCase() || "U"}
           </div>
         </div>
+
       </nav>
 
       <main className="workout-content">
-        <section className="workout-header">
+
+        <header className="workout-header">
+
           <div>
+
             <div className="workout-status">
-              <span className="workout-status-dot"></span>
+              <span></span>
               TRAINING SESSION
             </div>
 
             <h1>
-              Upper <span>Body.</span>
+              Upper Body<span>.</span>
             </h1>
 
             <p>
-              Build strength, improve your form and
-              <br />
-              stay consistent with today's session.
+              Build strength through focused chest,
+              shoulder, and arm training.
             </p>
+
           </div>
 
-          <div className="workout-timer-card">
-            <span>WORKOUT TIME</span>
+        </header>
+
+        <section className="workout-timer-card">
+
+          <div>
+            <span>SESSION TIME</span>
 
             <strong>
-              {formatTime(seconds)}
+              {formatTime(workoutSeconds)}
             </strong>
-
-            <div className="timer-controls">
-              {!isWorkoutRunning ? (
-                <button onClick={startWorkout}>
-                  Start
-                </button>
-              ) : (
-                <button onClick={pauseWorkout}>
-                  Pause
-                </button>
-              )}
-
-              <button
-                className="timer-reset"
-                onClick={resetWorkout}
-              >
-                Reset
-              </button>
-            </div>
           </div>
+
+          <div className="workout-timer-actions">
+
+            <button
+              onClick={() =>
+                setIsWorkoutRunning(
+                  (previous) => !previous
+                )
+              }
+            >
+              {isWorkoutRunning ? "Pause" : "Start"}
+            </button>
+
+            <button onClick={resetWorkout}>
+              Reset
+            </button>
+
+          </div>
+
         </section>
 
         <section className="workout-overview">
-          <div className="overview-card">
-            <span>WORKOUT TYPE</span>
+
+          <div className="workout-overview-card">
+            <span>TYPE</span>
             <strong>Strength</strong>
-            <p>Upper body focus</p>
           </div>
 
-          <div className="overview-card">
-            <span>DURATION</span>
+          <div className="workout-overview-card">
+            <span>TARGET</span>
             <strong>45 min</strong>
-            <p>Estimated session</p>
           </div>
 
-          <div className="overview-card">
+          <div className="workout-overview-card">
             <span>EXERCISES</span>
             <strong>{exercises.length}</strong>
-            <p>
-              {completedExerciseCount} completed
-            </p>
           </div>
 
-          <div className="overview-card">
+          <div className="workout-overview-card">
             <span>PROGRESS</span>
             <strong>{workoutProgress}%</strong>
-            <p>Session completion</p>
           </div>
+
         </section>
 
-        <section className="workout-layout">
-          {/* SESSION TRACKER */}
+        <div className="workout-layout">
 
-          <div className="exercise-panel session-tracker">
-            <div className="section-heading">
+          <section className="exercise-tracker">
+
+            <div className="exercise-heading">
+
               <div>
-                <span>SESSION TRACKER</span>
-                <h2>Current Exercise</h2>
-              </div>
-
-              <span className="exercise-count">
-                {String(
-                  currentExerciseIndex + 1
-                ).padStart(2, "0")}
-                /
-                {String(exercises.length).padStart(
-                  2,
-                  "0"
-                )}
-              </span>
-            </div>
-
-            <div className="current-exercise-card">
-              <span className="current-label">
-                NOW TRAINING
-              </span>
-
-              <h3>
-                {currentExercise.name}
-              </h3>
-
-              <p>
-                {currentExercise.target}
-              </p>
-            </div>
-
-            <div className="tracker-stats">
-              <div className="tracker-stat">
-                <span>SETS</span>
-
-                <div className="set-buttons">
-                  {Array.from(
-                    {
-                      length:
-                        currentExercise.sets,
-                    },
-                    (_, index) => {
-                      const setNumber =
-                        index + 1;
-
-                      const isCompleted =
-                        currentCompletedSets.includes(
-                          setNumber
-                        );
-
-                      return (
-                        <button
-                          key={setNumber}
-                          className={`set-button ${
-                            isCompleted
-                              ? "set-completed"
-                              : ""
-                          }`}
-                          onClick={() =>
-                            toggleSet(setNumber)
-                          }
-                        >
-                          {isCompleted
-                            ? "✓"
-                            : setNumber}
-                        </button>
-                      );
-                    }
-                  )}
-                </div>
-              </div>
-
-              <div className="tracker-info">
-                <div>
-                  <span>REPS</span>
-
-                  <strong>
-                    {currentExercise.reps}
-                  </strong>
-                </div>
-
-                <div>
-                  <span>WEIGHT</span>
-
-                  <strong>
-                    {currentExercise.weight}
-                  </strong>
-                </div>
-              </div>
-            </div>
-
-            <div className="tracker-progress">
-              <div className="tracker-progress-top">
                 <span>
-                  {currentCompletedSets.length} of{" "}
-                  {currentExercise.sets} sets
-                  completed
+                  EXERCISE {currentExerciseIndex + 1} /{" "}
+                  {exercises.length}
                 </span>
 
+                <h2>
+                  {currentExercise.name}
+                </h2>
+
+                <p>
+                  {currentExercise.muscle}
+                </p>
+              </div>
+
+              <strong>
+                {currentExerciseCompleted}/
+                {currentExercise.sets}
+              </strong>
+
+            </div>
+
+            <div className="exercise-details">
+
+              <div>
+                <span>SETS</span>
                 <strong>
-                  {currentExerciseProgress}%
+                  {currentExercise.sets}
                 </strong>
               </div>
 
-              <div className="tracker-progress-bar">
+              <div>
+                <span>REPS</span>
+                <strong>
+                  {currentExercise.reps}
+                </strong>
+              </div>
+
+              <div>
+                <span>WEIGHT</span>
+                <strong>
+                  {currentExercise.weight} kg
+                </strong>
+              </div>
+
+            </div>
+
+            <div className="set-tracker">
+
+              {Array.from({
+                length: currentExercise.sets
+              }).map((_, index) => (
+
+                <button
+                  key={index}
+                  className={
+                    currentExerciseSets[index]
+                      ? "set-complete"
+                      : ""
+                  }
+                  onClick={() =>
+                    toggleSet(index)
+                  }
+                >
+                  <span>SET {index + 1}</span>
+
+                  <strong>
+                    {currentExerciseSets[index]
+                      ? "✓"
+                      : currentExercise.reps}
+                  </strong>
+                </button>
+
+              ))}
+
+            </div>
+
+            <div className="exercise-progress">
+
+              <div>
+                <span>
+                  CURRENT EXERCISE
+                </span>
+
+                <strong>
+                  {Math.round(
+                    (currentExerciseCompleted /
+                      currentExercise.sets) *
+                      100
+                  )}
+                  %
+                </strong>
+              </div>
+
+              <div className="progress-track">
                 <div
                   style={{
-                    width: `${currentExerciseProgress}%`,
+                    width: `${
+                      (currentExerciseCompleted /
+                        currentExercise.sets) *
+                      100
+                    }%`
                   }}
                 ></div>
               </div>
+
             </div>
 
             <div className="exercise-navigation">
+
               <button
-                className="previous-exercise"
                 onClick={previousExercise}
-                disabled={
-                  currentExerciseIndex === 0
-                }
+                disabled={currentExerciseIndex === 0}
               >
                 ← Previous
               </button>
 
               <button
-                className="next-exercise"
                 onClick={nextExercise}
                 disabled={
                   currentExerciseIndex ===
                   exercises.length - 1
                 }
               >
-                Next Exercise →
+                Next →
               </button>
+
             </div>
 
             <button
               className="finish-workout-button"
               onClick={finishWorkout}
+              disabled={workoutFinished}
             >
-              Finish Workout
-              <span>→</span>
+              {workoutFinished
+                ? "Workout Completed ✓"
+                : "Finish Workout"}
             </button>
-          </div>
 
-          
+            {finishMessage && (
+              <p className="workout-finish-message">
+                {finishMessage}
+              </p>
+            )}
+
+          </section>
 
           <aside className="workout-sidebar">
+
             <div className="rest-panel">
-              <span className="sidebar-label">
-                RECOVERY
-              </span>
 
-              <h2>Rest Timer</h2>
+              <span>REST TIMER</span>
 
-              <div className="rest-timer">
-                {String(
-                  Math.floor(restSeconds / 60)
-                ).padStart(2, "0")}
-                :
-                {String(
-                  restSeconds % 60
-                ).padStart(2, "0")}
-              </div>
-
-              <p>
-                Take your time between sets.
-                <br />
-                Quality over speed.
-              </p>
+              <strong>
+                {formatTime(restSeconds)}
+              </strong>
 
               <button
-                className="rest-button"
-                onClick={startRest}
+                onClick={() =>
+                  isResting
+                    ? setIsResting(false)
+                    : startRest()
+                }
               >
                 {isResting
-                  ? "Resting..."
-                  : "Start 60s Rest"}
+                  ? "Stop Rest"
+                  : "Start Rest"}
               </button>
+
             </div>
 
             <div className="tip-panel">
-              <span className="sidebar-label">
-                FORMA TIP
-              </span>
 
-              <h3>
-                Focus on your form.
-              </h3>
+              <span>FORMA TIP</span>
 
               <p>
-                Controlled movements and proper
-                technique are more important than
-                lifting heavier.
+                Focus on controlled movement and
+                consistent form. Quality reps always
+                come before heavier weight.
               </p>
+
             </div>
 
-            <div className="workout-summary">
-              <span className="sidebar-label">
-                SESSION SUMMARY
-              </span>
+            <div className="summary-panel">
 
-              <div className="summary-row">
-                <span>Completed</span>
+              <span>SESSION SUMMARY</span>
 
+              <div>
+                <span>Exercises</span>
                 <strong>
                   {completedExerciseCount}/
                   {exercises.length}
                 </strong>
               </div>
 
-              <div className="summary-row">
-                <span>Time</span>
-
+              <div>
+                <span>Sets</span>
                 <strong>
-                  {formatTime(seconds)}
+                  {completedSetCount}/{totalSets}
                 </strong>
               </div>
 
-              <div className="summary-progress">
-                <div
-                  style={{
-                    width: `${workoutProgress}%`,
-                  }}
-                ></div>
+              <div>
+                <span>Completion</span>
+                <strong>
+                  {workoutProgress}%
+                </strong>
               </div>
+
+              <div>
+                <span>Time</span>
+                <strong>
+                  {formatTime(workoutSeconds)}
+                </strong>
+              </div>
+
             </div>
+
           </aside>
-        </section>
+
+        </div>
+
       </main>
+
     </div>
   );
 }
