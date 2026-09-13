@@ -36,6 +36,8 @@ function App() {
     return localStorage.getItem("forma-theme") || "dark";
   });
 
+  const [dataVersion, setDataVersion] = useState(0);
+
   useEffect(() => {
     localStorage.setItem("forma-theme", theme);
   }, [theme]);
@@ -141,7 +143,6 @@ function App() {
     window.scrollTo(0, 0);
   };
 
-  // Redirect back to homepage
   const navigateHome = () => {
     setShowDashboard(false);
     setDashboardPage("dashboard");
@@ -153,6 +154,10 @@ function App() {
     );
 
     window.scrollTo(0, 0);
+  };
+
+  const handleWorkoutSaved = () => {
+    setDataVersion((previous) => previous + 1);
   };
 
   if (authLoading) {
@@ -167,6 +172,7 @@ function App() {
           theme={theme}
           onNavigate={navigateDashboard}
           onNavigateHome={navigateHome}
+          onWorkoutSaved={handleWorkoutSaved}
         />
       );
     }
@@ -178,6 +184,7 @@ function App() {
           theme={theme}
           onNavigate={navigateDashboard}
           onNavigateHome={navigateHome}
+          dataVersion={dataVersion}
         />
       );
     }
@@ -188,6 +195,7 @@ function App() {
         theme={theme}
         onNavigate={navigateDashboard}
         onNavigateHome={navigateHome}
+        dataVersion={dataVersion}
       />
     );
   }
@@ -263,7 +271,16 @@ function App() {
             Start Free Trial
           </button>
 
-          <button className="secondary-button">
+          <button
+            className="secondary-button"
+            onClick={() => {
+              document
+                .getElementById("features")
+                ?.scrollIntoView({
+                  behavior: "smooth"
+                });
+            }}
+          >
             Learn More
           </button>
 
