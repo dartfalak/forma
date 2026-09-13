@@ -6,20 +6,15 @@ function Dashboard({
   user,
   theme,
   onNavigate,
-  onNavigateHome,
-  dataVersion
+  onNavigateHome
 }) {
+
   const [isFirstVisit, setIsFirstVisit] = useState(() => {
-    return !sessionStorage.getItem(
-      "forma-dashboard-visited"
-    );
+    return !sessionStorage.getItem("forma-dashboard-visited");
   });
 
   useEffect(() => {
-    sessionStorage.setItem(
-      "forma-dashboard-visited",
-      "true"
-    );
+    sessionStorage.setItem("forma-dashboard-visited", "true");
   }, []);
 
   const fullName =
@@ -28,237 +23,78 @@ function Dashboard({
   const firstName =
     fullName.split(" ")[0];
 
+  const defaultTasks = [
+    {
+      id: 1,
+      text: "Complete today's workout",
+      completed: false
+    },
+    {
+      id: 2,
+      text: "Drink enough water",
+      completed: false
+    },
+    {
+      id: 3,
+      text: "Stretch for 10 minutes",
+      completed: false
+    },
+    {
+      id: 4,
+      text: "Get enough sleep",
+      completed: false
+    }
+  ];
+
   const [tasks, setTasks] = useState(() => {
-    const savedTasks = localStorage.getItem(
-      `forma-tasks-${user?.id}`
-    );
+
+    const savedTasks =
+      localStorage.getItem("forma-tasks");
 
     if (savedTasks) {
       try {
         return JSON.parse(savedTasks);
       } catch {
-        return [];
+        return defaultTasks;
       }
     }
 
-    return [
-      {
-        id: 1,
-        text: "Complete today's workout",
-        completed: false
-      },
-      {
-        id: 2,
-        text: "Drink enough water",
-        completed: false
-      },
-      {
-        id: 3,
-        text: "Stretch for 10 minutes",
-        completed: false
-      },
-      {
-        id: 4,
-        text: "Get enough sleep",
-        completed: false
-      }
-    ];
+    return defaultTasks;
   });
 
   const [newTask, setNewTask] = useState("");
 
-  const [workouts, setWorkouts] = useState([]);
-
-  const [signOutError, setSignOutError] =
-    useState("");
-
-  const historyKey =
-    `forma-workout-history-${user?.id || "guest"}`;
-
   useEffect(() => {
     localStorage.setItem(
-      `forma-tasks-${user?.id}`,
+      "forma-tasks",
       JSON.stringify(tasks)
     );
-  }, [tasks, user?.id]);
-
-  useEffect(() => {
-    const savedHistory =
-      localStorage.getItem(historyKey);
-
-    if (!savedHistory) {
-      setWorkouts([]);
-      return;
-    }
-
-    try {
-      const parsed = JSON.parse(savedHistory);
-
-      if (Array.isArray(parsed)) {
-        setWorkouts(parsed);
-      }
-    } catch {
-      setWorkouts([]);
-    }
-  }, [historyKey, dataVersion]);
-
-  const today = new Date();
-
-  const formatDate = () => {
-    return today.toLocaleDateString(
-      "en-US",
-      {
-        weekday: "short",
-        day: "2-digit",
-        month: "short",
-        year: "numeric"
-      }
-    );
-  };
-
-  const isToday = (dateString) => {
-    const date = new Date(dateString);
-
-    return (
-      date.toDateString() ===
-      new Date().toDateString()
-    );
-  };
-
-  const workoutsThisWeek =
-    workouts.filter((workout) => {
-      const workoutDate =
-        new Date(workout.date);
-
-      const currentDate = new Date();
-
-      const firstDay = new Date(currentDate);
-
-      firstDay.setDate(
-        currentDate.getDate() -
-          currentDate.getDay() +
-          1
-      );
-
-      firstDay.setHours(0, 0, 0, 0);
-
-      return workoutDate >= firstDay;
-    });
-
-  const workoutsThisMonth =
-    workouts.filter((workout) => {
-      const workoutDate =
-        new Date(workout.date);
-
-      const currentDate = new Date();
-
-      return (
-        workoutDate.getMonth() ===
-          currentDate.getMonth() &&
-        workoutDate.getFullYear() ===
-          currentDate.getFullYear()
-      );
-    });
-
-  const weeklyGoal = 5;
-
-  const weeklyPercentage = Math.min(
-    Math.round(
-      (workoutsThisWeek.length /
-        weeklyGoal) *
-        100
-    ),
-    100
-  );
-
-  const calculateStreak = () => {
-    if (workouts.length === 0) {
-      return 0;
-    }
-
-    const uniqueDays = [
-      ...new Set(
-        workouts.map((workout) =>
-          new Date(workout.date).toDateString()
-        )
-      )
-    ];
-
-    const dates = uniqueDays
-      .map((date) => new Date(date))
-      .sort((a, b) => b - a);
-
-    const todayDate = new Date();
-
-    todayDate.setHours(0, 0, 0, 0);
-
-    let streak = 0;
-
-    let expectedDate =
-      new Date(todayDate);
-
-    for (const date of dates) {
-      date.setHours(0, 0, 0, 0);
-
-      const difference =
-        Math.round(
-          (expectedDate - date) /
-            (1000 * 60 * 60 * 24)
-        );
-
-      if (difference === 0) {
-        streak++;
-
-        expectedDate.setDate(
-          expectedDate.getDate() - 1
-        );
-      } else {
-        break;
-      }
-    }
-
-    return streak;
-  };
-
-  const streak = calculateStreak();
-
-  const completedTasks =
-    tasks.filter(
-      (task) => task.completed
-    ).length;
-
-  const dailyProgress =
-    tasks.length === 0
-      ? 0
-      : Math.round(
-          (completedTasks /
-            tasks.length) *
-            100
-        );
+  }, [tasks]);
 
   const addTask = () => {
-    const trimmedTask =
-      newTask.trim();
 
-    if (!trimmedTask) {
+    if (newTask.trim() === "") {
       return;
     }
 
-    setTasks((previous) => [
-      ...previous,
-      {
-        id: Date.now(),
-        text: trimmedTask,
-        completed: false
-      }
+    const task = {
+      id: Date.now(),
+      text: newTask.trim(),
+      completed: false
+    };
+
+    setTasks((currentTasks) => [
+      ...currentTasks,
+      task
     ]);
 
     setNewTask("");
   };
 
   const toggleTask = (id) => {
-    setTasks((previous) =>
-      previous.map((task) =>
+
+    setTasks((currentTasks) =>
+      currentTasks.map((task) =>
         task.id === id
           ? {
               ...task,
@@ -270,18 +106,44 @@ function Dashboard({
   };
 
   const deleteTask = (id) => {
-    setTasks((previous) =>
-      previous.filter(
+
+    setTasks((currentTasks) =>
+      currentTasks.filter(
         (task) => task.id !== id
       )
     );
   };
 
-  const clearTasks = () => {
+  const clearAllTasks = () => {
     setTasks([]);
   };
 
+  const handleTaskKeyDown = (e) => {
+
+    if (e.key === "Enter") {
+      addTask();
+    }
+  };
+
+  const completedTasks =
+    tasks.filter(
+      (task) => task.completed
+    ).length;
+
+  const totalTasks = tasks.length;
+
+  const dailyProgress =
+    totalTasks === 0
+      ? 0
+      : Math.round(
+          (completedTasks / totalTasks) * 100
+        );
+
+  const [signOutError, setSignOutError] =
+    useState("");
+
   const handleSignOut = async () => {
+
     setSignOutError("");
 
     const { error } =
@@ -301,19 +163,58 @@ function Dashboard({
     }
   };
 
-  const latestWorkout =
-    workouts.length > 0
-      ? workouts[0]
-      : null;
+  const today = new Date();
+
+  const dayName =
+    today
+      .toLocaleDateString("en-US", {
+        weekday: "short"
+      })
+      .toUpperCase();
+
+  const dayNumber =
+    today.getDate();
+
+  const monthName =
+    today
+      .toLocaleDateString("en-US", {
+        month: "short"
+      })
+      .toUpperCase();
+
+  const year =
+    today.getFullYear();
+
+  const progressRadius = 70;
+
+  const circumference =
+    2 * Math.PI * progressRadius;
+
+  const progressOffset =
+    circumference -
+    (dailyProgress / 100) *
+      circumference;
 
   return (
-    <div className={`dashboard-page ${theme}-theme`}>
+    <div
+      className={`dashboard ${theme}-theme`}
+    >
 
       <nav className="dashboard-navbar">
 
         <div
           className="dashboard-logo"
           onClick={onNavigateHome}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (
+              e.key === "Enter" ||
+              e.key === " "
+            ) {
+              onNavigateHome();
+            }
+          }}
         >
           FORMA
         </div>
@@ -321,6 +222,7 @@ function Dashboard({
         <div className="dashboard-nav-center">
 
           <button
+            type="button"
             className="dashboard-nav-button nav-active"
             onClick={() =>
               onNavigate("dashboard")
@@ -330,6 +232,7 @@ function Dashboard({
           </button>
 
           <button
+            type="button"
             className="dashboard-nav-button"
             onClick={() =>
               onNavigate("workout")
@@ -339,6 +242,7 @@ function Dashboard({
           </button>
 
           <button
+            type="button"
             className="dashboard-nav-button"
             onClick={() =>
               onNavigate("progress")
@@ -351,14 +255,14 @@ function Dashboard({
 
         <div className="dashboard-nav-right">
 
-          <div className="dashboard-profile-circle">
+          <div className="profile-circle">
             {firstName
               .charAt(0)
               .toUpperCase()}
           </div>
 
           <button
-            className="dashboard-signout"
+            className="logout-button"
             onClick={handleSignOut}
           >
             Sign Out
@@ -368,14 +272,20 @@ function Dashboard({
 
       </nav>
 
+      {signOutError && (
+        <div className="signout-error">
+          {signOutError}
+        </div>
+      )}
+
       <main className="dashboard-content">
 
         <section className="dashboard-hero">
 
-          <div>
+          <div className="hero-text">
 
             <div className="dashboard-status">
-              <span></span>
+              <span className="status-dot"></span>
               TODAY
             </div>
 
@@ -384,68 +294,98 @@ function Dashboard({
                 ? "Welcome,"
                 : "Welcome back,"}
               <br />
-              {firstName}.
+              <span>{firstName}.</span>
             </h1>
 
             <p>
-              Stay consistent. Keep getting
-              stronger.
+              Here's what you're working on today.
+              <br />
+              Keep going and stay consistent.
             </p>
 
           </div>
 
-          <div className="dashboard-date-card">
+          <div className="hero-date">
 
-            <span>DATE</span>
+            <span className="date-label">
+              TODAY
+            </span>
 
             <strong>
-              {formatDate()}
+              {dayName}
             </strong>
+
+            <span className="date-number">
+              {dayNumber}
+            </span>
+
+            <span className="date-month">
+              {monthName} {year}
+            </span>
 
           </div>
 
         </section>
 
-        <section className="dashboard-stats">
+        <section className="stats-grid">
 
-          <div className="stat-card stat-featured">
+          <div className="stat-card">
 
-            <span>WEEKLY GOAL</span>
+            <div className="stat-top">
+              <span>WEEKLY PROGRESS</span>
 
-            <strong>
-              {weeklyPercentage}%
-            </strong>
+              <span className="stat-icon">
+                ↗
+              </span>
+            </div>
+
+            <div className="stat-value">
+              78%
+            </div>
+
+            <div className="progress-bar">
+              <div className="progress-fill"></div>
+            </div>
 
             <p>
-              {workoutsThisWeek.length} of{" "}
-              {weeklyGoal} workouts completed
+              4 of 5 workouts completed
             </p>
 
           </div>
 
           <div className="stat-card">
 
-            <span>WORKOUT STREAK</span>
+            <div className="stat-top">
+              <span>WORKOUT STREAK</span>
 
-            <strong>
-              {streak}
-            </strong>
+              <span className="stat-icon">
+                ✦
+              </span>
+            </div>
+
+            <div className="stat-value">
+              12 <small>days</small>
+            </div>
 
             <p>
-              {streak === 1
-                ? "day"
-                : "consecutive days"}
+              Best streak this month
             </p>
 
           </div>
 
           <div className="stat-card">
 
-            <span>THIS MONTH</span>
+            <div className="stat-top">
+              <span>THIS MONTH</span>
 
-            <strong>
-              {workoutsThisMonth.length}
-            </strong>
+              <span className="stat-icon">
+                ◷
+              </span>
+            </div>
+
+            <div className="stat-value">
+              16
+            </div>
 
             <p>
               workouts completed
@@ -459,11 +399,21 @@ function Dashboard({
 
           <div className="featured-workout">
 
-            <div className="section-label">
-              TODAY'S WORKOUT
-            </div>
+            <div className="featured-overlay"></div>
 
-            <div className="featured-workout-content">
+            <div className="featured-content">
+
+              <div className="featured-top">
+
+                <span className="featured-label">
+                  TODAY'S WORKOUT
+                </span>
+
+                <span className="featured-time">
+                  45 MIN
+                </span>
+
+              </div>
 
               <div>
 
@@ -475,34 +425,14 @@ function Dashboard({
                   Strength · Chest · Shoulders · Arms
                 </p>
 
-                {latestWorkout &&
-                  isToday(
-                    latestWorkout.date
-                  ) && (
-                    <span className="workout-completed-badge">
-                      COMPLETED ✓
-                    </span>
-                  )}
-
-              </div>
-
-              <div className="featured-workout-meta">
-
-                <strong>
-                  45 MIN
-                </strong>
-
                 <button
+                  className="start-workout-button"
                   onClick={() =>
                     onNavigate("workout")
                   }
                 >
-                  {latestWorkout &&
-                  isToday(
-                    latestWorkout.date
-                  )
-                    ? "View Workout"
-                    : "Start Workout"}
+                  Start Workout
+                  <span>→</span>
                 </button>
 
               </div>
@@ -511,64 +441,64 @@ function Dashboard({
 
           </div>
 
-          <div className="consistency-panel">
+          <div className="activity-panel consistency-panel">
 
-            <div className="section-label">
-              WEEKLY GOAL
-            </div>
+            <div className="panel-heading">
 
-            <div className="consistency-number">
-              {workoutsThisWeek.length}
-              <span>
-                / {weeklyGoal}
+              <div>
+
+                <span>
+                  CONSISTENCY
+                </span>
+
+                <h3>
+                  This week
+                </h3>
+
+              </div>
+
+              <span className="panel-value">
+                4 / 5
               </span>
+
             </div>
 
-            <p>
-              {weeklyPercentage}% of your
-              weekly workout goal
-            </p>
+            <div className="week-days">
 
-            <div className="consistency-days">
+              <div className="day completed">
+                <span>M</span>
+                <div>✓</div>
+              </div>
 
-              {[
-                "Mon",
-                "Tue",
-                "Wed",
-                "Thu",
-                "Fri",
-                "Sat",
-                "Sun"
-              ].map((day, index) => {
+              <div className="day completed">
+                <span>T</span>
+                <div>✓</div>
+              </div>
 
-                const completed =
-                  workoutsThisWeek[
-                    workoutsThisWeek.length -
-                      1 -
-                      index
-                  ];
+              <div className="day completed">
+                <span>W</span>
+                <div>✓</div>
+              </div>
 
-                return (
-                  <div
-                    className={
-                      completed
-                        ? "day completed"
-                        : "day"
-                    }
-                    key={day}
-                  >
-                    <span>
-                      {day}
-                    </span>
+              <div className="day completed">
+                <span>T</span>
+                <div>✓</div>
+              </div>
 
-                    <strong>
-                      {completed
-                        ? "✓"
-                        : "—"}
-                    </strong>
-                  </div>
-                );
-              })}
+              <div className="day today">
+                <span>F</span>
+                <div>•</div>
+              </div>
+
+              <div className="day">
+                <span>S</span>
+                <div></div>
+              </div>
+
+              <div className="day">
+                <span>S</span>
+                <div></div>
+              </div>
 
             </div>
 
@@ -576,7 +506,7 @@ function Dashboard({
 
         </section>
 
-        <section className="dashboard-bottom-grid">
+        <section className="dashboard-bottom">
 
           <div className="todo-panel">
 
@@ -584,140 +514,176 @@ function Dashboard({
 
               <div>
 
-                <div className="section-label">
-                  DAILY TASKS
-                </div>
+                <span>
+                  TODAY
+                </span>
 
-                <h2>
-                  Stay on track.
-                </h2>
+                <h3>
+                  To-Do List
+                </h3>
 
               </div>
 
-              <div className="todo-progress">
-                {dailyProgress}%
-              </div>
+              <button
+                className="clear-icon-button"
+                onClick={clearAllTasks}
+                title="Clear all tasks"
+              >
+                🗑
+              </button>
 
             </div>
 
             <div className="todo-list">
 
-              {tasks.map((task) => (
+              {tasks.length === 0 ? (
 
-                <div
-                  className={
-                    task.completed
-                      ? "todo-item completed"
-                      : "todo-item"
-                  }
-                  key={task.id}
-                >
-
-                  <button
-                    className="todo-check"
-                    onClick={() =>
-                      toggleTask(task.id)
-                    }
-                  >
-                    {task.completed
-                      ? "✓"
-                      : ""}
-                  </button>
-
-                  <span>
-                    {task.text}
-                  </span>
-
-                  <button
-                    className="todo-delete"
-                    onClick={() =>
-                      deleteTask(task.id)
-                    }
-                    aria-label="Delete task"
-                  >
-                    ×
-                  </button>
-
+                <div className="empty-tasks">
+                  No tasks for today.
                 </div>
 
-              ))}
+              ) : (
+
+                tasks.map((task) => (
+
+                  <div
+                    className={`todo-item ${
+                      task.completed
+                        ? "task-completed"
+                        : ""
+                    }`}
+                    key={task.id}
+                  >
+
+                    <button
+                      className="task-check"
+                      onClick={() =>
+                        toggleTask(task.id)
+                      }
+                      aria-label="Complete task"
+                    >
+                      {task.completed
+                        ? "✓"
+                        : ""}
+                    </button>
+
+                    <span className="task-text">
+                      {task.text}
+                    </span>
+
+                    <button
+                      className="delete-task"
+                      onClick={() =>
+                        deleteTask(task.id)
+                      }
+                      title="Delete task"
+                    >
+                      ×
+                    </button>
+
+                  </div>
+
+                ))
+
+              )}
 
             </div>
 
-            <div className="todo-add">
+            <div className="add-task">
 
               <input
                 type="text"
+                placeholder="Add a new task..."
                 value={newTask}
-                onChange={(event) =>
-                  setNewTask(
-                    event.target.value
-                  )
+                onChange={(e) =>
+                  setNewTask(e.target.value)
                 }
-                onKeyDown={(event) => {
-                  if (event.key === "Enter") {
-                    addTask();
-                  }
-                }}
-                placeholder="Add a task..."
+                onKeyDown={handleTaskKeyDown}
               />
 
               <button
                 onClick={addTask}
+                className="add-task-button"
               >
-                Add
+                Add New Task
               </button>
 
-              {tasks.length > 0 && (
-                <button
-                  className="todo-clear"
-                  onClick={clearTasks}
-                >
-                  Clear All
-                </button>
-              )}
-
             </div>
+
+            {tasks.length > 0 && (
+              <button
+                className="clear-all-button"
+                onClick={clearAllTasks}
+              >
+                Clear All Tasks
+              </button>
+            )}
 
           </div>
 
           <div className="daily-progress-panel">
 
-            <div className="section-label">
-              DAILY PROGRESS
+            <div className="daily-progress-heading">
+
+              <span>
+                TODAY'S PROGRESS
+              </span>
+
+              <h3>
+                Daily Progress
+              </h3>
+
             </div>
 
-            <div className="daily-progress-circle">
+            <div className="progress-circle">
 
-              <div>
+              <svg
+                className="progress-ring"
+                viewBox="0 0 160 160"
+                aria-label={`Daily progress ${dailyProgress}%`}
+              >
+
+                <circle
+                  className="progress-ring-track"
+                  cx="80"
+                  cy="80"
+                  r={progressRadius}
+                />
+
+                <circle
+                  className="progress-ring-value"
+                  cx="80"
+                  cy="80"
+                  r={progressRadius}
+                  style={{
+                    strokeDasharray: circumference,
+                    strokeDashoffset: progressOffset
+                  }}
+                />
+
+              </svg>
+
+              <div className="progress-circle-inner">
 
                 <strong>
                   {dailyProgress}%
                 </strong>
 
                 <span>
-                  COMPLETE
+                  complete
                 </span>
 
               </div>
 
             </div>
 
-            <p>
-              {completedTasks} of{" "}
-              {tasks.length} daily tasks
-              completed.
+            <p className="progress-summary">
+              {completedTasks} of {totalTasks} tasks completed
             </p>
 
           </div>
 
         </section>
-
-        {signOutError && (
-          <p className="dashboard-signout-error">
-            {signOutError}
-          </p>
-        )}
 
       </main>
 
