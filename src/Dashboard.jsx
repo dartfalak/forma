@@ -711,3 +711,6 @@ className={`dashboard ${theme}-theme`}
 
 );
 }
+
+
+export default Dashboard;
