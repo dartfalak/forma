@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
 
-/* =========================================
-   WORKOUT PAGE
-========================================= */
 
 .workout-page {
   min-height: 100vh;
@@ -16,11 +13,6 @@
   color: #f5f7fa;
   font-family: "Manrope", sans-serif;
 }
-
-
-/* =========================================
-   NAVBAR
-========================================= */
 
 .workout-navbar {
   height: 80px;
@@ -57,10 +49,6 @@
   color: #9bb6cd;
 }
 
-
-/* =========================================
-   NAV CENTER
-========================================= */
 
 .workout-nav-center {
   display: flex;
@@ -116,9 +104,6 @@
 }
 
 
-/* =========================================
-   NAV RIGHT
-========================================= */
 
 .workout-nav-right {
   justify-self: end;
@@ -144,9 +129,6 @@
 }
 
 
-/* =========================================
-   MAIN CONTENT
-========================================= */
 
 .workout-content {
   width: min(1180px, calc(100% - 60px));
@@ -156,10 +138,6 @@
   padding: 70px 0 100px;
 }
 
-
-/* =========================================
-   HEADER
-========================================= */
 
 .workout-header {
   margin-bottom: 42px;
@@ -215,10 +193,6 @@
   line-height: 1.8;
 }
 
-
-/* =========================================
-   SESSION TIMER
-========================================= */
 
 .workout-timer-card {
   min-height: 125px;
@@ -367,9 +341,6 @@
 }
 
 
-/* =========================================
-   MAIN WORKOUT LAYOUT
-========================================= */
 
 .workout-layout {
   display: grid;
@@ -379,10 +350,6 @@
   align-items: start;
 }
 
-
-/* =========================================
-   EXERCISE TRACKER
-========================================= */
 
 .exercise-tracker {
   padding: 30px;
