@@ -1739,3 +1739,244 @@
     padding: 0 20px;
   }
 
+  .workout-logo {
+    font-size: 24px;
+  }
+
+  .workout-nav-center {
+    gap: 18px;
+  }
+
+  .workout-nav-button {
+    font-size: 11px;
+  }
+
+  .workout-content {
+    width: calc(100% - 32px);
+
+    padding-top: 45px;
+  }
+
+  .workout-header h1 {
+    font-size: 55px;
+  }
+
+
+  /* Day selector */
+
+  .day-selector-section {
+    padding: 22px;
+  }
+
+  .day-selector-heading {
+    flex-direction: column;
+  }
+
+  .day-selector {
+    grid-template-columns:
+      repeat(4, 1fr);
+  }
+
+  .day-button {
+    min-height: 62px;
+  }
+
+
+  /* Focus */
+
+  .day-focus-panel {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 25px;
+  }
+
+  .day-focus-progress {
+    width: 100%;
+  }
+
+
+  /* Timer */
+
+  .workout-timer-card {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 22px;
+  }
+
+  .workout-timer-actions {
+    width: 100%;
+  }
+
+  .workout-timer-actions button {
+    flex: 1;
+  }
+
+
+  /* Overview */
+
+  .workout-overview {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+
+  /* Sidebar */
+
+  .workout-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+  .workout-navbar {
+    grid-template-columns:
+      auto 1fr auto;
+
+    padding: 0 15px;
+  }
+
+  .workout-logo {
+    font-size: 19px;
+
+    letter-spacing: 3px;
+  }
+
+  .workout-nav-center {
+    gap: 10px;
+
+    justify-content: center;
+  }
+
+  .workout-nav-button {
+    font-size: 9px;
+  }
+
+  .workout-content {
+    width: calc(100% - 24px);
+
+    padding: 35px 0 70px;
+  }
+
+  .workout-header h1 {
+    font-size: 48px;
+  }
+
+  .workout-header p {
+    font-size: 11px;
+  }
+
+
+  /* Day selector */
+
+  .day-selector-section {
+    padding: 19px;
+  }
+
+  .day-selector {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 7px;
+  }
+
+  .day-button {
+    min-height: 58px;
+  }
+
+
+  /* Focus */
+
+  .day-focus-panel {
+    padding: 23px;
+  }
+
+  .day-focus-main h2 {
+    font-size: 36px;
+  }
+
+
+  /* Timer */
+
+  .workout-timer-card {
+    padding: 22px;
+  }
+
+  .workout-timer-card strong {
+    font-size: 36px;
+  }
+
+
+  /* Overview */
+
+  .workout-overview-card {
+    padding: 17px;
+  }
+
+  .workout-overview-card strong {
+    font-size: 17px;
+  }
+
+
+  /* Exercises */
+
+  .day-workout-panel {
+    padding: 21px;
+  }
+
+  .day-workout-heading h2 {
+    font-size: 30px;
+  }
+
+  .day-exercise-main {
+    grid-template-columns:
+      30px minmax(0, 1fr);
+
+    gap: 10px;
+
+    padding: 14px;
+  }
+
+  .day-exercise-number {
+    width: 27px;
+    height: 27px;
+  }
+
+  .day-exercise-info h3 {
+    font-size: 10px;
+  }
+
+  .day-exercise-info p {
+    font-size: 7px;
+  }
+
+  .day-exercise-details {
+    gap: 10px;
+  }
+
+  .exercise-complete-button {
+    grid-column: 2;
+
+    width: 100%;
+  }
+
+
+  /* Sidebar */
+
+  .rest-panel,
+  .tip-panel,
+  .summary-panel {
+    padding: 22px;
+  }
+
+}
