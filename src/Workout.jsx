@@ -698,3 +698,296 @@ function Workout({
                 )}
               </div>
             </div>
+
+            <div className="daily-progress">
+              <div className="daily-progress-top">
+                <span>DAILY PROGRESS</span>
+
+                <strong>
+                  {completedCount}/{exercises.length}
+                </strong>
+              </div>
+
+              <div className="daily-progress-track">
+                <div
+                  style={{
+                    width: `${workoutProgress}%`
+                  }}
+                ></div>
+              </div>
+
+              <small>
+                {workoutProgress}% complete
+              </small>
+            </div>
+          </div>
+
+          <p className="focus-description">
+            {currentPlan.description}
+          </p>
+        </section>
+
+        {/* TIMER */}
+
+        <section className="workout-timer-card">
+          <div>
+            <span>SESSION TIME</span>
+
+            <strong>
+              {formatTime(seconds)}
+            </strong>
+          </div>
+
+          <div className="workout-timer-actions">
+            {!isWorkoutRunning ? (
+              <button onClick={startWorkout}>
+                Start
+              </button>
+            ) : (
+              <button onClick={pauseWorkout}>
+                Pause
+              </button>
+            )}
+
+            <button onClick={resetWorkout}>
+              Reset
+            </button>
+          </div>
+        </section>
+
+        {/* OVERVIEW */}
+
+        <section className="workout-overview">
+          <div className="workout-overview-card">
+            <span>TYPE</span>
+            <strong>Strength</strong>
+          </div>
+
+          <div className="workout-overview-card">
+            <span>TARGET</span>
+            <strong>45 min</strong>
+          </div>
+
+          <div className="workout-overview-card">
+            <span>EXERCISES</span>
+            <strong>{exercises.length}</strong>
+          </div>
+
+          <div className="workout-overview-card">
+            <span>PROGRESS</span>
+            <strong>{workoutProgress}%</strong>
+          </div>
+        </section>
+
+        {/* EXERCISES + SIDEBAR */}
+
+        <section className="workout-layout">
+
+          <div className="exercise-panel">
+
+            <div className="exercise-section-heading">
+              <div>
+                <span>WORKOUT PLAN</span>
+                <h2>Exercises</h2>
+              </div>
+
+              <strong>
+                {completedCount}/{exercises.length}
+              </strong>
+            </div>
+
+            <div className="exercise-list">
+              {exercises.map(
+                (exercise, index) => {
+                  const isCompleted =
+                    completed.includes(
+                      exercise.id
+                    );
+
+                  return (
+                    <div
+                      className={`exercise-card ${
+                        isCompleted
+                          ? "exercise-completed"
+                          : ""
+                      }`}
+                      key={exercise.id}
+                    >
+                      <div className="exercise-number">
+                        {String(index + 1).padStart(
+                          2,
+                          "0"
+                        )}
+                      </div>
+
+                      <div className="exercise-info">
+                        <h3>
+                          {exercise.name}
+                        </h3>
+
+                        <span>
+                          {exercise.muscle}
+                        </span>
+                      </div>
+
+                      <div className="exercise-details">
+                        <div>
+                          <small>SETS</small>
+                          <strong>
+                            {exercise.sets}
+                          </strong>
+                        </div>
+
+                        <div>
+                          <small>REPS</small>
+                          <strong>
+                            {exercise.reps}
+                          </strong>
+                        </div>
+
+                        <div>
+                          <small>WEIGHT</small>
+                          <strong>
+                            {exercise.weight
+                              ? `${exercise.weight} kg`
+                              : "—"}
+                          </strong>
+                        </div>
+                      </div>
+
+                      <button
+                        className="exercise-check"
+                        onClick={() =>
+                          toggleExercise(
+                            exercise.id
+                          )
+                        }
+                        aria-label={`Mark ${exercise.name} complete`}
+                      >
+                        {isCompleted ? "✓" : "○"}
+                      </button>
+                    </div>
+                  );
+                }
+              )}
+            </div>
+
+            <button
+              className="finish-workout-button"
+              onClick={finishWorkout}
+              disabled={workoutFinished}
+            >
+              {workoutFinished
+                ? "Workout Completed ✓"
+                : "Finish Workout"}
+
+              {!workoutFinished && (
+                <span>→</span>
+              )}
+            </button>
+
+            {finishMessage && (
+              <p className="workout-finish-message">
+                {finishMessage}
+              </p>
+            )}
+          </div>
+
+          {/* SIDEBAR */}
+
+          <aside className="workout-sidebar">
+
+            <div className="rest-panel">
+              <span className="sidebar-label">
+                RECOVERY
+              </span>
+
+              <h2>Rest Timer</h2>
+
+              <div className="rest-timer">
+                {formatTime(restSeconds)}
+              </div>
+
+              <p>
+                Take your time between exercises.
+                <br />
+                Quality over speed.
+              </p>
+
+              <button
+                className="rest-button"
+                onClick={() =>
+                  isResting
+                    ? setIsResting(false)
+                    : startRest()
+                }
+              >
+                {isResting
+                  ? "Stop Rest"
+                  : "Start 60s Rest"}
+              </button>
+            </div>
+
+            <div className="tip-panel">
+              <span className="sidebar-label">
+                FORMA TIP
+              </span>
+
+              <h3>
+                Focus on your form.
+              </h3>
+
+              <p>
+                Controlled movements and proper
+                technique are more important than
+                simply lifting heavier.
+              </p>
+            </div>
+
+            <div className="workout-summary">
+              <span className="sidebar-label">
+                SESSION SUMMARY
+              </span>
+
+              <div className="summary-row">
+                <span>Completed</span>
+
+                <strong>
+                  {completedCount}/
+                  {exercises.length}
+                </strong>
+              </div>
+
+              <div className="summary-row">
+                <span>Time</span>
+
+                <strong>
+                  {formatTime(seconds)}
+                </strong>
+              </div>
+
+              <div className="summary-row">
+                <span>Progress</span>
+
+                <strong>
+                  {workoutProgress}%
+                </strong>
+              </div>
+
+              <div className="summary-progress">
+                <div
+                  style={{
+                    width: `${workoutProgress}%`
+                  }}
+                ></div>
+              </div>
+            </div>
+
+          </aside>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+export default Workout;
