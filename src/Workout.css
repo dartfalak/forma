@@ -631,10 +631,6 @@
   border-color: #2b3640;
 }
 
-/* =========================================
-   OVERVIEW
-========================================= */
-
 .workout-overview {
   display: grid;
 
@@ -694,9 +690,6 @@
   font-weight: 500;
 }
 
-/* =========================================
-   MAIN WORKOUT LAYOUT
-========================================= */
 
 .workout-layout {
   display: grid;
@@ -710,9 +703,6 @@
   align-items: start;
 }
 
-/* =========================================
-   EXERCISE PANEL
-========================================= */
 
 .exercise-panel {
   padding: 30px;
@@ -779,12 +769,6 @@
 
   text-align: center;
 }
-
-/* =========================================
-   EXERCISE LIST
-
-   Improved typography
-========================================= */
 
 .exercise-list {
   margin-top: 20px;
@@ -854,11 +838,7 @@
   font-weight: 500;
 }
 
-/*
-   Exercise name:
-   Manrope gives this a cleaner,
-   more modern fitness-app appearance.
-*/
+
 
 .exercise-info h3 {
   margin: 0;
