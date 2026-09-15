@@ -285,7 +285,7 @@
   gap: 10px;
 }
 
-/* Sunday does not exist in the JSX anymore. */
+
 
 .week-day {
   position: relative;
@@ -379,9 +379,7 @@
     0 0 9px rgba(120, 173, 210, 0.8);
 }
 
-/* =========================================
-   FOCUS CARD
-========================================= */
+
 
 .focus-card {
   padding: 30px;
@@ -532,9 +530,6 @@
   line-height: 1.8;
 }
 
-/* =========================================
-   TIMER
-========================================= */
 
 .workout-timer-card {
   min-height: 120px;
