@@ -514,10 +514,7 @@ className={`dashboard ${theme}-theme`}
             <div></div>
           </div>
 
-          <div className="day">
-            <span>S</span>
-            <div></div>
-          </div>
+    
 
         </div>
 
