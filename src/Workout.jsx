@@ -1,88 +1,5 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import "./Workout.css";
-
-/* =====================================================
-   REUSABLE EXERCISE CARD
-===================================================== */
-
-function ExerciseCard({
-  exercise,
-  completed,
-  onToggle
-}) {
-  return (
-    <div
-      className={`day-exercise-card ${
-        completed ? "exercise-completed" : ""
-      }`}
-    >
-      <div className="day-exercise-main">
-
-        <div className="day-exercise-number">
-          {completed ? "✓" : exercise.number}
-        </div>
-
-        <div className="day-exercise-info">
-
-          <div className="day-exercise-top">
-
-            <div>
-              <h3>{exercise.name}</h3>
-
-              <span>
-                {exercise.muscle}
-              </span>
-            </div>
-
-          </div>
-
-          {exercise.description && (
-            <p>
-              {exercise.description}
-            </p>
-          )}
-
-          <div className="day-exercise-details">
-
-            <div>
-              <span>SETS</span>
-              <strong>{exercise.sets}</strong>
-            </div>
-
-            <div>
-              <span>REPS</span>
-              <strong>{exercise.reps}</strong>
-            </div>
-
-            {exercise.weight && (
-              <div>
-                <span>WEIGHT</span>
-                <strong>{exercise.weight} kg</strong>
-              </div>
-            )}
-
-          </div>
-
-        </div>
-
-        <button
-          className={`exercise-complete-button ${
-            completed ? "completed" : ""
-          }`}
-          onClick={() => onToggle(exercise.id)}
-        >
-          {completed ? "Completed ✓" : "Complete"}
-        </button>
-
-      </div>
-    </div>
-  );
-}
-
-
-/* =====================================================
-   MAIN WORKOUT COMPONENT
-===================================================== */
 
 function Workout({
   user,
@@ -91,942 +8,570 @@ function Workout({
   onNavigateHome,
   onWorkoutSaved
 }) {
+  const weekDays = [
+    { short: "MON", name: "Monday" },
+    { short: "TUE", name: "Tuesday" },
+    { short: "WED", name: "Wednesday" },
+    { short: "THU", name: "Thursday" },
+    { short: "FRI", name: "Friday" },
+    { short: "SAT", name: "Saturday" }
+  ];
 
-  /* =====================================================
-     WEEKLY WORKOUT DATA
-  ===================================================== */
-
-  const weeklyWorkouts = {
+  const dayPlans = {
     Monday: {
-      type: "Push",
-      focus: ["Chest", "Shoulders", "Triceps"],
+      title: "Upper Body",
+      description:
+        "Build strength through focused chest, shoulder, and arm training.",
+      muscles: ["Chest", "Shoulders", "Arms"],
       exercises: [
         {
-          id: "mon-1",
+          id: 1,
           name: "Barbell Bench Press",
           muscle: "Chest",
           sets: 4,
-          reps: 8,
-          weight: 60,
-          description:
-            "Controlled pressing movement with focus on chest strength."
-        },
-        {
-          id: "mon-2",
-          name: "Incline Dumbbell Press",
-          muscle: "Chest",
-          sets: 3,
           reps: 10,
-          weight: 22,
-          description:
-            "Targets the upper chest through a controlled incline press."
+          weight: 60
         },
         {
-          id: "mon-3",
+          id: 2,
           name: "Shoulder Press",
           muscle: "Shoulders",
           sets: 3,
-          reps: 10,
-          weight: 35,
-          description:
-            "Press overhead while keeping your core stable."
+          reps: 12,
+          weight: 35
         },
         {
-          id: "mon-4",
-          name: "Lateral Raises",
-          muscle: "Shoulders",
+          id: 3,
+          name: "Incline Dumbbell Press",
+          muscle: "Upper Chest",
+          sets: 3,
+          reps: 10,
+          weight: 22
+        },
+        {
+          id: 4,
+          name: "Bicep Curls",
+          muscle: "Biceps",
           sets: 3,
           reps: 12,
-          weight: 10,
-          description:
-            "Raise the dumbbells smoothly without using momentum."
+          weight: 14
         },
         {
-          id: "mon-5",
+          id: 5,
           name: "Tricep Pushdown",
           muscle: "Triceps",
           sets: 3,
           reps: 12,
-          weight: 25,
-          description:
-            "Keep your elbows close to your body throughout the movement."
-        },
-        {
-          id: "mon-6",
-          name: "Overhead Tricep Extension",
-          muscle: "Triceps",
-          sets: 3,
-          reps: 12,
-          weight: 15,
-          description:
-            "Lower the weight slowly and fully extend at the top."
+          weight: 25
         }
       ]
     },
 
     Tuesday: {
-      type: "Pull",
-      focus: ["Back", "Biceps"],
+      title: "Lower Body",
+      description:
+        "Build strength and stability through focused lower-body training.",
+      muscles: ["Quads", "Hamstrings", "Glutes"],
       exercises: [
         {
-          id: "tue-1",
-          name: "Lat Pulldown",
-          muscle: "Back",
-          sets: 4,
-          reps: 10,
-          weight: 50,
-          description:
-            "Pull toward your upper chest while keeping your torso stable."
-        },
-        {
-          id: "tue-2",
-          name: "Barbell Row",
-          muscle: "Back",
+          id: 1,
+          name: "Barbell Squat",
+          muscle: "Quadriceps",
           sets: 4,
           reps: 8,
-          weight: 50,
-          description:
-            "Drive your elbows back and keep your spine neutral."
+          weight: 80
         },
         {
-          id: "tue-3",
-          name: "Seated Cable Row",
-          muscle: "Back",
-          sets: 3,
-          reps: 12,
-          weight: 45,
-          description:
-            "Squeeze your shoulder blades together at the end of each rep."
-        },
-        {
-          id: "tue-4",
-          name: "Face Pull",
-          muscle: "Back",
-          sets: 3,
-          reps: 15,
-          weight: 20,
-          description:
-            "Pull the rope toward your face while keeping your elbows high."
-        },
-        {
-          id: "tue-5",
-          name: "Barbell Curl",
-          muscle: "Biceps",
+          id: 2,
+          name: "Romanian Deadlift",
+          muscle: "Hamstrings",
           sets: 3,
           reps: 10,
-          weight: 25,
-          description:
-            "Curl without swinging your body or moving your elbows."
+          weight: 60
         },
         {
-          id: "tue-6",
-          name: "Hammer Curl",
-          muscle: "Biceps",
+          id: 3,
+          name: "Walking Lunges",
+          muscle: "Glutes",
           sets: 3,
           reps: 12,
-          weight: 14,
-          description:
-            "Maintain a neutral grip throughout the entire movement."
+          weight: 18
+        },
+        {
+          id: 4,
+          name: "Leg Press",
+          muscle: "Quadriceps",
+          sets: 3,
+          reps: 12,
+          weight: 100
+        },
+        {
+          id: 5,
+          name: "Standing Calf Raises",
+          muscle: "Calves",
+          sets: 3,
+          reps: 15,
+          weight: 30
         }
       ]
     },
 
     Wednesday: {
-      type: "Legs",
-      focus: ["Quads", "Hamstrings", "Glutes", "Calves"],
+      title: "Legs",
+      description:
+        "Build strength with focused training for the lower body and posterior chain.",
+      muscles: ["Quadriceps", "Hamstrings", "Glutes", "Calves"],
       exercises: [
         {
-          id: "wed-1",
+          id: 1,
           name: "Barbell Squat",
-          muscle: "Quads",
+          muscle: "Quadriceps",
           sets: 4,
           reps: 8,
-          weight: 70,
-          description:
-            "Keep your chest up and descend under control."
+          weight: 80
         },
         {
-          id: "wed-2",
-          name: "Leg Press",
-          muscle: "Quads",
-          sets: 3,
-          reps: 10,
-          weight: 100,
-          description:
-            "Drive through your feet while maintaining controlled movement."
-        },
-        {
-          id: "wed-3",
+          id: 2,
           name: "Romanian Deadlift",
           muscle: "Hamstrings",
           sets: 3,
           reps: 10,
-          weight: 60,
-          description:
-            "Hinge at the hips and keep the weight close to your legs."
+          weight: 60
         },
         {
-          id: "wed-4",
-          name: "Walking Lunges",
+          id: 3,
+          name: "Bulgarian Split Squat",
           muscle: "Glutes",
           sets: 3,
-          reps: 12,
-          weight: 16,
-          description:
-            "Take controlled steps and keep your front knee stable."
+          reps: 10,
+          weight: 18
         },
         {
-          id: "wed-5",
+          id: 4,
+          name: "Leg Press",
+          muscle: "Quadriceps",
+          sets: 3,
+          reps: 12,
+          weight: 100
+        },
+        {
+          id: 5,
           name: "Leg Curl",
           muscle: "Hamstrings",
           sets: 3,
           reps: 12,
-          weight: 35,
-          description:
-            "Curl the weight smoothly without lifting your hips."
+          weight: 35
         },
         {
-          id: "wed-6",
-          name: "Standing Calf Raise",
+          id: 6,
+          name: "Standing Calf Raises",
           muscle: "Calves",
-          sets: 4,
+          sets: 3,
           reps: 15,
-          weight: 40,
-          description:
-            "Pause briefly at the top before lowering your heels."
+          weight: 30
         }
       ]
     },
 
     Thursday: {
-      type: "Push",
-      focus: ["Chest", "Shoulders", "Triceps"],
+      title: "Push",
+      description:
+        "Train pressing strength with controlled chest, shoulder, and triceps work.",
+      muscles: ["Chest", "Shoulders", "Triceps"],
       exercises: [
         {
-          id: "thu-1",
-          name: "Incline Barbell Press",
+          id: 1,
+          name: "Bench Press",
           muscle: "Chest",
           sets: 4,
           reps: 8,
-          weight: 55,
-          description:
-            "Focus on controlled reps through the upper chest."
+          weight: 60
         },
         {
-          id: "thu-2",
-          name: "Dumbbell Chest Press",
-          muscle: "Chest",
+          id: 2,
+          name: "Incline Dumbbell Press",
+          muscle: "Upper Chest",
           sets: 3,
           reps: 10,
-          weight: 24,
-          description:
-            "Keep both dumbbells balanced throughout the movement."
+          weight: 22
         },
         {
-          id: "thu-3",
-          name: "Arnold Press",
+          id: 3,
+          name: "Shoulder Press",
           muscle: "Shoulders",
           sets: 3,
           reps: 10,
-          weight: 18,
-          description:
-            "Rotate smoothly while pressing overhead."
+          weight: 35
         },
         {
-          id: "thu-4",
+          id: 4,
           name: "Lateral Raises",
           muscle: "Shoulders",
           sets: 3,
           reps: 15,
-          weight: 8,
-          description:
-            "Use a controlled range of motion and avoid swinging."
+          weight: 10
         },
         {
-          id: "thu-5",
-          name: "Rope Tricep Pushdown",
+          id: 5,
+          name: "Tricep Pushdown",
           muscle: "Triceps",
           sets: 3,
           reps: 12,
-          weight: 22,
-          description:
-            "Separate the rope at the bottom of each repetition."
-        },
-        {
-          id: "thu-6",
-          name: "Tricep Dips",
-          muscle: "Triceps",
-          sets: 3,
-          reps: 10,
-          weight: 0,
-          description:
-            "Lower under control and press back up without locking aggressively."
+          weight: 25
         }
       ]
     },
 
     Friday: {
-      type: "Pull",
-      focus: ["Back", "Biceps"],
+      title: "Pull",
+      description:
+        "Develop a stronger back and arms through controlled pulling movements.",
+      muscles: ["Back", "Biceps", "Rear Delts"],
       exercises: [
         {
-          id: "fri-1",
-          name: "Pull Ups",
+          id: 1,
+          name: "Lat Pulldown",
           muscle: "Back",
           sets: 4,
-          reps: 8,
-          weight: 0,
-          description:
-            "Pull your chest toward the bar while keeping your body controlled."
+          reps: 10,
+          weight: 55
         },
         {
-          id: "fri-2",
-          name: "Chest Supported Row",
+          id: 2,
+          name: "Seated Cable Row",
           muscle: "Back",
           sets: 3,
           reps: 10,
-          weight: 40,
-          description:
-            "Keep your chest supported and pull toward your lower ribs."
+          weight: 50
         },
         {
-          id: "fri-3",
-          name: "Single Arm Dumbbell Row",
-          muscle: "Back",
+          id: 3,
+          name: "Face Pulls",
+          muscle: "Rear Delts",
           sets: 3,
-          reps: 10,
-          weight: 24,
-          description:
-            "Pull the dumbbell toward your hip while keeping your back stable."
+          reps: 15,
+          weight: 20
         },
         {
-          id: "fri-4",
-          name: "Straight Arm Pulldown",
-          muscle: "Back",
-          sets: 3,
-          reps: 12,
-          weight: 25,
-          description:
-            "Keep your arms mostly straight and pull toward your thighs."
-        },
-        {
-          id: "fri-5",
-          name: "Incline Dumbbell Curl",
+          id: 4,
+          name: "Barbell Curls",
           muscle: "Biceps",
           sets: 3,
           reps: 10,
-          weight: 12,
-          description:
-            "Allow your arms to extend fully before curling."
+          weight: 25
         },
         {
-          id: "fri-6",
-          name: "Hammer Curl",
+          id: 5,
+          name: "Hammer Curls",
           muscle: "Biceps",
           sets: 3,
           reps: 12,
-          weight: 14,
-          description:
-            "Use a neutral grip and maintain controlled repetitions."
+          weight: 14
         }
       ]
     },
 
     Saturday: {
-      type: "Legs",
-      focus: ["Quads", "Hamstrings", "Glutes", "Calves"],
+      title: "Full Body",
+      description:
+        "Finish the week with balanced full-body strength and controlled movement.",
+      muscles: ["Full Body", "Core", "Conditioning"],
       exercises: [
         {
-          id: "sat-1",
-          name: "Front Squat",
-          muscle: "Quads",
+          id: 1,
+          name: "Deadlift",
+          muscle: "Full Body",
           sets: 4,
-          reps: 8,
-          weight: 55,
-          description:
-            "Keep your torso upright and drive through your feet."
+          reps: 6,
+          weight: 100
         },
         {
-          id: "sat-2",
-          name: "Bulgarian Split Squat",
-          muscle: "Quads",
-          sets: 3,
-          reps: 10,
-          weight: 16,
-          description:
-            "Lower slowly while keeping your front foot planted."
-        },
-        {
-          id: "sat-3",
-          name: "Hip Thrust",
-          muscle: "Glutes",
-          sets: 4,
-          reps: 10,
-          weight: 70,
-          description:
-            "Drive through your heels and squeeze your glutes at the top."
-        },
-        {
-          id: "sat-4",
-          name: "Romanian Deadlift",
-          muscle: "Hamstrings",
-          sets: 3,
-          reps: 10,
-          weight: 60,
-          description:
-            "Keep your back neutral and hinge from the hips."
-        },
-        {
-          id: "sat-5",
-          name: "Leg Curl",
-          muscle: "Hamstrings",
+          id: 2,
+          name: "Goblet Squat",
+          muscle: "Legs",
           sets: 3,
           reps: 12,
-          weight: 35,
-          description:
-            "Use slow, controlled repetitions."
+          weight: 24
         },
         {
-          id: "sat-6",
-          name: "Seated Calf Raise",
-          muscle: "Calves",
-          sets: 4,
+          id: 3,
+          name: "Dumbbell Row",
+          muscle: "Back",
+          sets: 3,
+          reps: 10,
+          weight: 22
+        },
+        {
+          id: 4,
+          name: "Push Ups",
+          muscle: "Chest",
+          sets: 3,
           reps: 15,
-          weight: 35,
-          description:
-            "Use a full range of motion with a brief pause at the top."
-        }
-      ]
-    },
-
-    Sunday: {
-      type: "Recovery & Mobility",
-      focus: ["Mobility", "Stretching", "Walking"],
-      exercises: [
-        {
-          id: "sun-1",
-          name: "Full Body Stretch",
-          muscle: "Mobility",
-          sets: 1,
-          reps: "5–10 min",
-          weight: 0,
-          description:
-            "Use gentle stretches for the major muscle groups."
+          weight: 0
         },
         {
-          id: "sun-2",
-          name: "Hip Mobility",
-          muscle: "Hips",
-          sets: 2,
-          reps: "8–10 / side",
-          weight: 0,
-          description:
-            "Move slowly through comfortable hip ranges of motion."
-        },
-        {
-          id: "sun-3",
-          name: "Shoulder Mobility",
-          muscle: "Shoulders",
-          sets: 2,
-          reps: "10–12",
-          weight: 0,
-          description:
-            "Use controlled circles and movements to loosen the shoulders."
-        },
-        {
-          id: "sun-4",
-          name: "Light Walking",
-          muscle: "Full Body",
-          sets: 1,
-          reps: "20–30 min",
-          weight: 0,
-          description:
-            "Keep the pace comfortable and use the walk to stay active."
+          id: 5,
+          name: "Plank",
+          muscle: "Core",
+          sets: 3,
+          reps: 45,
+          weight: 0
         }
       ]
     }
   };
 
+  const todayName = new Date().toLocaleDateString("en-US", {
+    weekday: "long"
+  });
 
-  /* =====================================================
-     CURRENT DAY
-  ===================================================== */
+  const initialDay = weekDays.some((day) => day.name === todayName)
+    ? todayName
+    : "Wednesday";
 
-  const days = Object.keys(weeklyWorkouts);
+  const [selectedDay, setSelectedDay] = useState(initialDay);
 
-  const getCurrentDay = () => {
-    const dayIndex = new Date().getDay();
+  const currentPlan = dayPlans[selectedDay];
+  const exercises = currentPlan.exercises;
 
-    return days[dayIndex];
-  };
+  const [completed, setCompleted] = useState(() => {
+    const saved = localStorage.getItem(
+      `forma-workout-completed-${initialDay}`
+    );
 
-  const today = getCurrentDay();
-
-  const [selectedDay, setSelectedDay] = useState(today);
-
-
-  /* =====================================================
-     DAY-SPECIFIC WORKOUT
-  ===================================================== */
-
-  const selectedWorkout =
-    weeklyWorkouts[selectedDay];
-
-
-  /* =====================================================
-     USER-SPECIFIC STORAGE
-  ===================================================== */
-
-  const userId = user?.id || "guest";
-
-  const completionKey =
-    `forma-day-workout-completion-${userId}`;
-
-  const [completedExercises, setCompletedExercises] =
-    useState(() => {
-
-      const saved =
-        localStorage.getItem(completionKey);
-
-      if (!saved) {
-        return {};
-      }
-
+    if (saved) {
       try {
         return JSON.parse(saved);
       } catch {
-        return {};
+        return [];
       }
-    });
+    }
 
+    return [];
+  });
 
-  useEffect(() => {
-
-    localStorage.setItem(
-      completionKey,
-      JSON.stringify(completedExercises)
-    );
-
-  }, [
-    completedExercises,
-    completionKey
-  ]);
-
-
-  /* =====================================================
-     EXERCISE COMPLETION
-  ===================================================== */
-
-  const toggleExercise = (exerciseId) => {
-
-    setCompletedExercises((previous) => {
-
-      const dayExercises =
-        previous[selectedDay] || {};
-
-      return {
-        ...previous,
-
-        [selectedDay]: {
-          ...dayExercises,
-
-          [exerciseId]:
-            !dayExercises[exerciseId]
-        }
-      };
-
-    });
-
-  };
-
-
-  const selectedDayCompleted =
-    completedExercises[selectedDay] || {};
-
-
-  const completedExerciseCount =
-    selectedWorkout.exercises.filter(
-      (exercise) =>
-        selectedDayCompleted[exercise.id]
-    ).length;
-
-
-  const totalExercises =
-    selectedWorkout.exercises.length;
-
-
-  const workoutProgress =
-    totalExercises === 0
-      ? 0
-      : Math.round(
-          (completedExerciseCount /
-            totalExercises) *
-            100
-        );
-
-
-  const isToday =
-    selectedDay === today;
-
-
-  /* =====================================================
-     TIMER
-  ===================================================== */
-
-  const [workoutSeconds, setWorkoutSeconds] =
-    useState(() => {
-
-      const saved =
-        localStorage.getItem(
-          "forma-active-workout-time"
-        );
-
-      return saved
-        ? Number(saved)
-        : 0;
-    });
-
+  const [seconds, setSeconds] = useState(() => {
+    const saved = localStorage.getItem("forma-active-workout-time");
+    return saved ? Number(saved) : 0;
+  });
 
   const [isWorkoutRunning, setIsWorkoutRunning] =
     useState(false);
 
+  const [restSeconds, setRestSeconds] = useState(60);
+  const [isResting, setIsResting] = useState(false);
+
+  const [workoutFinished, setWorkoutFinished] =
+    useState(false);
+
+  const [finishMessage, setFinishMessage] = useState("");
 
   useEffect(() => {
-
-    localStorage.setItem(
-      "forma-active-workout-time",
-      workoutSeconds.toString()
+    const saved = localStorage.getItem(
+      `forma-workout-completed-${selectedDay}`
     );
 
-  }, [workoutSeconds]);
+    if (saved) {
+      try {
+        setCompleted(JSON.parse(saved));
+      } catch {
+        setCompleted([]);
+      }
+    } else {
+      setCompleted([]);
+    }
 
+    setWorkoutFinished(false);
+    setFinishMessage("");
+  }, [selectedDay]);
 
   useEffect(() => {
+    localStorage.setItem(
+      `forma-workout-completed-${selectedDay}`,
+      JSON.stringify(completed)
+    );
+  }, [completed, selectedDay]);
 
+  useEffect(() => {
+    localStorage.setItem(
+      "forma-active-workout-time",
+      seconds.toString()
+    );
+  }, [seconds]);
+
+  useEffect(() => {
     if (!isWorkoutRunning) {
       return;
     }
 
     const timer = setInterval(() => {
-
-      setWorkoutSeconds(
-        (previous) => previous + 1
-      );
-
+      setSeconds((current) => current + 1);
     }, 1000);
 
-    return () =>
-      clearInterval(timer);
-
+    return () => clearInterval(timer);
   }, [isWorkoutRunning]);
 
-
-  /* =====================================================
-     REST TIMER
-  ===================================================== */
-
-  const [restSeconds, setRestSeconds] =
-    useState(60);
-
-  const [isResting, setIsResting] =
-    useState(false);
-
-
   useEffect(() => {
-
     if (!isResting) {
       return;
     }
 
     if (restSeconds <= 0) {
-
       setIsResting(false);
       setRestSeconds(60);
-
       return;
     }
 
     const timer = setInterval(() => {
-
-      setRestSeconds(
-        (previous) => previous - 1
-      );
-
+      setRestSeconds((current) => current - 1);
     }, 1000);
 
-    return () =>
-      clearInterval(timer);
+    return () => clearInterval(timer);
+  }, [isResting, restSeconds]);
 
-  }, [
-    isResting,
-    restSeconds
-  ]);
+  const toggleExercise = (id) => {
+    setCompleted((current) => {
+      if (current.includes(id)) {
+        return current.filter(
+          (exerciseId) => exerciseId !== id
+        );
+      }
 
-
-  /* =====================================================
-     FINISH STATE
-  ===================================================== */
-
-  const [workoutFinished, setWorkoutFinished] =
-    useState(false);
-
-  const [finishMessage, setFinishMessage] =
-    useState("");
-
-
-  /* =====================================================
-     TIME FORMAT
-  ===================================================== */
-
-  const formatTime = (seconds) => {
-
-    const minutes =
-      Math.floor(seconds / 60);
-
-    const remainingSeconds =
-      seconds % 60;
-
-    return `${String(minutes).padStart(
-      2,
-      "0"
-    )}:${String(remainingSeconds).padStart(
-      2,
-      "0"
-    )}`;
+      return [...current, id];
+    });
   };
 
+  const startWorkout = () => {
+    setIsWorkoutRunning(true);
+    setWorkoutFinished(false);
+  };
 
-  /* =====================================================
-     FINISH WORKOUT
-  ===================================================== */
+  const pauseWorkout = () => {
+    setIsWorkoutRunning(false);
+  };
 
   const finishWorkout = () => {
-
-    if (!isToday) {
-
-      setFinishMessage(
-        "Preview mode — switch back to today to record this workout."
-      );
-
-      return;
-    }
-
-    if (completedExerciseCount === 0) {
-
+    if (completed.length === 0) {
       setFinishMessage(
         "Complete at least one exercise before finishing your workout."
       );
-
       return;
     }
 
-
     setIsWorkoutRunning(false);
 
-
-    const historyKey =
-      `forma-workout-history-${userId}`;
-
+    const userId = user?.id || "guest";
+    const historyKey = `forma-workout-history-${userId}`;
 
     const savedHistory =
       localStorage.getItem(historyKey);
 
-
     let history = [];
 
-
     if (savedHistory) {
-
       try {
-        history =
-          JSON.parse(savedHistory);
+        history = JSON.parse(savedHistory);
       } catch {
         history = [];
       }
-
     }
 
-
-    const completedSets =
-      selectedWorkout.exercises.reduce(
-        (total, exercise) => {
-
-          if (
-            selectedDayCompleted[
-              exercise.id
-            ]
-          ) {
-            return total + exercise.sets;
-          }
-
-          return total;
-
-        },
-        0
-      );
-
-
-    const totalSets =
-      selectedWorkout.exercises.reduce(
-        (total, exercise) =>
-          total + exercise.sets,
-        0
-      );
-
-
     const workout = {
-
       id: Date.now(),
-
       userId,
-
-      name: selectedWorkout.type,
-
-      type:
-        selectedDay === "Sunday"
-          ? "Recovery"
-          : selectedWorkout.type,
-
-      date:
-        new Date().toISOString(),
-
-      duration:
-        workoutSeconds,
-
-      durationMinutes:
-        Math.max(
-          1,
-          Math.round(
-            workoutSeconds / 60
-          )
-        ),
-
-      exercises:
-        selectedWorkout.exercises.map(
-          (exercise) => ({
-
-            name: exercise.name,
-
-            muscle: exercise.muscle,
-
-            plannedSets:
-              exercise.sets,
-
-            completedSets:
-              selectedDayCompleted[
-                exercise.id
-              ]
-                ? exercise.sets
-                : 0,
-
-            reps: exercise.reps,
-
-            weight: exercise.weight
-
-          })
-        ),
-
-      totalSets,
-
-      completedSets,
-
-      completionPercentage:
-        workoutProgress
-
+      name: currentPlan.title,
+      type: "Strength",
+      day: selectedDay,
+      date: new Date().toISOString(),
+      duration: seconds,
+      durationMinutes: Math.max(
+        1,
+        Math.round(seconds / 60)
+      ),
+      exercises: exercises.map((exercise) => ({
+        name: exercise.name,
+        muscle: exercise.muscle,
+        plannedSets: exercise.sets,
+        completed: completed.includes(exercise.id),
+        reps: exercise.reps,
+        weight: exercise.weight
+      })),
+      totalExercises: exercises.length,
+      completedExercises: completed.length,
+      completionPercentage: workoutProgress
     };
 
-
     history.unshift(workout);
-
 
     localStorage.setItem(
       historyKey,
       JSON.stringify(history)
     );
 
-
     setWorkoutFinished(true);
 
-
     setFinishMessage(
-      `${selectedDay}'s workout completed — ${completedExerciseCount} of ${totalExercises} exercises recorded.`
+      `Workout completed — ${completed.length} of ${exercises.length} exercises recorded.`
     );
-
 
     if (onWorkoutSaved) {
       onWorkoutSaved();
     }
-
   };
 
-
-  /* =====================================================
-     RESET WORKOUT
-  ===================================================== */
+  const startRest = () => {
+    setRestSeconds(60);
+    setIsResting(true);
+  };
 
   const resetWorkout = () => {
-
-    const confirmed =
-      window.confirm(
-        "Reset today's workout? Your current progress will be lost."
-      );
-
+    const confirmed = window.confirm(
+      "Reset this workout? Your current progress will be lost."
+    );
 
     if (!confirmed) {
       return;
     }
 
-
-    setCompletedExercises(
-      (previous) => ({
-        ...previous,
-        [selectedDay]: {}
-      })
-    );
-
-
-    setWorkoutSeconds(0);
-
     setIsWorkoutRunning(false);
-
+    setSeconds(0);
+    setCompleted([]);
+    setRestSeconds(60);
+    setIsResting(false);
     setWorkoutFinished(false);
-
     setFinishMessage("");
 
+    localStorage.removeItem(
+      `forma-workout-completed-${selectedDay}`
+    );
 
     localStorage.removeItem(
       "forma-active-workout-time"
     );
-
   };
 
+  const formatTime = (totalSeconds) => {
+    const minutes = Math.floor(totalSeconds / 60);
+    const remainingSeconds = totalSeconds % 60;
 
-  /* =====================================================
-     DAY LABEL
-  ===================================================== */
+    return `${String(minutes).padStart(
+      2,
+      "0"
+    )}:${String(remainingSeconds).padStart(2, "0")}`;
+  };
 
-  const focusText =
-    selectedWorkout.focus.join(
-      " • "
-    );
+  const completedCount = completed.length;
 
-
-  /* =====================================================
-     RETURN
-  ===================================================== */
+  const workoutProgress =
+    exercises.length === 0
+      ? 0
+      : Math.round(
+          (completedCount / exercises.length) * 100
+        );
 
   return (
-
-    <div
-      className={`workout-page ${theme}-theme`}
-    >
-
-      {/* =========================================
-          NAVBAR
-      ========================================= */}
-
+    <div className={`workout-page ${theme}-theme`}>
       <nav className="workout-navbar">
-
         <div
           className="workout-logo"
           onClick={onNavigateHome}
@@ -1034,602 +579,122 @@ function Workout({
           FORMA
         </div>
 
-
         <div className="workout-nav-center">
-
           <button
             className="workout-nav-button"
-            onClick={() =>
-              onNavigate("dashboard")
-            }
+            onClick={() => onNavigate("dashboard")}
           >
             Dashboard
           </button>
 
-
           <button
             className="workout-nav-button nav-active"
-            onClick={() =>
-              onNavigate("workout")
-            }
+            onClick={() => onNavigate("workout")}
           >
             Workout
           </button>
 
-
           <button
             className="workout-nav-button"
-            onClick={() =>
-              onNavigate("progress")
-            }
+            onClick={() => onNavigate("progress")}
           >
             Progress
           </button>
-
         </div>
 
-
         <div className="workout-nav-right">
-
           <div className="workout-profile-circle">
-
             {user?.user_metadata?.full_name
               ?.split(" ")[0]
               ?.charAt(0)
               .toUpperCase() || "U"}
-
           </div>
-
         </div>
-
       </nav>
-
 
       <main className="workout-content">
 
-        {/* =========================================
-            HEADER
-        ========================================= */}
+        {/* HERO */}
 
         <header className="workout-header">
-
           <div>
-
-            <div className="workout-status">
-
-              <span></span>
-
-              TODAY'S TRAINING
-
-            </div>
-
-
             <h1>
-              {selectedDay}
-              <span>.</span>
+              Your <span>Workout.</span>
             </h1>
 
-
             <p>
-
-              {isToday
-                ? `Today's focus is ${focusText.toLowerCase()}. Follow the session at your own pace and focus on quality movement.`
-                : `Preview the ${selectedDay} workout. Today's session is ${today}.`}
-
+              Train with purpose. Move with control.
+              <br />
+              Stay consistent and keep getting stronger.
             </p>
-
           </div>
-
         </header>
 
+        {/* WEEKLY SPLIT */}
 
-        {/* =========================================
-            DAY SELECTOR
-        ========================================= */}
-
-        <section className="day-selector-section">
-
-          <div className="day-selector-heading">
-
+        <section className="weekly-split">
+          <div className="weekly-split-top">
             <div>
-
-              <span>
+              <span className="section-label">
                 WEEKLY SPLIT
               </span>
 
-              <h2>
-                Choose a day
-              </h2>
-
+              <h2>Choose a day</h2>
             </div>
 
-
-            <div className="today-indicator">
-
+            <div className="today-badge">
               <span></span>
-
-              TODAY: {today.toUpperCase()}
-
+              TODAY: {todayName.toUpperCase()}
             </div>
-
           </div>
 
-
-          <div className="day-selector">
-
-            {days.map((day) => (
-
+          <div className="week-days">
+            {weekDays.map((day) => (
               <button
-                key={day}
-                className={`day-button ${
-                  selectedDay === day
+                key={day.name}
+                className={`week-day ${
+                  selectedDay === day.name
                     ? "selected"
-                    : ""
-                } ${
-                  day === today
-                    ? "today"
                     : ""
                 }`}
                 onClick={() =>
-                  setSelectedDay(day)
+                  setSelectedDay(day.name)
                 }
               >
-
-                <span>
-                  {day.slice(0, 3).toUpperCase()}
+                <span className="day-short">
+                  {day.short}
                 </span>
 
-                <strong>
-                  {day === today
-                    ? "Today"
-                    : day}
-                </strong>
+                <span className="day-name">
+                  {day.name}
+                </span>
 
-                {day === today && (
-                  <small>
-                    CURRENT
-                  </small>
+                {selectedDay === day.name && (
+                  <span className="day-dot"></span>
                 )}
-
               </button>
-
             ))}
-
           </div>
-
         </section>
 
+        {/* CURRENT WORKOUT */}
 
-        {/* =========================================
-            DAY FOCUS
-        ========================================= */}
-
-        <section className="day-focus-panel">
-
-          <div className="day-focus-main">
-
-            <div className="day-focus-label">
-
-              <span>
-                {isToday
-                  ? "TODAY'S FOCUS"
-                  : "WORKOUT PREVIEW"}
-              </span>
-
-              <div className="focus-dot"></div>
-
-            </div>
-
-
-            <h2>
-              {selectedWorkout.type}
-            </h2>
-
-
-            <p>
-              {focusText}
-            </p>
-
-          </div>
-
-
-          <div className="day-focus-progress">
-
+        <section className="focus-card">
+          <div className="focus-heading">
             <div>
-
-              <span>
-                DAILY PROGRESS
+              <span className="section-label">
+                TODAY'S FOCUS
               </span>
 
-              <strong>
-                {completedExerciseCount}/
-                {totalExercises}
-              </strong>
-
-            </div>
-
-
-            <div className="day-progress-track">
-
-              <div
-                style={{
-                  width: `${workoutProgress}%`
-                }}
-              ></div>
-
-            </div>
-
-
-            <small>
-              {workoutProgress}% complete
-            </small>
-
-          </div>
-
-        </section>
-
-
-        {/* =========================================
-            TIMER
-        ========================================= */}
-
-        <section className="workout-timer-card">
-
-          <div>
-
-            <span>
-              SESSION TIME
-            </span>
-
-            <strong>
-              {formatTime(
-                workoutSeconds
-              )}
-            </strong>
-
-          </div>
-
-
-          <div className="workout-timer-actions">
-
-            <button
-              onClick={() =>
-                setIsWorkoutRunning(
-                  (previous) =>
-                    !previous
-                )
-              }
-            >
-              {isWorkoutRunning
-                ? "Pause"
-                : "Start"}
-            </button>
-
-
-            <button
-              onClick={resetWorkout}
-            >
-              Reset
-            </button>
-
-          </div>
-
-        </section>
-
-
-        {/* =========================================
-            OVERVIEW
-        ========================================= */}
-
-        <section className="workout-overview">
-
-          <div className="workout-overview-card">
-
-            <span>
-              TYPE
-            </span>
-
-            <strong>
-              {selectedWorkout.type}
-            </strong>
-
-          </div>
-
-
-          <div className="workout-overview-card">
-
-            <span>
-              MUSCLE GROUPS
-            </span>
-
-            <strong>
-              {selectedWorkout.focus.length}
-            </strong>
-
-          </div>
-
-
-          <div className="workout-overview-card">
-
-            <span>
-              EXERCISES
-            </span>
-
-            <strong>
-              {totalExercises}
-            </strong>
-
-          </div>
-
-
-          <div className="workout-overview-card">
-
-            <span>
-              PROGRESS
-            </span>
-
-            <strong>
-              {workoutProgress}%
-            </strong>
-
-          </div>
-
-        </section>
-
-
-        {/* =========================================
-            MAIN WORKOUT LAYOUT
-        ========================================= */}
-
-        <div className="workout-layout">
-
-
-          {/* =======================================
-              DAY EXERCISES
-          ======================================= */}
-
-          <section className="day-workout-panel">
-
-            <div className="day-workout-heading">
-
-              <div>
-
-                <span>
-                  {selectedDay.toUpperCase()} SESSION
-                </span>
-
-                <h2>
-                  Today's exercises
-                </h2>
-
-                <p>
-                  Complete each exercise as you
-                  work through the session.
-                </p>
-
-              </div>
-
-
-              <strong>
-                {completedExerciseCount}/
-                {totalExercises}
-              </strong>
-
-            </div>
-
-
-            <div className="day-exercise-list">
-
-              {selectedWorkout.exercises.map(
-                (exercise, index) => (
-
-                  <ExerciseCard
-                    key={exercise.id}
-                    exercise={{
-                      ...exercise,
-                      number: index + 1
-                    }}
-                    completed={
-                      Boolean(
-                        selectedDayCompleted[
-                          exercise.id
-                        ]
-                      )
-                    }
-                    onToggle={
-                      toggleExercise
-                    }
-                  />
-
-                )
-              )}
-
-            </div>
-
-
-            {/* ===================================
-                FINISH WORKOUT
-            =================================== */}
-
-            <button
-              className="finish-workout-button"
-              onClick={finishWorkout}
-              disabled={
-                workoutFinished ||
-                !isToday
-              }
-            >
-
-              {!isToday
-                ? "Preview Mode"
-                : workoutFinished
-                ? "Workout Completed ✓"
-                : "Finish Workout"}
-
-            </button>
-
-
-            {finishMessage && (
-
-              <p className="workout-finish-message">
-                {finishMessage}
-              </p>
-
-            )}
-
-          </section>
-
-
-          {/* =======================================
-              SIDEBAR
-          ======================================= */}
-
-          <aside className="workout-sidebar">
-
-
-            {/* REST TIMER */}
-
-            <div className="rest-panel">
-
-              <span>
-                REST TIMER
-              </span>
-
-
-              <strong>
-                {formatTime(
-                  restSeconds
+              <h2>{currentPlan.title}</h2>
+
+              <div className="muscle-tags">
+                {currentPlan.muscles.map(
+                  (muscle) => (
+                    <span key={muscle}>
+                      {muscle}
+                    </span>
+                  )
                 )}
-              </strong>
-
-
-              <button
-                onClick={() =>
-                  isResting
-                    ? setIsResting(false)
-                    : (
-                        setRestSeconds(60),
-                        setIsResting(true)
-                      )
-                }
-              >
-
-                {isResting
-                  ? "Stop Rest"
-                  : "Start Rest"}
-
-              </button>
-
+              </div>
             </div>
-
-
-            {/* TIP */}
-
-            <div className="tip-panel">
-
-              <span>
-                FORMA TIP
-              </span>
-
-
-              <p>
-
-                Focus on controlled movement
-                and consistent form. Quality
-                reps always come before heavier
-                weight.
-
-              </p>
-
-            </div>
-
-
-            {/* SESSION SUMMARY */}
-
-            <div className="summary-panel">
-
-              <span>
-                SESSION SUMMARY
-              </span>
-
-
-              <div>
-
-                <span>
-                  Day
-                </span>
-
-                <strong>
-                  {selectedDay}
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Focus
-                </span>
-
-                <strong>
-                  {selectedWorkout.type}
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Exercises
-                </span>
-
-                <strong>
-                  {completedExerciseCount}/
-                  {totalExercises}
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Completion
-                </span>
-
-                <strong>
-                  {workoutProgress}%
-                </strong>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Time
-                </span>
-
-                <strong>
-                  {formatTime(
-                    workoutSeconds
-                  )}
-                </strong>
-
-              </div>
-
-            </div>
-
-          </aside>
-
-        </div>
-
-      </main>
-
-    </div>
-  );
-}
-
-export default Workout;
