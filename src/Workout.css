@@ -1,17 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap");
 
-
-/* =========================================
-   WORKOUT PAGE
-========================================= */
+* {
+  box-sizing: border-box;
+}
 
 .workout-page {
   min-height: 100vh;
 
   background:
     radial-gradient(
-      circle at 75% 5%,
-      rgba(45, 76, 105, 0.18),
+      circle at 78% 5%,
+      rgba(57, 96, 130, 0.18),
       transparent 28%
     ),
     #090d12;
@@ -20,7 +19,6 @@
 
   font-family: "Manrope", sans-serif;
 }
-
 
 /* =========================================
    NAVBAR
@@ -35,14 +33,14 @@
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
 
-  border-bottom: 1px solid #1c2229;
-
-  background: rgba(9, 13, 18, 0.94);
-
   position: sticky;
   top: 0;
-
   z-index: 20;
+
+  border-bottom: 1px solid #1c252e;
+
+  background: rgba(9, 13, 18, 0.95);
+  backdrop-filter: blur(12px);
 }
 
 .workout-logo {
@@ -50,10 +48,10 @@
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 30px;
-  font-weight: 700;
+  font-size: 31px;
+  font-weight: 600;
 
-  letter-spacing: 4px;
+  letter-spacing: 5px;
 
   color: #f5f7fa;
 
@@ -63,13 +61,8 @@
 }
 
 .workout-logo:hover {
-  color: #9bb6cd;
+  color: #91b2ce;
 }
-
-
-/* =========================================
-   NAV CENTER
-========================================= */
 
 .workout-nav-center {
   display: flex;
@@ -81,12 +74,12 @@
 .workout-nav-button {
   position: relative;
 
+  padding: 6px 2px;
+
   border: none;
   background: transparent;
 
-  padding: 6px 2px;
-
-  color: #8e98a4;
+  color: #84909c;
 
   font-family: "Manrope", sans-serif;
 
@@ -98,7 +91,8 @@
   transition: color 0.25s ease;
 }
 
-.workout-nav-button:hover {
+.workout-nav-button:hover,
+.workout-nav-button.nav-active {
   color: #f5f7fa;
 }
 
@@ -108,7 +102,7 @@
   position: absolute;
 
   left: 0;
-  bottom: -7px;
+  bottom: -8px;
 
   width: 0;
   height: 1px;
@@ -123,115 +117,64 @@
   width: 100%;
 }
 
-.workout-nav-button.nav-active {
-  color: #f5f7fa;
-}
-
-
-/* =========================================
-   PROFILE
-========================================= */
-
 .workout-nav-right {
   justify-self: end;
 }
 
 .workout-profile-circle {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: 1px solid #334250;
-
+  border: 1px solid #344555;
   border-radius: 50%;
 
-  background: #121a22;
+  background: #111b24;
 
-  color: #8daac4;
+  color: #8eabc4;
 
   font-size: 11px;
   font-weight: 700;
 }
 
-
 /* =========================================
-   CONTENT
+   MAIN
 ========================================= */
 
 .workout-content {
-  width: min(
-    1180px,
-    calc(100% - 60px)
-  );
+  width: min(1180px, calc(100% - 60px));
 
   margin: 0 auto;
 
-  padding: 70px 0 100px;
+  padding: 72px 0 100px;
 }
 
-
 /* =========================================
-   HEADER
+   HERO
+
+   IMPORTANT:
+   No current day appears here.
 ========================================= */
 
 .workout-header {
-  margin-bottom: 38px;
-}
-
-.workout-status {
-  display: flex;
-  align-items: center;
-
-  gap: 8px;
-
-  margin-bottom: 17px;
-
-  color: #7095b8;
-
-  font-size: 9px;
-  font-weight: 700;
-
-  letter-spacing: 2px;
-}
-
-.workout-status span {
-  width: 6px;
-  height: 6px;
-
-  border-radius: 50%;
-
-  background: #7095b8;
-
-  box-shadow:
-    0 0 12px rgba(
-      112,
-      149,
-      184,
-      0.7
-    );
+  margin-bottom: 48px;
 }
 
 .workout-header h1 {
   margin: 0;
 
-  font-family:
-    "Cormorant Garamond",
-    serif;
+  font-family: "Cormorant Garamond", serif;
 
-  font-size: clamp(
-    55px,
-    7vw,
-    82px
-  );
+  font-size: clamp(60px, 7vw, 90px);
 
   font-weight: 500;
 
   line-height: 0.9;
 
-  letter-spacing: -1.5px;
+  letter-spacing: -2px;
 }
 
 .workout-header h1 span {
@@ -241,130 +184,126 @@
 .workout-header p {
   max-width: 560px;
 
-  margin-top: 23px;
+  margin-top: 25px;
 
-  color: #7f8a95;
+  color: #7e8b97;
+
+  font-family: "Manrope", sans-serif;
 
   font-size: 13px;
 
   line-height: 1.8;
 }
 
-
 /* =========================================
-   DAY SELECTOR
+   WEEKLY SPLIT
 ========================================= */
 
-.day-selector-section {
+.weekly-split {
+  padding: 30px;
+
   margin-bottom: 20px;
 
-  padding: 25px 28px;
-
-  border: 1px solid #202a33;
-
-  border-radius: 13px;
+  border: 1px solid #24303a;
+  border-radius: 15px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(18, 25, 32, 0.96),
-      rgba(12, 17, 23, 0.96)
+      rgba(18, 27, 35, 0.96),
+      rgba(11, 17, 23, 0.96)
     );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.015);
 }
 
-.day-selector-heading {
+.weekly-split-top {
   display: flex;
-
-  justify-content: space-between;
 
   align-items: flex-start;
 
-  gap: 20px;
+  justify-content: space-between;
 
-  margin-bottom: 20px;
+  margin-bottom: 26px;
 }
 
-.day-selector-heading span {
-  color: #62717d;
+.section-label {
+  display: block;
+
+  color: #6f91ad;
+
+  font-family: "Manrope", sans-serif;
 
   font-size: 8px;
 
   font-weight: 700;
 
-  letter-spacing: 2px;
+  letter-spacing: 2.3px;
+
+  text-transform: uppercase;
 }
 
-.day-selector-heading h2 {
-  margin: 6px 0 0;
+.weekly-split h2 {
+  margin: 7px 0 0;
 
-  font-family:
-    "Cormorant Garamond",
-    serif;
+  font-family: "Cormorant Garamond", serif;
 
-  font-size: 30px;
+  font-size: 38px;
 
   font-weight: 500;
 
-  color: #f1f4f6;
+  line-height: 1;
 }
 
-.today-indicator {
+.today-badge {
   display: flex;
 
   align-items: center;
 
-  gap: 7px;
+  gap: 8px;
 
-  padding: 7px 10px;
+  padding: 12px 16px;
 
-  border: 1px solid #2b3b49;
+  border: 1px solid #304455;
 
   border-radius: 999px;
 
-  color: #829fba;
+  color: #8daac2;
 
   font-size: 8px;
 
   font-weight: 700;
 
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
 }
 
-.today-indicator span {
-  width: 5px;
-  height: 5px;
+.today-badge span {
+  width: 6px;
+  height: 6px;
 
   border-radius: 50%;
 
-  background: #7095b8;
+  background: #76a9cf;
 
   box-shadow:
-    0 0 8px rgba(
-      112,
-      149,
-      184,
-      0.8
-    );
+    0 0 10px rgba(118, 169, 207, 0.8);
 }
 
-
-/* =========================================
-   DAY BUTTONS
-========================================= */
-
-.day-selector {
+.week-days {
   display: grid;
 
-  grid-template-columns:
-    repeat(7, 1fr);
+  grid-template-columns: repeat(6, 1fr);
 
-  gap: 8px;
+  gap: 10px;
 }
 
-.day-button {
+/* Sunday does not exist in the JSX anymore. */
+
+.week-day {
   position: relative;
 
-  min-height: 68px;
+  min-height: 74px;
 
   display: flex;
 
@@ -374,146 +313,172 @@
 
   justify-content: center;
 
-  gap: 4px;
+  gap: 7px;
 
-  border: 1px solid #202c36;
+  border: 1px solid #24313c;
 
-  border-radius: 9px;
+  border-radius: 11px;
 
-  background: #111820;
+  background: #101820;
 
-  color: #66737e;
+  color: #6f8190;
+
+  font-family: "Manrope", sans-serif;
 
   cursor: pointer;
 
   transition:
-    background-color 0.25s ease,
+    background 0.25s ease,
     border-color 0.25s ease,
     transform 0.25s ease,
     color 0.25s ease;
 }
 
-.day-button:hover {
+.week-day:hover {
   transform: translateY(-2px);
 
-  border-color: #3a4d5e;
+  border-color: #3a5266;
 
-  color: #b7c6d1;
+  background: #131e27;
 
-  background: #151f28;
+  color: #a5bacb;
 }
 
-.day-button > span {
-  font-size: 8px;
-
-  font-weight: 700;
-
-  letter-spacing: 1.5px;
-}
-
-.day-button strong {
-  font-size: 9px;
-
-  font-weight: 600;
-}
-
-.day-button small {
-  color: #7095b8;
-
-  font-size: 6px;
-
-  font-weight: 700;
-
-  letter-spacing: 1px;
-}
-
-.day-button.selected {
-  border-color: #54738e;
+.week-day.selected {
+  border-color: #547c9c;
 
   background:
     linear-gradient(
       145deg,
-      #182b3b,
-      #12202c
+      #172d3e,
+      #11212d
     );
 
-  color: #d6e2eb;
+  color: #c6dbea;
 
   box-shadow:
-    inset 0 0 20px rgba(
-      76,
-      116,
-      148,
-      0.08
-    );
+    inset 0 0 25px rgba(77, 125, 161, 0.08),
+    0 0 18px rgba(64, 112, 149, 0.08);
 }
 
-.day-button.selected > span {
-  color: #9bb7cd;
+.day-short {
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.8px;
 }
 
-.day-button.today::before {
-  content: "";
+.day-name {
+  font-size: 11px;
 
+  font-weight: 500;
+}
+
+.day-dot {
   position: absolute;
 
-  top: 7px;
-  right: 7px;
+  top: 9px;
+  right: 10px;
 
   width: 5px;
   height: 5px;
 
   border-radius: 50%;
 
-  background: #7095b8;
+  background: #78add2;
+
+  box-shadow:
+    0 0 9px rgba(120, 173, 210, 0.8);
 }
 
-
 /* =========================================
-   DAY FOCUS
+   FOCUS CARD
 ========================================= */
 
-.day-focus-panel {
-  min-height: 145px;
+.focus-card {
+  padding: 30px;
 
+  margin-bottom: 20px;
+
+  border: 1px solid #24303a;
+  border-radius: 15px;
+
+  background:
+    radial-gradient(
+      circle at 85% 10%,
+      rgba(65, 107, 141, 0.09),
+      transparent 30%
+    ),
+    #0e151c;
+}
+
+.focus-heading {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.focus-heading h2 {
+  margin: 7px 0 8px;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 55px;
+
+  font-weight: 500;
+
+  line-height: 0.95;
+
+  letter-spacing: -1px;
+}
+
+.muscle-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.muscle-tags span {
+  color: #7694ab;
+
+  font-size: 9px;
+
+  font-weight: 500;
+}
+
+.muscle-tags span:not(:last-child)::after {
+  content: "•";
+
+  margin-left: 8px;
+
+  color: #41515f;
+}
+
+.daily-progress {
+  width: 290px;
+
+  padding-top: 8px;
+}
+
+.daily-progress-top {
   display: flex;
 
   align-items: center;
 
   justify-content: space-between;
 
-  gap: 35px;
-
-  padding: 28px 30px;
-
-  margin-bottom: 20px;
-
-  border: 1px solid #202a33;
-
-  border-radius: 13px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(18, 25, 32, 0.95),
-      rgba(12, 17, 23, 0.95)
-    );
+  margin-bottom: 12px;
 }
 
-.day-focus-main {
-  flex: 1;
-}
-
-
-
-.day-focus-label {
-  display: flex;
-
-  align-items: center;
-
-  gap: 8px;
-
-  color: #7095b8;
+.daily-progress-top span {
+  color: #627687;
 
   font-size: 8px;
 
@@ -522,80 +487,26 @@
   letter-spacing: 2px;
 }
 
-.focus-dot {
-  width: 5px;
-  height: 5px;
+.daily-progress-top strong {
+  color: #8fb0c8;
 
-  border-radius: 50%;
+  font-size: 13px;
 
-  background: #7095b8;
+  font-weight: 600;
 }
 
-.day-focus-main h2 {
-  margin: 8px 0 0;
-
-  font-family:
-    "Cormorant Garamond",
-    serif;
-
-  font-size: 42px;
-
-  font-weight: 500;
-
-  color: #f1f4f6;
-}
-
-.day-focus-main p {
-  margin-top: 5px;
-
-  color: #788590;
-
-  font-size: 11px;
-}
-
-.day-focus-progress {
-  width: 230px;
-}
-
-.day-focus-progress > div:first-child {
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: center;
-
-  margin-bottom: 10px;
-}
-
-.day-focus-progress span {
-  color: #62717d;
-
-  font-size: 7px;
-
-  font-weight: 700;
-
-  letter-spacing: 1.5px;
-}
-
-.day-focus-progress strong {
-  color: #8daac4;
-
-  font-size: 11px;
-}
-
-.day-progress-track {
+.daily-progress-track {
   width: 100%;
-
   height: 4px;
 
   overflow: hidden;
 
   border-radius: 999px;
 
-  background: #1b242d;
+  background: #202d38;
 }
 
-.day-progress-track div {
+.daily-progress-track div {
   height: 100%;
 
   border-radius: inherit;
@@ -604,32 +515,42 @@
     linear-gradient(
       90deg,
       #355b7d,
-      #7198b9
+      #79a5c5
     );
 
-  transition:
-    width 0.35s ease;
+  transition: width 0.3s ease;
 }
 
-.day-focus-progress small {
+.daily-progress small {
   display: block;
 
-  margin-top: 7px;
+  margin-top: 9px;
 
-  color: #5f6d78;
+  color: #617381;
 
-  font-size: 8px;
+  font-size: 9px;
 
   text-align: right;
 }
 
+.focus-description {
+  max-width: 650px;
+
+  margin: 25px 0 0;
+
+  color: #73828e;
+
+  font-size: 11px;
+
+  line-height: 1.8;
+}
 
 /* =========================================
    TIMER
 ========================================= */
 
 .workout-timer-card {
-  min-height: 125px;
+  min-height: 120px;
 
   display: flex;
 
@@ -641,7 +562,7 @@
 
   margin-bottom: 20px;
 
-  border: 1px solid #202a33;
+  border: 1px solid #202b35;
 
   border-radius: 13px;
 
@@ -670,9 +591,7 @@
 
   margin-top: 8px;
 
-  font-family:
-    "Cormorant Garamond",
-    serif;
+  font-family: "Cormorant Garamond", serif;
 
   font-size: 42px;
 
@@ -692,17 +611,15 @@
 
   padding: 11px 18px;
 
-  border: 1px solid #334657;
+  border: 1px solid #334a5d;
 
   border-radius: 999px;
 
-  background: #162333;
+  background: #162536;
 
   color: #b8ccdd;
 
-  font-family:
-    "Manrope",
-    sans-serif;
+  font-family: "Manrope", sans-serif;
 
   font-size: 11px;
 
@@ -711,27 +628,26 @@
   cursor: pointer;
 
   transition:
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .workout-timer-actions button:hover {
-  background: #1d3449;
-
-  border-color: #48637b;
-
   transform: translateY(-2px);
+
+  background: #1c344a;
+
+  border-color: #4a667e;
 }
 
 .workout-timer-actions button:last-child {
   background: transparent;
 
-  color: #8995a0;
+  color: #84919d;
 
-  border-color: #2b3540;
+  border-color: #2b3640;
 }
-
 
 /* =========================================
    OVERVIEW
@@ -740,8 +656,7 @@
 .workout-overview {
   display: grid;
 
-  grid-template-columns:
-    repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 
   gap: 14px;
 
@@ -770,7 +685,7 @@
 .workout-overview-card:hover {
   transform: translateY(-3px);
 
-  border-color: #334757;
+  border-color: #354b5d;
 }
 
 .workout-overview-card span {
@@ -792,58 +707,55 @@
 
   color: #dfe5e9;
 
-  font-size: 20px;
+  font-size: 23px;
 
   font-weight: 500;
 }
 
-
 /* =========================================
-   MAIN LAYOUT
+   MAIN WORKOUT LAYOUT
 ========================================= */
 
 .workout-layout {
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1fr) 310px;
+    minmax(0, 1fr)
+    310px;
 
   gap: 20px;
 
   align-items: start;
 }
 
-
 /* =========================================
-   DAY WORKOUT PANEL
+   EXERCISE PANEL
 ========================================= */
 
-.day-workout-panel {
+.exercise-panel {
   padding: 30px;
 
   border: 1px solid #202a33;
 
-  border-radius: 13px;
+  border-radius: 14px;
 
   background: #0e141a;
 }
 
-.day-workout-heading {
+.exercise-section-heading {
   display: flex;
-
-  justify-content: space-between;
 
   align-items: flex-start;
 
-  gap: 20px;
+  justify-content: space-between;
 
-  padding-bottom: 24px;
+  padding-bottom: 23px;
 
-  border-bottom: 1px solid #1e2730;
+  border-bottom: 1px solid #1e2932;
 }
 
-.day-workout-heading > div span {
-  color: #62717d;
+.exercise-section-heading span {
+  color: #7095b8;
 
   font-size: 8px;
 
@@ -852,270 +764,252 @@
   letter-spacing: 2px;
 }
 
-.day-workout-heading h2 {
+.exercise-section-heading h2 {
   margin: 7px 0 0;
 
-  font-family:
-    "Cormorant Garamond",
-    serif;
+  font-family: "Cormorant Garamond", serif;
 
-  font-size: 36px;
+  font-size: 40px;
 
   font-weight: 500;
 
-  color: #f1f4f6;
+  line-height: 1;
+
+  letter-spacing: -0.5px;
 }
 
-.day-workout-heading p {
-  margin-top: 5px;
+.exercise-section-heading > strong {
+  min-width: 48px;
 
-  color: #6f7c87;
+  padding: 9px 11px;
 
-  font-size: 10px;
-}
-
-.day-workout-heading > strong {
-  min-width: 45px;
-
-  padding: 8px 10px;
-
-  border: 1px solid #2b3b49;
+  border: 1px solid #2b3e4e;
 
   border-radius: 8px;
 
   background: #121c25;
 
-  color: #8caac3;
+  color: #8eabc2;
+
+  font-family: "Manrope", sans-serif;
 
   font-size: 11px;
 
   text-align: center;
 }
 
-
 /* =========================================
    EXERCISE LIST
+
+   Improved typography
 ========================================= */
 
-.day-exercise-list {
+.exercise-list {
+  margin-top: 20px;
+
   display: flex;
 
   flex-direction: column;
 
-  gap: 9px;
-
-  margin: 22px 0;
+  gap: 10px;
 }
 
-
-/* =========================================
-   EXERCISE CARD
-========================================= */
-
-.day-exercise-card {
-  border: 1px solid #1e2932;
-
-  border-radius: 10px;
-
-  background: #111820;
-
-  transition:
-    border-color 0.25s ease,
-    background-color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.day-exercise-card:hover {
-  border-color: #354858;
-
-  background: #131d26;
-
-  transform: translateY(-1px);
-}
-
-.day-exercise-card.exercise-completed {
-  border-color: #45647c;
-
-  background:
-    linear-gradient(
-      145deg,
-      #142331,
-      #101a22
-    );
-}
-
-.day-exercise-main {
-  min-height: 105px;
+.exercise-card {
+  min-height: 86px;
 
   display: grid;
 
   grid-template-columns:
-    34px minmax(0, 1fr) auto;
+    42px
+    minmax(180px, 1fr)
+    auto
+    42px;
 
   align-items: center;
 
-  gap: 14px;
+  gap: 18px;
 
-  padding: 16px;
+  padding: 15px 17px;
+
+  border: 1px solid #202d37;
+
+  border-radius: 10px;
+
+  background: #111920;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
 
-.day-exercise-number {
-  width: 30px;
-  height: 30px;
+.exercise-card:hover {
+  transform: translateY(-2px);
 
-  display: flex;
+  border-color: #344957;
 
-  align-items: center;
-  justify-content: center;
+  background: #131e26;
+}
 
-  border: 1px solid #293845;
+.exercise-card.exercise-completed {
+  border-color: #45637a;
 
-  border-radius: 50%;
+  background:
+    linear-gradient(
+      135deg,
+      #152735,
+      #111c25
+    );
+}
 
-  background: #0f171e;
+.exercise-number {
+  color: #536471;
 
-  color: #718392;
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 22px;
+
+  font-weight: 500;
+}
+
+/*
+   Exercise name:
+   Manrope gives this a cleaner,
+   more modern fitness-app appearance.
+*/
+
+.exercise-info h3 {
+  margin: 0;
+
+  color: #e3e9ed;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  letter-spacing: -0.015em;
+
+  line-height: 1.35;
+}
+
+.exercise-info span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #71818e;
+
+  font-family: "Manrope", sans-serif;
 
   font-size: 9px;
 
+  font-weight: 500;
+
+  letter-spacing: 0.04em;
+}
+
+.exercise-details {
+  display: flex;
+
+  align-items: center;
+
+  gap: 22px;
+}
+
+.exercise-details > div {
+  min-width: 52px;
+}
+
+.exercise-details small {
+  display: block;
+
+  color: #5d6c78;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 7px;
+
   font-weight: 700;
+
+  letter-spacing: 1.5px;
 }
 
-.exercise-completed .day-exercise-number {
-  border-color: #54738e;
+.exercise-details strong {
+  display: block;
 
-  background: #182b3b;
+  margin-top: 5px;
 
-  color: #a9c4d9;
-}
+  color: #c8d3db;
 
-.day-exercise-info h3 {
-  margin: 0;
-
-  color: #d6dde2;
+  font-family: "Manrope", sans-serif;
 
   font-size: 12px;
 
   font-weight: 600;
 }
 
-.day-exercise-info > div > span {
-  display: block;
+.exercise-check {
+  width: 34px;
+  height: 34px;
 
-  margin-top: 4px;
-
-  color: #6f8291;
-
-  font-size: 8px;
-
-  font-weight: 600;
-
-  letter-spacing: 0.5px;
-}
-
-.day-exercise-info p {
-  margin: 7px 0 0;
-
-  color: #63717c;
-
-  font-size: 8px;
-
-  line-height: 1.6;
-}
-
-.day-exercise-details {
-  display: flex;
-
-  gap: 17px;
-
-  margin-top: 9px;
-}
-
-.day-exercise-details > div {
   display: flex;
 
   align-items: center;
+  justify-content: center;
 
-  gap: 5px;
-}
+  border: 1px solid #344452;
 
-.day-exercise-details span {
-  color: #566571;
-
-  font-size: 7px;
-
-  font-weight: 700;
-
-  letter-spacing: 1px;
-}
-
-.day-exercise-details strong {
-  color: #9aaab6;
-
-  font-size: 9px;
-
-  font-weight: 600;
-}
-
-
-/* =========================================
-   COMPLETE BUTTON
-========================================= */
-
-.exercise-complete-button {
-  min-width: 88px;
-
-  padding: 9px 12px;
-
-  border: 1px solid #2d4150;
-
-  border-radius: 7px;
+  border-radius: 50%;
 
   background: transparent;
 
-  color: #8196a7;
+  color: #72889a;
 
-  font-family:
-    "Manrope",
-    sans-serif;
-
-  font-size: 8px;
-
-  font-weight: 700;
+  font-size: 17px;
 
   cursor: pointer;
 
   transition:
-    background-color 0.25s ease,
+    background 0.25s ease,
     border-color 0.25s ease,
-    color 0.25s ease;
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
-.exercise-complete-button:hover {
-  background: #182733;
+.exercise-check:hover {
+  transform: scale(1.05);
 
-  border-color: #49647a;
+  border-color: #5a7892;
 
-  color: #b5cadb;
+  color: #a6c1d5;
 }
 
-.exercise-complete-button.completed {
-  background: #183047;
+.exercise-completed .exercise-check {
+  border-color: #7196b4;
 
-  border-color: #54738e;
+  background: #1b3549;
 
-  color: #a9c4d9;
+  color: #b5d1e4;
 }
-
 
 /* =========================================
-   FINISH WORKOUT
+   FINISH
 ========================================= */
 
 .finish-workout-button {
   width: 100%;
 
-  padding: 14px 20px;
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 18px;
+
+  padding: 15px 20px;
 
   border: 1px solid #31516d;
 
@@ -1130,9 +1024,7 @@
 
   color: #ffffff;
 
-  font-family:
-    "Manrope",
-    sans-serif;
+  font-family: "Manrope", sans-serif;
 
   font-size: 11px;
 
@@ -1142,7 +1034,7 @@
 
   transition:
     transform 0.25s ease,
-    background-color 0.25s ease,
+    background 0.25s ease,
     box-shadow 0.25s ease;
 }
 
@@ -1157,12 +1049,7 @@
     );
 
   box-shadow:
-    0 10px 25px rgba(
-      23,
-      59,
-      95,
-      0.25
-    );
+    0 10px 25px rgba(23, 59, 95, 0.25);
 }
 
 .finish-workout-button:disabled {
@@ -1171,10 +1058,16 @@
   cursor: default;
 }
 
+.finish-workout-button span {
+  font-size: 16px;
+}
+
 .workout-finish-message {
-  margin-top: 13px;
+  margin: 13px 0 0;
 
   color: #7898b2;
+
+  font-family: "Manrope", sans-serif;
 
   font-size: 10px;
 
@@ -1182,7 +1075,6 @@
 
   text-align: center;
 }
-
 
 /* =========================================
    SIDEBAR
@@ -1196,9 +1088,20 @@
   gap: 14px;
 }
 
+.sidebar-label {
+  display: block;
+
+  color: #7095b8;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
 
 /* =========================================
-   REST PANEL
+   REST
 ========================================= */
 
 .rest-panel {
@@ -1218,36 +1121,40 @@
   text-align: center;
 }
 
-.rest-panel > span {
-  display: block;
+.rest-panel h2 {
+  margin: 8px 0 0;
 
-  color: #62717d;
+  font-family: "Cormorant Garamond", serif;
 
-  font-size: 8px;
+  font-size: 28px;
 
-  font-weight: 700;
-
-  letter-spacing: 2px;
+  font-weight: 500;
 }
 
-.rest-panel > strong {
-  display: block;
+.rest-timer {
+  margin: 15px 0;
 
-  margin: 13px 0 18px;
+  color: #e7edf1;
 
-  font-family:
-    "Cormorant Garamond",
-    serif;
+  font-family: "Cormorant Garamond", serif;
 
   font-size: 48px;
 
   font-weight: 500;
-
-  color: #e7edf1;
 }
 
-.rest-panel button {
+.rest-panel p {
+  color: #707d88;
+
+  font-size: 10px;
+
+  line-height: 1.8;
+}
+
+.rest-button {
   width: 100%;
+
+  margin-top: 17px;
 
   padding: 10px;
 
@@ -1259,9 +1166,7 @@
 
   color: #9eb7ca;
 
-  font-family:
-    "Manrope",
-    sans-serif;
+  font-family: "Manrope", sans-serif;
 
   font-size: 10px;
 
@@ -1270,19 +1175,18 @@
   cursor: pointer;
 
   transition:
-    background-color 0.25s ease,
+    background 0.25s ease,
     border-color 0.25s ease;
 }
 
-.rest-panel button:hover {
+.rest-button:hover {
   background: #1b3145;
 
   border-color: #46627a;
 }
 
-
 /* =========================================
-   TIP PANEL
+   TIP
 ========================================= */
 
 .tip-panel {
@@ -1295,34 +1199,33 @@
   background: #0e141a;
 }
 
-.tip-panel > span {
-  display: block;
+.tip-panel h3 {
+  margin: 9px 0 8px;
 
-  margin-bottom: 12px;
+  color: #dce5eb;
 
-  color: #7095b8;
+  font-family: "Cormorant Garamond", serif;
 
-  font-size: 8px;
+  font-size: 27px;
 
-  font-weight: 700;
-
-  letter-spacing: 2px;
+  font-weight: 500;
 }
 
 .tip-panel p {
   color: #707d88;
+
+  font-family: "Manrope", sans-serif;
 
   font-size: 10px;
 
   line-height: 1.8;
 }
 
-
 /* =========================================
-   SUMMARY PANEL
+   SUMMARY
 ========================================= */
 
-.summary-panel {
+.workout-summary {
   padding: 25px;
 
   border: 1px solid #202a33;
@@ -1332,54 +1235,58 @@
   background: #0e141a;
 }
 
-.summary-panel > span {
-  display: block;
-
-  margin-bottom: 17px;
-
-  color: #62717d;
-
-  font-size: 8px;
-
-  font-weight: 700;
-
-  letter-spacing: 2px;
-}
-
-.summary-panel > div {
+.summary-row {
   display: flex;
 
-  justify-content: space-between;
-
   align-items: center;
+
+  justify-content: space-between;
 
   padding: 12px 0;
 
   border-bottom: 1px solid #1b242d;
 }
 
-.summary-panel > div:last-child {
-  border-bottom: none;
-}
-
-.summary-panel > div > span {
+.summary-row span {
   color: #65727d;
 
   font-size: 9px;
 }
 
-.summary-panel > div > strong {
-  max-width: 150px;
-
+.summary-row strong {
   color: #a5b5c1;
 
   font-size: 10px;
 
   font-weight: 600;
-
-  text-align: right;
 }
 
+.summary-progress {
+  height: 4px;
+
+  margin-top: 18px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: #1b242d;
+}
+
+.summary-progress div {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #355b7d,
+      #7198b9
+    );
+
+  transition: width 0.3s ease;
+}
 
 /* =========================================
    LIGHT THEME
@@ -1389,12 +1296,7 @@
   background:
     radial-gradient(
       circle at 75% 5%,
-      rgba(
-        112,
-        149,
-        184,
-        0.10
-      ),
+      rgba(112, 149, 184, 0.1),
       transparent 28%
     ),
     #f5f6f7;
@@ -1403,13 +1305,7 @@
 }
 
 .light-theme .workout-navbar {
-  background:
-    rgba(
-      245,
-      246,
-      247,
-      0.96
-    );
+  background: rgba(245, 246, 247, 0.96);
 
   border-color: #dfe3e7;
 }
@@ -1435,147 +1331,84 @@
   color: #58799b;
 }
 
-
-/* =========================================
-   LIGHT HEADER
-========================================= */
-
-.light-theme .workout-header h1 {
+.light-theme .workout-header h1,
+.light-theme .weekly-split h2,
+.light-theme .focus-heading h2,
+.light-theme .exercise-section-heading h2 {
   color: #171b20;
 }
 
-.light-theme .workout-header p {
+.light-theme .workout-header p,
+.light-theme .focus-description {
   color: #68727d;
 }
 
-
-/* =========================================
-   LIGHT DAY SELECTOR
-========================================= */
-
-.light-theme .day-selector-section,
-.light-theme .day-focus-panel,
+.light-theme .weekly-split,
+.light-theme .focus-card,
 .light-theme .workout-timer-card,
 .light-theme .workout-overview-card,
-.light-theme .day-workout-panel,
+.light-theme .exercise-panel,
 .light-theme .rest-panel,
 .light-theme .tip-panel,
-.light-theme .summary-panel {
+.light-theme .workout-summary {
   background: #ffffff;
 
   border-color: #dfe3e7;
 }
 
-.light-theme .day-selector-heading h2,
-.light-theme .day-focus-main h2,
-.light-theme .day-workout-heading h2 {
-  color: #171b20;
-}
-
-.light-theme .day-selector-heading span,
-.light-theme .day-focus-progress span,
-.light-theme .day-workout-heading > div span {
-  color: #74808a;
-}
-
-.light-theme .today-indicator {
-  border-color: #d5dce2;
-
-  color: #58799b;
-}
-
-.light-theme .day-button {
+.light-theme .week-day {
   background: #f7f8f9;
 
   border-color: #dce2e6;
 
-  color: #687580;
+  color: #697681;
 }
 
-.light-theme .day-button:hover {
-  background: #eef1f4;
-
-  border-color: #b9c5ce;
-
-  color: #303942;
+.light-theme .week-day:hover {
+  background: #eef2f5;
 }
 
-.light-theme .day-button.selected {
-  background: #e7eef4;
+.light-theme .week-day.selected {
+  background: #e9f0f5;
 
   border-color: #8da9be;
 
   color: #46667f;
 }
 
-.light-theme .day-focus-main h2 {
-  color: #171b20;
+.light-theme .today-badge {
+  border-color: #d2dce3;
+
+  color: #58799b;
 }
 
-.light-theme .day-focus-main p {
-  color: #68737d;
-}
-
-.light-theme .day-progress-track {
+.light-theme .daily-progress-track,
+.light-theme .summary-progress {
   background: #dfe4e8;
 }
-
-
-/* =========================================
-   LIGHT TIMER
-========================================= */
 
 .light-theme .workout-timer-card strong {
   color: #171b20;
 }
 
-.light-theme .workout-timer-actions button {
-  background: #edf2f5;
-
-  border-color: #c8d3dc;
-
-  color: #58799b;
-}
-
-.light-theme .workout-timer-actions button:last-child {
-  background: transparent;
-
-  color: #68737d;
-
-  border-color: #d2d9de;
-}
-
-
-/* =========================================
-   LIGHT OVERVIEW
-========================================= */
-
-.light-theme .workout-overview-card span {
+.light-theme .workout-overview-card span,
+.light-theme .exercise-details small,
+.light-theme .summary-row span,
+.light-theme .rest-panel p,
+.light-theme .tip-panel p {
   color: #74808a;
 }
 
-.light-theme .workout-overview-card strong {
+.light-theme .workout-overview-card strong,
+.light-theme .exercise-details strong {
   color: #303942;
 }
 
-
-/* =========================================
-   LIGHT EXERCISES
-========================================= */
-
-.light-theme .day-workout-heading {
+.light-theme .exercise-section-heading {
   border-color: #e2e6e9;
 }
 
-.light-theme .day-workout-heading h2 {
-  color: #171b20;
-}
-
-.light-theme .day-workout-heading p {
-  color: #68737d;
-}
-
-.light-theme .day-workout-heading > strong {
+.light-theme .exercise-section-heading > strong {
   background: #f1f4f6;
 
   border-color: #d5dce2;
@@ -1583,400 +1416,31 @@
   color: #58799b;
 }
 
-.light-theme .day-exercise-card {
-  background: #f7f8f9;
+.light-theme .exercise-card {
+  background: #f8f9fa;
 
   border-color: #e0e4e7;
 }
 
-.light-theme .day-exercise-card:hover {
-  background: #f1f4f6;
+.light-theme .exercise-card:hover {
+  background: #f2f5f7;
 
-  border-color: #bcc8d0;
+  border-color: #cbd5dc;
 }
 
-.light-theme .day-exercise-card.exercise-completed {
-  background: #e7eef4;
-
-  border-color: #8da9be;
-}
-
-.light-theme .day-exercise-number {
-  background: #ffffff;
-
-  border-color: #d5dce2;
-
-  color: #687783;
-}
-
-.light-theme .exercise-completed .day-exercise-number {
-  background: #dce8f0;
-
-  border-color: #8da9be;
-
-  color: #46667f;
-}
-
-.light-theme .day-exercise-info h3 {
+.light-theme .exercise-info h3 {
   color: #303942;
 }
 
-.light-theme .day-exercise-info > div > span {
-  color: #58799b;
-}
-
-.light-theme .day-exercise-info p {
-  color: #68737d;
-}
-
-.light-theme .day-exercise-details span {
+.light-theme .exercise-info span {
   color: #74808a;
 }
 
-.light-theme .day-exercise-details strong {
-  color: #3d4851;
-}
-
-.light-theme .exercise-complete-button {
+.light-theme .exercise-check {
   border-color: #c5d0d8;
 
-  color: #58799b;
+  color: #71808c;
 }
 
-.light-theme .exercise-complete-button:hover {
-  background: #e9eef2;
-
-  border-color: #aebdc8;
-}
-
-.light-theme .exercise-complete-button.completed {
-  background: #dce8f0;
-
-  border-color: #8da9be;
-
-  color: #46667f;
-}
-
-
-/* =========================================
-   LIGHT SIDEBAR
-========================================= */
-
-.light-theme .rest-panel > strong {
-  color: #171b20;
-}
-
-.light-theme .rest-panel button {
-  background: #edf2f5;
-
-  border-color: #c8d3dc;
-
-  color: #58799b;
-}
-
-.light-theme .tip-panel p,
-.light-theme .summary-panel > div > span {
-  color: #68737d;
-}
-
-.light-theme .summary-panel > div {
-  border-color: #e1e5e8;
-}
-
-.light-theme .summary-panel > div > strong {
-  color: #3d4851;
-}
-
-
-/* =========================================
-   RESPONSIVE
-========================================= */
-
-@media (max-width: 950px) {
-
-  .workout-navbar {
-    padding: 0 30px;
-  }
-
-  .workout-content {
-    width: calc(100% - 50px);
-  }
-
-  .workout-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .workout-sidebar {
-    display: grid;
-
-    grid-template-columns:
-      repeat(3, 1fr);
-  }
-
-  .rest-panel,
-  .tip-panel,
-  .summary-panel {
-    height: 100%;
-  }
-
-  .day-selector {
-    grid-template-columns:
-      repeat(4, 1fr);
-  }
-
-}
-
-
-/* =========================================
-   TABLET / MOBILE
-========================================= */
-
-@media (max-width: 700px) {
-
-  .workout-navbar {
-    height: 70px;
-
-    padding: 0 20px;
-  }
-
-  .workout-logo {
-    font-size: 24px;
-  }
-
-  .workout-nav-center {
-    gap: 18px;
-  }
-
-  .workout-nav-button {
-    font-size: 11px;
-  }
-
-  .workout-content {
-    width: calc(100% - 32px);
-
-    padding-top: 45px;
-  }
-
-  .workout-header h1 {
-    font-size: 55px;
-  }
-
-
-  /* Day selector */
-
-  .day-selector-section {
-    padding: 22px;
-  }
-
-  .day-selector-heading {
-    flex-direction: column;
-  }
-
-  .day-selector {
-    grid-template-columns:
-      repeat(4, 1fr);
-  }
-
-  .day-button {
-    min-height: 62px;
-  }
-
-
-  /* Focus */
-
-  .day-focus-panel {
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 25px;
-  }
-
-  .day-focus-progress {
-    width: 100%;
-  }
-
-
-  /* Timer */
-
-  .workout-timer-card {
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 22px;
-  }
-
-  .workout-timer-actions {
-    width: 100%;
-  }
-
-  .workout-timer-actions button {
-    flex: 1;
-  }
-
-
-  /* Overview */
-
-  .workout-overview {
-    grid-template-columns:
-      1fr 1fr;
-  }
-
-
-  /* Sidebar */
-
-  .workout-sidebar {
-    grid-template-columns: 1fr;
-  }
-
-}
-
-
-/* =========================================
-   SMALL MOBILE
-========================================= */
-
-@media (max-width: 500px) {
-
-  .workout-navbar {
-    grid-template-columns:
-      auto 1fr auto;
-
-    padding: 0 15px;
-  }
-
-  .workout-logo {
-    font-size: 19px;
-
-    letter-spacing: 3px;
-  }
-
-  .workout-nav-center {
-    gap: 10px;
-
-    justify-content: center;
-  }
-
-  .workout-nav-button {
-    font-size: 9px;
-  }
-
-  .workout-content {
-    width: calc(100% - 24px);
-
-    padding: 35px 0 70px;
-  }
-
-  .workout-header h1 {
-    font-size: 48px;
-  }
-
-  .workout-header p {
-    font-size: 11px;
-  }
-
-
-  /* Day selector */
-
-  .day-selector-section {
-    padding: 19px;
-  }
-
-  .day-selector {
-    grid-template-columns:
-      repeat(2, 1fr);
-
-    gap: 7px;
-  }
-
-  .day-button {
-    min-height: 58px;
-  }
-
-
-  /* Focus */
-
-  .day-focus-panel {
-    padding: 23px;
-  }
-
-  .day-focus-main h2 {
-    font-size: 36px;
-  }
-
-
-  /* Timer */
-
-  .workout-timer-card {
-    padding: 22px;
-  }
-
-  .workout-timer-card strong {
-    font-size: 36px;
-  }
-
-
-  /* Overview */
-
-  .workout-overview-card {
-    padding: 17px;
-  }
-
-  .workout-overview-card strong {
-    font-size: 17px;
-  }
-
-
-  /* Exercises */
-
-  .day-workout-panel {
-    padding: 21px;
-  }
-
-  .day-workout-heading h2 {
-    font-size: 30px;
-  }
-
-  .day-exercise-main {
-    grid-template-columns:
-      30px minmax(0, 1fr);
-
-    gap: 10px;
-
-    padding: 14px;
-  }
-
-  .day-exercise-number {
-    width: 27px;
-    height: 27px;
-  }
-
-  .day-exercise-info h3 {
-    font-size: 10px;
-  }
-
-  .day-exercise-info p {
-    font-size: 7px;
-  }
-
-  .day-exercise-details {
-    gap: 10px;
-  }
-
-  .exercise-complete-button {
-    grid-column: 2;
-
-    width: 100%;
-  }
-
-
-  /* Sidebar */
-
-  .rest-panel,
-  .tip-panel,
-  .summary-panel {
-    padding: 22px;
-  }
 
 }
