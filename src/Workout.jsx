@@ -983,4 +983,11 @@ function Workout({
               </div>
             </div>
 
-          
+          </aside>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+export default Workout;
