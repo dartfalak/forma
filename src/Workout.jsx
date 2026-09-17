@@ -677,7 +677,7 @@ function Workout({
           </div>
         </section>
 
-        {/* CURRENT WORKOUT */}
+        
 
         <section className="focus-card">
           <div className="focus-heading">
@@ -727,7 +727,6 @@ function Workout({
           </p>
         </section>
 
-        {/* TIMER */}
 
         <section className="workout-timer-card">
           <div>
@@ -755,7 +754,7 @@ function Workout({
           </div>
         </section>
 
-        {/* OVERVIEW */}
+      
 
         <section className="workout-overview">
           <div className="workout-overview-card">
@@ -779,7 +778,7 @@ function Workout({
           </div>
         </section>
 
-        {/* EXERCISES + SIDEBAR */}
+        
 
         <section className="workout-layout">
 
