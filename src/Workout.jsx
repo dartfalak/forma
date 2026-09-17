@@ -614,7 +614,7 @@ function Workout({
 
       <main className="workout-content">
 
-        {/* HERO */}
+    
 
         <header className="workout-header">
           <div>
@@ -630,7 +630,7 @@ function Workout({
           </div>
         </header>
 
-        {/* WEEKLY SPLIT */}
+        
 
         <section className="weekly-split">
           <div className="weekly-split-top">
