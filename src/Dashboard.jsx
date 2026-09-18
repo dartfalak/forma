@@ -886,3 +886,191 @@ function Dashboard({
                 </h3>
 
               </div>
+
+              <button
+                className="clear-icon-button"
+                onClick={clearAllTasks}
+                title="Clear all tasks"
+              >
+                🗑
+              </button>
+
+            </div>
+
+
+            <div className="todo-list">
+
+              {tasks.length === 0 ? (
+
+                <div className="empty-tasks">
+                  No tasks for today.
+                </div>
+
+              ) : (
+
+                tasks.map((task) => (
+
+                  <div
+                    className={`todo-item ${
+                      task.completed
+                        ? "task-completed"
+                        : ""
+                    }`}
+                    key={task.id}
+                  >
+
+                    <button
+                      className="task-check"
+                      onClick={() =>
+                        toggleTask(task.id)
+                      }
+                      aria-label="Complete task"
+                    >
+                      {task.completed
+                        ? "✓"
+                        : ""}
+                    </button>
+
+                    <span className="task-text">
+                      {task.text}
+                    </span>
+
+                    <button
+                      className="delete-task"
+                      onClick={() =>
+                        deleteTask(task.id)
+                      }
+                      title="Delete task"
+                    >
+                      ×
+                    </button>
+
+                  </div>
+
+                ))
+
+              )}
+
+            </div>
+
+
+            <div className="add-task">
+
+              <input
+                type="text"
+                placeholder="Add a new task..."
+                value={newTask}
+                onChange={(e) =>
+                  setNewTask(e.target.value)
+                }
+                onKeyDown={
+                  handleTaskKeyDown
+                }
+              />
+
+              <button
+                onClick={addTask}
+                className="add-task-button"
+              >
+                Add New Task
+              </button>
+
+            </div>
+
+
+            {tasks.length > 0 && (
+
+              <button
+                className="clear-all-button"
+                onClick={clearAllTasks}
+              >
+                Clear All Tasks
+              </button>
+
+            )}
+
+          </div>
+
+
+          {/* DAILY PROGRESS */}
+
+          <div className="daily-progress-panel">
+
+            <div className="daily-progress-heading">
+
+              <span>
+                TODAY'S PROGRESS
+              </span>
+
+              <h3>
+                Daily Progress
+              </h3>
+
+            </div>
+
+
+            <div className="progress-circle">
+
+              <svg
+                className="progress-ring"
+                viewBox="0 0 160 160"
+                aria-label={
+                  `Daily progress ${dailyProgress}%`
+                }
+              >
+
+                <circle
+                  className="progress-ring-track"
+                  cx="80"
+                  cy="80"
+                  r={progressRadius}
+                />
+
+                <circle
+                  className="progress-ring-value"
+                  cx="80"
+                  cy="80"
+                  r={progressRadius}
+                  style={{
+                    strokeDasharray:
+                      circumference,
+
+                    strokeDashoffset:
+                      progressOffset
+                  }}
+                />
+
+              </svg>
+
+
+              <div className="progress-circle-inner">
+
+                <strong>
+                  {dailyProgress}%
+                </strong>
+
+                <span>
+                  complete
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <p className="progress-summary">
+              {completedTasks} of{" "}
+              {totalTasks} tasks completed
+            </p>
+
+          </div>
+
+        </section>
+
+      </main>
+
+    </div>
+  );
+}
+
+export default Dashboard;
