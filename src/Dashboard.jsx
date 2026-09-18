@@ -271,9 +271,6 @@ function Dashboard({
   };
 
 
-  /* =========================
-     WORKOUT DATE SET
-  ========================= */
 
   const workoutDateKeys =
     new Set(
@@ -283,11 +280,6 @@ function Dashboard({
         .map(getDateKey)
     );
 
-
-  /* =========================
-     CURRENT WEEK
-     MONDAY - SATURDAY
-  ========================= */
 
   const getMonday = (date) => {
 
