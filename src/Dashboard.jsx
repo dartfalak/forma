@@ -10,10 +10,6 @@ function Dashboard({
   dataVersion
 }) {
 
-  /* =========================
-     WELCOME MESSAGE
-  ========================= */
-
   const [isFirstVisit, setIsFirstVisit] = useState(() => {
     return !sessionStorage.getItem("forma-dashboard-visited");
   });
@@ -31,10 +27,6 @@ function Dashboard({
   const firstName =
     fullName.split(" ")[0];
 
-
-  /* =========================
-     TASKS
-  ========================= */
 
   const defaultTasks = [
     {
@@ -154,10 +146,6 @@ function Dashboard({
         );
 
 
-  /* =========================
-     SIGN OUT
-  ========================= */
-
   const [signOutError, setSignOutError] =
     useState("");
 
@@ -182,10 +170,6 @@ function Dashboard({
   };
 
 
-  /* =========================
-     DATE
-  ========================= */
-
   const today = new Date();
 
   const dayName =
@@ -205,9 +189,7 @@ function Dashboard({
     today.getFullYear();
 
 
-  /* =========================
-     WORKOUT HISTORY
-  ========================= */
+
 
   const [workoutHistory, setWorkoutHistory] =
     useState([]);
@@ -252,9 +234,6 @@ function Dashboard({
   }, [user, dataVersion]);
 
 
-  /* =========================
-     DATE HELPERS
-  ========================= */
 
   const getDateKey = (date) => {
 
