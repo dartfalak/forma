@@ -522,14 +522,9 @@ function Dashboard({
       )}
 
 
-      {/* =========================
-          MAIN
-      ========================= */}
-
       <main className="dashboard-content">
 
-        {/* HERO */}
-
+      
         <section className="dashboard-hero">
 
           <div className="hero-text">
@@ -579,9 +574,6 @@ function Dashboard({
         </section>
 
 
-        {/* =========================
-            STATS
-        ========================= */}
 
         <section className="stats-grid">
 
@@ -669,9 +661,6 @@ function Dashboard({
         </section>
 
 
-        {/* =========================
-            MAIN GRID
-        ========================= */}
 
         <section className="dashboard-main-grid">
 
@@ -721,9 +710,6 @@ function Dashboard({
           </div>
 
 
-          {/* =========================
-              CONSISTENCY
-          ========================= */}
 
           <div className="activity-panel consistency-panel">
 
@@ -811,14 +797,9 @@ function Dashboard({
 
         </section>
 
-
-        {/* =========================
-            BOTTOM
-        ========================= */}
-
         <section className="dashboard-bottom">
 
-          {/* TODO */}
+         
 
           <div className="todo-panel">
 
