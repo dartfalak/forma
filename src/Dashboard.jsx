@@ -330,9 +330,7 @@ function Dashboard({
     );
 
 
-  /* =========================
-     WEEKLY WORKOUT COUNT
-  ========================= */
+  
 
   const weekStart =
     new Date(monday);
@@ -364,9 +362,6 @@ function Dashboard({
     );
 
 
-  /*
-    FORMA'S WEEKLY GOAL = 5 WORKOUTS
-  */
 
   const weeklyGoal = 5;
 
@@ -387,10 +382,6 @@ function Dashboard({
       )
     );
 
-
-  /* =========================
-     MONTHLY WORKOUT COUNT
-  ========================= */
 
   const monthlyWorkoutCount =
     workoutHistory.filter(
@@ -413,9 +404,6 @@ function Dashboard({
     ).length;
 
 
-  /* =========================
-     DAY STATUS
-  ========================= */
 
   const isToday =
     (date) =>
@@ -430,10 +418,6 @@ function Dashboard({
       );
 
 
-  /* =========================
-     DAILY PROGRESS CIRCLE
-  ========================= */
-
   const progressRadius = 70;
 
   const circumference =
@@ -447,18 +431,12 @@ function Dashboard({
       circumference;
 
 
-  /* =========================
-     RENDER
-  ========================= */
 
   return (
     <div
       className={`dashboard ${theme}-theme`}
     >
 
-      {/* =========================
-          NAVBAR
-      ========================= */}
 
       <nav className="dashboard-navbar">
 
