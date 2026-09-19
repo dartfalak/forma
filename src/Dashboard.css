@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap');
 
 
-
-
 .dashboard {
   min-height: 100vh;
 
@@ -401,9 +399,7 @@
   padding: 24px;
 
   border: 1px solid #202a33;
-
   border-radius: 12px;
-
   background:
     linear-gradient(
       145deg,

@@ -892,8 +892,7 @@ function Workout({
             )}
           </div>
 
-          {/* SIDEBAR */}
-
+          
           <aside className="workout-sidebar">
 
             <div className="rest-panel">

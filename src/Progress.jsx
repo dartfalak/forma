@@ -690,10 +690,6 @@ function Progress({
         </section>
 
 
-        {/* ===================================
-            BEST STREAK
-        =================================== */}
-
         {hasWorkouts && (
 
           <section className="progress-insight">
