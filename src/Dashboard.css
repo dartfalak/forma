@@ -847,9 +847,7 @@
 }
 
 
-/* =========================================================
-   BOTTOM SECTION
-   ========================================================= */
+
 
 .dashboard-bottom {
   display: grid;
@@ -1427,7 +1425,7 @@
 }
 
 
-/* ---------- Error ---------- */
+
 
 .dashboard.light-theme .signout-error {
   border-color: #e3cdd2;
@@ -1438,7 +1436,7 @@
 }
 
 
-/* ---------- Hero ---------- */
+
 
 .dashboard.light-theme .hero-text h1 {
   color: #171b20;
@@ -1559,7 +1557,6 @@
 }
 
 
-/* ---------- Featured Workout ---------- */
 
 .dashboard.light-theme .featured-workout {
   border-color: #cbd6de;
@@ -1622,7 +1619,6 @@
 }
 
 
-/* ---------- Consistency ---------- */
 
 .dashboard.light-theme .activity-panel {
   border-color: #dce1e5;
@@ -1686,7 +1682,7 @@
 }
 
 
-/* ---------- Todo ---------- */
+
 
 .dashboard.light-theme .todo-panel {
   border-color: #dce1e5;

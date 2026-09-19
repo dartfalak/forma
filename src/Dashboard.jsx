@@ -922,7 +922,7 @@ function Dashboard({
           </div>
 
 
-          {/* DAILY PROGRESS */}
+
 
           <div className="daily-progress-panel">
 
@@ -1003,4 +1003,4 @@ function Dashboard({
   );
 }
 
-export default Dashboard;
+export default Dashboard; 
