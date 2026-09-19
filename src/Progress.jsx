@@ -410,9 +410,7 @@ function Progress({
         </header>
 
 
-        {/* ===================================
-            STATS
-        =================================== */}
+      
 
         <section className="progress-stats">
 
