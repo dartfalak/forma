@@ -35,10 +35,6 @@ function Progress({
   }, [historyKey]);
 
 
-  /* =========================================
-     DATE INFORMATION
-  ========================================= */
-
   const now = new Date();
 
   const currentYear = now.getFullYear();
@@ -52,9 +48,6 @@ function Progress({
   );
 
 
-  /* =========================================
-     CURRENT MONTH WORKOUTS
-  ========================================= */
 
   const monthlyWorkouts = workoutHistory.filter(
     (workout) => {
@@ -68,16 +61,10 @@ function Progress({
   );
 
 
-  /* =========================================
-     TOTAL WORKOUTS
-  ========================================= */
+  
 
   const totalWorkouts = monthlyWorkouts.length;
 
-
-  /* =========================================
-     TOTAL TRAINING TIME
-  ========================================= */
 
   const totalSeconds = monthlyWorkouts.reduce(
     (total, workout) => {
@@ -94,11 +81,6 @@ function Progress({
     totalSeconds / 3600
   ).toFixed(1);
 
-
-  /* =========================================
-     MONTHLY GOAL
-  ========================================= */
-
   const monthlyGoal = 20;
 
   const goalPercentage =
@@ -111,10 +93,6 @@ function Progress({
           )
         );
 
-
-  /* =========================================
-     WORKOUT STREAK
-  ========================================= */
 
   const getDateKey = (date) => {
     const year = date.getFullYear();
@@ -191,9 +169,6 @@ function Progress({
     calculateCurrentStreak();
 
 
-  /* =========================================
-     BEST STREAK
-  ========================================= */
 
   const calculateBestStreak = () => {
 
@@ -246,25 +221,15 @@ function Progress({
     calculateBestStreak();
 
 
-  /* =========================================
-     CONSISTENCY
-  ========================================= */
 
   const consistency =
     goalPercentage;
 
 
-  /* =========================================
-     RECENT WORKOUTS
-  ========================================= */
 
   const recentWorkouts =
     workoutHistory.slice(0, 8);
 
-
-  /* =========================================
-     DATE FORMAT
-  ========================================= */
 
   const formatDate = (dateString) => {
 
@@ -281,9 +246,6 @@ function Progress({
   };
 
 
-  /* =========================================
-     EMPTY STATE
-  ========================================= */
 
   const hasWorkouts =
     workoutHistory.length > 0;
@@ -293,10 +255,6 @@ function Progress({
     <div
       className={`progress-page ${theme}-theme`}
     >
-
-      {/* =====================================
-          NAVBAR
-      ===================================== */}
 
       <nav className="progress-navbar">
 
@@ -356,16 +314,10 @@ function Progress({
       </nav>
 
 
-      {/* =====================================
-          MAIN CONTENT
-      ===================================== */}
 
       <main className="progress-content">
 
 
-        {/* ===================================
-            HEADER
-        =================================== */}
 
         <header className="progress-header">
 
