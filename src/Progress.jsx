@@ -488,10 +488,6 @@ function Progress({
         </section>
 
 
-        {/* ===================================
-            MONTHLY GOAL
-        =================================== */}
-
         <section className="progress-goal-section">
 
           <div className="goal-panel">
@@ -570,9 +566,6 @@ function Progress({
         </section>
 
 
-        {/* ===================================
-            RECENT WORKOUTS
-        =================================== */}
 
         <section className="history-panel progress-history-full">
 
