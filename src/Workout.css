@@ -915,3 +915,151 @@
     border-top: 1px solid #202831;
   }
 
+  .light-theme .daily-progress {
+    border-top-color: #dfe4e8;
+  }
+
+  .workout-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .workout-sidebar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .workout-navbar {
+    height: auto;
+    min-height: 72px;
+    padding: 14px 20px;
+    gap: 12px;
+  }
+
+  .workout-nav-center {
+    gap: 0;
+  }
+
+  .workout-nav-center button {
+    padding: 8px 9px;
+    font-size: 11px;
+  }
+
+  .workout-nav-center button.active::after {
+    left: 9px;
+    right: 9px;
+  }
+
+  .workout-profile-circle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .workout-content {
+    width: calc(100% - 28px);
+    padding-top: 40px;
+  }
+
+  .workout-header {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 35px;
+  }
+
+  .header-date {
+    text-align: left;
+  }
+
+  .weekly-split-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .week-days {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .week-day:nth-child(4) {
+    border-right: none;
+  }
+
+  .week-day:nth-child(n + 5) {
+    border-top: 1px solid #1c2229;
+  }
+
+  .light-theme .week-day:nth-child(n + 5) {
+    border-top-color: #dfe4e8;
+  }
+
+  .workout-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .workout-overview-card:nth-child(2) {
+    border-right: none;
+  }
+
+  .workout-overview-card:nth-child(3),
+  .workout-overview-card:nth-child(4) {
+    border-top: 1px solid #1c2229;
+  }
+
+  .light-theme .workout-overview-card:nth-child(3),
+  .light-theme .workout-overview-card:nth-child(4) {
+    border-top-color: #dfe4e8;
+  }
+
+  .workout-timer-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .workout-sidebar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .workout-logo {
+    font-size: 24px;
+    letter-spacing: 3px;
+  }
+
+  .workout-nav-center button {
+    padding: 7px 6px;
+    font-size: 10px;
+  }
+
+  .workout-content {
+    width: calc(100% - 22px);
+  }
+
+  .workout-header h1 {
+    font-size: 50px;
+  }
+
+  .focus-card-main,
+  .daily-progress,
+  .workout-timer-card {
+    padding: 22px;
+  }
+
+  .focus-heading h2 {
+    font-size: 30px;
+  }
+
+  .workout-timer {
+    font-size: 40px;
+  }
+
+  .exercise-card {
+    grid-template-columns: 30px 1fr 28px;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .exercise-details {
+    gap: 8px;
+  }
+}
