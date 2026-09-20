@@ -947,7 +947,7 @@ function Workout({
               </button>
             </div>
 
-            <div className="tip-panel">
+            {/* <div className="tip-panel">
               <span className="sidebar-label">
                 FORMA TIP
               </span>
@@ -961,7 +961,7 @@ function Workout({
                 technique are more important than
                 simply lifting heavier.
               </p>
-            </div>
+            </div> */}
 
             <div className="workout-summary">
               <span className="sidebar-label">
