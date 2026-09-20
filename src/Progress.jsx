@@ -35,10 +35,6 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
     month: "long",
   });
 
-  /* =========================
-     MONTHLY DATA
-  ========================= */
-
   const monthlyWorkouts = workoutHistory.filter((workout) => {
     const workoutDate = new Date(workout.date);
 
@@ -68,9 +64,6 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
           Math.round((totalWorkouts / monthlyGoal) * 100)
         );
 
-  /* =========================
-     WORKOUT DATE HELPERS
-  ========================= */
 
   const getDateKey = (date) => {
     const year = date.getFullYear();
@@ -88,9 +81,6 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
     return [...new Set(dates)];
   }, [workoutHistory]);
 
-  /* =========================
-     CURRENT STREAK
-  ========================= */
 
   const currentStreak = useMemo(() => {
     if (workoutDates.length === 0) {
@@ -128,9 +118,7 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
     return streak;
   }, [workoutDates]);
 
-  /* =========================
-     BEST STREAK
-  ========================= */
+
 
   const bestStreak = useMemo(() => {
     if (workoutDates.length === 0) {
@@ -167,9 +155,7 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
 
   const hasWorkouts = workoutHistory.length > 0;
 
-  /* =========================
-     DATE FORMAT
-  ========================= */
+  
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -181,9 +167,6 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
     });
   };
 
-  /* =========================
-     DURATION FORMAT
-  ========================= */
 
   const getWorkoutMinutes = (workout) => {
     if (workout.durationMinutes) {
@@ -195,9 +178,7 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
     return Math.max(1, Math.round(seconds / 60));
   };
 
-  /* =========================
-     RENDER
-  ========================= */
+
 
   return (
     <div className={`progress-page ${theme}-theme`}>
