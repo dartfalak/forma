@@ -243,9 +243,7 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
       </nav>
 
       <main className="progress-content">
-        {/* =========================
-            HEADER
-        ========================= */}
+
 
         <header className="progress-header">
           <div>
@@ -274,9 +272,6 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
           </div>
         </header>
 
-        {/* =========================
-            STATS
-        ========================= */}
 
         <section className="progress-stats">
           <div className="progress-stat-card">
@@ -315,10 +310,6 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
             <p>monthly goal progress</p>
           </div>
         </section>
-
-        {/* =========================
-            MONTHLY GOAL
-        ========================= */}
 
         <section className="progress-goal-section">
           <div className="goal-panel">
@@ -370,9 +361,7 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
           </div>
         </section>
 
-        {/* =========================
-            HISTORY
-        ========================= */}
+   
 
         <section className="history-panel progress-history-full">
           <div className="progress-panel-heading">
@@ -465,9 +454,6 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
           )}
         </section>
 
-        {/* =========================
-            INSIGHT
-        ========================= */}
 
         {hasWorkouts && (
           <section className="progress-insight">
