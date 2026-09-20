@@ -1132,5 +1132,216 @@
   color: #3d4851;
 }
 
+@media (max-width: 950px) {
+  .workout-navbar {
+    padding: 0 30px;
+  }
 
+  .workout-content {
+    width: calc(100% - 50px);
+  }
 
+  .workout-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .workout-sidebar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .focus-heading {
+    flex-direction: column;
+  }
+
+  .daily-progress {
+    width: 100%;
+  }
+
+  .week-days {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .workout-navbar {
+    height: 70px;
+    padding: 0 20px;
+  }
+
+  .workout-logo {
+    font-size: 25px;
+  }
+
+  .workout-nav-center {
+    gap: 20px;
+  }
+
+  .workout-nav-button {
+    font-size: 11px;
+  }
+
+  .workout-content {
+    width: calc(100% - 32px);
+    padding-top: 45px;
+  }
+
+  .workout-header h1 {
+    font-size: 58px;
+  }
+
+  .weekly-split {
+    padding: 22px;
+  }
+
+  .weekly-split-top {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .today-badge {
+    align-self: flex-start;
+  }
+
+  .week-days {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .workout-overview {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .workout-timer-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+
+  .workout-timer-actions {
+    width: 100%;
+  }
+
+  .workout-timer-actions button {
+    flex: 1;
+  }
+
+  .workout-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .exercise-card {
+    grid-template-columns:
+      32px
+      1fr
+      40px;
+  }
+
+  .exercise-details {
+    grid-column: 2 / 3;
+    gap: 15px;
+  }
+
+  .exercise-check {
+    grid-column: 3;
+    grid-row: 1 / 3;
+  }
+}
+
+@media (max-width: 500px) {
+  .workout-navbar {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .workout-logo {
+    font-size: 21px;
+    letter-spacing: 3px;
+  }
+
+  .workout-nav-center {
+    gap: 12px;
+  }
+
+  .workout-nav-button {
+    font-size: 10px;
+  }
+
+  .workout-content {
+    width: calc(100% - 24px);
+    padding: 35px 0 70px;
+  }
+
+  .workout-header h1 {
+    font-size: 48px;
+  }
+
+  .workout-header p {
+    font-size: 11px;
+  }
+
+  .weekly-split {
+    padding: 19px;
+  }
+
+  .weekly-split h2 {
+    font-size: 32px;
+  }
+
+  .week-days {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .focus-card {
+    padding: 22px;
+  }
+
+  .focus-heading h2 {
+    font-size: 44px;
+  }
+
+  .workout-overview-card {
+    padding: 17px;
+  }
+
+  .workout-overview-card strong {
+    font-size: 19px;
+  }
+
+  .exercise-panel {
+    padding: 21px;
+  }
+
+  .exercise-section-heading h2 {
+    font-size: 32px;
+  }
+
+  .exercise-card {
+    grid-template-columns:
+      30px
+      1fr
+      38px;
+
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .exercise-info h3 {
+    font-size: 13px;
+  }
+
+  .exercise-details {
+    grid-column: 2 / 3;
+  }
+
+  .exercise-details > div {
+    min-width: 42px;
+  }
+
+  .exercise-details strong {
+    font-size: 11px;
+  }
+
+  .exercise-check {
+    grid-column: 3;
+    grid-row: 1 / 3;
+  }
+}
