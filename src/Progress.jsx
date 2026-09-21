@@ -35,6 +35,10 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
     month: "long",
   });
 
+  /* -----------------------------
+     MONTHLY DATA
+  ----------------------------- */
+
   const monthlyWorkouts = workoutHistory.filter((workout) => {
     const workoutDate = new Date(workout.date);
 
@@ -64,6 +68,9 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
           Math.round((totalWorkouts / monthlyGoal) * 100)
         );
 
+  /* -----------------------------
+     DATE HELPERS
+  ----------------------------- */
 
   const getDateKey = (date) => {
     const year = date.getFullYear();
@@ -81,6 +88,9 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
     return [...new Set(dates)];
   }, [workoutHistory]);
 
+  /* -----------------------------
+     CURRENT STREAK
+  ----------------------------- */
 
   const currentStreak = useMemo(() => {
     if (workoutDates.length === 0) {
@@ -118,55 +128,52 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
     return streak;
   }, [workoutDates]);
 
+  /* -----------------------------
+     THIS WEEK
+  ----------------------------- */
 
+  const weekDays = useMemo(() => {
+    const today = new Date();
 
-  const bestStreak = useMemo(() => {
-    if (workoutDates.length === 0) {
-      return 0;
-    }
+    // Convert JS Sunday-first index into Monday-first index.
+    const mondayOffset =
+      today.getDay() === 0 ? -6 : 1 - today.getDay();
 
-    const sortedDates = [...workoutDates].sort();
+    const monday = new Date(today);
+    monday.setDate(today.getDate() + mondayOffset);
+    monday.setHours(0, 0, 0, 0);
 
-    let best = 1;
-    let current = 1;
+    return Array.from({ length: 7 }, (_, index) => {
+      const date = new Date(monday);
+      date.setDate(monday.getDate() + index);
 
-    for (let i = 1; i < sortedDates.length; i++) {
-      const previousDate = new Date(sortedDates[i - 1]);
-      const currentDate = new Date(sortedDates[i]);
+      return {
+        name: date.toLocaleDateString("en-US", {
+          weekday: "short",
+        }),
+        key: getDateKey(date),
+        isToday: getDateKey(date) === getDateKey(today),
+      };
+    });
+  }, []);
 
-      const difference =
-        (currentDate - previousDate) /
-        (1000 * 60 * 60 * 24);
-
-      if (difference === 1) {
-        current++;
-        best = Math.max(best, current);
-      } else {
-        current = 1;
-      }
-    }
-
-    return best;
+  const workoutDateSet = useMemo(() => {
+    return new Set(workoutDates);
   }, [workoutDates]);
 
-  const consistency = goalPercentage;
+  const weeklyWorkoutCount = useMemo(() => {
+    return weekDays.filter((day) =>
+      workoutDateSet.has(day.key)
+    ).length;
+  }, [weekDays, workoutDateSet]);
+
+  /* -----------------------------
+     RECENT WORKOUTS
+  ----------------------------- */
 
   const recentWorkouts = workoutHistory.slice(0, 8);
 
   const hasWorkouts = workoutHistory.length > 0;
-
-  
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  };
-
 
   const getWorkoutMinutes = (workout) => {
     if (workout.durationMinutes) {
@@ -178,7 +185,18 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
     return Math.max(1, Math.round(seconds / 60));
   };
 
+  const formatRecentDate = (dateString) => {
+    const date = new Date(dateString);
 
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+    });
+  };
+
+  /* -----------------------------
+     NAVIGATION
+  ----------------------------- */
 
   return (
     <div className={`progress-page ${theme}-theme`}>
@@ -224,10 +242,10 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
       </nav>
 
       <main className="progress-content">
-
+        {/* HEADER */}
 
         <header className="progress-header">
-          <div>
+          <div className="progress-header-main">
             <div className="progress-status">
               <span></span>
               PERFORMANCE OVERVIEW
@@ -253,59 +271,50 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
           </div>
         </header>
 
+        {/* SMALL STATS ROW */}
 
-        <section className="progress-stats">
-          <div className="progress-stat-card">
-            <span>WORKOUTS THIS MONTH</span>
-
+        <section className="progress-stats-row">
+          <div className="progress-inline-stat">
+            <span>WORKOUTS</span>
             <strong>{totalWorkouts}</strong>
-
-            <p>of {monthlyGoal} monthly goal</p>
+            <small>this month</small>
           </div>
 
-          <div className="progress-stat-card">
+          <div className="progress-inline-stat">
             <span>CURRENT STREAK</span>
-
             <strong>{currentStreak}</strong>
-
-            <p>
+            <small>
               {currentStreak === 1
                 ? "day"
-                : "consecutive days"}
-            </p>
+                : "days"}
+            </small>
           </div>
 
-          <div className="progress-stat-card">
-            <span>TIME TRAINED</span>
-
+          <div className="progress-inline-stat">
+            <span>TOTAL TIME</span>
             <strong>{totalHours}h</strong>
-
-            <p>{totalMinutes} minutes this month</p>
-          </div>
-
-          <div className="progress-stat-card">
-            <span>CONSISTENCY</span>
-
-            <strong>{consistency}%</strong>
-
-            <p>monthly goal progress</p>
+            <small>{totalMinutes} minutes</small>
           </div>
         </section>
 
-        <section className="progress-goal-section">
-          <div className="goal-panel">
-            <div className="progress-panel-heading">
-              <div>
-                <span>MONTHLY TARGET</span>
+        {/* MONTHLY GOAL */}
 
-                <h2>{monthlyGoal} Workouts</h2>
-              </div>
+        <section className="monthly-goal-section">
+          <div className="section-label">
+            MONTHLY GOAL
+          </div>
 
-              <strong>
-                {totalWorkouts} / {monthlyGoal}
-              </strong>
+          <div className="monthly-goal-top">
+            <div>
+              <h2>{monthlyGoal} Workouts</h2>
             </div>
 
+            <strong className="monthly-goal-count">
+              {totalWorkouts} / {monthlyGoal}
+            </strong>
+          </div>
+
+          <div className="monthly-goal-content">
             <div
               className="goal-circle"
               style={{
@@ -315,155 +324,40 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
                 )`,
               }}
             >
-              <div>
+              <div className="goal-circle-inner">
                 <strong>{goalPercentage}%</strong>
-
                 <span>COMPLETE</span>
               </div>
             </div>
 
-            <p>
-              {totalWorkouts >= monthlyGoal
-                ? "Monthly workout goal completed. Keep pushing."
-                : `${monthlyGoal - totalWorkouts} workout${
-                    monthlyGoal - totalWorkouts === 1
-                      ? ""
-                      : "s"
-                  } remaining to reach your monthly goal.`}
-            </p>
+            <div className="monthly-goal-details">
+              <p>
+                {totalWorkouts >= monthlyGoal
+                  ? "Monthly workout goal completed."
+                  : `${monthlyGoal - totalWorkouts} workout${
+                      monthlyGoal - totalWorkouts === 1
+                        ? ""
+                        : "s"
+                    } remaining to reach your monthly goal.`}
+              </p>
 
-            <div className="goal-bar">
-              <div
-                style={{
-                  width: `${goalPercentage}%`,
-                }}
-              ></div>
-            </div>
-          </div>
-        </section>
-
-   
-
-        <section className="history-panel progress-history-full">
-          <div className="progress-panel-heading">
-            <div>
-              <span>TRAINING HISTORY</span>
-
-              <h2>Recent workouts</h2>
-            </div>
-
-            <strong>
-              {workoutHistory.length} TOTAL
-            </strong>
-          </div>
-
-          {!hasWorkouts ? (
-            <div className="progress-empty-state">
-              <div className="progress-empty-icon">
-                —
+              <div className="goal-bar">
+                <div
+                  style={{
+                    width: `${goalPercentage}%`,
+                  }}
+                ></div>
               </div>
-
-              <h3>No workouts recorded yet</h3>
-
-              <p>
-                Complete your first workout and your training
-                history will appear here.
-              </p>
-
-              <button
-                onClick={() => onNavigate("workout")}
-              >
-                Start Workout
-              </button>
             </div>
-          ) : (
-            <div className="history-list">
-              {recentWorkouts.map((workout, index) => {
-                const completedExercises =
-                  Number(
-                    workout.completedExercises || 0
-                  );
-
-                const totalExercises =
-                  Number(
-                    workout.totalExercises ||
-                      workout.exercises?.length ||
-                      0
-                  );
-
-                const completionPercentage =
-                  Number(
-                    workout.completionPercentage || 0
-                  );
-
-                return (
-                  <div
-                    className="history-item"
-                    key={
-                      workout.id ||
-                      `${workout.date}-${index}`
-                    }
-                  >
-                    <div className="history-icon">
-                      {completionPercentage >= 100
-                        ? "✓"
-                        : "•"}
-                    </div>
-
-                    <div className="history-info">
-                      <h3>
-                        {workout.name || "Workout"}
-                      </h3>
-
-                      <span>
-                        {formatDate(workout.date)}
-                        {" · "}
-                        {workout.type || "Training"}
-                        {" · "}
-                        {completedExercises}/
-                        {totalExercises} exercises
-                      </span>
-                    </div>
-
-                    <strong>
-                      {getWorkoutMinutes(workout)} min
-                    </strong>
-                  </div>
-                );
-              })}
-            </div>
-          )}
+          </div>
         </section>
 
+        {/* ACTIVITY THIS WEEK */}
 
-        {hasWorkouts && (
-          <section className="progress-insight">
+        <section className="weekly-activity">
+          <div className="section-heading-row">
             <div>
-              <span>PERSONAL INSIGHT</span>
-
-              <h2>
-                {bestStreak > 0
-                  ? `${bestStreak}-day best streak`
-                  : "Keep building your streak"}
-              </h2>
-
-              <p>
-                {currentStreak > 0
-                  ? `You are currently on a ${currentStreak}-day training streak. Consistency matters more than perfection.`
-                  : "Your next workout can start a new streak. Stay consistent and keep building momentum."}
-              </p>
+              <span className="section-label">
+                ACTIVITY THIS WEEK
+              </span>
             </div>
-
-            <div className="progress-insight-number">
-              {bestStreak}
-
-              <span>BEST DAYS</span>
-            </div>
-          </section>
-        )}
-      </main>
-    </div>
-  );
-}
-
-export default Progress;
