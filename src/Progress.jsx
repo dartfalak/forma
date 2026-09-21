@@ -361,3 +361,149 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
                 ACTIVITY THIS WEEK
               </span>
             </div>
+
+            <strong className="weekly-count">
+              {weeklyWorkoutCount}{" "}
+              {weeklyWorkoutCount === 1
+                ? "WORKOUT"
+                : "WORKOUTS"}
+            </strong>
+          </div>
+
+          <div className="weekly-days">
+            {weekDays.map((day) => {
+              const completed = workoutDateSet.has(
+                day.key
+              );
+
+              return (
+                <div
+                  className={`weekly-day ${
+                    day.isToday ? "is-today" : ""
+                  } ${
+                    completed ? "is-complete" : ""
+                  }`}
+                  key={day.key}
+                >
+                  <span>{day.name}</span>
+
+                  <div className="weekly-day-marker">
+                    {completed ? "✓" : ""}
+                  </div>
+
+                  {day.isToday && (
+                    <small>TODAY</small>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* RECENT WORKOUTS */}
+
+        <section className="recent-workouts-section">
+          <div className="section-heading-row">
+            <div>
+              <span className="section-label">
+                TRAINING HISTORY
+              </span>
+
+              <h2>Recent workouts</h2>
+            </div>
+
+            {workoutHistory.length > 8 && (
+              <span className="view-all-label">
+                VIEW ALL
+              </span>
+            )}
+          </div>
+
+          {!hasWorkouts ? (
+            <div className="progress-empty-state">
+              <div className="progress-empty-icon">
+                —
+              </div>
+
+              <h3>No workouts recorded yet</h3>
+
+              <p>
+                Complete your first workout and your
+                training history will appear here.
+              </p>
+
+              <button
+                onClick={() => onNavigate("workout")}
+              >
+                Start Workout
+              </button>
+            </div>
+          ) : (
+            <div className="recent-workouts-list">
+              {recentWorkouts.map((workout, index) => {
+                return (
+                  <div
+                    className="recent-workout-row"
+                    key={
+                      workout.id ||
+                      `${workout.date}-${index}`
+                    }
+                  >
+                    <div className="recent-workout-info">
+                      <h3>
+                        {workout.name || "Workout"}
+                      </h3>
+
+                      <span>
+                        {formatRecentDate(workout.date)}
+                        {" · "}
+                        {workout.type || "Training"}
+                      </span>
+                    </div>
+
+                    <div className="recent-workout-duration">
+                      {getWorkoutMinutes(workout)} min
+                    </div>
+
+                    <div className="recent-workout-arrow">
+                      →
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </section>
+
+        {/* CONSISTENCY */}
+
+        {hasWorkouts && (
+          <section className="consistency-section">
+            <div className="section-label">
+              CONSISTENCY
+            </div>
+
+            <div className="consistency-values">
+              <div>
+                <span>CURRENT STREAK</span>
+                <strong>{currentStreak} days</strong>
+              </div>
+
+              <div>
+                <span>THIS WEEK</span>
+                <strong>
+                  {weeklyWorkoutCount}{" "}
+                  {weeklyWorkoutCount === 1
+                    ? "workout"
+                    : "workouts"}
+                </strong>
+              </div>
+            </div>
+          </section>
+        )}
+      </main>
+    </div>
+  );
+}
+
+export default Progress;
