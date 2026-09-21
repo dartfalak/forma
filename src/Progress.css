@@ -840,3 +840,551 @@
   font-weight: 500;
 }
 
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+.progress-page.light-theme {
+  background:
+    radial-gradient(
+      circle at 80% 5%,
+      rgba(112, 149, 184, 0.08),
+      transparent 28%
+    ),
+    #f5f6f7;
+
+  color: #171b20;
+}
+
+.light-theme .progress-navbar {
+  background: rgba(245, 246, 247, 0.96);
+
+  border-color: #dfe3e7;
+}
+
+.light-theme .progress-logo {
+  color: #171b20;
+}
+
+.light-theme .progress-nav-button {
+  color: #68727d;
+}
+
+.light-theme .progress-nav-button:hover,
+.light-theme .progress-nav-button.nav-active {
+  color: #171b20;
+}
+
+.light-theme .progress-profile-circle {
+  background: #ffffff;
+
+  border-color: #d5dbe0;
+
+  color: #58799b;
+}
+
+.light-theme .progress-header {
+  border-color: #dfe3e7;
+}
+
+.light-theme .progress-header h1 {
+  color: #171b20;
+}
+
+.light-theme .progress-header p {
+  color: #68727d;
+}
+
+.light-theme .progress-period span {
+  color: #74808a;
+}
+
+.light-theme .progress-period strong {
+  color: #58799b;
+}
+
+/* STATS */
+
+.light-theme .progress-stats-row {
+  border-color: #dfe3e7;
+}
+
+.light-theme .progress-inline-stat {
+  border-color: #dfe3e7;
+}
+
+.light-theme .progress-inline-stat span,
+.light-theme .progress-inline-stat small {
+  color: #74808a;
+}
+
+.light-theme .progress-inline-stat strong {
+  color: #171b20;
+}
+
+/* SHARED */
+
+.light-theme .section-label {
+  color: #74808a;
+}
+
+.light-theme .section-heading-row h2 {
+  color: #303942;
+}
+
+.light-theme .weekly-count,
+.light-theme .view-all-label {
+  color: #58799b;
+}
+
+/* GOAL */
+
+.light-theme .monthly-goal-section {
+  border-color: #dfe3e7;
+}
+
+.light-theme .monthly-goal-top h2 {
+  color: #303942;
+}
+
+.light-theme .monthly-goal-count {
+  color: #58799b;
+}
+
+.light-theme .goal-circle::before {
+  background: #f5f6f7;
+}
+
+.light-theme .goal-circle strong {
+  color: #171b20;
+}
+
+.light-theme .goal-circle span,
+.light-theme .monthly-goal-details p {
+  color: #68737d;
+}
+
+.light-theme .goal-bar {
+  background: #dfe4e8;
+}
+
+/* WEEK */
+
+.light-theme .weekly-activity {
+  border-color: #dfe3e7;
+}
+
+.light-theme .weekly-days {
+  border-color: #dfe3e7;
+}
+
+.light-theme .weekly-day {
+  border-color: #dfe3e7;
+}
+
+.light-theme .weekly-day > span {
+  color: #68737d;
+}
+
+.light-theme .weekly-day-marker {
+  border-color: #d0d8df;
+
+  color: #58799b;
+}
+
+.light-theme .weekly-day.is-complete .weekly-day-marker {
+  background: rgba(112, 149, 184, 0.1);
+
+  border-color: #8da6bb;
+
+  color: #58799b;
+}
+
+.light-theme .weekly-day.is-today > span {
+  color: #303942;
+}
+
+/* HISTORY */
+
+.light-theme .recent-workouts-list {
+  border-color: #dfe3e7;
+}
+
+.light-theme .recent-workout-row {
+  border-color: #dfe3e7;
+}
+
+.light-theme .recent-workout-row:hover {
+  background: rgba(0, 0, 0, 0.018);
+}
+
+.light-theme .recent-workout-info h3 {
+  color: #303942;
+}
+
+.light-theme .recent-workout-info span {
+  color: #68737d;
+}
+
+.light-theme .recent-workout-duration {
+  color: #58799b;
+}
+
+.light-theme .recent-workout-arrow {
+  color: #71808b;
+}
+
+/* EMPTY */
+
+.light-theme .progress-empty-state {
+  border-color: #dfe3e7;
+}
+
+.light-theme .progress-empty-icon {
+  border-color: #d3dbe1;
+
+  color: #71808b;
+}
+
+.light-theme .progress-empty-state h3 {
+  color: #303942;
+}
+
+.light-theme .progress-empty-state p {
+  color: #68737d;
+}
+
+/* CONSISTENCY */
+
+.light-theme .consistency-section {
+  border-color: #dfe3e7;
+}
+
+.light-theme .consistency-values > div {
+  border-color: #dfe3e7;
+}
+
+.light-theme .consistency-values span {
+  color: #74808a;
+}
+
+.light-theme .consistency-values strong {
+  color: #303942;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+  .progress-navbar {
+    padding: 0 30px;
+  }
+
+  .progress-nav-center {
+    gap: 28px;
+  }
+
+  .progress-content {
+    width: min(900px, calc(100% - 50px));
+  }
+
+  .progress-header {
+    gap: 25px;
+  }
+
+  .monthly-goal-content {
+    grid-template-columns: 135px 1fr;
+
+    gap: 28px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .progress-navbar {
+    height: 70px;
+
+    padding: 0 20px;
+  }
+
+  .progress-logo {
+    font-size: 24px;
+  }
+
+  .progress-nav-center {
+    gap: 17px;
+  }
+
+  .progress-nav-button {
+    font-size: 11px;
+  }
+
+  .progress-content {
+    width: calc(100% - 32px);
+
+    padding: 42px 0 70px;
+  }
+
+  .progress-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 24px;
+
+    padding-bottom: 30px;
+  }
+
+  .progress-header h1 {
+    font-size: 55px;
+  }
+
+  .progress-header p {
+    max-width: 100%;
+
+    font-size: 11px;
+  }
+
+  .progress-period {
+    min-width: 0;
+
+    text-align: left;
+  }
+
+  .progress-stats-row {
+    margin-bottom: 34px;
+  }
+
+  .progress-inline-stat {
+    min-height: 80px;
+
+    padding: 18px 15px;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+  }
+
+  .progress-inline-stat:first-child {
+    padding-left: 0;
+  }
+
+  .progress-inline-stat span {
+    width: 100%;
+  }
+
+  .progress-inline-stat strong {
+    font-size: 27px;
+  }
+
+  .monthly-goal-content {
+    grid-template-columns: 115px 1fr;
+
+    gap: 22px;
+  }
+
+  .goal-circle {
+    width: 110px;
+    height: 110px;
+  }
+
+  .goal-circle strong {
+    font-size: 32px;
+  }
+
+  .weekly-day {
+    min-height: 95px;
+
+    padding: 14px 5px;
+  }
+
+  .weekly-day-marker {
+    width: 24px;
+    height: 24px;
+
+    margin-top: 15px;
+  }
+
+  .recent-workout-row {
+    grid-template-columns: 1fr auto 20px;
+
+    gap: 14px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+  .progress-navbar {
+    grid-template-columns: auto 1fr auto;
+
+    padding: 0 15px;
+  }
+
+  .progress-logo {
+    font-size: 19px;
+
+    letter-spacing: 3px;
+  }
+
+  .progress-nav-center {
+    gap: 10px;
+  }
+
+  .progress-nav-button {
+    font-size: 9px;
+  }
+
+  .progress-content {
+    width: calc(100% - 24px);
+
+    padding-top: 35px;
+  }
+
+  .progress-header h1 {
+    font-size: 47px;
+  }
+
+  .progress-header p {
+    font-size: 10px;
+  }
+
+  .progress-inline-stat {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .progress-inline-stat:first-child {
+    padding-left: 0;
+  }
+
+  .progress-inline-stat span {
+    font-size: 7px;
+
+    letter-spacing: 1.2px;
+  }
+
+  .progress-inline-stat strong {
+    font-size: 24px;
+  }
+
+  .progress-inline-stat small {
+    font-size: 7px;
+  }
+
+  .monthly-goal-top h2 {
+    font-size: 29px;
+  }
+
+  .monthly-goal-count {
+    font-size: 9px;
+  }
+
+  .monthly-goal-content {
+    grid-template-columns: 95px 1fr;
+
+    gap: 15px;
+  }
+
+  .goal-circle {
+    width: 92px;
+    height: 92px;
+  }
+
+  .goal-circle::before {
+    inset: 6px;
+  }
+
+  .goal-circle strong {
+    font-size: 27px;
+  }
+
+  .goal-circle span {
+    font-size: 6px;
+  }
+
+  .monthly-goal-details p {
+    font-size: 8px;
+  }
+
+  .weekly-days {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .weekly-day {
+    min-height: 88px;
+
+    padding: 13px 2px;
+  }
+
+  .weekly-day > span {
+    font-size: 8px;
+  }
+
+  .weekly-day-marker {
+    width: 22px;
+    height: 22px;
+
+    margin-top: 13px;
+
+    font-size: 8px;
+  }
+
+  .weekly-day small {
+    font-size: 5px;
+  }
+
+  .section-heading-row h2 {
+    font-size: 28px;
+  }
+
+  .recent-workout-row {
+    min-height: 70px;
+
+    grid-template-columns: 1fr auto 15px;
+
+    gap: 8px;
+  }
+
+  .recent-workout-info h3 {
+    font-size: 10px;
+  }
+
+  .recent-workout-info span {
+    font-size: 7px;
+  }
+
+  .recent-workout-duration {
+    font-size: 8px;
+  }
+
+  .recent-workout-arrow {
+    font-size: 13px;
+  }
+
+  .consistency-values {
+    grid-template-columns: 1fr;
+  }
+
+  .consistency-values > div {
+    padding: 15px 0;
+
+    border-left: none;
+
+    border-bottom: 1px solid #202a33;
+  }
+
+  .consistency-values > div:last-child {
+    border-bottom: none;
+  }
+
+  .light-theme .consistency-values > div {
+    border-color: #dfe3e7;
+  }
+}
