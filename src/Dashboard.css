@@ -1294,22 +1294,21 @@
 
 
 .progress-circle-inner strong {
-  font-family: "Cormorant Garamond", serif;
 
-  font-size: 48px;
+font-family: "Manrope", sans-serif;
 
-  font-weight: 500;
+font-size: 44px;
 
-  line-height: 0.9;
+font-weight: 500;
 
-  letter-spacing: -1px;
+line-height: 1;
 
-  color: #f5f7fa;
+letter-spacing: -1px;
 
-  text-shadow:
-    0 0 18px rgba(112, 149, 184, 0.12);
+color: #f5f7fa;
 
-  transition: color 0.3s ease;
+font-variant-numeric: tabular-nums;
+
 }
 
 
