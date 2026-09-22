@@ -1253,3 +1253,26 @@
   color: #8ba8bf !important;
 }
 
+@media (max-width: 500px) {
+  .goal-circle strong {
+    font-family: "Manrope", sans-serif !important;
+    font-size: 39px !important;
+    font-weight: 500 !important;
+    letter-spacing: -1px !important;
+    font-variant-numeric: tabular-nums !important;
+  }
+
+  .progress-stat-card strong {
+    font-family: "Manrope", sans-serif !important;
+    font-size: 37px !important;
+    font-weight: 500 !important;
+    font-variant-numeric: tabular-nums !important;
+  }
+
+  .progress-insight-number {
+    font-family: "Manrope", sans-serif !important;
+    font-size: 40px !important;
+    font-weight: 500 !important;
+    font-variant-numeric: tabular-nums !important;
+  }
+}
