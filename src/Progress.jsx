@@ -342,3 +342,128 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
           </div>
         </section>
 
+   
+
+        <section className="history-panel progress-history-full">
+          <div className="progress-panel-heading">
+            <div>
+              <span>TRAINING HISTORY</span>
+
+              <h2>Recent workouts</h2>
+            </div>
+
+            <strong>
+              {workoutHistory.length} TOTAL
+            </strong>
+          </div>
+
+          {!hasWorkouts ? (
+            <div className="progress-empty-state">
+              <div className="progress-empty-icon">
+                —
+              </div>
+
+              <h3>No workouts recorded yet</h3>
+
+              <p>
+                Complete your first workout and your training
+                history will appear here.
+              </p>
+
+              <button
+                onClick={() => onNavigate("workout")}
+              >
+                Start Workout
+              </button>
+            </div>
+          ) : (
+            <div className="history-list">
+              {recentWorkouts.map((workout, index) => {
+                const completedExercises =
+                  Number(
+                    workout.completedExercises || 0
+                  );
+
+                const totalExercises =
+                  Number(
+                    workout.totalExercises ||
+                      workout.exercises?.length ||
+                      0
+                  );
+
+                const completionPercentage =
+                  Number(
+                    workout.completionPercentage || 0
+                  );
+
+                return (
+                  <div
+                    className="history-item"
+                    key={
+                      workout.id ||
+                      `${workout.date}-${index}`
+                    }
+                  >
+                    <div className="history-icon">
+                      {completionPercentage >= 100
+                        ? "✓"
+                        : "•"}
+                    </div>
+
+                    <div className="history-info">
+                      <h3>
+                        {workout.name || "Workout"}
+                      </h3>
+
+                      <span>
+                        {formatDate(workout.date)}
+                        {" · "}
+                        {workout.type || "Training"}
+                        {" · "}
+                        {completedExercises}/
+                        {totalExercises} exercises
+                      </span>
+                    </div>
+
+                    <strong>
+                      {getWorkoutMinutes(workout)} min
+                    </strong>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </section>
+
+
+        {hasWorkouts && (
+          <section className="progress-insight">
+            <div>
+              <span>PERSONAL INSIGHT</span>
+
+              <h2>
+                {bestStreak > 0
+                  ? `${bestStreak}-day best streak`
+                  : "Keep building your streak"}
+              </h2>
+
+              <p>
+                {currentStreak > 0
+                  ? `You are currently on a ${currentStreak}-day training streak. Consistency matters more than perfection.`
+                  : "Your next workout can start a new streak. Stay consistent and keep building momentum."}
+              </p>
+            </div>
+
+            <div className="progress-insight-number">
+              {bestStreak}
+
+              <span>BEST DAYS</span>
+            </div>
+          </section>
+        )}
+      </main>
+    </div>
+  );
+}
+
+export default Progress;
