@@ -1347,3 +1347,44 @@
     grid-row: 1 / 3;
   }
 }
+
+/* =========================================================
+   FORMA — NUMERIC STYLE
+   Matches the Dashboard date-number style
+   ========================================================= */
+
+.workout-timer-card strong,
+.rest-timer,
+.workout-overview-card strong,
+.exercise-number,
+.exercise-section-heading > strong,
+.exercise-details strong,
+.summary-row strong {
+  font-family: "Manrope", sans-serif !important;
+  font-weight: 500 !important;
+  font-variant-numeric: tabular-nums !important;
+  font-feature-settings: "tnum" 1;
+  line-height: 1 !important;
+  letter-spacing: -1px;
+}
+
+/* Exercise numbers: 01, 02, 03... */
+.exercise-number {
+  letter-spacing: -0.5px;
+}
+
+/* Timer */
+.workout-timer-card strong,
+.rest-timer {
+  letter-spacing: -1px;
+}
+
+/* Sets / reps / weight */
+.exercise-details strong {
+  letter-spacing: -0.5px;
+}
+
+/* 3 / 5 progress indicator */
+.exercise-section-heading > strong {
+  letter-spacing: -0.5px;
+}
