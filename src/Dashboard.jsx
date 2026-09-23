@@ -686,7 +686,7 @@ function Dashboard({
               <div>
 
                 <h2>
-                  Upper Body
+                  Today's Focus
                 </h2>
 
                 <p>

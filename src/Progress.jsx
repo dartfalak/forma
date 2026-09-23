@@ -233,7 +233,7 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
               PERFORMANCE OVERVIEW
             </div>
 
-         <h1>
+         <h1>Track
   your <span>progress.</span>
 </h1>
 
