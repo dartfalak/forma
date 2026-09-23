@@ -1221,18 +1221,18 @@
    MATCH DATE NUMBER FONT STYLE
    ========================================= */
 
+
 .goal-circle strong,
 .progress-stat-card strong,
-.progress-insight-number {
+.progress-insight-number,
+.progress-panel-heading > strong,
+.history-item > strong {
   font-family: "Manrope", sans-serif !important;
-
   font-weight: 500 !important;
-
   font-variant-numeric: tabular-nums !important;
-
-  letter-spacing: -1px !important;
-
+  font-feature-settings: "tnum" 1;
   line-height: 1 !important;
+  letter-spacing: -1px !important;
 }
 
 /* Monthly progress percentage */
