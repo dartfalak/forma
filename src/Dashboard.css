@@ -2022,3 +2022,33 @@ font-variant-numeric: tabular-nums;
     height: 150px;
   }
 }
+
+
+.date-number,
+.stat-value,
+.panel-value,
+.featured-time,
+.progress-circle-inner strong {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+/* Keep the small unit beside a number consistent */
+.stat-value small {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: -0.5px;
+}
+
+/* Numbers inside the weekly day indicators */
+.day > div {
+  font-family: "Manrope", sans-serif;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
