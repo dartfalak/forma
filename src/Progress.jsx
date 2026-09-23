@@ -233,9 +233,9 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
               PERFORMANCE OVERVIEW
             </div>
 
-            <h1>
-              Track your progress<span>.</span>
-            </h1>
+         <h1>
+  your <span>progress.</span>
+</h1>
 
             <p>
               See how consistently you train, how much time
