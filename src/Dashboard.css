@@ -776,7 +776,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   color: #56616b;
   font-size: 9px;
   flex: 0 0 auto;
