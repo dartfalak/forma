@@ -763,7 +763,13 @@
 
   font-weight: 700;
 }
-
+.week-days {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-left: 20px;
+}
 
 .day {
   display: flex;
