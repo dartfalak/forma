@@ -1485,7 +1485,7 @@ font-variant-numeric: tabular-nums;
 }
 
 
-/* ---------- Stat Cards ---------- */
+
 
 .dashboard.light-theme .stat-card {
   border-color: #dce1e5;
@@ -1801,8 +1801,6 @@ font-variant-numeric: tabular-nums;
   color: #52636f;
 }
 
-
-/* ---------- Daily Progress ---------- */
 
 .dashboard.light-theme .daily-progress-panel {
   border-color: #dce1e5;
