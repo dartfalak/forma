@@ -121,9 +121,6 @@
   font-weight: 700;
 }
 
-/* =========================
-   CONTENT
-   ========================= */
 
 .progress-content {
   width: min(1180px, calc(100% - 60px));
@@ -131,9 +128,7 @@
   padding: 70px 0 100px;
 }
 
-/* =========================
-   HEADER
-   ========================= */
+
 
 .progress-header {
   display: flex;
@@ -234,9 +229,7 @@
   letter-spacing: 1.5px;
 }
 
-/* =========================
-   KEY METRICS
-   ========================= */
+ 
 
 .progress-stats {
   display: grid;
@@ -304,9 +297,6 @@
   font-size: 9px;
 }
 
-/* =========================
-   MAIN AREA
-   ========================= */
 
 .progress-main-section {
   display: grid;
@@ -315,9 +305,6 @@
   gap: 20px;
 }
 
-/* =========================
-   MONTHLY GOAL
-   ========================= */
 
 .goal-panel {
   min-height: 390px;
@@ -428,9 +415,6 @@
   font-weight: 500;
 }
 
-/* =========================
-   HISTORY
-   ========================= */
 
 .history-panel {
   min-height: 390px;
@@ -553,10 +537,6 @@
   white-space: nowrap;
 }
 
-/* =========================
-   EMPTY STATE
-   ========================= */
-
 .progress-empty-state {
   min-height: 270px;
 
@@ -630,9 +610,6 @@
   background: #214d76;
 }
 
-/* =========================
-   LIGHT THEME
-   ========================= */
 
 .progress-page.light-theme {
   background:
