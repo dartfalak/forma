@@ -1239,13 +1239,13 @@
   color: #f5f7fa !important;
 }
 
-
+/* Other numerical values */
 .progress-stat-card strong {
   font-size: 42px !important;
   color: #f1f4f6 !important;
 }
 
-
+/* Best streak number */
 .progress-insight-number {
   font-size: 44px !important;
   color: #8ba8bf !important;
