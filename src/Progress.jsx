@@ -199,7 +199,7 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
 
       <main className="progress-content">
 
-        
+        {/* HEADER */}
         <header className="progress-header">
           <div>
             <div className="progress-status">
@@ -226,7 +226,7 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
           </div>
         </header>
 
-        
+        {/* KEY METRICS */}
         <section className="progress-stats">
           <div className="progress-stat-card">
             <span>WORKOUTS</span>
@@ -257,10 +257,10 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
           </div>
         </section>
 
-        
+        {/* MAIN PROGRESS AREA */}
         <section className="progress-main-section">
 
-          
+          {/* MONTHLY GOAL */}
           <div className="goal-panel">
             <div className="section-label">
               MONTHLY TARGET
@@ -411,3 +411,4 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
 }
 
 export default Progress;
+
