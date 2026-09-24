@@ -774,9 +774,7 @@
   color: #68737d;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+
 
 @media (max-width: 950px) {
   .progress-navbar {
