@@ -1,4 +1,4 @@
-jsx
+
 import React, { useMemo } from "react";
 import "./Progress.css";
 
