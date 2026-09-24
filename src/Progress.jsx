@@ -1,3 +1,4 @@
+
 import React, { useMemo } from "react";
 import "./Progress.css";
 
@@ -51,7 +52,6 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
   }, 0);
 
   const totalMinutes = Math.round(totalSeconds / 60);
-
   const totalHours = (totalSeconds / 3600).toFixed(1);
 
   const monthlyGoal = 20;
@@ -64,7 +64,6 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
           Math.round((totalWorkouts / monthlyGoal) * 100)
         );
 
-
   const getDateKey = (date) => {
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -74,13 +73,20 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
   };
 
   const workoutDates = useMemo(() => {
-    const dates = workoutHistory.map((workout) => {
-      return getDateKey(new Date(workout.date));
-    });
+    const dates = workoutHistory
+      .map((workout) => {
+        const date = new Date(workout.date);
+
+        if (Number.isNaN(date.getTime())) {
+          return null;
+        }
+
+        return getDateKey(date);
+      })
+      .filter(Boolean);
 
     return [...new Set(dates)];
   }, [workoutHistory]);
-
 
   const currentStreak = useMemo(() => {
     if (workoutDates.length === 0) {
@@ -111,51 +117,15 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
 
     while (dateSet.has(getDateKey(currentDate))) {
       streak++;
-
       currentDate.setDate(currentDate.getDate() - 1);
     }
 
     return streak;
   }, [workoutDates]);
 
-
-
-  const bestStreak = useMemo(() => {
-    if (workoutDates.length === 0) {
-      return 0;
-    }
-
-    const sortedDates = [...workoutDates].sort();
-
-    let best = 1;
-    let current = 1;
-
-    for (let i = 1; i < sortedDates.length; i++) {
-      const previousDate = new Date(sortedDates[i - 1]);
-      const currentDate = new Date(sortedDates[i]);
-
-      const difference =
-        (currentDate - previousDate) /
-        (1000 * 60 * 60 * 24);
-
-      if (difference === 1) {
-        current++;
-        best = Math.max(best, current);
-      } else {
-        current = 1;
-      }
-    }
-
-    return best;
-  }, [workoutDates]);
-
-  const consistency = goalPercentage;
-
-  const recentWorkouts = workoutHistory.slice(0, 8);
+  const recentWorkouts = workoutHistory.slice(0, 6);
 
   const hasWorkouts = workoutHistory.length > 0;
-
-  
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -167,7 +137,6 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
     });
   };
 
-
   const getWorkoutMinutes = (workout) => {
     if (workout.durationMinutes) {
       return workout.durationMinutes;
@@ -178,14 +147,19 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
     return Math.max(1, Math.round(seconds / 60));
   };
 
-
-
   return (
     <div className={`progress-page ${theme}-theme`}>
       <nav className="progress-navbar">
         <div
           className="progress-logo"
           onClick={onNavigateHome}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              onNavigateHome();
+            }
+          }}
         >
           FORMA
         </div>
@@ -225,7 +199,7 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
 
       <main className="progress-content">
 
-
+        {/* HEADER */}
         <header className="progress-header">
           <div>
             <div className="progress-status">
@@ -233,14 +207,13 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
               PERFORMANCE OVERVIEW
             </div>
 
-         <h1>Track
-  your <span>progress.</span>
-</h1>
+            <h1>
+              Track your <span>progress.</span>
+            </h1>
 
             <p>
-              See how consistently you train, how much time
-              you have invested, and how close you are to
-              your goals.
+              Monitor your training consistency, time invested,
+              and progress toward your monthly goal.
             </p>
           </div>
 
@@ -253,214 +226,185 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
           </div>
         </header>
 
-
+        {/* KEY METRICS */}
         <section className="progress-stats">
           <div className="progress-stat-card">
-            <span>WORKOUTS THIS MONTH</span>
-
+            <span>WORKOUTS</span>
             <strong>{totalWorkouts}</strong>
-
             <p>of {monthlyGoal} monthly goal</p>
           </div>
 
           <div className="progress-stat-card">
-            <span>CURRENT STREAK</span>
-
+            <span>STREAK</span>
             <strong>{currentStreak}</strong>
-
             <p>
               {currentStreak === 1
-                ? "day"
+                ? "consecutive day"
                 : "consecutive days"}
             </p>
           </div>
 
           <div className="progress-stat-card">
             <span>TIME TRAINED</span>
-
             <strong>{totalHours}h</strong>
-
             <p>{totalMinutes} minutes this month</p>
           </div>
 
           <div className="progress-stat-card">
             <span>CONSISTENCY</span>
-
-            <strong>{consistency}%</strong>
-
+            <strong>{goalPercentage}%</strong>
             <p>monthly goal progress</p>
           </div>
         </section>
 
-        <section className="progress-goal-section">
+        {/* MAIN PROGRESS AREA */}
+        <section className="progress-main-section">
+
+          {/* MONTHLY GOAL */}
           <div className="goal-panel">
-            <div className="progress-panel-heading">
-              <div>
-                <span>MONTHLY TARGET</span>
+            <div className="section-label">
+              MONTHLY TARGET
+            </div>
 
+            <div className="goal-heading">
+              <div>
                 <h2>{monthlyGoal} Workouts</h2>
+
+                <p>
+                  {totalWorkouts} of {monthlyGoal} completed
+                </p>
               </div>
 
-              <strong>
-                {totalWorkouts} / {monthlyGoal}
-              </strong>
+              <strong>{goalPercentage}%</strong>
             </div>
 
-            <div
-              className="goal-circle"
-              style={{
-                background: `conic-gradient(
-                  #7095b8 0 ${goalPercentage}%,
-                  #202a33 ${goalPercentage}% 100%
-                )`,
-              }}
-            >
-              <div>
-                <strong>{goalPercentage}%</strong>
-
-                <span>COMPLETE</span>
-              </div>
-            </div>
-
-            <p>
-              {totalWorkouts >= monthlyGoal
-                ? "Monthly workout goal completed. Keep pushing."
-                : `${monthlyGoal - totalWorkouts} workout${
-                    monthlyGoal - totalWorkouts === 1
-                      ? ""
-                      : "s"
-                  } remaining to reach your monthly goal.`}
-            </p>
-
-            <div className="goal-bar">
+            <div className="goal-progress-track">
               <div
+                className="goal-progress-fill"
                 style={{
                   width: `${goalPercentage}%`,
                 }}
               ></div>
             </div>
-          </div>
-        </section>
 
-   
+            <div className="goal-footer">
+              <span>0</span>
 
-        <section className="history-panel progress-history-full">
-          <div className="progress-panel-heading">
-            <div>
-              <span>TRAINING HISTORY</span>
-
-              <h2>Recent workouts</h2>
+              <span>{monthlyGoal} workouts</span>
             </div>
 
-            <strong>
-              {workoutHistory.length} TOTAL
-            </strong>
+            <div className="goal-status">
+              {totalWorkouts >= monthlyGoal
+                ? "Monthly target completed."
+                : `${monthlyGoal - totalWorkouts} workout${
+                    monthlyGoal - totalWorkouts === 1
+                      ? ""
+                      : "s"
+                  } remaining`}
+            </div>
           </div>
 
-          {!hasWorkouts ? (
-            <div className="progress-empty-state">
-              <div className="progress-empty-icon">
-                —
+          {/* RECENT WORKOUTS */}
+          <div className="history-panel">
+            <div className="history-header">
+              <div>
+                <div className="section-label">
+                  TRAINING HISTORY
+                </div>
+
+                <h2>Recent workouts</h2>
               </div>
 
-              <h3>No workouts recorded yet</h3>
-
-              <p>
-                Complete your first workout and your training
-                history will appear here.
-              </p>
-
-              <button
-                onClick={() => onNavigate("workout")}
-              >
-                Start Workout
-              </button>
+              <span>
+                {workoutHistory.length} TOTAL
+              </span>
             </div>
-          ) : (
-            <div className="history-list">
-              {recentWorkouts.map((workout, index) => {
-                const completedExercises =
-                  Number(
-                    workout.completedExercises || 0
-                  );
 
-                const totalExercises =
-                  Number(
-                    workout.totalExercises ||
-                      workout.exercises?.length ||
-                      0
-                  );
+            {!hasWorkouts ? (
+              <div className="progress-empty-state">
+                <div className="progress-empty-icon">
+                  —
+                </div>
 
-                const completionPercentage =
-                  Number(
-                    workout.completionPercentage || 0
-                  );
+                <h3>No workouts recorded</h3>
 
-                return (
-                  <div
-                    className="history-item"
-                    key={
-                      workout.id ||
-                      `${workout.date}-${index}`
-                    }
-                  >
-                    <div className="history-icon">
-                      {completionPercentage >= 100
-                        ? "✓"
-                        : "•"}
+                <p>
+                  Complete your first workout and your
+                  training history will appear here.
+                </p>
+
+                <button
+                  onClick={() => onNavigate("workout")}
+                >
+                  Start Workout
+                </button>
+              </div>
+            ) : (
+              <div className="history-list">
+                {recentWorkouts.map((workout, index) => {
+                  const completedExercises =
+                    Number(
+                      workout.completedExercises || 0
+                    );
+
+                  const totalExercises =
+                    Number(
+                      workout.totalExercises ||
+                        workout.exercises?.length ||
+                        0
+                    );
+
+                  const completionPercentage =
+                    Number(
+                      workout.completionPercentage || 0
+                    );
+
+                  return (
+                    <div
+                      className="history-item"
+                      key={
+                        workout.id ||
+                        `${workout.date}-${index}`
+                      }
+                    >
+                      <div
+                        className={`history-icon ${
+                          completionPercentage >= 100
+                            ? "completed"
+                            : ""
+                        }`}
+                      >
+                        {completionPercentage >= 100
+                          ? "✓"
+                          : "•"}
+                      </div>
+
+                      <div className="history-info">
+                        <h3>
+                          {workout.name || "Workout"}
+                        </h3>
+
+                        <span>
+                          {formatDate(workout.date)}
+                          {" · "}
+                          {workout.type || "Training"}
+                          {" · "}
+                          {completedExercises}/
+                          {totalExercises} exercises
+                        </span>
+                      </div>
+
+                      <strong>
+                        {getWorkoutMinutes(workout)} min
+                      </strong>
                     </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
 
-                    <div className="history-info">
-                      <h3>
-                        {workout.name || "Workout"}
-                      </h3>
-
-                      <span>
-                        {formatDate(workout.date)}
-                        {" · "}
-                        {workout.type || "Training"}
-                        {" · "}
-                        {completedExercises}/
-                        {totalExercises} exercises
-                      </span>
-                    </div>
-
-                    <strong>
-                      {getWorkoutMinutes(workout)} min
-                    </strong>
-                  </div>
-                );
-              })}
-            </div>
-          )}
         </section>
-
-
-        {hasWorkouts && (
-          <section className="progress-insight">
-            <div>
-              <span>PERSONAL INSIGHT</span>
-
-              <h2>
-                {bestStreak > 0
-                  ? `${bestStreak}-day best streak`
-                  : "Keep building your streak"}
-              </h2>
-
-              <p>
-                {currentStreak > 0
-                  ? `You are currently on a ${currentStreak}-day training streak. Consistency matters more than perfection.`
-                  : "Your next workout can start a new streak. Stay consistent and keep building momentum."}
-              </p>
-            </div>
-
-            <div className="progress-insight-number">
-              {bestStreak}
-
-              <span>BEST DAYS</span>
-            </div>
-          </section>
-        )}
       </main>
     </div>
   );
