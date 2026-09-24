@@ -741,7 +741,7 @@
 
   font-weight: 700;
 
-  letter-spacing: 2px;
+  letter-spacing: 4px;
 }
 
 
@@ -763,31 +763,24 @@
 
   font-weight: 700;
 }
-
-
 .week-days {
   display: flex;
-
+  align-items: center;
   justify-content: space-between;
-
-  gap: 7px;
+  width: 100%;
+  margin-left: 0;
+  gap: 0;
 }
-
 
 .day {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   gap: 8px;
-
   color: #56616b;
-
   font-size: 9px;
+  flex: 0 0 auto;
 }
-
 
 .day > div {
   width: 32px;
@@ -797,6 +790,7 @@
 
   align-items: center;
   justify-content: center;
+
 
   border: 1px solid #252f38;
 
@@ -873,8 +867,8 @@
 
 .todo-heading {
   display: flex;
-
-  align-items: flex-start;
+/* 
+  align-items: flex-start; */
 
   justify-content: space-between;
 
