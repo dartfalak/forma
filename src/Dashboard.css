@@ -1864,10 +1864,6 @@ font-variant-numeric: tabular-nums;
 }
 
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
 @media (max-width: 950px) {
 
   .dashboard-navbar {
@@ -2029,7 +2025,7 @@ font-variant-numeric: tabular-nums;
   letter-spacing: -1px;
 }
 
-/* Keep the small unit beside a number consistent */
+
 .stat-value small {
   font-family: "Manrope", sans-serif;
   font-weight: 500;
@@ -2038,7 +2034,6 @@ font-variant-numeric: tabular-nums;
   letter-spacing: -0.5px;
 }
 
-/* Numbers inside the weekly day indicators */
 .day > div {
   font-family: "Manrope", sans-serif;
   font-variant-numeric: tabular-nums;
