@@ -226,7 +226,7 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
           </div>
         </header>
 
-        {/* KEY METRICS */}
+    
         <section className="progress-stats">
           <div className="progress-stat-card">
             <span>WORKOUTS</span>
@@ -257,10 +257,10 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
           </div>
         </section>
 
-        {/* MAIN PROGRESS AREA */}
+      
         <section className="progress-main-section">
 
-          {/* MONTHLY GOAL */}
+          
           <div className="goal-panel">
             <div className="section-label">
               MONTHLY TARGET
@@ -304,7 +304,7 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
             </div>
           </div>
 
-          {/* RECENT WORKOUTS */}
+        
           <div className="history-panel">
             <div className="history-header">
               <div>
