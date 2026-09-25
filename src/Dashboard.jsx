@@ -987,3 +987,20 @@ function Dashboard({
 
             </div>
 
+
+            <p className="progress-summary">
+              {completedTasks} of{" "}
+              {totalTasks} tasks completed
+            </p>
+
+          </div>
+
+        </section>
+
+      </main>
+
+    </div>
+  );
+}
+
+export default Dashboard; 
