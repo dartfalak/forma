@@ -199,7 +199,7 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
 
       <main className="progress-content">
 
-        {/* HEADER */}
+        
         <header className="progress-header">
           <div>
             <div className="progress-status">
