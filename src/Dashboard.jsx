@@ -312,24 +312,21 @@ function Dashboard({
   const monday =
     getMonday(today);
 
+const weekDays =
+  Array.from(
+    { length: 7 },
+    (_, index) => {
 
-  const weekDays =
-    Array.from(
-      { length: 6 },
-      (_, index) => {
+      const date =
+        new Date(monday);
 
-        const date =
-          new Date(monday);
+      date.setDate(
+        monday.getDate() + index
+      );
 
-        date.setDate(
-          monday.getDate() + index
-        );
-
-        return date;
-      }
-    );
-
-
+      return date;
+    }
+  );
   
 
   const weekStart =
