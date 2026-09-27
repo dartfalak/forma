@@ -762,12 +762,13 @@
 
   font-weight: 700;
 }
+
 .week-days {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
   align-items: center;
-  justify-content: space-between;
   width: 100%;
-  margin-left: 20px;
+  margin-left: 0;
 }
 
 .day {
