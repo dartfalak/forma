@@ -1380,40 +1380,46 @@
 }
 
 
-/* =========================================
-   EXERCISE EDITING
-   ========================================= */
+/* =========================================================
+   EXERCISE EDIT BUTTON
+   ========================================================= */
 
 .exercise-edit-button {
+  flex: 0 0 auto;
   border: 1px solid #2a3b4b;
   background: transparent;
   color: #8fa8be;
   padding: 7px 12px;
-  border-radius: 6px;
+  border-radius: 5px;
   font-family: "Manrope", sans-serif;
-  font-size: 10px;
+  font-size: 9px;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.2s ease;
-  margin-right: 8px;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 .exercise-edit-button:hover {
   border-color: #7095b8;
-  color: #dbe7f2;
+  color: #dce8f2;
   background: rgba(112, 149, 184, 0.08);
 }
 
 .exercise-edit-button:disabled {
-  opacity: 0.4;
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
 
-/* =========================================
+/* =========================================================
    EDIT MODE
-   ========================================= */
+   ========================================================= */
 
 .exercise-card-editing {
   padding: 18px 20px;
@@ -1427,22 +1433,29 @@
 }
 
 .exercise-edit-number {
+  flex: 0 0 42px;
   color: #526c82;
   font-family: "Manrope", sans-serif;
   font-size: 20px;
   font-variant-numeric: tabular-nums;
-  min-width: 42px;
 }
 
 .exercise-edit-fields {
   flex: 1;
+  min-width: 0;
   display: grid;
-  grid-template-columns: minmax(180px, 1.6fr) minmax(130px, 1fr) 70px 70px 85px;
+  grid-template-columns:
+    minmax(150px, 1.5fr)
+    minmax(110px, 1fr)
+    65px
+    65px
+    80px;
   gap: 10px;
   align-items: end;
 }
 
 .edit-field {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -1452,21 +1465,24 @@
   color: #607589;
   font-family: "Manrope", sans-serif;
   font-size: 8px;
-  letter-spacing: 0.16em;
+  font-weight: 500;
+  letter-spacing: 0.14em;
 }
 
 .edit-field input {
   width: 100%;
   box-sizing: border-box;
+  height: 34px;
   border: 1px solid #293846;
+  border-radius: 5px;
   background: #0d151d;
   color: #edf3f8;
-  border-radius: 5px;
-  padding: 9px 10px;
+  padding: 0 9px;
   outline: none;
   font-family: "Manrope", sans-serif;
   font-size: 11px;
-  transition: border-color 0.2s ease,
+  transition:
+    border-color 0.2s ease,
     background 0.2s ease;
 }
 
@@ -1475,23 +1491,33 @@
   background: #101a23;
 }
 
+
+/* =========================================================
+   SAVE / CANCEL
+   ========================================================= */
+
 .exercise-edit-actions {
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  min-width: 68px;
 }
 
 .exercise-save-button,
 .exercise-cancel-button {
+  min-width: 64px;
   border-radius: 5px;
   padding: 7px 10px;
   font-family: "Manrope", sans-serif;
-  font-size: 9px;
+  font-size: 8px;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .exercise-save-button {
@@ -1512,13 +1538,13 @@
 
 .exercise-cancel-button:hover {
   border-color: #52677a;
-  color: #b7c4cf;
+  color: #c0ccd6;
 }
 
 
-/* =========================================
+/* =========================================================
    LIGHT THEME
-   ========================================= */
+   ========================================================= */
 
 .light-theme .exercise-edit-button {
   border-color: #cbd5df;
@@ -1548,17 +1574,22 @@
 }
 
 
-/* =========================================
+/* =========================================================
    RESPONSIVE
-   ========================================= */
+   ========================================================= */
 
-@media (max-width: 950px) {
+@media (max-width: 1100px) {
   .exercise-edit-form {
     flex-wrap: wrap;
   }
 
   .exercise-edit-fields {
-    grid-template-columns: 1.5fr 1fr 70px 70px 85px;
+    grid-template-columns:
+      minmax(150px, 1.5fr)
+      minmax(110px, 1fr)
+      65px
+      65px
+      80px;
   }
 
   .exercise-edit-actions {
@@ -1569,15 +1600,7 @@
 }
 
 
-@media (max-width: 650px) {
-  .exercise-card-editing {
-    padding: 16px;
-  }
-
-  .exercise-edit-form {
-    align-items: flex-start;
-  }
-
+@media (max-width: 700px) {
   .exercise-edit-fields {
     grid-template-columns: 1fr 1fr;
   }
@@ -1592,14 +1615,14 @@
 }
 
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   .exercise-edit-form {
     flex-direction: column;
-    gap: 14px;
+    align-items: stretch;
   }
 
   .exercise-edit-number {
-    min-width: auto;
+    flex: none;
   }
 
   .exercise-edit-fields {
@@ -1613,5 +1636,6 @@
 
   .exercise-edit-actions {
     width: 100%;
+    flex-direction: row;
   }
 }
