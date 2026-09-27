@@ -1399,26 +1399,46 @@
 /* =========================================================
    EXERCISE EDIT BUTTON
    ========================================================= */
-
 .exercise-edit-button {
-  flex: 0 0 auto;
+  width: 55px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
   border: 1px solid #2a3b4b;
+  border-radius: 6px;
+
   background: transparent;
   color: #8fa8be;
-  padding: 7px 12px;
-  border-radius: 5px;
+
   font-family: "Manrope", sans-serif;
-  font-size: 9px;
-  font-weight: 500;
+  font-size: 8px;
+  font-weight: 600;
+
   letter-spacing: 0.08em;
   text-transform: uppercase;
+
   cursor: pointer;
+
   transition:
     border-color 0.2s ease,
     color 0.2s ease,
     background 0.2s ease;
-  margin-left: 4px;
-  margin-right: 4px;
+}
+
+.exercise-edit-button:hover {
+  border-color: #7095b8;
+  color: #dce8f2;
+  background: rgba(112, 149, 184, 0.08);
+}
+
+.exercise-edit-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .exercise-edit-button:hover {
