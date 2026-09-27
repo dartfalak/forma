@@ -627,7 +627,6 @@
 
   margin-top: 20px;
 }
-
 .exercise-card {
   min-height: 86px;
 
@@ -637,6 +636,7 @@
     42px
     minmax(180px, 1fr)
     auto
+    55px
     42px;
 
   align-items: center;
@@ -653,6 +653,22 @@
   transition:
     background 0.25s ease,
     border-color 0.25s ease;
+}
+
+.exercise-card:hover {
+  border-color: #344957;
+  background: #131e26;
+}
+
+.exercise-card.exercise-completed {
+  border-color: #45637a;
+
+  background:
+    linear-gradient(
+      135deg,
+      #152735,
+      #111c25
+    );
 }
 
 .exercise-card:hover {
