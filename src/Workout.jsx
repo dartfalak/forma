@@ -5,7 +5,8 @@ function Workout({
   user,
   theme,
   onNavigate,
-  onNavigateHome
+  onNavigateHome,
+  onWorkoutSaved
 }) {
   const weekDays = [
     { short: "MON", name: "Monday" },
@@ -368,10 +369,140 @@ function Workout({
 
   const [selectedDay, setSelectedDay] = useState(todayName);
 
-  const currentPlan = dayPlans[selectedDay] || dayPlans.Monday;
-  const exercises = currentPlan.exercises;
-
   const userId = user?.id || "guest";
+
+  /*
+    --------------------------------------------------
+    EXERCISE EDITING
+    --------------------------------------------------
+  */
+
+  const exerciseStorageKey =
+    `forma-workout-exercises-${userId}-${selectedDay}`;
+
+  const getExercisesForDay = (day) => {
+    const key = `forma-workout-exercises-${userId}-${day}`;
+    const saved = localStorage.getItem(key);
+
+    if (!saved) {
+      return dayPlans[day]?.exercises || [];
+    }
+
+    try {
+      return JSON.parse(saved);
+    } catch {
+      return dayPlans[day]?.exercises || [];
+    }
+  };
+
+  const [customExercises, setCustomExercises] = useState(() =>
+    getExercisesForDay(todayName)
+  );
+
+  const [editingExerciseId, setEditingExerciseId] =
+    useState(null);
+
+  const [editForm, setEditForm] = useState({
+    name: "",
+    muscle: "",
+    sets: "",
+    reps: "",
+    weight: ""
+  });
+
+  useEffect(() => {
+    const savedExercises = getExercisesForDay(selectedDay);
+
+    setCustomExercises(savedExercises);
+    setEditingExerciseId(null);
+
+    setEditForm({
+      name: "",
+      muscle: "",
+      sets: "",
+      reps: "",
+      weight: ""
+    });
+  }, [selectedDay]);
+
+  const startEditingExercise = (exercise) => {
+    setEditingExerciseId(exercise.id);
+
+    setEditForm({
+      name: exercise.name,
+      muscle: exercise.muscle,
+      sets: exercise.sets,
+      reps: exercise.reps,
+      weight: exercise.weight
+    });
+  };
+
+  const cancelEditingExercise = () => {
+    setEditingExerciseId(null);
+
+    setEditForm({
+      name: "",
+      muscle: "",
+      sets: "",
+      reps: "",
+      weight: ""
+    });
+  };
+
+  const saveEditedExercise = (exerciseId) => {
+    if (!editForm.name.trim()) {
+      return;
+    }
+
+    const updatedExercises = customExercises.map(
+      (exercise) =>
+        exercise.id === exerciseId
+          ? {
+              ...exercise,
+              name: editForm.name.trim(),
+              muscle: editForm.muscle.trim(),
+              sets: Math.max(1, Number(editForm.sets) || 1),
+              reps: Math.max(1, Number(editForm.reps) || 1),
+              weight: Math.max(0, Number(editForm.weight) || 0)
+            }
+          : exercise
+    );
+
+    setCustomExercises(updatedExercises);
+
+    localStorage.setItem(
+      exerciseStorageKey,
+      JSON.stringify(updatedExercises)
+    );
+
+    setEditingExerciseId(null);
+
+    setEditForm({
+      name: "",
+      muscle: "",
+      sets: "",
+      reps: "",
+      weight: ""
+    });
+  };
+
+  const handleEditInputChange = (field, value) => {
+    setEditForm((current) => ({
+      ...current,
+      [field]: value
+    }));
+  };
+
+  /*
+    --------------------------------------------------
+    CURRENT WORKOUT
+    --------------------------------------------------
+  */
+
+  const currentPlan =
+    dayPlans[selectedDay] || dayPlans.Monday;
+
+  const exercises = customExercises;
 
   const completedKey =
     `forma-workout-completed-${userId}-${selectedDay}`;
@@ -498,6 +629,15 @@ function Workout({
     setIsResting(true);
   };
 
+  const completedCount = completed.length;
+
+  const workoutProgress =
+    exercises.length === 0
+      ? 0
+      : Math.round(
+          (completedCount / exercises.length) * 100
+        );
+
   const finishWorkout = () => {
     if (completed.length === 0) {
       setFinishMessage(
@@ -597,15 +737,6 @@ function Workout({
       remainingSeconds
     ).padStart(2, "0")}`;
   };
-
-  const completedCount = completed.length;
-
-  const workoutProgress =
-    exercises.length === 0
-      ? 0
-      : Math.round(
-          (completedCount / exercises.length) * 100
-        );
 
   return (
     <div className={`workout-page ${theme}-theme`}>
@@ -789,6 +920,7 @@ function Workout({
         <section className="workout-overview">
           <div className="workout-overview-card">
             <span>TYPE</span>
+
             <strong>
               {selectedDay === "Sunday"
                 ? "Recovery"
@@ -798,16 +930,19 @@ function Workout({
 
           <div className="workout-overview-card">
             <span>TARGET</span>
+
             <strong>45 min</strong>
           </div>
 
           <div className="workout-overview-card">
             <span>EXERCISES</span>
+
             <strong>{exercises.length}</strong>
           </div>
 
           <div className="workout-overview-card">
             <span>PROGRESS</span>
+
             <strong>{workoutProgress}%</strong>
           </div>
         </section>
@@ -817,6 +952,7 @@ function Workout({
             <div className="exercise-section-heading">
               <div>
                 <span>WORKOUT PLAN</span>
+
                 <h2>Exercises</h2>
               </div>
 
@@ -830,65 +966,204 @@ function Workout({
                 const isCompleted =
                   completed.includes(exercise.id);
 
+                const isEditing =
+                  editingExerciseId === exercise.id;
+
                 return (
                   <div
                     className={`exercise-card ${
                       isCompleted
                         ? "exercise-completed"
                         : ""
+                    } ${
+                      isEditing
+                        ? "exercise-card-editing"
+                        : ""
                     }`}
                     key={exercise.id}
                   >
-                    <div className="exercise-number">
-                      {String(index + 1).padStart(
-                        2,
-                        "0"
-                      )}
-                    </div>
+                    {isEditing ? (
+                      /* ---------------- EDIT MODE ---------------- */
+                      <div className="exercise-edit-form">
+                        <div className="exercise-edit-number">
+                          {String(index + 1).padStart(
+                            2,
+                            "0"
+                          )}
+                        </div>
 
-                    <div className="exercise-info">
-                      <h3>{exercise.name}</h3>
+                        <div className="exercise-edit-fields">
+                          <div className="edit-field edit-name">
+                            <label>EXERCISE</label>
 
-                      <span>
-                        {exercise.muscle}
-                      </span>
-                    </div>
+                            <input
+                              type="text"
+                              value={editForm.name}
+                              onChange={(e) =>
+                                handleEditInputChange(
+                                  "name",
+                                  e.target.value
+                                )
+                              }
+                            />
+                          </div>
 
-                    <div className="exercise-details">
-                      <div>
-                        <small>SETS</small>
-                        <strong>
-                          {exercise.sets}
-                        </strong>
+                          <div className="edit-field">
+                            <label>MUSCLE</label>
+
+                            <input
+                              type="text"
+                              value={editForm.muscle}
+                              onChange={(e) =>
+                                handleEditInputChange(
+                                  "muscle",
+                                  e.target.value
+                                )
+                              }
+                            />
+                          </div>
+
+                          <div className="edit-field">
+                            <label>SETS</label>
+
+                            <input
+                              type="number"
+                              min="1"
+                              value={editForm.sets}
+                              onChange={(e) =>
+                                handleEditInputChange(
+                                  "sets",
+                                  e.target.value
+                                )
+                              }
+                            />
+                          </div>
+
+                          <div className="edit-field">
+                            <label>REPS</label>
+
+                            <input
+                              type="number"
+                              min="1"
+                              value={editForm.reps}
+                              onChange={(e) =>
+                                handleEditInputChange(
+                                  "reps",
+                                  e.target.value
+                                )
+                              }
+                            />
+                          </div>
+
+                          <div className="edit-field">
+                            <label>WEIGHT</label>
+
+                            <input
+                              type="number"
+                              min="0"
+                              value={editForm.weight}
+                              onChange={(e) =>
+                                handleEditInputChange(
+                                  "weight",
+                                  e.target.value
+                                )
+                              }
+                            />
+                          </div>
+                        </div>
+
+                        <div className="exercise-edit-actions">
+                          <button
+                            className="exercise-save-button"
+                            onClick={() =>
+                              saveEditedExercise(
+                                exercise.id
+                              )
+                            }
+                          >
+                            Save
+                          </button>
+
+                          <button
+                            className="exercise-cancel-button"
+                            onClick={
+                              cancelEditingExercise
+                            }
+                          >
+                            Cancel
+                          </button>
+                        </div>
                       </div>
+                    ) : (
+                      /* ---------------- NORMAL MODE ---------------- */
+                      <>
+                        <div className="exercise-number">
+                          {String(index + 1).padStart(
+                            2,
+                            "0"
+                          )}
+                        </div>
 
-                      <div>
-                        <small>REPS</small>
-                        <strong>
-                          {exercise.reps}
-                        </strong>
-                      </div>
+                        <div className="exercise-info">
+                          <h3>{exercise.name}</h3>
 
-                      <div>
-                        <small>WEIGHT</small>
-                        <strong>
-                          {exercise.weight
-                            ? `${exercise.weight} kg`
-                            : "—"}
-                        </strong>
-                      </div>
-                    </div>
+                          <span>
+                            {exercise.muscle}
+                          </span>
+                        </div>
 
-                    <button
-                      className="exercise-check"
-                      onClick={() =>
-                        toggleExercise(
-                          exercise.id
-                        )
-                      }
-                    >
-                      {isCompleted ? "✓" : "○"}
-                    </button>
+                        <div className="exercise-details">
+                          <div>
+                            <small>SETS</small>
+
+                            <strong>
+                              {exercise.sets}
+                            </strong>
+                          </div>
+
+                          <div>
+                            <small>REPS</small>
+
+                            <strong>
+                              {exercise.reps}
+                            </strong>
+                          </div>
+
+                          <div>
+                            <small>WEIGHT</small>
+
+                            <strong>
+                              {exercise.weight
+                                ? `${exercise.weight} kg`
+                                : "—"}
+                            </strong>
+                          </div>
+                        </div>
+
+                        <button
+                          className="exercise-edit-button"
+                          onClick={() =>
+                            startEditingExercise(
+                              exercise
+                            )
+                          }
+                          disabled={workoutFinished}
+                        >
+                          Edit
+                        </button>
+
+                        <button
+                          className="exercise-check"
+                          onClick={() =>
+                            toggleExercise(
+                              exercise.id
+                            )
+                          }
+                        >
+                          {isCompleted ? "✓" : "○"}
+                        </button>
+                      </>
+                    )}
                   </div>
                 );
               })}
@@ -946,22 +1221,6 @@ function Workout({
                   : "Start 60s Rest"}
               </button>
             </div>
-
-            {/* <div className="tip-panel">
-              <span className="sidebar-label">
-                FORMA TIP
-              </span>
-
-              <h3>
-                Focus on your form.
-              </h3>
-
-              <p>
-                Controlled movements and proper
-                technique are more important than
-                simply lifting heavier.
-              </p>
-            </div> */}
 
             <div className="workout-summary">
               <span className="sidebar-label">
