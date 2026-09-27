@@ -775,11 +775,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   color: #56616b;
   font-size: 9px;
-  flex: 0 0 auto;
+  width: 100%;
 }
-
 .day > div {
   width: 32px;
   height: 32px;
