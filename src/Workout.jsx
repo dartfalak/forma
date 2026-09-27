@@ -1235,36 +1235,3 @@ function Workout({
                   {exercises.length}
                 </strong>
               </div>
-
-              <div className="summary-row">
-                <span>Time</span>
-
-                <strong>
-                  {formatTime(seconds)}
-                </strong>
-              </div>
-
-              <div className="summary-row">
-                <span>Progress</span>
-
-                <strong>
-                  {workoutProgress}%
-                </strong>
-              </div>
-
-              <div className="summary-progress">
-                <div
-                  style={{
-                    width: `${workoutProgress}%`
-                  }}
-                ></div>
-              </div>
-            </div>
-          </aside>
-        </section>
-      </main>
-    </div>
-  );
-}
-
-export default Workout;
