@@ -431,6 +431,30 @@ function AuthModal({ onClose, theme }) {
               >
                 Sign in
               </button>
+            </>
+          ) : (
+            <>
+              Don't have an account?
 
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSignUp(true);
+                  setMessage("");
+                  setPassword("");
+                }}
+              >
+                Sign up
+              </button>
+            </>
+          )}
+
+        </div>
+
+      </div>
+
+    </div>
+  );
+}
 
 export default AuthModal;
