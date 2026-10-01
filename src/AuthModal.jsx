@@ -387,24 +387,7 @@ function AuthModal({ onClose, theme }) {
               : isSignUp
               ? "Create Account"
               : "Sign In"}
-          </button>
 
-        </form>
-
-        
-
-        <div className="auth-divider">
-          <span>or</span>
-        </div>
-
-        
-
-        <button
-          type="button"
-          className="google-button"
-          onClick={handleGoogleLogin}
-          disabled={loading}
-        >
           <span className="google-icon">
             G
           </span>
