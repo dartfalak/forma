@@ -983,7 +983,7 @@ function Workout({
                     key={exercise.id}
                   >
                     {isEditing ? (
-                      /* ---------------- EDIT MODE ---------------- */
+                  
                       <div className="exercise-edit-form">
                         <div className="exercise-edit-number">
                           {String(index + 1).padStart(
