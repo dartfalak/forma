@@ -493,11 +493,7 @@ function Workout({
     }));
   };
 
-  /*
-    --------------------------------------------------
-    CURRENT WORKOUT
-    --------------------------------------------------
-  */
+ 
 
   const currentPlan =
     dayPlans[selectedDay] || dayPlans.Monday;
