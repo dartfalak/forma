@@ -1091,7 +1091,7 @@ function Workout({
                         </div>
                       </div>
                     ) : (
-                      /* ---------------- NORMAL MODE ---------------- */
+                    
                       <>
                         <div className="exercise-number">
                           {String(index + 1).padStart(
