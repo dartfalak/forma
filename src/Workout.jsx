@@ -371,12 +371,6 @@ function Workout({
 
   const userId = user?.id || "guest";
 
-  /*
-    --------------------------------------------------
-    EXERCISE EDITING
-    --------------------------------------------------
-  */
-
   const exerciseStorageKey =
     `forma-workout-exercises-${userId}-${selectedDay}`;
 
