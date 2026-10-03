@@ -379,6 +379,36 @@ function Progress({ user, theme, onNavigate, onNavigateHome }) {
                           : "•"}
                       </div>
 
+                      <div className="history-info">
+                        <h3>
+                          {workout.name || "Workout"}
+                        </h3>
+
+                        <span>
+                          {formatDate(workout.date)}
+                          {" · "}
+                          {workout.type || "Training"}
+                          {" · "}
+                          {completedExercises}/
+                          {totalExercises} exercises
+                        </span>
+                      </div>
+
+                      <strong>
+                        {getWorkoutMinutes(workout)} min
+                      </strong>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
+        </section>
+      </main>
+    </div>
+  );
+}
 
 export default Progress;
 
