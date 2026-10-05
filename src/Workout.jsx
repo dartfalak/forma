@@ -700,12 +700,7 @@ function Workout({
     }
   };
 
-  const resetWorkout = () => {
-    const confirmed = window.confirm(
-      "Reset this workout? Your current progress will be lost."
-    );
 
-    if (!confirmed) return;
 
     setIsWorkoutRunning(false);
     setSeconds(0);
