@@ -434,6 +434,172 @@
 
 
 
+.workout-timer-card {
+  min-height: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 25px 30px;
+  margin-bottom: 20px;
+
+  border: 1px solid #202b35;
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 25, 32, 0.96),
+      rgba(12, 17, 23, 0.96)
+    );
+}
+
+.workout-timer-card span {
+  display: block;
+
+  color: #62717d;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.workout-timer-card strong {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #f5f7fa;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 42px;
+  font-weight: 500;
+}
+
+.workout-timer-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.workout-timer-actions button {
+  min-width: 90px;
+
+  padding: 11px 18px;
+
+  border: 1px solid #334a5d;
+  border-radius: 999px;
+
+  background: #162536;
+  color: #b8ccdd;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.workout-timer-actions button:hover {
+  transform: translateY(-2px);
+  background: #1c344a;
+}
+
+.workout-timer-actions button:last-child {
+  background: transparent;
+  color: #84919d;
+  border-color: #2b3640;
+}
+
+
+.workout-overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.workout-overview-card {
+  padding: 21px;
+
+  border: 1px solid #202a33;
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 25, 32, 0.95),
+      rgba(12, 17, 23, 0.95)
+    );
+}
+
+.workout-overview-card span {
+  display: block;
+
+  color: #62717d;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.workout-overview-card strong {
+  display: block;
+
+  margin-top: 12px;
+
+  color: #dfe5e9;
+  font-size: 23px;
+  font-weight: 500;
+}
+
+
+
+.workout-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    310px;
+
+  gap: 20px;
+
+  align-items: start;
+}
+
+
+.exercise-panel {
+  padding: 30px;
+
+  border: 1px solid #202a33;
+  border-radius: 14px;
+
+  background: #0e141a;
+}
+
+.exercise-section-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding-bottom: 23px;
+
+  border-bottom: 1px solid #1e2932;
+}
+
+.exercise-section-heading span {
+  color: #7095b8;
+
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
 .exercise-section-heading h2 {
   margin: 7px 0 0;
 
