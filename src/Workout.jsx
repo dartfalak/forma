@@ -1086,11 +1086,15 @@ function Workout({
                       </div>
                     ) : (
                     
-                      <>
-   
-  <div className="exercise-number">
-    {String(index + 1).padStart(2, "0")}
-  </div>
+<>
+  <button
+    className="exercise-check"
+    onClick={() =>
+      toggleExercise(exercise.id)
+    }
+  >
+    {isCompleted ? "✓" : "○"}
+  </button>
 
   <div className="exercise-info">
     <h3>{exercise.name}</h3>
@@ -1101,7 +1105,31 @@ function Workout({
   </div>
 
   <div className="exercise-details">
-    ...
+    <div>
+      <small>SETS</small>
+
+      <strong>
+        {exercise.sets}
+      </strong>
+    </div>
+
+    <div>
+      <small>REPS</small>
+
+      <strong>
+        {exercise.reps}
+      </strong>
+    </div>
+
+    <div>
+      <small>WEIGHT</small>
+
+      <strong>
+        {exercise.weight
+          ? `${exercise.weight} kg`
+          : "—"}
+      </strong>
+    </div>
   </div>
 
   <button
@@ -1112,15 +1140,6 @@ function Workout({
     disabled={workoutFinished}
   >
     Edit
-  </button>
-
-  <button
-    className="exercise-check"
-    onClick={() =>
-      toggleExercise(exercise.id)
-    }
-  >
-    {isCompleted ? "✓" : "○"}
   </button>
 </>
                     )}
