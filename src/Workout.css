@@ -1396,6 +1396,10 @@
 }
 
 
+/* ========================================
+   EDIT EXERCISE
+======================================== */
+
 .exercise-edit-button {
   width: 55px;
   height: 32px;
@@ -1427,6 +1431,286 @@
     background 0.2s ease;
 }
 
+.exercise-edit-button:hover {
+  border-color: #7095b8;
+  color: #dce8f2;
+  background: rgba(112, 149, 184, 0.08);
+}
+
+.exercise-edit-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+
+/* ========================================
+   EDITING CARD
+======================================== */
+
+.exercise-card-editing {
+  display: block;
+  min-height: auto;
+  padding: 18px 20px;
+}
+
+
+/* ========================================
+   EDIT FORM
+======================================== */
+
+.exercise-edit-form {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-end;
+
+  gap: 18px;
+}
+
+.exercise-edit-number {
+  flex: 0 0 42px;
+
+  padding-bottom: 7px;
+
+  color: #526c82;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+
+/* ========================================
+   EDIT FIELDS
+======================================== */
+
+.exercise-edit-fields {
+  flex: 1;
+  min-width: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(150px, 1.5fr)
+    minmax(110px, 1fr)
+    65px
+    65px
+    80px;
+
+  gap: 10px;
+
+  align-items: end;
+}
+
+.edit-field {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.edit-field label {
+  color: #607589;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+
+  letter-spacing: 0.14em;
+}
+
+.edit-field input {
+  width: 100%;
+  height: 34px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #293846;
+  border-radius: 5px;
+
+  background: #0d151d;
+  color: #edf3f8;
+
+  padding: 0 9px;
+
+  outline: none;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.edit-field input:focus {
+  border-color: #7095b8;
+  background: #101a23;
+}
+
+
+/* ========================================
+   SAVE / CANCEL BUTTONS
+======================================== */
+
+.exercise-edit-actions {
+  flex: 0 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.exercise-save-button,
+.exercise-cancel-button {
+  min-width: 64px;
+
+  border-radius: 5px;
+
+  padding: 7px 10px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.exercise-save-button {
+  border: 1px solid #7095b8;
+
+  background: #18334b;
+  color: #dceaf6;
+}
+
+.exercise-save-button:hover {
+  background: #214766;
+}
+
+.exercise-cancel-button {
+  border: 1px solid #293846;
+
+  background: transparent;
+  color: #718496;
+}
+
+.exercise-cancel-button:hover {
+  border-color: #52677a;
+  color: #c0ccd6;
+}
+
+
+/* ========================================
+   LIGHT THEME
+======================================== */
+
+.light-theme .exercise-edit-button {
+  border-color: #cbd5df;
+  color: #607589;
+}
+
+.light-theme .exercise-edit-button:hover {
+  border-color: #7095b8;
+  color: #30495e;
+  background: rgba(112, 149, 184, 0.08);
+}
+
+.light-theme .edit-field input {
+  background: #f7f9fb;
+  border-color: #d5dde5;
+  color: #17212a;
+}
+
+.light-theme .edit-field input:focus {
+  border-color: #7095b8;
+  background: #ffffff;
+}
+
+.light-theme .exercise-cancel-button {
+  border-color: #d5dde5;
+  color: #607589;
+}
+
+
+/* ========================================
+   EDIT FORM RESPONSIVE
+======================================== */
+
+@media (max-width: 1100px) {
+  .exercise-edit-form {
+    flex-wrap: wrap;
+  }
+
+  .exercise-edit-fields {
+    grid-template-columns:
+      minmax(150px, 1.5fr)
+      minmax(110px, 1fr)
+      65px
+      65px
+      80px;
+  }
+
+  .exercise-edit-actions {
+    flex-direction: row;
+
+    width: 100%;
+
+    justify-content: flex-end;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .exercise-edit-fields {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .edit-name {
+    grid-column: 1 / -1;
+  }
+
+  .exercise-edit-actions {
+    justify-content: flex-start;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .exercise-edit-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .exercise-edit-number {
+    flex: none;
+    padding-bottom: 0;
+  }
+
+  .exercise-edit-fields {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .edit-name {
+    grid-column: auto;
+  }
+
+  .exercise-edit-actions {
+    width: 100%;
+    flex-direction: row;
+  }
+}
 .exercise-edit-button:hover {
   border-color: #7095b8;
   color: #dce8f2;
