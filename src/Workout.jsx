@@ -1087,72 +1087,42 @@ function Workout({
                     ) : (
                     
                       <>
-                        <div className="exercise-number">
-                          {String(index + 1).padStart(
-                            2,
-                            "0"
-                          )}
-                        </div>
+   
+  <div className="exercise-number">
+    {String(index + 1).padStart(2, "0")}
+  </div>
 
-                        <div className="exercise-info">
-                          <h3>{exercise.name}</h3>
+  <div className="exercise-info">
+    <h3>{exercise.name}</h3>
 
-                          <span>
-                            {exercise.muscle}
-                          </span>
-                        </div>
+    <span>
+      {exercise.muscle}
+    </span>
+  </div>
 
-                        <div className="exercise-details">
-                          <div>
-                            <small>SETS</small>
+  <div className="exercise-details">
+    ...
+  </div>
 
-                            <strong>
-                              {exercise.sets}
-                            </strong>
-                          </div>
+  <button
+    className="exercise-edit-button"
+    onClick={() =>
+      startEditingExercise(exercise)
+    }
+    disabled={workoutFinished}
+  >
+    Edit
+  </button>
 
-                          <div>
-                            <small>REPS</small>
-
-                            <strong>
-                              {exercise.reps}
-                            </strong>
-                          </div>
-
-                          <div>
-                            <small>WEIGHT</small>
-
-                            <strong>
-                              {exercise.weight
-                                ? `${exercise.weight} kg`
-                                : "—"}
-                            </strong>
-                          </div>
-                        </div>
-
-                        <button
-                          className="exercise-edit-button"
-                          onClick={() =>
-                            startEditingExercise(
-                              exercise
-                            )
-                          }
-                          disabled={workoutFinished}
-                        >
-                          Edit
-                        </button>
-
-                        <button
-                          className="exercise-check"
-                          onClick={() =>
-                            toggleExercise(
-                              exercise.id
-                            )
-                          }
-                        >
-                          {isCompleted ? "✓" : "○"}
-                        </button>
-                      </>
+  <button
+    className="exercise-check"
+    onClick={() =>
+      toggleExercise(exercise.id)
+    }
+  >
+    {isCompleted ? "✓" : "○"}
+  </button>
+</>
                     )}
                   </div>
                 );
