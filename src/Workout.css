@@ -1595,9 +1595,6 @@ margin-right: -50px;
 }
 
 
-/* ========================================
-   LIGHT THEME
-======================================== */
 
 .light-theme .exercise-edit-button {
   border-color: #cbd5df;
@@ -1627,9 +1624,6 @@ margin-right: -50px;
 }
 
 
-/* ========================================
-   EDIT FORM RESPONSIVE
-======================================== */
 
 @media (max-width: 1100px) {
   .exercise-edit-form {
