@@ -1189,5 +1189,63 @@ function Workout({
                 Quality over speed.
               </p>
 
+    <button
+                className="rest-button"
+                onClick={() =>
+                  isResting
+                    ? setIsResting(false)
+                    : startRest()
+                }
+              >
+                {isResting
+                  ? "Stop Rest"
+                  : "Start 60s Rest"}
+              </button>
+            </div>
+
+            <div className="workout-summary">
+              <span className="sidebar-label">
+                SESSION SUMMARY
+              </span>
+
+              <div className="summary-row">
+                <span>Completed</span>
+
+                <strong>
+                  {completedCount}/
+                  {exercises.length}
+                </strong>
+              </div>
+
+              <div className="summary-row">
+                <span>Time</span>
+
+                <strong>
+                  {formatTime(seconds)}
+                </strong>
+              </div>
+
+              <div className="summary-row">
+                <span>Progress</span>
+
+                <strong>
+                  {workoutProgress}%
+                </strong>
+              </div>
+
+              <div className="summary-progress">
+                <div
+                  style={{
+                    width: `${workoutProgress}%`
+                  }}
+                ></div>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+  );
+}
           
 export default Workout;
