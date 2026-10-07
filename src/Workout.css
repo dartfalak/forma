@@ -742,6 +742,11 @@
   font-size: 12px;
 }
 
+.exercise-edit-check {
+  flex-shrink: 0;
+  margin-right: 18px;
+}
+
 .exercise-check {
   width: 34px;
   height: 34px;
