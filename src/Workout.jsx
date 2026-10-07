@@ -567,21 +567,7 @@ function Workout({
   useEffect(() => {
     if (!isWorkoutRunning) return;
 
-    const timer = setInterval(() => {
-      setSeconds((current) => current + 1);
-    }, 1000);
 
-    return () => clearInterval(timer);
-  }, [isWorkoutRunning]);
-
-  useEffect(() => {
-    if (!isResting) return;
-
-    if (restSeconds <= 0) {
-      setIsResting(false);
-      setRestSeconds(60);
-      return;
-    }
 
     const timer = setInterval(() => {
       setRestSeconds((current) => current - 1);
