@@ -705,9 +705,7 @@
 
 .exercise-info span {
   display: block;
-
   margin-top: 5px;
-
   color: #71818e;
   font-size: 9px;
 }
@@ -724,9 +722,7 @@
 
 .exercise-details small {
   display: block;
-
   color: #5d6c78;
-
   font-size: 7px;
   font-weight: 700;
   letter-spacing: 1.5px;
@@ -734,11 +730,8 @@
 
 .exercise-details strong {
   display: block;
-
   margin-top: 5px;
-
   color: #c8d3db;
-
   font-size: 12px;
 }
 
