@@ -528,6 +528,19 @@ function Workout({
 
   const [finishMessage, setFinishMessage] = useState("");
 
+  useEffect(() => {
+    const saved = localStorage.getItem(completedKey);
+
+    if (!saved) {
+      setCompleted([]);
+    } else {
+      try {
+        setCompleted(JSON.parse(saved));
+      } catch {
+        setCompleted([]);
+      }
+    }
+
     const savedTime = localStorage.getItem(timeKey);
 
     setSeconds(savedTime ? Number(savedTime) : 0);
