@@ -975,12 +975,13 @@ function Workout({
                     {isEditing ? (
                   
                       <div className="exercise-edit-form">
-                        <div className="exercise-edit-number">
-                          {String(index + 1).padStart(
-                            2,
-                            "0"
-                          )}
-                        </div>
+                   <button
+                 className="exercise-check exercise-edit-check"
+                  onClick={() => toggleExercise(exercise.id)}
+                  type="button"
+                    >
+                    {isCompleted ? "✓" : "○"}
+             </button>
 
                         <div className="exercise-edit-fields">
                           <div className="edit-field edit-name">
