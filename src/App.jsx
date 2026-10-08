@@ -4,11 +4,12 @@ import "./App.css";
 
 import Features from "./Features";
 import About from "./About";
-import Connect from "./Connect";
 import AuthModal from "./AuthModal";
 import Dashboard from "./Dashboard";
 import Workout from "./Workout";
 import Progress from "./Progress";
+
+import formaRunner from "./assets/forma-runner.jpg";
 
 function getDashboardPageFromHash() {
   if (window.location.hash === "#workout") {
@@ -202,6 +203,8 @@ function App() {
 
   return (
     <div className={`app ${theme}-theme`}>
+
+      {/* NAVBAR */}
       <nav className="navbar">
 
         <div
@@ -218,7 +221,7 @@ function App() {
           <a href="#home">Home</a>
           <a href="#features">Features</a>
           <a href="#about">About</a>
-          <a href="#connect">Connect</a>
+          <a href="#learn-more">Learn More</a>
         </div>
 
         <button
@@ -242,6 +245,8 @@ function App() {
 
       </nav>
 
+
+      {/* HERO */}
       <main
         className="hero"
         id="home"
@@ -275,7 +280,7 @@ function App() {
             className="secondary-button"
             onClick={() => {
               document
-                .getElementById("features")
+                .getElementById("learn-more")
                 ?.scrollIntoView({
                   behavior: "smooth"
                 });
@@ -287,22 +292,109 @@ function App() {
         </div>
       </main>
 
+
+      {/* FEATURES */}
       <div id="features">
         <Features />
       </div>
 
+
+      {/* ABOUT */}
       <About />
 
-      <Connect onGetStarted={openAuth} />
 
-      {showAuth && (
-        <AuthModal
-          onClose={closeAuth}
-          theme={theme}
-        />
-      )}
-    </div>
-  );
-}
+      {/* LEARN MORE */}
+      <section
+        className="learn-more-section"
+        id="learn-more"
+      >
 
-export default App;
+        <div className="learn-more-header">
+
+          <span className="section-label">
+            THE FORMA EXPERIENCE
+          </span>
+
+          <h2>
+            More than just
+            <br />
+            tracking workouts.
+          </h2>
+
+          <p>
+            FORMA is designed to make training easier to
+            understand, easier to track, and easier to stay
+            consistent with.
+          </p>
+
+        </div>
+
+
+        <div className="learn-more-content">
+
+          {/* IMAGE */}
+          <div className="learn-more-image">
+
+            <img
+              src={formaRunner}
+              alt="Man training in a gym"
+            />
+
+          </div>
+
+
+          {/* TEXT */}
+          <div className="learn-more-details">
+
+            <div className="learn-item">
+
+              <span className="learn-number">
+                01
+              </span>
+
+              <div>
+                <h3>
+                  Track every workout
+                </h3>
+
+                <p>
+                  Keep your exercises, sets, reps and
+                  weights organized in one place so you
+                  always know what you trained.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div className="learn-item">
+
+              <span className="learn-number">
+                02
+              </span>
+
+              <div>
+                <h3>
+                  Build consistency
+                </h3>
+
+                <p>
+                  Follow your weekly routine and build
+                  momentum by showing up and completing
+                  your planned sessions.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div className="learn-item">
+
+              <span className="learn-number">
+                03
+              </span>
+
+              <div>
+                <h3>
+                  See your progress
+  
