@@ -204,7 +204,7 @@ function App() {
   return (
     <div className={`app ${theme}-theme`}>
 
-      {/* NAVBAR */}
+      
       <nav className="navbar">
 
         <div
@@ -246,7 +246,7 @@ function App() {
       </nav>
 
 
-      {/* HERO */}
+  
       <main
         className="hero"
         id="home"
@@ -293,17 +293,17 @@ function App() {
       </main>
 
 
-      {/* FEATURES */}
+    
       <div id="features">
         <Features />
       </div>
 
 
-      {/* ABOUT */}
+    
       <About />
 
 
-      {/* LEARN MORE */}
+      
       <section
         className="learn-more-section"
         id="learn-more"
@@ -332,7 +332,7 @@ function App() {
 
         <div className="learn-more-content">
 
-          {/* IMAGE */}
+          
           <div className="learn-more-image">
 
             <img
@@ -343,7 +343,7 @@ function App() {
           </div>
 
 
-          {/* TEXT */}
+          
           <div className="learn-more-details">
 
             <div className="learn-item">
@@ -397,4 +397,80 @@ function App() {
               <div>
                 <h3>
                   See your progress
-  
+                </h3>
+
+                <p>
+                  Your training history gives you a clear
+                  picture of how much work you are putting
+                  in over time.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div className="learn-item">
+
+              <span className="learn-number">
+                04
+              </span>
+
+              <div>
+                <h3>
+                  Train with purpose
+                </h3>
+
+                <p>
+                  Stop guessing what to do next. FORMA
+                  gives your training a simple structure
+                  without getting in the way.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div className="learn-more-cta">
+
+          <div>
+            <span className="section-label">
+              READY TO START?
+            </span>
+
+            <h3>
+              Your next workout
+              <br />
+              starts here.
+            </h3>
+          </div>
+
+          <button
+            className="primary-button"
+            onClick={openAuth}
+          >
+            Get Started
+          </button>
+
+        </div>
+
+      </section>
+
+
+    
+      {showAuth && (
+        <AuthModal
+          onClose={closeAuth}
+          theme={theme}
+        />
+      )}
+
+    </div>
+  );
+}
+
+export default App;
