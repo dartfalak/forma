@@ -437,3 +437,298 @@ body {
   }
 
 }
+
+/* =========================================
+   LEARN MORE
+========================================= */
+
+.learn-more-section {
+  padding: 140px 8% 100px;
+  border-top: 1px solid #1c2229;
+  background-color: #0b0f14;
+}
+
+
+/* HEADER */
+
+.learn-more-heading {
+  max-width: 760px;
+  margin: 0 auto 90px;
+  text-align: center;
+}
+
+.learn-more-label {
+  display: block;
+  margin-bottom: 18px;
+
+  color: #7095b8;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.learn-more-heading h2 {
+  font-family: "Cormorant Garamond", serif;
+
+  color: #f5f7fa;
+
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 1.02;
+
+  letter-spacing: -1px;
+
+  margin-bottom: 25px;
+}
+
+.learn-more-heading p {
+  max-width: 620px;
+
+  margin: 0 auto;
+
+  color: #8e98a4;
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   LEARN MORE GRID
+========================================= */
+
+.learn-more-grid {
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  column-gap: 90px;
+  row-gap: 0;
+
+  border-top: 1px solid #202831;
+}
+
+
+.learn-more-point {
+  display: grid;
+
+  grid-template-columns: 45px 1fr;
+
+  gap: 20px;
+
+  padding: 35px 0;
+
+  border-bottom: 1px solid #202831;
+}
+
+
+.learn-more-number {
+  color: #7095b8;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  padding-top: 5px;
+}
+
+
+.learn-more-point h3 {
+  font-family: "Cormorant Garamond", serif;
+
+  color: #f5f7fa;
+
+  font-size: 30px;
+  font-weight: 600;
+
+  line-height: 1.1;
+
+  margin-bottom: 10px;
+}
+
+
+.learn-more-point p {
+  max-width: 430px;
+
+  color: #8e98a4;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================
+   BOTTOM CTA
+========================================= */
+
+.learn-more-bottom {
+  max-width: 1100px;
+
+  margin: 110px auto 0;
+
+  padding: 55px 0;
+
+  border-top: 1px solid #27313b;
+  border-bottom: 1px solid #27313b;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+
+.learn-more-bottom h3 {
+  font-family: "Cormorant Garamond", serif;
+
+  color: #f5f7fa;
+
+  font-size: 44px;
+
+  font-weight: 600;
+
+  line-height: 1.05;
+
+  margin-top: 5px;
+}
+
+
+/* =========================================
+   LIGHT MODE
+========================================= */
+
+.light-theme .learn-more-section {
+  background-color: #f5f6f7;
+
+  border-color: #dfe3e7;
+}
+
+
+.light-theme .learn-more-heading h2 {
+  color: #171b20;
+}
+
+
+.light-theme .learn-more-heading p {
+  color: #68727d;
+}
+
+
+.light-theme .learn-more-grid {
+  border-color: #dfe3e7;
+}
+
+
+.light-theme .learn-more-point {
+  border-color: #dfe3e7;
+}
+
+
+.light-theme .learn-more-point h3 {
+  color: #171b20;
+}
+
+
+.light-theme .learn-more-point p {
+  color: #68727d;
+}
+
+
+.light-theme .learn-more-bottom {
+  border-color: #d5dbe0;
+}
+
+
+.light-theme .learn-more-bottom h3 {
+  color: #171b20;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+  .learn-more-section {
+    padding: 110px 30px 80px;
+  }
+
+  .learn-more-heading {
+    margin-bottom: 65px;
+  }
+
+  .learn-more-heading h2 {
+    font-size: 50px;
+  }
+
+  .learn-more-grid {
+    grid-template-columns: 1fr;
+
+    max-width: 700px;
+  }
+
+  .learn-more-bottom {
+    max-width: 700px;
+
+    margin-top: 80px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .learn-more-section {
+    padding: 90px 20px 60px;
+  }
+
+  .learn-more-heading h2 {
+    font-size: 42px;
+  }
+
+  .learn-more-heading p {
+    font-size: 14px;
+  }
+
+  .learn-more-point {
+    grid-template-columns: 35px 1fr;
+
+    gap: 15px;
+
+    padding: 28px 0;
+  }
+
+  .learn-more-point h3 {
+    font-size: 27px;
+  }
+
+  .learn-more-point p {
+    font-size: 13px;
+  }
+
+  .learn-more-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 40px 0;
+
+    margin-top: 70px;
+  }
+
+  .learn-more-bottom h3 {
+    font-size: 37px;
+  }
+
+}
