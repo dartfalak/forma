@@ -4,6 +4,7 @@ import "./App.css";
 
 import Features from "./Features";
 import About from "./About";
+import Connect from "./Connect";
 import AuthModal from "./AuthModal";
 import Dashboard from "./Dashboard";
 import Workout from "./Workout";
@@ -201,8 +202,6 @@ function App() {
 
   return (
     <div className={`app ${theme}-theme`}>
-
-      {/* NAVBAR */}
       <nav className="navbar">
 
         <div
@@ -219,7 +218,7 @@ function App() {
           <a href="#home">Home</a>
           <a href="#features">Features</a>
           <a href="#about">About</a>
-          <a href="#learn-more">Learn More</a>
+          <a href="#connect">Connect</a>
         </div>
 
         <button
@@ -242,8 +241,6 @@ function App() {
         </button>
 
       </nav>
-
-
 
       <main
         className="hero"
@@ -278,7 +275,7 @@ function App() {
             className="secondary-button"
             onClick={() => {
               document
-                .getElementById("learn-more")
+                .getElementById("features")
                 ?.scrollIntoView({
                   behavior: "smooth"
                 });
@@ -290,169 +287,20 @@ function App() {
         </div>
       </main>
 
-
-      
       <div id="features">
         <Features />
       </div>
 
-
-    
       <About />
 
+      <Connect onGetStarted={openAuth} />
 
-
-      <section
-        className="learn-more-section"
-        id="learn-more"
-      >
-
-        <div className="learn-more-heading">
-
-          <span className="learn-more-label">
-            WHY FORMA
-          </span>
-
-          <h2>
-            Built around
-            <br />
-            your training.
-          </h2>
-
-          <p>
-            FORMA keeps your fitness journey simple.
-            Track what you do, understand your progress,
-            and stay focused on showing up consistently.
-          </p>
-
-        </div>
-
-
-        <div className="learn-more-grid">
-
-          <div className="learn-more-point">
-
-            <span className="learn-more-number">
-              01
-            </span>
-
-            <div>
-              <h3>
-                Keep your workouts organized
-              </h3>
-
-              <p>
-                Have your exercises, sets, reps and
-                weights in one place instead of relying
-                on memory or scattered notes.
-              </p>
-            </div>
-
-          </div>
-
-
-          <div className="learn-more-point">
-
-            <span className="learn-more-number">
-              02
-            </span>
-
-            <div>
-              <h3>
-                Build a consistent routine
-              </h3>
-
-              <p>
-                Follow your weekly training schedule
-                and keep track of the sessions you
-                actually complete.
-              </p>
-            </div>
-
-          </div>
-
-
-          <div className="learn-more-point">
-
-            <span className="learn-more-number">
-              03
-            </span>
-
-            <div>
-              <h3>
-                Understand your progress
-              </h3>
-
-              <p>
-                Your progress page turns your workout
-                history into a simple picture of how
-                consistently you have been training.
-              </p>
-            </div>
-
-          </div>
-
-
-          <div className="learn-more-point">
-
-            <span className="learn-more-number">
-              04
-            </span>
-
-            <div>
-              <h3>
-                Focus on getting stronger
-              </h3>
-
-              <p>
-                FORMA gives you the structure to train
-                with purpose without overwhelming you
-                with unnecessary features.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-
-        
-        <div className="learn-more-bottom">
-
-          <div>
-
-            <span className="learn-more-label">
-              START TRAINING
-            </span>
-
-            <h3>
-              Make your next
-              <br />
-              workout count.
-            </h3>
-
-          </div>
-
-          <button
-            className="primary-button"
-            onClick={openAuth}
-          >
-            Get Started
-          </button>
-
-        </div>
-
-      </section>
-
-
-  
       {showAuth && (
         <AuthModal
           onClose={closeAuth}
           theme={theme}
         />
       )}
-
     </div>
   );
 }
