@@ -438,18 +438,12 @@ body {
 
 }
 
-/* =========================================
-   LEARN MORE
-========================================= */
-
 .learn-more-section {
   padding: 140px 8% 100px;
   border-top: 1px solid #1c2229;
   background-color: #0b0f14;
 }
 
-
-/* HEADER */
 
 .learn-more-heading {
   max-width: 760px;
@@ -494,9 +488,6 @@ body {
 }
 
 
-/* =========================================
-   LEARN MORE GRID
-========================================= */
 
 .learn-more-grid {
   max-width: 1100px;
@@ -564,10 +555,6 @@ body {
 }
 
 
-/* =========================================
-   BOTTOM CTA
-========================================= */
-
 .learn-more-bottom {
   max-width: 1100px;
 
@@ -602,10 +589,6 @@ body {
   margin-top: 5px;
 }
 
-
-/* =========================================
-   LIGHT MODE
-========================================= */
 
 .light-theme .learn-more-section {
   background-color: #f5f6f7;
@@ -654,9 +637,6 @@ body {
 }
 
 
-/* =========================================
-   RESPONSIVE
-========================================= */
 
 @media (max-width: 900px) {
 
