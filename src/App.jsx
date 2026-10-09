@@ -267,42 +267,4 @@ function App() {
           <button
             className="primary-button"
             onClick={openAuth}
-          >
-            Start Free Trial
-          </button>
 
-          <button
-            className="secondary-button"
-            onClick={() => {
-              document
-                .getElementById("features")
-                ?.scrollIntoView({
-                  behavior: "smooth"
-                });
-            }}
-          >
-            Learn More
-          </button>
-
-        </div>
-      </main>
-
-      <div id="features">
-        <Features />
-      </div>
-
-      <About />
-
-      <Connect onGetStarted={openAuth} />
-
-      {showAuth && (
-        <AuthModal
-          onClose={closeAuth}
-          theme={theme}
-        />
-      )}
-    </div>
-  );
-}
-
-export default App;
