@@ -262,27 +262,6 @@ function App() {
           simple gym experience built for you.
         </p>
 
-        <div className="hero-buttons">
-
-          <button
-            className="primary-button"
-            onClick={openAuth}
-          >
-            Start Free Trial
-          </button>
-
-          <button
-            className="secondary-button"
-            onClick={() => {
-              document
-                .getElementById("features")
-                ?.scrollIntoView({
-                  behavior: "smooth"
-                });
-            }}
-          >
-            Learn More
-          </button>
 
         </div>
       </main>
