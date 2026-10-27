@@ -295,3 +295,15 @@ function App() {
 
       <Connect onGetStarted={openAuth} />
 
+      {showAuth && (
+        <AuthModal
+          onClose={closeAuth}
+          theme={theme}
+        />
+      )}
+    </div>
+  );
+}
+
+export default App;
+
